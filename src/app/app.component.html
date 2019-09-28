@@ -1,15 +1,27 @@
 <header>
   <div class="container">
     <a href='#' class='logo'>{{title}}</a>
+    <!-- top nav -->
     <nav>
       <ul>
-        <li><a href='#' routerLink='/'>Home</a></li>
-        <li><a href='#' routerLink='/invoice'>Invoice</a></li>
+        <li><a href='#' routerLink='/settings'>Settings</a></li>
+      </ul>
+    </nav>
+
+
+<div class='container'>
+  <router-outlet></router-outlet>
+</div>
+
+    <!-- bottom nav -->
+    <nav>
+      <ul>
+        <li><a href='#' routerLink='/inventory'>Inventory</a></li>
+        <li><a href='#' routerLink='/orders'>Orders</a></li>
+        <li><a href='#' routerLink='/invoices'>Invoices</a></li>
+        <li><a href='#' routerLink='/forecasting'>Forecasting</a></li>
       </ul>
     </nav>
   </div>
 </header>
 
-<div class='container'>
-  <router-outlet></router-outlet>
-</div>
