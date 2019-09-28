@@ -8,8 +8,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   top: 0;
   width: 100%;
   color: #FFA700;
+  text-align: center;
+}
+
+.right {
+  float: right;
 }
 
 h1{
   color: #FFA700;
+  font-size: 2em;
+  font-family: 'Mr Bedfort', cursive;
+  display: inline;
 }
