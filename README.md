@@ -29,4 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 npm install
 sudo apt install ng-common
 //test
-
+lrmgr
