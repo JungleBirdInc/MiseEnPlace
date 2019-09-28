@@ -9,14 +9,12 @@ import { OrdersComponent } from './orders/orders.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ForecastingComponent } from './forecasting/forecasting.component';
 
-
 //HOME PAGE
 import { ScanInvoiceComponent } from './scan-invoice/scan-invoice.component';
 import { SuggestOrderComponent } from './suggest-order/suggest-order.component';
 import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component'
-
 
 const routes: Routes = [
 { path: '', component: HomeComponent },

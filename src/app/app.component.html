@@ -1,19 +1,29 @@
 <header>
+
   <div class="container">
-    <a href='#' class='logo'>{{title}}</a>
-    <!-- top nav -->
-    <nav>
-      <ul>
-        <li><a href='#' routerLink='/settings'>Settings</a></li>
-      </ul>
-    </nav>
 
+    <a href='#' class='logo'><mat-icon>home</mat-icon></a>
+    {{title}}
 
-<div class='container'>
-  <router-outlet></router-outlet>
-</div>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Settings">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <a href='#' routerLink='/settings'>
+          <mat-icon>settings</mat-icon>Settings</a>
+      </button>
 
-    <!-- bottom nav -->
+      <button mat-menu-item>
+        <a href='#' routerLink='/logout'><mat-icon>input</mat-icon>Log Out</a>
+      </button>
+    </mat-menu>
+
+    <div class='container'>
+      <router-outlet></router-outlet>
+    </div>
+
     <nav>
       <ul>
         <li><a href='#' routerLink='/inventory'>Inventory</a></li>
@@ -22,6 +32,7 @@
         <li><a href='#' routerLink='/forecasting'>Forecasting</a></li>
       </ul>
     </nav>
-  </div>
-</header>
 
+  </div>
+  
+</header>

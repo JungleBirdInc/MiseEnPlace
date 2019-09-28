@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from '@angular/material';
+import { MatMenuModule } from '@angular/material/menu';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -12,11 +15,11 @@ import { InventoryComponent } from './inventory/inventory.component';
 import { ForecastingComponent } from './forecasting/forecasting.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ScanInvoiceComponent } from './scan-invoice/scan-invoice.component';
-import { PlaceordersComponent } from './placeorders/placeorders.component';
 import { SuggestOrderComponent } from './suggest-order/suggest-order.component';
 import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,6 @@ import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
     ForecastingComponent,
     SettingsComponent,
     ScanInvoiceComponent,
-    PlaceordersComponent,
     SuggestOrderComponent,
     ScanBarCodeComponent,
     UpdateStockComponent,
@@ -37,7 +39,14 @@ import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
