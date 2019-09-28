@@ -2,12 +2,13 @@
 
   <div class="container">
 
-    <a href='#' class='logo'><mat-icon>home</mat-icon></a>
-    {{title}}
+    <div class="topnav">
+    <a href='#'><h1>{{title}}</h1></a>
 
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Settings">
       <mat-icon>more_vert</mat-icon>
     </button>
+  </div>
   
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
@@ -23,16 +24,17 @@
     <div class='container'>
       <router-outlet></router-outlet>
     </div>
+ 
 
-    <nav>
+    <div class="bottomnav">
       <ul>
         <li><a href='#' routerLink='/inventory'>Inventory</a></li>
         <li><a href='#' routerLink='/orders'>Orders</a></li>
         <li><a href='#' routerLink='/invoices'>Invoices</a></li>
         <li><a href='#' routerLink='/forecasting'>Forecasting</a></li>
       </ul>
-    </nav>
+    </div>
 
   </div>
-  
+
 </header>
