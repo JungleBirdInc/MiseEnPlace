@@ -2,22 +2,44 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+/* DIV CLASSES */
 .topnav { 
   background-color: #141518; 
   position: fixed;
   top: 0;
+  margin: 0px;
+  padding: 0px;
   width: 100%;
   color: #FFA700;
   text-align: center;
+  height: 50px;
 }
 
 .right {
   float: right;
 }
 
+/* TEXT CLASSES */
 h1{
   color: #FFA700;
   font-size: 2em;
   font-family: 'Mr Bedfort', cursive;
   display: inline;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+a:visted{
+  text-decoration: none;
+}
+
+a:active{
+  text-decoration: none;
+}
+
+a:hover{
+  text-decoration: none;
 }
