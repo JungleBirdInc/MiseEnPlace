@@ -6,13 +6,33 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
-import { InvoiceComponent } from './invoice/invoice.component';
+import { InvoicesComponent } from './invoices/invoices.component';
+import { OrdersComponent } from './orders/orders.component';
+import { InventoryComponent } from './inventory/inventory.component';
+import { ForecastingComponent } from './forecasting/forecasting.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ScanInvoiceComponent } from './scan-invoice/scan-invoice.component';
+import { PlaceordersComponent } from './placeorders/placeorders.component';
+import { SuggestOrderComponent } from './suggest-order/suggest-order.component';
+import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
+import { UpdateStockComponent } from './update-stock/update-stock.component';
+import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    InvoiceComponent
+    InvoicesComponent,
+    OrdersComponent,
+    InventoryComponent,
+    ForecastingComponent,
+    SettingsComponent,
+    ScanInvoiceComponent,
+    PlaceordersComponent,
+    SuggestOrderComponent,
+    ScanBarCodeComponent,
+    UpdateStockComponent,
+    EditInvoiceComponent
   ],
   imports: [
     BrowserModule,
