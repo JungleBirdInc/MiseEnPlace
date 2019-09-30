@@ -21,6 +21,8 @@ import { UpdateStockComponent } from './update-stock/update-stock.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { TopnavComponent } from './topnav/topnav.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SuggestOrderComponent,
     ScanBarCodeComponent,
     UpdateStockComponent,
-    EditInvoiceComponent
+    EditInvoiceComponent,
+    TopnavComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +49,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatListModule,
     MatButtonModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
