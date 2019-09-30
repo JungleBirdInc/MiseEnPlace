@@ -20,6 +20,7 @@ import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LogInComponent } from './log-in/log-in.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SuggestOrderComponent,
     ScanBarCodeComponent,
     UpdateStockComponent,
-    EditInvoiceComponent
+    EditInvoiceComponent,
+    LogInComponent
   ],
   imports: [
     BrowserModule,

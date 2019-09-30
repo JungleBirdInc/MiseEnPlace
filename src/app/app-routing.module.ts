@@ -14,7 +14,10 @@ import { ScanInvoiceComponent } from './scan-invoice/scan-invoice.component';
 import { SuggestOrderComponent } from './suggest-order/suggest-order.component';
 import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
-import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component'
+import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
+
+//Login
+import { LogInComponent } from './log-in/log-in.component';
 
 const routes: Routes = [
 { path: '', component: HomeComponent },
@@ -28,6 +31,7 @@ const routes: Routes = [
 { path: 'scan-bar-code', component: ScanBarCodeComponent},
 { path: 'update-stock', component: UpdateStockComponent },
 { path: 'edit-invoice', component: EditInvoiceComponent },
+{ path: 'log-in', component: LogInComponent}
 ];
 
 @NgModule({
