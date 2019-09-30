@@ -1,43 +1,16 @@
-<header>
+  <div class="container">
+    <app-topnav></app-topnav>
+  </div>
+
+  <div class='container'>
+    <router-outlet></router-outlet>
+  </div>
 
   <div class="container">
-
-    <div class="topnav">
-    <a href='#'><h1>{{title}}</h1></a>
-
-    <div class='right'>
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Settings">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    </div>
-
+    <ul>
+      <li><a href='#' routerLink='/inventory'>Inventory</a></li>
+      <li><a href='#' routerLink='/orders'>Orders</a></li>
+      <li><a href='#' routerLink='/invoices'>Invoices</a></li>
+      <li><a href='#' routerLink='/forecasting'>Forecasting</a></li>
+    </ul>
   </div>
-  
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>
-        <a href='#' routerLink='/settings'>
-          <mat-icon>settings</mat-icon>Settings</a>
-      </button>
-
-      <button mat-menu-item>
-        <a href='#' routerLink='/logout'><mat-icon>input</mat-icon>Log Out</a>
-      </button>
-    </mat-menu><br /><br /><br />
-
-    <div class='container'>
-      <router-outlet></router-outlet>
-    </div>
- 
-
-    <div class="bottomnav">
-      <ul>
-        <li><a href='#' routerLink='/inventory'>Inventory</a></li>
-        <li><a href='#' routerLink='/orders'>Orders</a></li>
-        <li><a href='#' routerLink='/invoices'>Invoices</a></li>
-        <li><a href='#' routerLink='/forecasting'>Forecasting</a></li>
-      </ul>
-    </div>
-
-  </div>
-
-</header>
