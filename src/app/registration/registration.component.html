@@ -1,0 +1,90 @@
+<h3 id="title">Registration</h3>
+<mat-vertical-stepper #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+            <form>
+                <ng-template matStepLabel><td id="ngtext">Enter Email</td></ng-template>
+                <mat-form-field id='placeHolder'>
+                    <input matInput placeholder="Email" formControlName='firstCtrl' required>
+                </mat-form-field>
+                <div>
+                    <button matButton matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <form>
+                 <ng-template matStepLabel><td id="ngtext">Enter First Name</td></ng-template>
+                 <mat-form-field>
+                     <input matInput placeholder="First Name" formControlName='secondCtrl' required>
+                 </mat-form-field>
+                 <div>
+                     <button matButton matStepperPrevious>Back</button>
+                     <button matButton matStepperNext>Next</button>
+                 </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="firstFormGroup">
+                <form>
+                    <ng-template matStepLabel><td id="ngtext">Enter Last Name</td></ng-template>
+                    <mat-form-field>
+                        <input matInput placeholder="Last Name" formControlName='thirdCtrl' required>
+                    </mat-form-field>
+                    <div>
+                        <button matButton matStepperPrevious>Back</button>
+                        <button matButton matStepperNext>Next</button>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup">
+                <form>
+                     <ng-template matStepLabel><td id="ngtext">Enter Password</td></ng-template>
+                     <mat-form-field>
+                         <input matInput placeholder="Password" formControlName='fourthCtrl' required>
+                     </mat-form-field>
+                     <div>
+                         <button matButton matStepperPrevious>Back</button>
+                         <button matButton matStepperNext>Next</button>
+                     </div>
+                </form>
+            </mat-step>
+            <mat-step [stepControl]="firstFormGroup">
+                    <form>
+                        <ng-template matStepLabel><td id="ngtext">Confirm Password</td></ng-template>
+                        <mat-form-field>
+                            <input matInput placeholder="Confirm Password" formControlName='fifthCtrl' required>
+                        </mat-form-field>
+                        <div>
+                            <button matButton matStepperPrevious>Back</button>
+                            <button matButton matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup">
+                    <form>
+                         <ng-template matStepLabel><td id="ngtext">Position</td></ng-template>
+                         <mat-form-field>
+                                <mat-label>Select an option</mat-label>
+                             <mat-select [(value)]="selected" required formControlName='sixthCtrl'>
+                                <mat-option value='option1'>Bartender</mat-option>
+                                <mat-option value='option2'>Manager</mat-option>
+                             </mat-select>
+                         </mat-form-field>
+                         <div>
+                             <button matButton matStepperPrevious>Back</button>
+                             <button matButton matStepperNext>Next</button>
+                         </div>
+                    </form>
+                </mat-step>
+
+
+
+        <mat-step>
+            <ng-template matStepLabel><td id="ngtext">Send</td></ng-template>
+            Finished?
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+                <button matButton matStepperNext>Submit</button>
+                <!-- (click)="" -->
+            </div>
+        </mat-step>
+    </mat-vertical-stepper >

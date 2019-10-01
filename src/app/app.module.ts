@@ -1,8 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, } from '@angular/material';
+
+// Imports from Anguler Material
+// tslint:disable-next-line: max-line-length
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+
+
 import { MatDividerModule } from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,8 +29,9 @@ import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { LogInComponent } from './log-in/log-in.component';
 import { TopnavComponent } from './topnav/topnav.component';
+import { RegistrationComponent } from './registration/registration.component';
 import { BottomnavComponent } from './bottomnav/bottomnav.component';
 
 @NgModule({
@@ -39,6 +48,9 @@ import { BottomnavComponent } from './bottomnav/bottomnav.component';
     ScanBarCodeComponent,
     UpdateStockComponent,
     EditInvoiceComponent,
+    LogInComponent,
+    TopnavComponent,
+    RegistrationComponent,
     TopnavComponent,
     BottomnavComponent
   ],
@@ -54,6 +66,10 @@ import { BottomnavComponent } from './bottomnav/bottomnav.component';
     MatIconModule,
     MatMenuModule,
     MatCardModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
     MatDividerModule,
   ],
   providers: [],
