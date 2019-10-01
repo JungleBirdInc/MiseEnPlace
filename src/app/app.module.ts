@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TopnavComponent } from './topnav/topnav.component';
+import { BottomnavComponent } from './bottomnav/bottomnav.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { TopnavComponent } from './topnav/topnav.component';
     ScanBarCodeComponent,
     UpdateStockComponent,
     EditInvoiceComponent,
-    TopnavComponent
+    TopnavComponent,
+    BottomnavComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { TopnavComponent } from './topnav/topnav.component';
     MatIconModule,
     MatMenuModule,
     MatCardModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
