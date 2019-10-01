@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 
 
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogInComponent } from './log-in/log-in.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { BottomnavComponent } from './bottomnav/bottomnav.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { RegistrationComponent } from './registration/registration.component';
     LogInComponent,
     TopnavComponent,
     RegistrationComponent,
+    TopnavComponent,
+    BottomnavComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,8 @@ import { RegistrationComponent } from './registration/registration.component';
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
