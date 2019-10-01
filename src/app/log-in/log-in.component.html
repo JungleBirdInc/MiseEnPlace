@@ -1,9 +1,9 @@
 <mat-vertical-stepper #stepper>
     <mat-step [stepControl]="firstFormGroup">
         <form>
-            <ng-template>Enter EMAIL</ng-template>
+            <ng-template matStepLabel>Enter Email</ng-template>
             <mat-form-field>
-                <input matInput placeholder="EMAIL" formControlName='firstCtrl' required>
+                <input matInput placeholder="Email" formControlName='firstCtrl' required>
             </mat-form-field>
             <div>
                 <button matButton matStepperNext>Next</button>
@@ -12,9 +12,9 @@
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
         <form>
-             <ng-template>Enter Password</ng-template>
+             <ng-template matStepLabel>Enter Password</ng-template>
              <mat-form-field>
-                 <input matInput placeholder="PASSWORD" formControlName='secondCtrl' required>
+                 <input matInput placeholder="Password" formControlName='secondCtrl' required>
              </mat-form-field>
              <div>
                  <button matButton matStepperPrevious>Back</button>

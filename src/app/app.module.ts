@@ -8,6 +8,7 @@ import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatBu
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -29,6 +30,7 @@ import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogInComponent } from './log-in/log-in.component';
 import { TopnavComponent } from './topnav/topnav.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { TopnavComponent } from './topnav/topnav.component';
     EditInvoiceComponent,
     LogInComponent,
     TopnavComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import { TopnavComponent } from './topnav/topnav.component';
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],
