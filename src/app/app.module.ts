@@ -33,6 +33,7 @@ import { LogInComponent } from './log-in/log-in.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { BottomnavComponent } from './bottomnav/bottomnav.component';
+import { OrganizationComponent } from './organization/organization.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { BottomnavComponent } from './bottomnav/bottomnav.component';
     TopnavComponent,
     RegistrationComponent,
     TopnavComponent,
-    BottomnavComponent
+    BottomnavComponent,
+    OrganizationComponent
   ],
   imports: [
     BrowserModule,

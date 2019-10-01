@@ -18,7 +18,12 @@ import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
 // LOGIN
 import { LogInComponent } from './log-in/log-in.component';
+
+// REGISTRATION
 import { RegistrationComponent } from './registration/registration.component';
+
+// ORGANIZATION
+import { OrganizationComponent } from './organization/organization.component';
 
 const routes: Routes = [
 { path: '', component: HomeComponent },
@@ -33,7 +38,8 @@ const routes: Routes = [
 { path: 'update-stock', component: UpdateStockComponent },
 { path: 'edit-invoice', component: EditInvoiceComponent },
 { path: 'log-in', component: LogInComponent},
-{ path: 'registration', component: RegistrationComponent}
+{ path: 'registration', component: RegistrationComponent},
+{ path: 'organization', component: OrganizationComponent},
 ];
 
 @NgModule({
