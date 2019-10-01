@@ -1,7 +1,8 @@
+<h3 id="title">Log-In</h3>
 <mat-vertical-stepper #stepper>
     <mat-step [stepControl]="firstFormGroup">
         <form>
-            <ng-template matStepLabel>Enter Email</ng-template>
+            <ng-template matStepLabel><td id="ngtext">Enter Email</td></ng-template>
             <mat-form-field>
                 <input matInput placeholder="Email" formControlName='firstCtrl' required>
             </mat-form-field>
@@ -12,7 +13,7 @@
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
         <form>
-             <ng-template matStepLabel>Enter Password</ng-template>
+             <ng-template matStepLabel><td id="ngtext">Enter Password</td></ng-template>
              <mat-form-field>
                  <input matInput placeholder="Password" formControlName='secondCtrl' required>
              </mat-form-field>
@@ -23,12 +24,11 @@
         </form>
     </mat-step>
     <mat-step>
-        <ng-template matStepLabel>Send</ng-template>
+        <ng-template matStepLabel><td id="ngtext">Send</td></ng-template>
         Finished?
         <div>
             <button matButton matStepperPrevious>Back</button>
-            <button matButton matStepperNext>Submit</button>
-            <!-- (click)="" -->
+            <button matButton matStepperNext (click)="checkAuth()">Submit</button>
         </div>
     </mat-step>
 </mat-vertical-stepper >
