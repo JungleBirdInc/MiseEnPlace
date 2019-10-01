@@ -6,30 +6,12 @@ body {
   background-color: #34373C;
 }
 
-
-/* DIV CLASSES */
-.topnav { 
-  background-color: #141518; 
-  position: fixed;
-  top: 0;
-  margin: 0px;
-  padding: 0px;
-  width: 100%;
-  color: #FFA700;
-  text-align: center;
-  height: auto;
+.action-button{
+  color: white;
 }
 
 .right {
   float: right;
-}
-
-/* TEXT CLASSES */
-h1{
-  color: #FFA700;
-  font-size: 2em;
-  font-family: 'Mr Bedfort', cursive;
-  display: inline;
 }
 
 a:link{
@@ -46,8 +28,4 @@ a:active{
 
 a:hover{
   text-decoration: none;
-}
-
-.action-button{
-  color: white;
 }
