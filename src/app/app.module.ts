@@ -9,10 +9,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
-
 import { MatDividerModule } from '@angular/material/divider';
 
+// Routing
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -34,6 +33,7 @@ import { TopnavComponent } from './topnav/topnav.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { BottomnavComponent } from './bottomnav/bottomnav.component';
 import { OrganizationComponent } from './organization/organization.component';
+import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,8 @@ import { OrganizationComponent } from './organization/organization.component';
     RegistrationComponent,
     TopnavComponent,
     BottomnavComponent,
-    OrganizationComponent
+    OrganizationComponent,
+    InventoryWizardComponent
   ],
   imports: [
     BrowserModule,
