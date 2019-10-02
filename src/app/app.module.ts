@@ -1,15 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 // Imports from Anguler Material
 // tslint:disable-next-line: max-line-length
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
 
 import { MatDividerModule } from '@angular/material/divider';
 
@@ -72,9 +70,10 @@ import { OrganizationComponent } from './organization/organization.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatDividerModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}
