@@ -3,12 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // MATERIAL
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatToolbarModule, 
+        MatIconModule, 
+        MatSidenavModule, 
+        MatListModule, 
+        MatButtonModule, 
+        MatCardModule, 
+        MatInputModule } from '@angular/material';
 
 //ROUTING
 import { AppRoutingModule } from './app-routing.module';
@@ -32,16 +38,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogInComponent } from './log-in/log-in.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { OrganizationComponent } from './organization/organization.component';
+import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.component';
 
 //IGNITE
 import { IgxNavbarModule } from 'igniteui-angular';
 import { IgxBottomNavModule } from 'igniteui-angular';
-import { IgxDividerModule } from 'igniteui-angular'; 
 import { IgxIconModule } from 'igniteui-angular';
 import { TopnavComponent } from './topnav/topnav.component';
 import { BottomnavComponent } from './bottomnav/bottomnav.component'; 
-
-
+import {
+  IgxDividerModule,
+  IgxDropDownModule,
+  IgxInputGroupModule,
+  IgxRippleModule,
+  IgxIconModule,
+  IgxToggleModule } from 'igniteui-angular';
 
 @NgModule({
   declarations: [
@@ -62,6 +73,8 @@ import { BottomnavComponent } from './bottomnav/bottomnav.component';
     OrganizationComponent,
     TopnavComponent,
     BottomnavComponent,
+    OrganizationComponent,
+    InventoryWizardComponent
   ],
   imports: [
     BrowserModule,
@@ -81,9 +94,13 @@ import { BottomnavComponent } from './bottomnav/bottomnav.component';
     MatSelectModule,
     MatDividerModule,
     IgxBottomNavModule,
-    IgxDividerModule,
     IgxNavbarModule,
-    IgxIconModule
+    IgxDividerModule,
+    IgxDropDownModule,
+		IgxInputGroupModule,
+		IgxRippleModule,
+		IgxIconModule,
+		IgxToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent],
