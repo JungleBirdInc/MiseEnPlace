@@ -37,7 +37,9 @@ import { OrganizationComponent } from './organization/organization.component';
 import { IgxNavbarModule } from 'igniteui-angular';
 import { IgxBottomNavModule } from 'igniteui-angular';
 import { IgxDividerModule } from 'igniteui-angular'; 
-import { IgxIconModule } from 'igniteui-angular'; 
+import { IgxIconModule } from 'igniteui-angular';
+import { TopnavComponent } from './topnav/topnav.component';
+import { BottomnavComponent } from './bottomnav/bottomnav.component'; 
 
 
 
@@ -58,6 +60,8 @@ import { IgxIconModule } from 'igniteui-angular';
     LogInComponent,
     RegistrationComponent,
     OrganizationComponent,
+    TopnavComponent,
+    BottomnavComponent,
   ],
   imports: [
     BrowserModule,
