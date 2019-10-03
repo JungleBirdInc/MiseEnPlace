@@ -1,43 +1,16 @@
-<div class="bottomnav">
-  <a class='action-button' href='#' routerLink='/invoices'>
-  <div class='bottomnavIcon'>
-    <button mat-raised-button>
-      <mat-icon>assignment</mat-icon>
-      </button><br />
-      <p>Invoices</p>
-  </div>
-</a>
+<igx-bottom-nav>
+    <igx-tab label="Home" icon="home" routerLink='/'>
+    </igx-tab>
 
-  <a class='action-button' href='#' routerLink='/orders'>
-  <div class='bottomnavIcon'>
-    <button mat-raised-button>
-      <mat-icon>assignment</mat-icon>
-    </button><br />
-    <p>Orders</p>
-  </div>
-  </a>
+    <igx-tab label="Invoices" icon="receipt" routerLink='/invoices'>
+    </igx-tab>
 
-  <a class='action-button' href='#' routerLink='/inventory'>
-  <div class='bottomnavIcon'>
-    <button mat-raised-button>
-      <mat-icon>assignment</mat-icon>
-    </button><br />
-    <p>Inventory</p>
-  </div>
-  </a>
+  <igx-tab label="Orders" icon="shopping_cart" routerLink='/orders'>
+  </igx-tab>
 
-<a class='action-button' href='#' routerLink='/forecasting'>
-  <div class='bottomnavIcon'>
-    <button mat-raised-button>
-      <mat-icon>assignment</mat-icon>
-    </button><br />
-    <p>Forecasting</p>
-  </div>
-  </a>
+  <igx-tab label="Inventory" icon="assignment" routerLink='/inventory'>
+  </igx-tab>
 
-<div class='actionButton'>
-  <a class='action-button' href='#' routerLink='/'>
-    <button mat-fab color="#FFA700">
-    <mat-icon>assignment</mat-icon>
-  </button></a>
-</div>
+  <igx-tab label="Forecast" icon="pie_chart" routerLink='/forecasting'>
+  </igx-tab>
+</igx-bottom-nav>
