@@ -1,6 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+// LOGIN
+import { LogInComponent } from './log-in/log-in.component';
+
+// REGISTRATION
+import { RegistrationComponent } from './registration/registration.component';
+
+// ORGANIZATION
+import { OrganizationComponent } from './organization/organization.component';
+
+// INVENTORY WIZARD
+import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.component';
+
 // PERSISTANT NAV
 import { HomeComponent } from './home/home.component';
 import { InventoryComponent } from './inventory/inventory.component';
@@ -15,15 +27,6 @@ import { SuggestOrderComponent } from './suggest-order/suggest-order.component';
 import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
-
-// LOGIN
-import { LogInComponent } from './log-in/log-in.component';
-
-// REGISTRATION
-import { RegistrationComponent } from './registration/registration.component';
-
-// ORGANIZATION
-import { OrganizationComponent } from './organization/organization.component';
 
 const routes: Routes = [
 { path: '', component: HomeComponent },
@@ -40,6 +43,7 @@ const routes: Routes = [
 { path: 'log-in', component: LogInComponent},
 { path: 'registration', component: RegistrationComponent},
 { path: 'organization', component: OrganizationComponent},
+{ path: 'inventory-wizard', component: InventoryWizardComponent},
 ];
 
 @NgModule({
