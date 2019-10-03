@@ -1,12 +1,26 @@
-<div><br /><br /><br />
-  <router-outlet></router-outlet>
-</div>
+<igx-navbar title='Mise en Place'>
+    <igx-icon>more_vert</igx-icon>
+</igx-navbar>
 
-<div>
-  <app-topnav></app-topnav>
-</div>
+<igx-bottom-nav>
+  <igx-tab-panel label="Home" icon="assignment">
+    <app-home></app-home>
+  </igx-tab-panel>
+  
+  <igx-tab-panel label="Invoices" icon="assignment">
+    <app-invoices></app-invoices>
+  </igx-tab-panel>
+      
+  <igx-tab-panel label="Orders" icon="assignment">
+    <app-orders></app-orders>
+  </igx-tab-panel>
 
-<div>
-  <app-bottomnav></app-bottomnav>
-</div>
+  <igx-tab-panel label="Inventory" icon="assignment">
+    <app-inventory></app-inventory>
+  </igx-tab-panel>
+
+  <igx-tab-panel label="Forecast" icon="assignment">
+    <app-forecasting></app-forecasting>
+  </igx-tab-panel>
+</igx-bottom-nav>
 
