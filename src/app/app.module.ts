@@ -1,20 +1,22 @@
+// tslint:disable-next-line: max-line-length
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// Imports from Anguler Material
-// tslint:disable-next-line: max-line-length
+// MATERIAL
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-
 import { MatDividerModule } from '@angular/material/divider';
 
+//ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
+//COMPONENTS
 import { HomeComponent } from './home/home.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -28,10 +30,16 @@ import { UpdateStockComponent } from './update-stock/update-stock.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LogInComponent } from './log-in/log-in.component';
-import { TopnavComponent } from './topnav/topnav.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { BottomnavComponent } from './bottomnav/bottomnav.component';
 import { OrganizationComponent } from './organization/organization.component';
+
+//IGNITE
+import { IgxNavbarModule } from 'igniteui-angular';
+import { IgxBottomNavModule } from 'igniteui-angular';
+import { IgxDividerModule } from 'igniteui-angular'; 
+import { IgxIconModule } from 'igniteui-angular'; 
+
+
 
 @NgModule({
   declarations: [
@@ -48,11 +56,8 @@ import { OrganizationComponent } from './organization/organization.component';
     UpdateStockComponent,
     EditInvoiceComponent,
     LogInComponent,
-    TopnavComponent,
     RegistrationComponent,
-    TopnavComponent,
-    BottomnavComponent,
-    OrganizationComponent
+    OrganizationComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +75,11 @@ import { OrganizationComponent } from './organization/organization.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatDividerModule
+    MatDividerModule,
+    IgxBottomNavModule,
+    IgxDividerModule,
+    IgxNavbarModule,
+    IgxIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],
