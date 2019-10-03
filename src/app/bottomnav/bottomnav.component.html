@@ -1,21 +1,16 @@
-<div class="bottomnav">
-  <div class='bottomnavIcon'>
-    <mat-icon>assignment</mat-icon><br />
-    <p>Invoices</p>
-  </div>
+<igx-bottom-nav>
+    <igx-tab label="Home" icon="home" routerLink='/'>
+    </igx-tab>
 
-    <div class='bottomnavIcon'>
-      <mat-icon>assignment</mat-icon><br />
-      <p>Orders</p>
-    </div>
+    <igx-tab label="Invoices" icon="receipt" routerLink='/invoices'>
+    </igx-tab>
 
-    <div class='bottomnavIcon'>
-      <mat-icon>assignment</mat-icon><br />
-      <p>Inventory</p>
-    </div>
+  <igx-tab label="Orders" icon="shopping_cart" routerLink='/orders'>
+  </igx-tab>
 
-      <div class='bottomnavIcon'>
-        <mat-icon>assignment</mat-icon><br />
-        <p>Forecasting</p>
-      </div>
-</div>
+  <igx-tab label="Inventory" icon="assignment" routerLink='/inventory'>
+  </igx-tab>
+
+  <igx-tab label="Forecast" icon="pie_chart" routerLink='/forecasting'>
+  </igx-tab>
+</igx-bottom-nav>
