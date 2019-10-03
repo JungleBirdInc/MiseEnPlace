@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 
 // Imports from Anguler Material
 // tslint:disable-next-line: max-line-length
@@ -63,7 +64,7 @@ import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.co
     TopnavComponent,
     BottomnavComponent,
     OrganizationComponent,
-    InventoryWizardComponent
+    InventoryWizardComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,10 +85,12 @@ import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.co
     MatDividerModule,
     IgxDividerModule,
     IgxDropDownModule,
-		IgxInputGroupModule,
-		IgxRippleModule,
-		IgxIconModule,
-		IgxToggleModule
+    IgxInputGroupModule,
+    IgxRippleModule,
+    IgxIconModule,
+    IgxToggleModule,
+    ReactiveFormsModule,
+    FormBuilder,
 
   ],
   providers: [],

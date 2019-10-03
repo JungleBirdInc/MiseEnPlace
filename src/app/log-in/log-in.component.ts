@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-log-in',
@@ -9,8 +10,18 @@ import { Router } from '@angular/router';
 export class LogInComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private login: FormBuilder
   ) { }
+
+  loginForm = this.login.group({
+    email: [''], // formcontrolnames
+    firstName: [''],
+    lastName: [''],
+    password: [''],
+    passwordCheck: [''],
+    posititon: [''],
+  });
 
   ngOnInit() {
   }
