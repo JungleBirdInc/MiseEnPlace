@@ -39,13 +39,12 @@ import { LogInComponent } from './log-in/log-in.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { OrganizationComponent } from './organization/organization.component';
 import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.component';
+import { TopnavComponent } from './topnav/topnav.component';
+import { BottomnavComponent } from './bottomnav/bottomnav.component'; 
 
 //IGNITE
 import { IgxNavbarModule } from 'igniteui-angular';
 import { IgxBottomNavModule } from 'igniteui-angular';
-import { IgxIconModule } from 'igniteui-angular';
-import { TopnavComponent } from './topnav/topnav.component';
-import { BottomnavComponent } from './bottomnav/bottomnav.component'; 
 import {
   IgxDividerModule,
   IgxDropDownModule,
