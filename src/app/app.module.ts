@@ -1,15 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 // Imports from Anguler Material
 // tslint:disable-next-line: max-line-length
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatCardModule, MatInputModule } from '@angular/material';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
+
+// Import from Ignite
+import {
+  IgxDividerModule,
+  IgxDropDownModule,
+  IgxInputGroupModule,
+  IgxRippleModule,
+  IgxIconModule,
+  IgxToggleModule } from 'igniteui-angular';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -74,8 +82,16 @@ import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.co
     MatInputModule,
     MatSelectModule,
     MatDividerModule,
+    IgxDividerModule,
+    IgxDropDownModule,
+		IgxInputGroupModule,
+		IgxRippleModule,
+		IgxIconModule,
+		IgxToggleModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}

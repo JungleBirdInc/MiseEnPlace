@@ -1,5 +1,213 @@
+
 <h2>Initialize</h2>
+<button (click)="newDist()">New Distributor</button>
+<hr id='test'/>
+ 
 
-<div id='test'><mat-divider></mat-divider></div>
-<button>New Distributor</button><button>Existing Distributor</button>
+<div class="wrapper">
+        <igx-input-group #inputGroup [igxToggleAction]="dropDown" class="input-group">
+            <input #input class="input"  type="text" igxInput [igxDropDownItemNavigation]="dropDown"
+                readonly= "true"
+                placeholder="choose an option"
+                [value]="dropDown.selectedItem?.value"
+                (keydown.ArrowDown)="openDropDown()"/>
+    
+            <igx-suffix igxButton="icon" class="dropdownToggleButton" igxRipple>
+                <igx-icon>arrow_drop{{ dropDown.collapsed ? '_down' : '_up' }}</igx-icon>
+            </igx-suffix>
+        </igx-input-group>
+    
+        <span>Selected: {{ dropDown.selectedItem?.value }}</span>
+        <igx-drop-down #dropDown [width]="'160px'">
+            <igx-drop-down-item *ngFor="let item of items" [value]="item.field">
+                {{ item.field }}
+            </igx-drop-down-item>
+        </igx-drop-down>
+    </div>
 
+
+
+
+
+
+
+<!-- // New Dist -->
+<!-- <mat-vertical-stepper #stepper>
+
+    <mat-step [stepControl]="firstFormGroup">
+        <form>
+            <ng-template matStepLabel><td id="ngtext">Distriubutor Name</td></ng-template>
+            <mat-form-field>
+                <input matInput placeholder="distributor" formControlName='firstCtrl' required>
+            </mat-form-field>
+            <div>
+                <button matButton matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+        <form>
+             <ng-template matStepLabel><td id="ngtext">Reps First Name</td></ng-template>
+             <mat-form-field>
+                 <input matInput placeholder="rep-first" formControlName='secondCtrl' required>
+             </mat-form-field>
+             <div>
+                 <button matButton matStepperPrevious>Back</button>
+                 <button matButton matStepperNext>Next</button>
+             </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="thirdFormGroup">
+        <form>
+            <ng-template matStepLabel><td id="ngtext">Reps Last Name</td></ng-template>
+            <mat-form-field>
+                <input matInput placeholder="rep-last" formControlName='thirdCtrl' required>
+            </mat-form-field>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+                <button matButton matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fourthFormGroup">
+        <form>
+            <ng-template matStepLabel><td id="ngtext">Reps Cell Phone</td></ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Cell" formControlName='fourthCtrl' required>
+            </mat-form-field>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+                <button matButton matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fifthFormGroup">
+        <form>
+            <ng-template matStepLabel><td id="ngtext">Reps Email</td></ng-template>
+            <mat-form-field>
+                <input matInput placeholder="rep-email" formControlName='fifthCtrl' required>
+            </mat-form-field>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+                <button matButton matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel><td id="ngtext">Continue</td></ng-template>
+        Finish Setting Up Rep
+        <div>
+            <button matButton matStepperPrevious>Back</button>
+            <button matButton matStepperNext (click)="checkAuth()">Submit</button>
+        </div>
+    </mat-step>
+</mat-vertical-stepper > -->
+
+
+<!-- // New Bottle -->
+<mat-vertical-stepper #stepper>
+
+    <mat-step [stepControl]="firstFormGroup">
+        <form>
+            <ng-template matStepLabel><td id="ngtext">Brand</td></ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Brand" formControlName='firstCtrl' required>
+            </mat-form-field>
+            <div>
+                <button matButton matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup">
+        <form>
+            <ng-template matStepLabel><td id="ngtext">Brand Name</td></ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Brand Name" formControlName='secondCtrl' required>
+            </mat-form-field>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+                <button matButton matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="thirdFormGroup">
+        <form>
+            <ng-template matStepLabel><td id="ngtext">Volume</td></ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Volume" formControlName='thirdCtrl' required>
+            </mat-form-field>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+                <button matButton matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fourthFormGroup">
+        <form>
+            <ng-template matStepLabel><td id="ngtext">Category</td></ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Category" formControlName='fourthCtrl' required>
+            </mat-form-field>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+                <button matButton matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fifthFormGroup">
+        <form>
+            <ng-template matStepLabel><td id="ngtext">Sub Category</td></ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Sub Category" formControlName='fifthCtrl' required>
+            </mat-form-field>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+                <button matButton matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fourthFormGroup">
+        <form>
+            <ng-template matStepLabel><td id="ngtext">Par</td></ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Par" formControlName='fourthCtrl' required>
+            </mat-form-field>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+                <button matButton matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step [stepControl]="fifthFormGroup">
+        <form>
+            <ng-template matStepLabel><td id="ngtext">Quantity</td></ng-template>
+            <mat-form-field>
+                <input matInput placeholder="Qty" formControlName='fifthCtrl' required>
+            </mat-form-field>
+            <div>
+                <button matButton matStepperPrevious>Back</button>
+                <button matButton matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel><td id="ngtext">Save To Inventory</td></ng-template>
+        Bottle Saved, Would you like to add Another?
+        <div>
+            <button matButton matStepperPrevious>Save</button>
+            <button matButton matStepperNext >Save and Add Another</button>
+        </div>
+    </mat-step>
+</mat-vertical-stepper >
