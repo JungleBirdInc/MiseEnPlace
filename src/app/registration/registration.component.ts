@@ -17,24 +17,26 @@ export class RegistrationComponent implements OnInit {
   ) { }
 
   registrationForm = this.reg.group({
-    email: [''], // formcontrolnamesenviorment
-    firstName: [''],
-    lastName: [''],
-    password: [''],
-    passwordCheck: [''],
-    position: [''],
+    email: ['email'], // formcontrolnamesenviorment
+    first_name: ['first name'],
+    last_name: ['last name'],
+    password: ['password'],
+    passwordCheck: ['passwordCheck'],
+    role_id: ['6'],
   });
 
   ngOnInit() {
   }
 
   createUser() {
-    const user = this.registrationForm;
+    const user = this.registrationForm.value;
+    console.log(this.registrationForm.value);
     return this.register.createUser({
       user
-    }).subscribe(reply => {
-      console.log(reply);
-      this.router.navigate(['']); // sends home
     });
+    // .subscribe(reply => {
+    //   console.log(reply);
+    //   this.router.navigate(['']); // sends home
+    // });
   }
 }
