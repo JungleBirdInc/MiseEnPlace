@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
+import { }
 
 @Component({
   selector: 'app-registration',
@@ -26,4 +27,8 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
+  createUser() {
+    let newUser = this.http.post(this.registrationForm);
+    this.router.navigate(['']); // sends home
+  }
 }

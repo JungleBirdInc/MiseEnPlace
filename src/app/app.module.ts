@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 // MATERIAL
 import { MatMenuModule } from '@angular/material/menu';
@@ -43,7 +44,7 @@ import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.co
 import { TopnavComponent } from './topnav/topnav.component';
 import { BottomnavComponent } from './bottomnav/bottomnav.component'; 
 
-//IGNITE
+// IGNITE
 import { IgxNavbarModule } from 'igniteui-angular';
 import { IgxBottomNavModule } from 'igniteui-angular';
 import {
@@ -104,6 +105,7 @@ import {
     ReactiveFormsModule,
     IgxToggleModule,
     FormsModule,
+    HttpClient,
   ],
   providers: [],
   bootstrap: [AppComponent],
