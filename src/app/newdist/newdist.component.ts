@@ -6,9 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newdist.component.css']
 })
 export class NewdistComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
+  ngOnInit(){}
 
   public distributer = {
     name: undefined,
