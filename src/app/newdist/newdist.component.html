@@ -1,0 +1,45 @@
+<!-- * Distributors Table
+* name: Business name of the distributor
+* address: street address of the distributor
+* state: 2 letter state abbreviation
+* zip: 5 digit American postal code -->
+      <form class="input-group-form" (submit)="onSubmit()">
+
+        <h4 class="title">New Distributer</h4>
+        <div class="container">
+
+          <igx-input-group>
+            <input igxInput name="fullName" type="text" [(ngModel)]="distributer.name" required="required" />
+            <label igxLabel for="fullName">Distributer Name</label>
+            <igx-suffix>
+              <igx-icon>person</igx-icon>
+            </igx-suffix>
+          </igx-input-group>
+
+          <igx-input-group>
+            <input igxInput name="address" type="text" [(ngModel)]="distributer.address" required="required" />
+            <label igxLabel for="address">Address</label>
+            <igx-suffix>
+              <igx-icon>person</igx-icon>
+            </igx-suffix>
+          </igx-input-group>
+
+          <igx-input-group>
+            <input igxInput name="state" type="text" [(ngModel)]="distributer.state" required="required" />
+            <label igxLabel for="state">State</label>
+            <igx-suffix>
+              <igx-icon>person</igx-icon>
+            </igx-suffix>
+          </igx-input-group>
+
+          <igx-input-group>
+            <input igxInput name="zip" type="text" [(ngModel)]="distributer.zip" required="required" />
+            <label igxLabel for="zip">Zip</label>
+            <igx-suffix>
+              <igx-icon>person</igx-icon>
+            </igx-suffix>
+          </igx-input-group>
+
+          <button igxButton="raised" igxRipple>Log</button>
+        </div>
+      </form>
