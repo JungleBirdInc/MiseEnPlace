@@ -1,24 +1,22 @@
-<!-- <h3 id="title">Registration</h3>
+<h3 id="title">Registration</h3>
+
 
 <mat-vertical-stepper >
-        <mat-step [stepControl]="firstFormGroup">
-            <form>
+
+        <mat-step>
+            <form [(formGroup)]="registrationForm">
                 <ng-template matStepLabel><td id="ngtext">Enter Email</td></ng-template>
-                <mat-form-field id='placeHolder'>
-                    <input matInput placeholder="Email" formControlName='firstCtrl' >
-                </mat-form-field>
+                    <input matInput placeholder="Email" formControlName='email' >
                 <div>
                     <button matButton matStepperNext>Next</button>
                 </div>
             </form>
         </mat-step>
 
-        <mat-step [stepControl]="secondFormGroup">
-            <form [formGroup]="registration-form-two">
+         <mat-step>
+            <form [formGroup]="registrationForm">
                  <ng-template matStepLabel><td id="ngtext">Enter First Name</td></ng-template>
-                 <mat-form-field>
-                     <input matInput placeholder="First Name" formControlName='secondCtrl' required>
-                 </mat-form-field>
+                     <input matInput placeholder="First Name" formControlName='firstName' required>
                  <div>
                      <button matButton matStepperPrevious>Back</button>
                      <button matButton matStepperNext>Next</button>
@@ -26,12 +24,10 @@
             </form>
         </mat-step>
 
-        <mat-step [stepControl]="firstFormGroup">
-                <form [formGroup]="registration-form-three">
+        <mat-step>
+                <form [formGroup]="registrationForm">
                     <ng-template matStepLabel><td id="ngtext">Enter Last Name</td></ng-template>
-                    <mat-form-field>
-                        <input matInput placeholder="Last Name" formControlName='thirdCtrl' required>
-                    </mat-form-field>
+                        <input matInput placeholder="Last Name" formControlName='lastName' required>
                     <div>
                         <button matButton matStepperPrevious>Back</button>
                         <button matButton matStepperNext>Next</button>
@@ -39,42 +35,10 @@
                 </form>
             </mat-step>
 
-            <mat-step [stepControl]="secondFormGroup">
-                <form [formGroup]="registration-form-four">
-                     <ng-template matStepLabel><td id="ngtext">Enter Password</td></ng-template>
-                     <mat-form-field>
-                         <input matInput placeholder="Password" formControlName='fourthCtrl' required>
-                     </mat-form-field>
-                     <div>
-                         <button matButton matStepperPrevious>Back</button>
-                         <button matButton matStepperNext>Next</button>
-                     </div>
-                </form>
-            </mat-step>
-
-            <mat-step [stepControl]="firstFormGroup">
-                    <form [formGroup]="registration-form-five">
-                        <ng-template matStepLabel><td id="ngtext">Confirm Password</td></ng-template>
-                        <mat-form-field>
-                            <input matInput placeholder="Confirm Password" formControlName='fifthCtrl' required>
-                        </mat-form-field>
-                        <div>
-                            <button matButton matStepperPrevious>Back</button>
-                            <button matButton matStepperNext>Next</button>
-                        </div>
-                    </form>
-                </mat-step>
-
-                <mat-step [stepControl]="secondFormGroup">
-                    <form [formGroup]="registration-form-six">
-                         <ng-template matStepLabel><td id="ngtext">Position</td></ng-template>
-                         <mat-form-field>
-                                <mat-label>Select an option</mat-label>
-                             <mat-select [(value)]="selected" required formControlName='sixthCtrl'>
-                                <mat-option value='option1'>Bartender</mat-option>
-                                <mat-option value='option2'>Manager</mat-option>
-                             </mat-select>
-                         </mat-form-field>
+            <mat-step>
+                    <form [formGroup]="registrationForm">
+                         <ng-template matStepLabel><td id="ngtext">Enter Password</td></ng-template>
+                             <input matInput placeholder="Password" formControlName='password' required>
                          <div>
                              <button matButton matStepperPrevious>Back</button>
                              <button matButton matStepperNext>Next</button>
@@ -82,14 +46,42 @@
                     </form>
                 </mat-step>
 
+                <mat-step>
+                        <form [formGroup]="registrationForm">
+                             <ng-template matStepLabel><td id="ngtext">Confirm Password</td></ng-template>
+                                 <input matInput placeholder="Password" formControlName='passwordCheck' required>
+                             <div>
+                                 <button matButton matStepperPrevious>Back</button>
+                                 <button matButton matStepperNext>Next</button>
+                             </div>
+                        </form>
+                    </mat-step>
 
 
-        <mat-step>
-            <ng-template matStepLabel><td id="ngtext">Send</td></ng-template>
-            Finished?
-            <div>
-                <button matButton matStepperPrevious>Back</button>
-                <button matButton matStepperNext routerLink='' >Submit</button>
-            </div>
-        </mat-step>
-    </mat-vertical-stepper > -->
+                <mat-step>
+                        <form [formGroup]="registrationForm">
+                             <ng-template matStepLabel><td id="ngtext">Position</td></ng-template>
+                             <mat-form-field>
+                                    <mat-label>Select an option</mat-label>
+                                 <mat-select [(value)]="selected" required formControlName='Postition'>
+                                    <mat-option value='option1'>Bartender</mat-option>
+                                    <mat-option value='option2'>Manager</mat-option>
+                                 </mat-select>
+                             </mat-form-field>
+                             <div>
+                                 <button matButton matStepperPrevious>Back</button>
+                                 <button matButton matStepperNext>Next</button>
+                             </div>
+                        </form>
+                    </mat-step>
+
+                    <mat-step>
+                            <ng-template matStepLabel><td id="ngtext">Send</td></ng-template>
+                            Finished?
+                            <div>
+                                <button matButton matStepperPrevious>Back</button>
+                                <button matButton matStepperNext routerLink='' >Submit</button>
+                            </div>
+                        </mat-step>
+</mat-vertical-stepper >
+
