@@ -3,6 +3,7 @@
 <mat-vertical-stepper>
     <mat-step>
         <form [(formGroup)]="loginForm">
+        <ng-template matStepLabel><td id="ngtext">Enter Email</td></ng-template>
             <input type='text' placeholder="email" formControlName='email'>
             <button matButton matStepperNext>Next</button>
         </form>
@@ -10,6 +11,7 @@
 
     <mat-step>
         <form [(formGroup)]="loginForm">
+        <ng-template matStepLabel><td id="ngtext">Enter Password</td></ng-template>
             <input type='text' placeholder="password" formControlName='password'>
             <button matButton matStepperPrevious>Back</button>
             <button matButton matStepperNext>Next</button>

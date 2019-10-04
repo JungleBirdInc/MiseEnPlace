@@ -45,7 +45,7 @@ import { TopnavComponent } from './topnav/topnav.component';
 import { BottomnavComponent } from './bottomnav/bottomnav.component'; 
 import { NewdistComponent } from './newdist/newdist.component';
 
-//IGNITE
+// IGNITE
 import { IgxNavbarModule } from 'igniteui-angular';
 import { IgxBottomNavModule } from 'igniteui-angular';
 import {
@@ -56,11 +56,11 @@ import {
   IgxIconModule,
   IgxToggleModule } from 'igniteui-angular';
 
-import { IgxButtonModule, 
-  IgxDatePickerModule, 
-  IgxTimePickerModule, 
-  IgxComboModule, 
-  IgxSelectModule } from "igniteui-angular";
+import { IgxButtonModule,
+         IgxDatePickerModule,
+         IgxTimePickerModule,
+         IgxComboModule,
+         IgxSelectModule } from 'igniteui-angular';
 
 
 @NgModule({
