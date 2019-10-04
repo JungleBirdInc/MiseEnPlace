@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
-// import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // MATERIAL
 import { MatMenuModule } from '@angular/material/menu';
@@ -119,7 +119,7 @@ import { IgxButtonModule,
     IgxTimePickerModule,
     IgxComboModule,
     IgxSelectModule,
-    // HttpClient
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

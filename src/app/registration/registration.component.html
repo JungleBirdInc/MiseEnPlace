@@ -57,17 +57,16 @@
                         </form>
                     </mat-step>
 
-
-                <mat-step>
+                    <mat-step>
                         <form [formGroup]="registrationForm">
                              <ng-template matStepLabel><td id="ngtext">Position</td></ng-template>
-                             <mat-form-field>
+                             <!-- <mat-form-field> -->
                                     <mat-label>Select an option</mat-label>
-                                 <mat-select [(value)]="selected" required formControlName='Postition'>
+                                 <mat-select [(value)]="selected" required formControlName='position'>
                                     <mat-option value='option1'>Bartender</mat-option>
                                     <mat-option value='option2'>Manager</mat-option>
                                  </mat-select>
-                             </mat-form-field>
+                             <!-- </mat-form-field> -->
                              <div>
                                  <button matButton matStepperPrevious>Back</button>
                                  <button matButton matStepperNext>Next</button>

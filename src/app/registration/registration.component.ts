@@ -22,7 +22,7 @@ export class RegistrationComponent implements OnInit {
     lastName: [''],
     password: [''],
     passwordCheck: [''],
-    posititon: [''],
+    position: [''],
   });
 
   ngOnInit() {
