@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
-import { }
+import { RegisterService } from '../services/register.service';
 
 @Component({
   selector: 'app-registration',
@@ -13,10 +13,11 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private router: Router,
     private reg: FormBuilder,
+    private register: RegisterService
   ) { }
 
   registrationForm = this.reg.group({
-    email: [''], // formcontrolnames
+    email: [''], // formcontrolnamesenviorment
     firstName: [''],
     lastName: [''],
     password: [''],
@@ -28,7 +29,12 @@ export class RegistrationComponent implements OnInit {
   }
 
   createUser() {
-    let newUser = this.http.post(this.registrationForm);
-    this.router.navigate(['']); // sends home
+    const user = this.registrationForm;
+    return this.register.createUser({
+      user
+    }).subscribe(reply => {
+      console.log(reply);
+      this.router.navigate(['']); // sends home
+    });
   }
 }
