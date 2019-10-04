@@ -43,6 +43,7 @@ import { OrganizationComponent } from './organization/organization.component';
 import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.component';
 import { TopnavComponent } from './topnav/topnav.component';
 import { BottomnavComponent } from './bottomnav/bottomnav.component'; 
+import { NewdistComponent } from './newdist/newdist.component';
 
 // IGNITE
 import { IgxNavbarModule } from 'igniteui-angular';
@@ -54,6 +55,13 @@ import {
   IgxRippleModule,
   IgxIconModule,
   IgxToggleModule } from 'igniteui-angular';
+
+import { IgxButtonModule,
+         IgxDatePickerModule,
+         IgxTimePickerModule,
+         IgxComboModule,
+         IgxSelectModule } from 'igniteui-angular';
+
 
 @NgModule({
   declarations: [
@@ -76,6 +84,7 @@ import {
     BottomnavComponent,
     OrganizationComponent,
     InventoryWizardComponent,
+    NewdistComponent,
   ],
   imports: [
     BrowserModule,
@@ -105,7 +114,12 @@ import {
     ReactiveFormsModule,
     IgxToggleModule,
     FormsModule,
-    HttpClient,
+    IgxButtonModule,
+    IgxDatePickerModule,
+    IgxTimePickerModule,
+    IgxComboModule,
+    IgxSelectModule,
+    HttpClient
   ],
   providers: [],
   bootstrap: [AppComponent],
