@@ -1,14 +1,14 @@
 import { Injectable, RootRenderer } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { enviorment } from '../..enviorments/enviorment' // ... ?????
+import { environment } from '../../environments/environment'// ... ?????
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class RegisterService {
-    private createUserEndpoint = `${enviorment.BASE_API_URL}/api/createUser`;
+    private createUserEndpoint = `${environment.Base_API_URL}/api/createUser`;
 
     constructor(
         private http: HttpClient
