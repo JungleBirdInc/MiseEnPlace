@@ -1,12 +1,35 @@
 <h3 id="title">Log-In</h3>
 
+<mat-vertical-stepper>
+    <mat-step>
+        <form [(formGroup)]="loginForm">
+            <input type='text' placeholder="email" formControlName='email'>
+            <button matButton matStepperNext>Next</button>
+        </form>
+    </mat-step>
 
-<mat-vertical-stepper #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-        <form>
+    <mat-step>
+        <form [(formGroup)]="loginForm">
+            <input type='text' placeholder="password" formControlName='password'>
+            <button matButton matStepperPrevious>Back</button>
+            <button matButton matStepperNext>Next</button>
+        </form>
+    </mat-step>
+</mat-vertical-stepper>
+
+<button (click)="submit1()">submit1</button>
+<button (click)="submit2()">submit2</button>
+
+<p>ajgn;rjvnqerovjpn{{email}}</p>
+
+
+
+<!-- <mat-vertical-stepper #stepper>
+    <mat-step [stepControl]="loginGroup">
+        <form [formGroup]='loginGroup'>
             <ng-template matStepLabel><td id="ngtext">Enter Email</td></ng-template>
             <mat-form-field>
-                <input matInput placeholder="Email" formControlName='firstCtrl' required>
+                <input matInput placeholder="Email" formControlName='email' required>
             </mat-form-field>
             <div>
                 <button matButton matStepperNext>Next</button>
@@ -15,11 +38,11 @@
     </mat-step>
 
 
-    <mat-step [stepControl]="secondFormGroup">
-        <form>
+    <mat-step [stepControl]="loginGroup">
+        <form [formGroup]='loginGroup'>
              <ng-template matStepLabel><td id="ngtext">Enter Password</td></ng-template>
              <mat-form-field>
-                 <input matInput placeholder="Password" formControlName='secondCtrl' required>
+                 <input matInput placeholder="Password" formControlName='password' required>
              </mat-form-field>
              <div>
                  <button matButton matStepperPrevious>Back</button>
@@ -38,4 +61,4 @@
             <button matButton matStepperNext (click)="checkAuth()">Submit</button>
         </div>
     </mat-step>
-</mat-vertical-stepper >
+</mat-vertical-stepper > -->

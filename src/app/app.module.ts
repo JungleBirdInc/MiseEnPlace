@@ -1,7 +1,7 @@
 // tslint:disable-next-line: max-line-length
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 // MATERIAL
 import { MatMenuModule } from '@angular/material/menu';
@@ -9,21 +9,21 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatToolbarModule, 
-        MatIconModule, 
-        MatSidenavModule, 
-        MatListModule, 
-        MatButtonModule, 
-        MatCardModule, 
+import { MatToolbarModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        MatButtonModule,
+        MatCardModule,
         MatInputModule } from '@angular/material';
 
-//ROUTING
+// ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-//COMPONENTS
+// COMPONENTS
 import { HomeComponent } from './home/home.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -102,8 +102,8 @@ import {
     IgxIconModule,
     IgxToggleModule,
     ReactiveFormsModule,
-    FormBuilder,
-    IgxToggleModule
+    IgxToggleModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

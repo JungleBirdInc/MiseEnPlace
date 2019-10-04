@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 
+
+
 @Component({
   selector: 'app-log-in',
   templateUrl: './log-in.component.html',
@@ -15,20 +17,24 @@ export class LogInComponent implements OnInit {
   ) { }
 
   loginForm = this.login.group({
-    email: [''], // formcontrolnames
-    firstName: [''],
-    lastName: [''],
-    password: [''],
-    passwordCheck: [''],
-    posititon: [''],
+    email: ['TAYLOR@GMAIL'], // formcontrolnames
+    password: ['npo'],
+
   });
 
   ngOnInit() {
   }
 
+  submit1() {
+    console.log(this.loginForm.value.email);
+  }
+  submit2() {
+    console.log(this.loginForm.value.password);
+  }
+
   checkAuth() {
     this.router.navigate(['']);
-    console.log('fuck yeah son!');
+    console.log('yess');
 
   }
 }
