@@ -26,6 +26,7 @@
     "@material/fab": "^3.2.0",
     "@types/hammerjs": "^2.0.36",
     "canvasjs": "^1.8.1",
+    "eslint": "^6.5.1",
     "express": "^4.17.1",
     "hammerjs": "^2.0.8",
     "igniteui-angular": "^8.2.1",

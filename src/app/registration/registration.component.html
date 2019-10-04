@@ -1,18 +1,20 @@
-<h3 id="title">Registration</h3>
-<mat-vertical-stepper #stepper>
+<!-- <h3 id="title">Registration</h3>
+
+<mat-vertical-stepper >
         <mat-step [stepControl]="firstFormGroup">
             <form>
                 <ng-template matStepLabel><td id="ngtext">Enter Email</td></ng-template>
                 <mat-form-field id='placeHolder'>
-                    <input matInput placeholder="Email" formControlName='firstCtrl' required>
+                    <input matInput placeholder="Email" formControlName='firstCtrl' >
                 </mat-form-field>
                 <div>
                     <button matButton matStepperNext>Next</button>
                 </div>
             </form>
         </mat-step>
+
         <mat-step [stepControl]="secondFormGroup">
-            <form>
+            <form [formGroup]="registration-form-two">
                  <ng-template matStepLabel><td id="ngtext">Enter First Name</td></ng-template>
                  <mat-form-field>
                      <input matInput placeholder="First Name" formControlName='secondCtrl' required>
@@ -23,8 +25,9 @@
                  </div>
             </form>
         </mat-step>
+
         <mat-step [stepControl]="firstFormGroup">
-                <form>
+                <form [formGroup]="registration-form-three">
                     <ng-template matStepLabel><td id="ngtext">Enter Last Name</td></ng-template>
                     <mat-form-field>
                         <input matInput placeholder="Last Name" formControlName='thirdCtrl' required>
@@ -35,8 +38,9 @@
                     </div>
                 </form>
             </mat-step>
+
             <mat-step [stepControl]="secondFormGroup">
-                <form>
+                <form [formGroup]="registration-form-four">
                      <ng-template matStepLabel><td id="ngtext">Enter Password</td></ng-template>
                      <mat-form-field>
                          <input matInput placeholder="Password" formControlName='fourthCtrl' required>
@@ -47,8 +51,9 @@
                      </div>
                 </form>
             </mat-step>
+
             <mat-step [stepControl]="firstFormGroup">
-                    <form>
+                    <form [formGroup]="registration-form-five">
                         <ng-template matStepLabel><td id="ngtext">Confirm Password</td></ng-template>
                         <mat-form-field>
                             <input matInput placeholder="Confirm Password" formControlName='fifthCtrl' required>
@@ -59,8 +64,9 @@
                         </div>
                     </form>
                 </mat-step>
+
                 <mat-step [stepControl]="secondFormGroup">
-                    <form>
+                    <form [formGroup]="registration-form-six">
                          <ng-template matStepLabel><td id="ngtext">Position</td></ng-template>
                          <mat-form-field>
                                 <mat-label>Select an option</mat-label>
@@ -86,4 +92,4 @@
                 <button matButton matStepperNext routerLink='' >Submit</button>
             </div>
         </mat-step>
-    </mat-vertical-stepper >
+    </mat-vertical-stepper > -->
