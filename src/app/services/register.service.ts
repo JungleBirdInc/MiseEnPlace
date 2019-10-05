@@ -14,7 +14,7 @@ export class RegisterService {
         // private http: HttpClient
     ) { }
 
-    createUser(userData) {
-        // return this.http.post(this.createUserEndpoint, userData);
-    }
+    // createUser(userData) {
+    //     return this.http.post(this.createUserEndpoint, userData);
+    // }
 }
