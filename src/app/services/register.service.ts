@@ -1,20 +1,25 @@
-import { Injectable, RootRenderer } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-
-import { environment } from '../../environments/environment'; // ... ?????
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { IRegister } from '../interface/register'
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
-
 export class RegisterService {
-    // private createUserEndpoint = `${environment.Base_API_URL}/api/createUser`;
 
-    constructor(
-        // private http: HttpClient
-    ) { }
+  constructor(private http: HttpClient) { }
 
-    // createUser(userData) {
-    //     return this.http.post(this.createUserEndpoint, userData);
-    // }
+  private _url: string = `/api/createUser`;
+
+
+    // return this.http.post(this._url)
+    // .subscribe(data => {
+    //   console.log('POST SUCCESSFUL', data);
+    // })
+
+    regUser(data){
+    return this.http.post(this._url, data);
+  }
+
 }
