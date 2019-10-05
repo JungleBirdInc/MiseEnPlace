@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  Base_API_URL: 'http//:localhost:4200' // need backend server url
+  production: true,
+  Base_API_URL: 'http//:localhost:3000'
 };
 
 /*

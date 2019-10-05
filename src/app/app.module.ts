@@ -2,7 +2,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
-// import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+
+// SERVICES
+import { NewdistributerService } from './services/newdistributer.service';
 
 // MATERIAL
 import { MatMenuModule } from '@angular/material/menu';
@@ -62,7 +65,6 @@ import { IgxButtonModule,
          IgxComboModule,
          IgxSelectModule } from 'igniteui-angular';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -119,7 +121,7 @@ import { IgxButtonModule,
     IgxTimePickerModule,
     IgxComboModule,
     IgxSelectModule,
-    // HttpClient
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
