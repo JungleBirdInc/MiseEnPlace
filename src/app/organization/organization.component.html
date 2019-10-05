@@ -1,82 +1,76 @@
 <h3 id="title">Organization</h3>
-<!-- <mat-vertical-stepper>
-        <mat-step [stepControl]="firstFormGroup">
-            <form>
+
+<mat-vertical-stepper>
+
+        <mat-step>
+            <form [(formGroup)]="orgForm">
                 <ng-template matStepLabel><td id="ngtext">Establishment Name</td></ng-template>
-                <mat-form-field id='placeHolder'>
-                    <input matInput placeholder="Establishment" formControlName='firstCtrl' required>
-                </mat-form-field>
+                    <input matInput placeholder="estabName" formControlName='estabName' required>
                 <div>
                     <button matButton matStepperNext>Next</button>
                 </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="secondFormGroup">
-            <form>
+
+        <mat-step>
+            <form [(formGroup)]="orgForm">
                  <ng-template matStepLabel><td id="ngtext">Street Name</td></ng-template>
-                 <mat-form-field>
-                     <input matInput placeholder="Street" formControlName='secondCtrl' required>
-                 </mat-form-field>
+                     <input matInput placeholder="street" formControlName='street' required>
                  <div>
                      <button matButton matStepperPrevious>Back</button>
                      <button matButton matStepperNext>Next</button>
                  </div>
             </form>
         </mat-step>
-        <mat-step [stepControl]="firstFormGroup">
-                <form>
+
+        <mat-step>
+                <form [(formGroup)]="orgForm">
                     <ng-template matStepLabel><td id="ngtext">City</td></ng-template>
-                    <mat-form-field>
-                        <input matInput placeholder="City" formControlName='thirdCtrl' required>
-                    </mat-form-field>
+                        <input matInput placeholder="city" formControlName='city' required>
                     <div>
                         <button matButton matStepperPrevious>Back</button>
                         <button matButton matStepperNext>Next</button>
                     </div>
                 </form>
             </mat-step>
-            <mat-step [stepControl]="secondFormGroup">
-                <form>
+
+            <mat-step>
+                <form [(formGroup)]="orgForm">
                      <ng-template matStepLabel><td id="ngtext">State</td></ng-template>
-                     <mat-form-field>
-                         <input matInput placeholder="State" formControlName='fourthCtrl' required>
-                     </mat-form-field>
+                         <input matInput placeholder="state" formControlName='state' required>
                      <div>
                          <button matButton matStepperPrevious>Back</button>
                          <button matButton matStepperNext>Next</button>
                      </div>
                 </form>
             </mat-step>
-            <mat-step [stepControl]="firstFormGroup">
-                    <form>
+
+            <mat-step>
+                    <form [(formGroup)]="orgForm">
                         <ng-template matStepLabel><td id="ngtext">Zip Code</td></ng-template>
-                        <mat-form-field>
-                            <input matInput placeholder="Zip" formControlName='fifthCtrl' required>
-                        </mat-form-field>
+                            <input matInput placeholder="zip" formControlName='zip' required>
                         <div>
                             <button matButton matStepperPrevious>Back</button>
                             <button matButton matStepperNext>Next</button>
                         </div>
                     </form>
                 </mat-step>
-                <mat-step [stepControl]="firstFormGroup">
-                    <form>
+
+                <mat-step>
+                    <form [(formGroup)]="orgForm">
                         <ng-template matStepLabel><td id="ngtext">Email</td></ng-template>
-                        <mat-form-field>
-                            <input matInput placeholder="Establishment Email" formControlName='fifthCtrl' required>
-                        </mat-form-field>
+                            <input matInput placeholder="estabEmail" formControlName='estabEmail' required>
                         <div>
                             <button matButton matStepperPrevious>Back</button>
                             <button matButton matStepperNext>Next</button>
                         </div>
                     </form>
                 </mat-step>
-                <mat-step [stepControl]="firstFormGroup">
-                         <form>
+
+                <mat-step>
+                         <form [(formGroup)]="orgForm">
                             <ng-template matStepLabel><td id="ngtext">Phone Number</td></ng-template>
-                            <mat-form-field>
-                                <input matInput placeholder="Phone Number" formControlName='fifthCtrl' required>
-                            </mat-form-field>
+                                <input matInput placeholder="number" formControlName='number' required>
                             <div>
                                 <button matButton matStepperPrevious>Back</button>
                                 <button matButton matStepperNext>Next</button>
@@ -92,7 +86,7 @@
             Finished?
             <div>
                 <button matButton matStepperPrevious>Back</button>
-                <button matButton matStepperNext routerLink='' >Submit</button>
+                <button matButton matStepperNext>Submit</button>
             </div>
         </mat-step>
-    </mat-vertical-stepper > -->
+    </mat-vertical-stepper >

@@ -28,7 +28,7 @@ import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
-//TEMP
+// TEMP
 // NEW DISTRIBUTER
 import { NewdistComponent } from './newdist/newdist.component';
 
