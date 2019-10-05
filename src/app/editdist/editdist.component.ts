@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-newdist',
-  templateUrl: './newdist.component.html',
-  styleUrls: ['./newdist.component.css']
+  selector: 'app-editdist',
+  templateUrl: './editdist.component.html',
+  styleUrls: ['./editdist.component.css']
 })
-export class NewdistComponent implements OnInit {
-  ngOnInit(){}
+export class EditdistComponent implements OnInit {
 
   public distributer = {
     name: undefined,
@@ -14,9 +13,10 @@ export class NewdistComponent implements OnInit {
     state: undefined,
     zip: undefined,
   };
+  ngOnInit() {}
 
   public onSubmit() {
-    console.log(`submitted: 
+    console.log(`submitted:
     ${this.distributer.name}
     ${this.distributer.address}
     ${this.distributer.state}

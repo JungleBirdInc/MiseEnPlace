@@ -43,8 +43,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { OrganizationComponent } from './organization/organization.component';
 import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.component';
 import { TopnavComponent } from './topnav/topnav.component';
-import { BottomnavComponent } from './bottomnav/bottomnav.component'; 
-import { NewdistComponent } from './newdist/newdist.component';
+import { BottomnavComponent } from './bottomnav/bottomnav.component';
+import { EditdistComponent } from './editdist/editdist.component';
 
 // IGNITE
 import { IgxNavbarModule } from 'igniteui-angular';
@@ -86,7 +86,7 @@ import { IgxButtonModule,
     BottomnavComponent,
     OrganizationComponent,
     InventoryWizardComponent,
-    NewdistComponent,
+    EditdistComponent,
   ],
   imports: [
     BrowserModule,

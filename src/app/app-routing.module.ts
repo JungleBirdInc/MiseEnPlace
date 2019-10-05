@@ -30,7 +30,7 @@ import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
 // TEMP
 // NEW DISTRIBUTER
-import { NewdistComponent } from './newdist/newdist.component';
+import { EditdistComponent } from './editdist/editdist.component';
 
 const routes: Routes = [
 { path: '', component: HomeComponent },
@@ -48,7 +48,7 @@ const routes: Routes = [
 { path: 'registration', component: RegistrationComponent},
 { path: 'organization', component: OrganizationComponent},
 { path: 'inventory-wizard', component: InventoryWizardComponent},
-{ path: 'newdist', component: NewdistComponent },
+{ path: 'editdist', component: EditdistComponent },
 ];
 
 @NgModule({
