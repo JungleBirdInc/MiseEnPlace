@@ -6,14 +6,13 @@ import { HttpClient } from '@angular/common/http';
     providedIn: 'root'
 })
 
-export class LoginService {
-    // private LoginEndpoint = `${environment.Base_API_URL}/api/createUser`; // not accurate endpoint
+export class InventoryWizardService {
 
     constructor(
         private http: HttpClient
     ) { }
 
-signIn(userData) {
-        // return this.http.post(this.LoginEndpoint, userData);
+    func() {
+
     }
 }

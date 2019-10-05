@@ -33,8 +33,8 @@
 <!-- // New Dist -->
  <mat-vertical-stepper >
 
-    <mat-step [(formGroup)]="newDistForm">
-        <form>
+    <mat-step>
+        <form [(formGroup)]="newDistForm">
             <ng-template matStepLabel><td id="ngtext">Distriubutor Name</td></ng-template>
                 <input matInput placeholder="distributor" formControlName='distributor' required>
             <div>
@@ -92,7 +92,7 @@
         Finish Setting Up Rep
         <div>
             <button matButton matStepperPrevious>Back</button>
-            <button matButton matStepperNext (click)="checkAuth()">Submit</button>
+            <button matButton matStepperNext>Submit</button>
         </div>
     </mat-step>
 </mat-vertical-stepper > 
@@ -102,9 +102,9 @@
  <mat-vertical-stepper>
 
     <mat-step >
-        <form>
+        <form [(formGroup)]="inventoryWizardForm">
             <ng-template matStepLabel><td id="ngtext">Brand</td></ng-template>
-                <input matInput placeholder="Brand" formControlName='' required>
+                <input matInput placeholder="brand" formControlName='brand' required>
             <div>
                 <button matButton matStepperNext>Next</button>
             </div>
@@ -112,9 +112,9 @@
     </mat-step>
 
     <mat-step >
-        <form>
+        <form [(formGroup)]="inventoryWizardForm">
             <ng-template matStepLabel><td id="ngtext">Brand Name</td></ng-template>
-                <input matInput placeholder="Brand Name" formControlName='' required>
+                <input matInput placeholder="brandName" formControlName='brandName' required>
             <div>
                 <button matButton matStepperPrevious>Back</button>
                 <button matButton matStepperNext>Next</button>
@@ -123,9 +123,9 @@
     </mat-step>
 
     <mat-step>
-        <form>
+        <form [(formGroup)]="inventoryWizardForm">
             <ng-template matStepLabel><td id="ngtext">Volume</td></ng-template>
-                <input matInput placeholder="Volume" formControlName='' required>
+                <input matInput placeholder="volume" formControlName='volume' required>
             <div>
                 <button matButton matStepperPrevious>Back</button>
                 <button matButton matStepperNext>Next</button>
@@ -134,9 +134,9 @@
     </mat-step>
 
     <mat-step>
-        <form>
+        <form [(formGroup)]="inventoryWizardForm">
             <ng-template matStepLabel><td id="ngtext">Category</td></ng-template>
-                <input matInput placeholder="Category" formControlName='' required>
+                <input matInput placeholder="category" formControlName='category' required>
             <div>
                 <button matButton matStepperPrevious>Back</button>
                 <button matButton matStepperNext>Next</button>
@@ -145,9 +145,9 @@
     </mat-step>
 
     <mat-step>
-        <form>
+        <form [(formGroup)]="inventoryWizardForm">
             <ng-template matStepLabel><td id="ngtext">Sub Category</td></ng-template>
-                <input matInput placeholder="Sub Category" formControlName='fifthCtrl' required>
+                <input matInput placeholder="subCategory" formControlName='subCategory' required>
             <div>
                 <button matButton matStepperPrevious>Back</button>
                 <button matButton matStepperNext>Next</button>
@@ -156,9 +156,9 @@
     </mat-step>
 
     <mat-step>
-        <form>
+        <form [(formGroup)]="inventoryWizardForm">
             <ng-template matStepLabel><td id="ngtext">Par</td></ng-template>
-                <input matInput placeholder="Par" formControlName='fourthCtrl' required>
+                <input matInput placeholder="par" formControlName='par' required>
             <div>
                 <button matButton matStepperPrevious>Back</button>
                 <button matButton matStepperNext>Next</button>
@@ -167,9 +167,9 @@
     </mat-step>
 
     <mat-step>
-        <form>
+        <form [(formGroup)]="inventoryWizardForm">
             <ng-template matStepLabel><td id="ngtext">Quantity</td></ng-template>
-                <input matInput placeholder="Qty" formControlName='fifthCtrl' required>
+                <input matInput placeholder="quantity" formControlName='quantity' required>
             <div>
                 <button matButton matStepperPrevious>Back</button>
                 <button matButton matStepperNext>Next</button>
