@@ -21,8 +21,8 @@ export class RegistrationComponent implements OnInit {
     first_name: ['first name'],
     last_name: ['last name'],
     password: ['password'],
-    passwordCheck: ['passwordCheck'],
-    role_id: ['6'],
+    passwordCheck: ['confirm Password'],
+    role_id: [''],
   });
 
   ngOnInit() {

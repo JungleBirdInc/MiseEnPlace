@@ -3,8 +3,7 @@
 <button >New Distributor</button>
 <hr id='test'/>
  
-<!-- (click)="newDist()" -->
-<!-- <div class="wrapper">
+<div class="wrapper">
         <igx-input-group #inputGroup [igxToggleAction]="dropDown" class="input-group">
             <input #input class="input"  type="text" igxInput [igxDropDownItemNavigation]="dropDown"
                 readonly= "true"
@@ -32,26 +31,22 @@
 
 
 <!-- // New Dist -->
-<!-- <mat-vertical-stepper #stepper>
+ <mat-vertical-stepper >
 
-    <mat-step [stepControl]="firstFormGroup">
+    <mat-step [(formGroup)]="newDistForm">
         <form>
             <ng-template matStepLabel><td id="ngtext">Distriubutor Name</td></ng-template>
-            <mat-form-field>
-                <input matInput placeholder="distributor" formControlName='firstCtrl' required>
-            </mat-form-field>
+                <input matInput placeholder="distributor" formControlName='distributor' required>
             <div>
                 <button matButton matStepperNext>Next</button>
             </div>
         </form>
     </mat-step>
 
-    <mat-step [stepControl]="secondFormGroup">
-        <form>
+    <mat-step>
+        <form [(formGroup)]="newDistForm">
              <ng-template matStepLabel><td id="ngtext">Reps First Name</td></ng-template>
-             <mat-form-field>
-                 <input matInput placeholder="rep-first" formControlName='secondCtrl' required>
-             </mat-form-field>
+                 <input matInput placeholder="repFirstName" formControlName='repFirstName' required>
              <div>
                  <button matButton matStepperPrevious>Back</button>
                  <button matButton matStepperNext>Next</button>
@@ -59,12 +54,10 @@
         </form>
     </mat-step>
 
-    <mat-step [stepControl]="thirdFormGroup">
-        <form>
+    <mat-step>
+        <form [(formGroup)]="newDistForm">
             <ng-template matStepLabel><td id="ngtext">Reps Last Name</td></ng-template>
-            <mat-form-field>
-                <input matInput placeholder="rep-last" formControlName='thirdCtrl' required>
-            </mat-form-field>
+                <input matInput placeholder="repLastName" formControlName='repLastName' required>
             <div>
                 <button matButton matStepperPrevious>Back</button>
                 <button matButton matStepperNext>Next</button>
@@ -72,12 +65,10 @@
         </form>
     </mat-step>
 
-    <mat-step [stepControl]="fourthFormGroup">
-        <form>
+    <mat-step>
+        <form [(formGroup)]="newDistForm">
             <ng-template matStepLabel><td id="ngtext">Reps Cell Phone</td></ng-template>
-            <mat-form-field>
-                <input matInput placeholder="Cell" formControlName='fourthCtrl' required>
-            </mat-form-field>
+                <input matInput placeholder="repCell" formControlName='repCell' required>
             <div>
                 <button matButton matStepperPrevious>Back</button>
                 <button matButton matStepperNext>Next</button>
@@ -85,12 +76,10 @@
         </form>
     </mat-step>
 
-    <mat-step [stepControl]="fifthFormGroup">
-        <form>
+    <mat-step>
+        <form [(formGroup)]="newDistForm">
             <ng-template matStepLabel><td id="ngtext">Reps Email</td></ng-template>
-            <mat-form-field>
-                <input matInput placeholder="rep-email" formControlName='fifthCtrl' required>
-            </mat-form-field>
+                <input matInput placeholder="repEmail" formControlName='repEmail' required>
             <div>
                 <button matButton matStepperPrevious>Back</button>
                 <button matButton matStepperNext>Next</button>
@@ -106,11 +95,11 @@
             <button matButton matStepperNext (click)="checkAuth()">Submit</button>
         </div>
     </mat-step>
-</mat-vertical-stepper > -->
+</mat-vertical-stepper > 
 
 
 <!-- // New Bottle -->
-<!-- <mat-vertical-stepper #stepper>
+ <mat-vertical-stepper>
 
     <mat-step [stepControl]="firstFormGroup">
         <form>
@@ -210,4 +199,4 @@
             <button matButton matStepperNext >Save and Add Another</button>
         </div>
     </mat-step>
-</mat-vertical-stepper > -->
+</mat-vertical-stepper >

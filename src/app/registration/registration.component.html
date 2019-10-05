@@ -1,10 +1,7 @@
 <h3 id="title">Registration</h3>
-<h2>test</h2>
-<h1>vevqererev</h1>
 
 
-
-<!-- <mat-vertical-stepper >
+<mat-vertical-stepper >
 
         <mat-step>
             <form [(formGroup)]="registrationForm">
@@ -60,6 +57,16 @@
                         </form>
                     </mat-step>
 
+                    <mat-step>
+                        <form [formGroup]='registrationForm'>
+                            <ng-template matStepLabel><td id="ngtext">Position</td></ng-template>
+                            <mat-select formControlName="role_id" placeholder="position">
+                                    <mat-option value="1">manager</mat-option>
+                                    <mat-option value="2">bartender</mat-option>
+                            </mat-select>
+                        </form>
+                    </mat-step>
+
 
                     <mat-step>
                             <ng-template matStepLabel><td id="ngtext">Send</td></ng-template>
@@ -69,5 +76,5 @@
                                 <button matButton matStepperNext (click)='createUser()' >Submit</button>
                             </div>
                         </mat-step>
-</mat-vertical-stepper > -->
+</mat-vertical-stepper >
 
