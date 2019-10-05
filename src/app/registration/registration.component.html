@@ -58,6 +58,18 @@
                     </mat-step>
 
                     <mat-step>
+                            <form [formGroup]='registrationForm'>
+                                <ng-template matStepLabel><td id="ngtext">Establishment</td></ng-template>
+                                <mat-select formControlName="establishment" placeholder="establishment">
+                                        <mat-option value="1">Finnigan's Irish Pub</mat-option>
+                                        <mat-option value="2">Shenanigan's</mat-option>
+                                        <mat-option value="3">Other Bar</mat-option>
+                                        <mat-option value="99">Establishment Not Listed</mat-option>
+                                </mat-select>
+                            </form>
+                        </mat-step>
+
+                    <mat-step>
                         <form [formGroup]='registrationForm'>
                             <ng-template matStepLabel><td id="ngtext">Position</td></ng-template>
                             <mat-select formControlName="role_id" placeholder="position">

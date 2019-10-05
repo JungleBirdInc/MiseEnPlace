@@ -22,6 +22,7 @@ export class RegistrationComponent implements OnInit {
     last_name: ['last name'],
     password: ['password'],
     passwordCheck: ['confirm Password'],
+    establishment: [''],
     role_id: [''],
   });
 
@@ -31,12 +32,16 @@ export class RegistrationComponent implements OnInit {
   createUser() {
     const user = this.registrationForm.value;
     console.log(this.registrationForm.value);
+    if (this.registrationForm.value.establishment === '99') {
+      this.router.navigate(['organization']); // routes to organization creation
+    } else {
+        this.router.navigate(['']); // sends home
+    }
     // return this.register.createUser({
     //   user
     // });
     // .subscribe(reply => {
     //   console.log(reply);
-    //   this.router.navigate(['']); // sends home
     // });
   }
 }
