@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 // SERVICES
 import { NewdistributerService } from './services/newdistributer.service';
+import { RegisterService } from './services/register.service';
 
 // MATERIAL
 import { MatTableModule } from '@angular/material/table';

@@ -49,7 +49,7 @@ const routes: Routes = [
 { path: 'organization', component: OrganizationComponent},
 { path: 'inventory-wizard', component: InventoryWizardComponent},
 { path: 'editdist', component: EditdistComponent },
-  { path: 'requesttest', component: RequestTestComponent },
+{ path: 'requesttest', component: RequestTestComponent },
 ];
 
 @NgModule({
