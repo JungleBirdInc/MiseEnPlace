@@ -9,7 +9,8 @@ export class InvoicesComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
+  public items: string[] = ["Distributer", "Date", "Invoice Number",];
 
 }
