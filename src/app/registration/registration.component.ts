@@ -28,13 +28,13 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
-  createUser() {
-    const user = this.registrationForm;
-    return this.register.createUser({
-      user
-    }).subscribe(reply => {
-      console.log(reply);
-      this.router.navigate(['']); // sends home
-    });
-  }
+  // createUser() {
+  //   const user = this.registrationForm;
+  //   return this.register.createUser({
+  //     user
+  //   }).subscribe(reply => {
+  //     console.log(reply);
+  //     this.router.navigate(['']); // sends home
+  //   });
+  // }
 }

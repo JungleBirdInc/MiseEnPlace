@@ -8,13 +8,13 @@ import { environment } from '../../environments/environment'; // ... ?????
 })
 
 export class RegisterService {
-    private createUserEndpoint = `${environment.Base_API_URL}/api/createUser`;
+    // private createUserEndpoint = `${environment.Base_API_URL}/api/createUser`;
 
     constructor(
         private http: HttpClient
     ) { }
 
     createUser(userData) {
-        return this.http.post(this.createUserEndpoint, userData);
+        // return this.http.post(this.createUserEndpoint, userData);
     }
 }

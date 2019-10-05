@@ -14,4 +14,7 @@ export class OrdersComponent implements OnInit {
 
   public items: string[] = ["Distributer", "Date", "Invoice Number",];
 
+  onSubmit(){
+    console.log('submit');
+  }
 }

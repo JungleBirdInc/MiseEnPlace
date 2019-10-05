@@ -37,4 +37,8 @@ public openDropDown() {
   ngOnInit() {
   }
 
+  newDist(){
+    console.log('new dist');
+  }
+
 }
