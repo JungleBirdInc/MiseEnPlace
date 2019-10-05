@@ -31,9 +31,9 @@ export class RegistrationComponent implements OnInit {
   createUser() {
     const user = this.registrationForm.value;
     console.log(this.registrationForm.value);
-    return this.register.createUser({
-      user
-    });
+    // return this.register.createUser({
+    //   user
+    // });
     // .subscribe(reply => {
     //   console.log(reply);
     //   this.router.navigate(['']); // sends home

@@ -33,9 +33,10 @@ export class LogInComponent implements OnInit {
     const user = this.loginForm.value;
     return this.start.signIn({
       user
-    }).subscribe(reply =>{
-      this.router.navigate(['']);
-      console.log('yess');
     });
+    // .subscribe(reply =>{
+    //   this.router.navigate(['']);
+    //   console.log('yess');
+    // });
   }
 }
