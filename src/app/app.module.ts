@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+// SERVICES
+import { NewdistributerService } from './services/newdistributer.service';
+
 // MATERIAL
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
@@ -45,6 +48,7 @@ import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.co
 import { TopnavComponent } from './topnav/topnav.component';
 import { BottomnavComponent } from './bottomnav/bottomnav.component';
 import { EditdistComponent } from './editdist/editdist.component';
+import { RequestTestComponent } from './request-test/request-test.component';
 
 // IGNITE
 import { IgxNavbarModule } from 'igniteui-angular';
@@ -57,13 +61,13 @@ import {
   IgxIconModule,
   IgxToggleModule } from 'igniteui-angular';
 
-import { IgxButtonModule,
-         IgxDatePickerModule,
-         IgxTimePickerModule,
-         IgxComboModule,
-         IgxSelectModule,
-         } from 'igniteui-angular';
-
+import { 
+  IgxButtonModule,
+  IgxDatePickerModule,
+  IgxTimePickerModule,
+  IgxComboModule,
+  IgxSelectModule,
+  } from 'igniteui-angular';
 
 @NgModule({
   declarations: [
@@ -87,6 +91,7 @@ import { IgxButtonModule,
     OrganizationComponent,
     InventoryWizardComponent,
     EditdistComponent,
+    RequestTestComponent,
   ],
   imports: [
     BrowserModule,
