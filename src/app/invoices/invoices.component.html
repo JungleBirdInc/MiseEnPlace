@@ -1,1 +1,59 @@
-<p>invoices works!</p>
+<form class="input-group-form">
+    <!-- (submit)="onSubmit()" -->
+  <h4 class="title">Inovices</h4>
+  <div class="container">
+
+    <igx-select #select>
+      <label igxLabel>Search By</label>
+      <igx-select-item *ngFor="let item of items" [value]="item">
+        {{item}}
+      </igx-select-item>
+    </igx-select>
+
+    <button igxButton="raised" igxRipple>Apply</button>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" width='500'>
+
+      <!--- These columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+    
+      <!-- Product Name Column -->
+      <ng-container matColumnDef="productName">
+        <th mat-header-cell *matHeaderCellDef> Product Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+    
+      <!-- SubCategory Column -->
+      <ng-container matColumnDef="subCategory">
+            <th mat-header-cell *matHeaderCellDef> Category </th>
+            <td mat-cell *matCellDef="let element"> {{element.subCategory}} </td>
+            <td mat-footer-cell *matFooterCellDef></td>
+          </ng-container>
+    
+      <!-- Volume Column -->
+      <ng-container matColumnDef="volume">
+        <th mat-header-cell *matHeaderCellDef> volume </th>
+        <td mat-cell *matCellDef="let element"> {{element.volume}} </td>
+        <td mat-footer-cell *matFooterCellDef></td>
+      </ng-container>
+    
+      <!-- Quantity Column -->
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+        <td mat-footer-cell *matFooterCellDef> Total </td>
+      </ng-container>
+    
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price | currency}} </td>
+        <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+    </table>

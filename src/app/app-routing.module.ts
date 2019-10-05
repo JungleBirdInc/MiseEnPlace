@@ -28,6 +28,10 @@ import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
+// TEMP
+// NEW DISTRIBUTER
+import { EditdistComponent } from './editdist/editdist.component';
+
 const routes: Routes = [
 { path: '', component: HomeComponent },
 { path: 'invoices', component: InvoicesComponent },
@@ -44,6 +48,7 @@ const routes: Routes = [
 { path: 'registration', component: RegistrationComponent},
 { path: 'organization', component: OrganizationComponent},
 { path: 'inventory-wizard', component: InventoryWizardComponent},
+{ path: 'editdist', component: EditdistComponent },
 ];
 
 @NgModule({

@@ -2,8 +2,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // MATERIAL
+import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -41,9 +43,10 @@ import { RegistrationComponent } from './registration/registration.component';
 import { OrganizationComponent } from './organization/organization.component';
 import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.component';
 import { TopnavComponent } from './topnav/topnav.component';
-import { BottomnavComponent } from './bottomnav/bottomnav.component'; 
+import { BottomnavComponent } from './bottomnav/bottomnav.component';
+import { EditdistComponent } from './editdist/editdist.component';
 
-//IGNITE
+// IGNITE
 import { IgxNavbarModule } from 'igniteui-angular';
 import { IgxBottomNavModule } from 'igniteui-angular';
 import {
@@ -53,6 +56,14 @@ import {
   IgxRippleModule,
   IgxIconModule,
   IgxToggleModule } from 'igniteui-angular';
+
+import { IgxButtonModule,
+         IgxDatePickerModule,
+         IgxTimePickerModule,
+         IgxComboModule,
+         IgxSelectModule,
+         } from 'igniteui-angular';
+
 
 @NgModule({
   declarations: [
@@ -75,6 +86,7 @@ import {
     BottomnavComponent,
     OrganizationComponent,
     InventoryWizardComponent,
+    EditdistComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,6 +116,13 @@ import {
     ReactiveFormsModule,
     IgxToggleModule,
     FormsModule,
+    IgxButtonModule,
+    IgxDatePickerModule,
+    IgxTimePickerModule,
+    IgxComboModule,
+    IgxSelectModule,
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

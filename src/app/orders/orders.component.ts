@@ -12,4 +12,6 @@ export class OrdersComponent implements OnInit {
   ngOnInit() {
   }
 
+  public items: string[] = ["Distributer", "Date", "Invoice Number",];
+
 }
