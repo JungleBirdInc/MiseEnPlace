@@ -2,9 +2,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
-// import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // MATERIAL
+import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -60,7 +61,8 @@ import { IgxButtonModule,
          IgxDatePickerModule,
          IgxTimePickerModule,
          IgxComboModule,
-         IgxSelectModule } from 'igniteui-angular';
+         IgxSelectModule,
+         } from 'igniteui-angular';
 
 
 @NgModule({
@@ -119,7 +121,8 @@ import { IgxButtonModule,
     IgxTimePickerModule,
     IgxComboModule,
     IgxSelectModule,
-    // HttpClient
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

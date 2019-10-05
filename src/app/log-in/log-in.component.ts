@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
+import { LoginService } from '../services/login.service';
 
 
 
@@ -13,28 +14,29 @@ export class LogInComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private login: FormBuilder
+    private login: FormBuilder,
+    private start: LoginService,
   ) { }
 
   loginForm = this.login.group({
-    email: ['TAYLOR@GMAIL'], // formcontrolnames
-    password: ['npo'],
+    email: ['email'], // formcontrolnames
+    password: ['password'],
 
   });
 
   ngOnInit() {
   }
 
-  submit1() {
-    console.log(this.loginForm.value.email);
-  }
-  submit2() {
-    console.log(this.loginForm.value.password);
-  }
+
 
   checkAuth() {
-    this.router.navigate(['']);
-    console.log('yess');
-
+    const user = this.loginForm.value;
+    return this.start.signIn({
+      user
+    });
+    // .subscribe(reply =>{
+    //   this.router.navigate(['']);
+    //   console.log('yess');
+    // });
   }
 }
