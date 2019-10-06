@@ -13,7 +13,6 @@ import { OrganizationComponent } from './organization/organization.component';
 
 // INVENTORY WIZARD
 import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.component';
-import { NewrepComponent } from './newrep/newrep.component';
 
 // PERSISTANT NAV
 import { HomeComponent } from './home/home.component';
@@ -30,9 +29,12 @@ import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
-// NEW DISTRIBUTER
-import { EditdistComponent } from './editdist/editdist.component';
+// DISTRIBUTER
 import { NewdistComponent } from './newdist/newdist.component';
+import { NewprodComponent } from './newprod/newprod.component';
+import { NewrepComponent } from './newrep/newrep.component';
+import { EditdistComponent } from './editdist/editdist.component';
+
 
 const routes: Routes = [
 { path: '', component: HomeComponent },
@@ -53,7 +55,8 @@ const routes: Routes = [
 { path: 'editdist', component: EditdistComponent },
 { path: 'requesttest', component: RequestTestComponent },
 { path: 'newrep', component: NewrepComponent },
-{ path: 'newdist', component: NewdistComponent }
+{ path: 'newdist', component: NewdistComponent },
+{ path: 'newprod', component: NewprodComponent }
 
 ];
 

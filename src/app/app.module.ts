@@ -53,19 +53,18 @@ import { EditdistComponent } from './editdist/editdist.component';
 import { RequestTestComponent } from './request-test/request-test.component';
 import { NewrepComponent } from './newrep/newrep.component';
 import { NewdistComponent } from './newdist/newdist.component';
+import { NewprodComponent } from './newprod/newprod.component';
 
 // IGNITE
-import { IgxNavbarModule } from 'igniteui-angular';
-import { IgxBottomNavModule } from 'igniteui-angular';
 import {
+  IgxNavbarModule,
+  IgxBottomNavModule,
   IgxDividerModule,
   IgxDropDownModule,
   IgxInputGroupModule,
   IgxRippleModule,
   IgxIconModule,
-  IgxToggleModule } from 'igniteui-angular';
-
-import { 
+  IgxToggleModule,
   IgxButtonModule,
   IgxDatePickerModule,
   IgxTimePickerModule,
@@ -98,6 +97,7 @@ import {
     RequestTestComponent,
     NewrepComponent,
     NewdistComponent,
+    NewprodComponent,
   ],
   imports: [
     BrowserModule,

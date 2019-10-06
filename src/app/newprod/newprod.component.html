@@ -1,0 +1,132 @@
+<h3 id="title">New Product</h3>
+
+<mat-vertical-stepper>
+  <mat-step>
+    <form [(formGroup)]="prodForm">
+      <ng-template matStepLabel>
+        <td id="ngtext">Product Name</td>
+      </ng-template>
+      <input matInput placeholder="Product Name" formControlName='product_name' required>
+      <div>
+        <button matButton matStepperPrevious>Back</button>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <form [(formGroup)]="prodForm">
+      <ng-template matStepLabel>
+        <td id="ngtext">UPC</td>
+      </ng-template>
+      <input matInput placeholder="UPC" formControlName='upc' required>
+      <div>
+        <button matButton matStepperPrevious>Back</button>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+    <mat-step>
+      <form [(formGroup)]="prodForm">
+        <ng-template matStepLabel>
+          <td id="ngtext">Category (id)</td>
+        </ng-template>
+        <input matInput placeholder="Category" formControlName='category_id' required>
+        <div>
+          <button matButton matStepperPrevious>Back</button>
+          <button matButton matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <form [(formGroup)]="prodForm">
+        <ng-template matStepLabel>
+          <td id="ngtext">Sub Category (id)</td>
+        </ng-template>
+        <input matInput placeholder="Sub Category" formControlName='sub_category_id' required>
+        <div>
+          <button matButton matStepperPrevious>Back</button>
+          <button matButton matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <form [(formGroup)]="prodForm">
+        <ng-template matStepLabel>
+          <td id="ngtext">Size</td>
+        </ng-template>
+        <input matInput placeholder="Size" formControlName='size' required>
+        <div>
+          <button matButton matStepperPrevious>Back</button>
+          <button matButton matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+        <mat-step>
+          <form [(formGroup)]="prodForm">
+            <ng-template matStepLabel>
+              <td id="ngtext">Tare</td>
+            </ng-template>
+            <input matInput placeholder="Tare" formControlName='tare' required>
+            <div>
+              <button matButton matStepperPrevious>Back</button>
+              <button matButton matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+                <mat-step>
+                  <form [(formGroup)]="prodForm">
+                    <ng-template matStepLabel>
+                      <td id="ngtext">Price</td>
+                    </ng-template>
+                    <input matInput placeholder="Price" formControlName='price' required>
+                    <div>
+                      <button matButton matStepperPrevious>Back</button>
+                      <button matButton matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+
+                <mat-step>
+                  <form [(formGroup)]="prodForm">
+                    <ng-template matStepLabel>
+                      <td id="ngtext">Notes</td>
+                    </ng-template>
+                    <input matInput placeholder="Notes" formControlName='notes' required>
+                    <div>
+                      <button matButton matStepperPrevious>Back</button>
+                      <button matButton matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+
+                                <mat-step>
+                                  <form [(formGroup)]="prodForm">
+                                    <ng-template matStepLabel>
+                                      <td id="ngtext">Dist. (id)</td>
+                                    </ng-template>
+                                    <input matInput placeholder="Dist Id" formControlName='dist_id' required>
+                                    <div>
+                                      <button matButton matStepperPrevious>Back</button>
+                                      <button matButton matStepperNext>Next</button>
+                                    </div>
+                                  </form>
+                                </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>
+      <td id="ngtext">Send</td>
+    </ng-template>
+    Finished?
+
+    <div>
+      <button matButton matStepperPrevious>Back</button>
+      <button matButton matStepperNext (click)="onSubmit()">Submit</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
