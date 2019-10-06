@@ -52,6 +52,7 @@ import { BottomnavComponent } from './bottomnav/bottomnav.component';
 import { EditdistComponent } from './editdist/editdist.component';
 import { RequestTestComponent } from './request-test/request-test.component';
 import { NewrepComponent } from './newrep/newrep.component';
+import { NewdistComponent } from './newdist/newdist.component';
 
 // IGNITE
 import { IgxNavbarModule } from 'igniteui-angular';
@@ -71,7 +72,6 @@ import {
   IgxComboModule,
   IgxSelectModule,
   } from 'igniteui-angular';
-
 
 @NgModule({
   declarations: [
@@ -97,6 +97,7 @@ import {
     EditdistComponent,
     RequestTestComponent,
     NewrepComponent,
+    NewdistComponent,
   ],
   imports: [
     BrowserModule,
