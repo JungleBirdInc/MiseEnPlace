@@ -13,6 +13,7 @@ import { OrganizationComponent } from './organization/organization.component';
 
 // INVENTORY WIZARD
 import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.component';
+import { NewrepComponent } from './newrep/newrep.component';
 
 // PERSISTANT NAV
 import { HomeComponent } from './home/home.component';
@@ -50,6 +51,7 @@ const routes: Routes = [
 { path: 'inventory-wizard', component: InventoryWizardComponent},
 { path: 'editdist', component: EditdistComponent },
 { path: 'requesttest', component: RequestTestComponent },
+{ path: 'newrep', component: NewrepComponent }
 ];
 
 @NgModule({

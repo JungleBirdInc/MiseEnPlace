@@ -51,6 +51,7 @@ import { TopnavComponent } from './topnav/topnav.component';
 import { BottomnavComponent } from './bottomnav/bottomnav.component';
 import { EditdistComponent } from './editdist/editdist.component';
 import { RequestTestComponent } from './request-test/request-test.component';
+import { NewrepComponent } from './newrep/newrep.component';
 
 // IGNITE
 import { IgxNavbarModule } from 'igniteui-angular';
@@ -70,6 +71,7 @@ import {
   IgxComboModule,
   IgxSelectModule,
   } from 'igniteui-angular';
+
 
 @NgModule({
   declarations: [
@@ -94,6 +96,7 @@ import {
     InventoryWizardComponent,
     EditdistComponent,
     RequestTestComponent,
+    NewrepComponent,
   ],
   imports: [
     BrowserModule,
