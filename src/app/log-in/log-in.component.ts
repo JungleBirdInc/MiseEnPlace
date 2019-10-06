@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
-import { LoginService } from '../services/login.service';
-
-
+// import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-log-in',
@@ -15,7 +13,7 @@ export class LogInComponent implements OnInit {
   constructor(
     private router: Router,
     private login: FormBuilder,
-    private start: LoginService,
+    // private start: LoginService,
   ) { }
 
   loginForm = this.login.group({
@@ -29,14 +27,14 @@ export class LogInComponent implements OnInit {
 
 
 
-  checkAuth() {
-    const user = this.loginForm.value;
-    return this.start.signIn({
-      user
-    });
-    // .subscribe(reply =>{
-    //   this.router.navigate(['']);
-    //   console.log('yess');
-    // });
-  }
+  // checkAuth() {
+  //   const user = this.loginForm.value;
+  //   return this.start.signIn({
+  //     user
+  //   });
+  //   // .subscribe(reply =>{
+  //   //   this.router.navigate(['']);
+  //   //   console.log('yess');
+  //   // });
+  // }
 }

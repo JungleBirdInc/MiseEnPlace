@@ -32,6 +32,7 @@ import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
 // NEW DISTRIBUTER
 import { EditdistComponent } from './editdist/editdist.component';
+import { NewdistComponent } from './newdist/newdist.component';
 
 const routes: Routes = [
 { path: '', component: HomeComponent },
@@ -51,7 +52,9 @@ const routes: Routes = [
 { path: 'inventory-wizard', component: InventoryWizardComponent},
 { path: 'editdist', component: EditdistComponent },
 { path: 'requesttest', component: RequestTestComponent },
-{ path: 'newrep', component: NewrepComponent }
+{ path: 'newrep', component: NewrepComponent },
+{ path: 'newdist', component: NewdistComponent }
+
 ];
 
 @NgModule({
