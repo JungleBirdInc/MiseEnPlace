@@ -18,8 +18,7 @@
     
         <span>Selected: {{ dropDown.selectedItem?.value }}</span>
         <igx-drop-down #dropDown [width]="'160px'">
-            <igx-drop-down-item *ngFor="let i
-            tem of items" [value]="item.field">
+            <igx-drop-down-item *ngFor="let item of items" [value]="item.field">
                 {{ item.field }}
             </igx-drop-down-item>
         </igx-drop-down>

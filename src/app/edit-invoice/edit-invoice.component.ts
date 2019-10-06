@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface PeriodicElement {
+export interface Inventory {
   productName: string;
   subCategory: string;
   volume: string;
   quantity: number;
   price: number;
 }
-const INVOICE_DATA: PeriodicElement [] = [
+const INVOICE_DATA: Inventory [] = [
   {productName: 'Jack Daniels', subCategory: 'Bourbon', volume: '750mL', quantity: 4, price: 57.23},
   {productName: 'Bulleit', subCategory: 'Bourbon', volume: '1L', quantity: 4, price: 52.74},
   {productName: 'Eagle Rare', subCategory: 'Bourbon', volume: '750mL', quantity: 2, price: 36.14},
