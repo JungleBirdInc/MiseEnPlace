@@ -1,13 +1,13 @@
 
 <h2>Initialize</h2>
-<button >New Distributor</button>
+<button (click)='toggleShow()'>New Distributor</button>
 <hr id='test'/>
  
 <div class="wrapper">
         <igx-input-group #inputGroup [igxToggleAction]="dropDown" class="input-group">
-            <input #input class="input"  type="text" igxInput [igxDropDownItemNavigation]="dropDown"
+            <input #input class="input" type="text" igxInput [igxDropDownItemNavigation]="dropDown"
                 readonly= "true"
-                placeholder="choose an option"
+                placeholder="distributor"
                 [value]="dropDown.selectedItem?.value"
                 (keydown.ArrowDown)="openDropDown()"/>
     
@@ -18,20 +18,19 @@
     
         <span>Selected: {{ dropDown.selectedItem?.value }}</span>
         <igx-drop-down #dropDown [width]="'160px'">
-            <igx-drop-down-item *ngFor="let item of items" [value]="item.field">
+            <igx-drop-down-item *ngFor="let i
+            tem of items" [value]="item.field">
                 {{ item.field }}
             </igx-drop-down-item>
         </igx-drop-down>
-    </div> -->
-
-
+    </div>
 
 
 
 
 
 <!-- // New Dist -->
- <mat-vertical-stepper >
+ <mat-vertical-stepper class="toggle-panel" *ngIf='show'>
 
     <mat-step>
         <form [(formGroup)]="newDistForm">
@@ -96,11 +95,12 @@
         </div>
     </mat-step>
 </mat-vertical-stepper > 
-
+<br />
+<br />
 
 <!-- // New Bottle -->
- <mat-vertical-stepper>
 
+<mat-vertical-stepper>
     <mat-step >
         <form [(formGroup)]="inventoryWizardForm">
             <ng-template matStepLabel><td id="ngtext">Brand</td></ng-template>
@@ -181,8 +181,12 @@
         <ng-template matStepLabel><td id="ngtext">Save To Inventory</td></ng-template>
         Bottle Saved, Would you like to add Another?
         <div>
-            <button matButton matStepperPrevious>Save</button>
+            <button matButton matStepperPrevious>Back</button>
+            <button matButton matStepperNext (click)="saveInput()">Save</button>
             <button matButton matStepperNext >Save and Add Another</button>
         </div>
     </mat-step>
 </mat-vertical-stepper >
+<br />
+<br />
+<div></div>

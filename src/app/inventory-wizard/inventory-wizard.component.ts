@@ -20,13 +20,15 @@ export class InventoryWizardComponent implements OnInit {
     private setup: FormBuilder,
   ) { }
 
+    show = false;
+
   @ViewChild(IgxDropDownComponent, { static: true }) public igxDropDown: IgxDropDownComponent;
   @ViewChild('inputGroup', { read: IgxInputGroupComponent, static: true }) public inputGroup: IgxInputGroupComponent;
 
   public items: Array<{ field: string }> = [
-    { field: 'Option 1' },
-    { field: 'Option 2' },
-    { field: 'Option 3' }
+    { field: 'Republic' },
+    { field: 'Glazier\'s' },
+    { field: 'Southern Eagle' }
 ];
 
 newDistForm = this.dist.group({
@@ -45,6 +47,7 @@ category: [''],
 subCategory: [''],
 par: [''],
 quantity: [''],
+distributor: ['choose Distributor'],
 });
 
 public openDropDown() {
@@ -58,8 +61,15 @@ public openDropDown() {
   }
 }
 
+  toggleShow() {
+    this.show = !this.show;
+  }
 
   ngOnInit() {
+  }
+
+  saveInput() {
+    console.log(this.inventoryWizardForm.value);
   }
 
 }
