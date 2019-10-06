@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
+import { OrganizationService } from '../services/organization.service';
 
 @Component({
   selector: 'app-organization',
@@ -10,20 +11,45 @@ import { FormBuilder } from '@angular/forms';
 export class OrganizationComponent implements OnInit {
 
   constructor(
+    private _organization: OrganizationService,
     private org: FormBuilder,
   ) { }
 
   orgForm = this.org.group({
-    estabName: [''],
-    street: [''],
+    org_name: [''],
+    address: [''],
     city: [''],
     state: [''],
     zip: [''],
-    estabEmail: [''],
-    number: [''],
+    email: [''],
+    phone: [''],
   });
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    const organization = this.orgForm.value;
+    console.log(this.orgForm.value);
+    if (this.orgForm.value.establishment === '99') {
+      // this.router.navigate(['organization']); 
+    } else {
+      // this.router.navigate(['']);
+    }
+
+    this._organization.regOrg(organization)
+      .subscribe(data => {
+        console.log(data);
+      });
+  }
+
 }
+
+/*
+ * Organizations Table
+ * org_name: the organizations name. Required.
+ * master_inventory: the id of the master inventory for an organization
+ * address: the street address
+ * state: 2 character abbreviation only
+ * zip: 5 digit american postal code
+ */
