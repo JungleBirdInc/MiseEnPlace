@@ -31,6 +31,9 @@ const ORDER_DATA: OrderElement [] = [
 })
 
 export class SuggestOrderComponent implements OnInit {
+
+  constructor(public snackBar: MatSnackBar) {}
+
   displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
   dataSource = ORDER_DATA; // new MatTableDataSource<OrderElement>();
   tableMouseDown: MouseEvent;
@@ -44,6 +47,7 @@ export class SuggestOrderComponent implements OnInit {
   /**
    * NOTE: nbRows    of selectedCellsState must = nbRows of the tabl
    * nbColumns of selectedCellsState must = nbColumns of all selectable cells in the table
+   * need to make this exponentially grow for each row
    */
   selectedCellsState: boolean[][] = [
     [false, false, false, false, false],
@@ -55,8 +59,6 @@ export class SuggestOrderComponent implements OnInit {
     [false, false, false, false, false],
     [false, false, false, false, false],
   ];
-
-  constructor(public snackBar: MatSnackBar) {}
 
   /**
    * Update table's dataSource
@@ -227,5 +229,10 @@ export class SuggestOrderComponent implements OnInit {
 
 
 ngOnInit() {}
+
+/** Gets the total cost of all transactions. */
+getTotalCost() {
+  return this.dataSource.map(t => t.price).reduce((acc, value) => acc + value, 0);
+}
 
 }

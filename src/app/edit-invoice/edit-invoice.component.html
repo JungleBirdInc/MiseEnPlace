@@ -30,14 +30,16 @@
   <!-- Quantity Column -->
   <ng-container matColumnDef="quantity">
     <th mat-header-cell *matHeaderCellDef> quantity </th>
-    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+    <td mat-cell (mousedown)="onMouseDown(i, 3, 'quantity')" (mouseup)="onMouseUp(i, 3, 'quantity')" *matCellDef="let element; let i = index"
+    [ngClass]="{'selected': selectedCellsState[i][3], 'unselected': !selectedCellsState[i]}"> {{element.quantity}} </td>
     <td mat-footer-cell *matFooterCellDef> Total </td>
   </ng-container>
 
   <!-- Price Column -->
   <ng-container matColumnDef="price">
     <th mat-header-cell *matHeaderCellDef> price </th>
-    <td mat-cell *matCellDef="let element"> {{element.price | currency}} </td>
+    <td mat-cell (mousedown)="onMouseDown(i, 4, 'price')" (mouseup)="onMouseUp(i, 4, 'price')" *matCellDef="let element; let i = index"
+    [ngClass]="{'selected': selectedCellsState[i][4], 'unselected': !selectedCellsState[i]}"> {{element.price | currency}} </td>
     <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
   </ng-container>
 
