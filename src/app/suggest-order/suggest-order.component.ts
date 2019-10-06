@@ -7,24 +7,21 @@ export interface MouseEvent {
   cellsType: string;
 }
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+export interface OrderElement {
+  productName: string;
+  subCategory: string;
+  volume: string;
+  quantity: number;
+  price: number;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1 , name: 'Hydrogen' , weight: 1.0079 , symbol: 'H' },
-  {position: 2 , name: 'Helium'   , weight: 4.0026 , symbol: 'He'},
-  {position: 3 , name: 'Lithium'  , weight: 6.941  , symbol: 'Li'},
-  {position: 4 , name: 'Beryllium', weight: 9.0122 , symbol: 'Be'},
-  {position: 5 , name: 'Boron'    , weight: 10.811 , symbol: 'B' },
-  {position: 6 , name: 'Carbon'   , weight: 12.0107, symbol: 'C' },
-  {position: 7 , name: 'Nitrogen' , weight: 14.0067, symbol: 'N' },
-  {position: 8 , name: 'Oxygen'   , weight: 15.9994, symbol: 'O' },
-  {position: 9 , name: 'Fluorine' , weight: 18.9984, symbol: 'F' },
-  {position: 10, name: 'Neon'     , weight: 20.1797, symbol: 'Ne'},
+const ORDER_DATA: OrderElement [] = [
+  {productName: 'Jack Daniels', subCategory: 'Bourbon', volume: '750mL', quantity: 4, price: 57.23},
+  {productName: 'Bulleit', subCategory: 'Bourbon', volume: '1L', quantity: 4, price: 52.74},
+  {productName: 'Eagle Rare', subCategory: 'Bourbon', volume: '750mL', quantity: 2, price: 36.14},
+  {productName: 'Jim Beam', subCategory: 'Bourbon', volume: '1L', quantity: 3, price: 33.77},
+  {productName: 'Old Forester', subCategory: 'Bourbon', volume: '750mL', quantity: 5, price: 48.29},
+  {productName: 'Blantons\'s', subCategory: 'Bourbon', volume: '750mL', quantity: 2, price: 47.10},
 ];
 
 @Component({
@@ -34,12 +31,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 
 export class SuggestOrderComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA; // new MatTableDataSource<PeriodicElement>();
+  displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
+  dataSource = ORDER_DATA; // new MatTableDataSource<PeriodicElement>();
   tableMouseDown: MouseEvent;
   tableMouseUp: MouseEvent;
   FIRST_EDITABLE_ROW = 0;
-  LAST_EDITABLE_ROW: number = ELEMENT_DATA.length - 1; // = 9
+  LAST_EDITABLE_ROW: number = ORDER_DATA.length - 1; // = 9
   FIRST_EDITABLE_COL = 1;                       // first column pos is not editable --> so start from index 1
   LAST_EDITABLE_COL: number = this.displayedColumns.length - 1; // = 3
   newCellValue = '';
@@ -49,16 +46,14 @@ export class SuggestOrderComponent implements OnInit {
    * nbColumns of selectedCellsState must = nbColumns of all selectable cells in the table
    */
   selectedCellsState: boolean[][] = [
-    [false, false, false],
-    [false, false, false],
-    [false, false, false],
-    [false, false, false],
-    [false, false, false],
-    [false, false, false],
-    [false, false, false],
-    [false, false, false],
-    [false, false, false],
-    [false, false, false]
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
   ];
 
   constructor(public snackBar: MatSnackBar) {}
@@ -74,7 +69,7 @@ export class SuggestOrderComponent implements OnInit {
     if (this.tableMouseDown && this.tableMouseUp) {
       if (this.tableMouseDown.cellsType === this.tableMouseUp.cellsType) {
 
-        const dataCopy: PeriodicElement[] = this.dataSource.slice(); // copy and mutate
+        const dataCopy: OrderElement[] = this.dataSource.slice(); // copy and mutate
         let startCol: number;
         let endCol: number;
         let startRow: number;
