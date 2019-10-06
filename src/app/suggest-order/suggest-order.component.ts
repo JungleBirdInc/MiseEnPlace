@@ -32,7 +32,7 @@ const ORDER_DATA: OrderElement [] = [
 
 export class SuggestOrderComponent implements OnInit {
   displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
-  dataSource = ORDER_DATA; // new MatTableDataSource<PeriodicElement>();
+  dataSource = ORDER_DATA; // new MatTableDataSource<OrderElement>();
   tableMouseDown: MouseEvent;
   tableMouseUp: MouseEvent;
   FIRST_EDITABLE_ROW = 0;
