@@ -52,6 +52,7 @@ import { NewrepComponent } from './newrep/newrep.component';
 import { NewdistComponent } from './newdist/newdist.component';
 import { NewprodComponent } from './newprod/newprod.component';
 import { ReviewOrderComponent } from './review-order/review-order.component';
+import { BurnListComponent } from './burn-list/burn-list.component';
 
 // IGNITE
 import {
@@ -98,6 +99,7 @@ import {
     NewdistComponent,
     NewprodComponent,
     ReviewOrderComponent,
+    BurnListComponent,
   ],
   imports: [
     BrowserModule,

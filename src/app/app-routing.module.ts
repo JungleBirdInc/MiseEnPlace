@@ -37,6 +37,7 @@ import { NewdistComponent } from './newdist/newdist.component';
 import { NewprodComponent } from './newprod/newprod.component';
 import { NewrepComponent } from './newrep/newrep.component';
 import { EditdistComponent } from './editdist/editdist.component';
+import { BurnListComponent } from './burn-list/burn-list.component';
 
 const routes: Routes = [
 { path: '', component: HomeComponent },
@@ -60,6 +61,7 @@ const routes: Routes = [
 { path: 'newdist', component: NewdistComponent },
 { path: 'newprod', component: NewprodComponent },
 { path: 'review-orders', component: ReviewOrderComponent},
+{ path: 'burn', component: BurnListComponent},
 ];
 
 @NgModule({
