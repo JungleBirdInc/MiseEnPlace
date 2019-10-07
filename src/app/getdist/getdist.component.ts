@@ -12,15 +12,15 @@ export class GetdistComponent implements OnInit {
 
   ngOnInit() {
     /* CODE FOR REQUEST*/
-    this._getdist.getDistributers()
+    this._getdist.getDistributors()
     .subscribe(data => {
-    this.rawdata = data;
+    this.distributors = data;
     });
   }
   
-  public rawdata;
+  public distributors;
 
   onSubmit(){
-    console.log(this.rawdata, 'RAW DATA');
+    console.log(this.distributors, 'DISTRIBUTORS');
   }
 }
