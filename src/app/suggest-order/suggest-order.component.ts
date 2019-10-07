@@ -1,5 +1,6 @@
 import { Component, OnInit,  HostListener } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 export interface MouseEvent {
   rowId: number;
@@ -32,7 +33,10 @@ const ORDER_DATA: OrderElement [] = [
 
 export class SuggestOrderComponent implements OnInit {
 
-  constructor(public snackBar: MatSnackBar) {}
+  constructor(
+    public snackBar: MatSnackBar,
+    private router: Router
+    ) {}
 
   show = false;
 
@@ -239,6 +243,10 @@ getTotalCost() {
 
 toggleShow() {
   this.show = !this.show;
+}
+
+confirmOrders() {
+  this.router.navigate(['review-orders']);
 }
 
 }

@@ -50,3 +50,5 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
         </table>
+
+        <button (click)='confirmOrders()'>Review Orders</button>

@@ -56,6 +56,7 @@ import { RequestTestComponent } from './request-test/request-test.component';
 import { NewrepComponent } from './newrep/newrep.component';
 import { NewdistComponent } from './newdist/newdist.component';
 import { NewprodComponent } from './newprod/newprod.component';
+import { ReviewOrderComponent } from './review-order/review-order.component';
 
 // IGNITE
 import {
@@ -74,7 +75,6 @@ import {
   IgxSelectModule,
   IgxCardModule,
   } from 'igniteui-angular';
-import { ReviewOrderComponent } from './review-order/review-order.component';
 
 @NgModule({
   declarations: [
