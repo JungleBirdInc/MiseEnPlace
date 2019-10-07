@@ -1,0 +1,33 @@
+<button (click)='onSubmit()'>view distributors console</button>
+
+<ul>
+  <li *ngFor="let dist of distributors">
+    name: {{dist.distributor.name}}
+  </li>
+</ul>
+
+<!-- 
+  dist.
+
+createdAt: "2019-10-05"
+distributor:
+  address: "4545 Cheesteak Avenue"
+  city: "Philadelphia"
+  createdAt: "2019-10-03"
+  distributorOrganizationId: 1
+  email: "contact@gonkersgoodgoods.com"
+  name: "Gonkers Good Goods"
+  organizationId: 1
+  phone: "5555555555"
+  reps: Array(1)
+    0: {distributorOrganizationId: 1, first_name: "Bob", last_name: "Newhart", email: "bob@gonkersgoodgoods.com", phone:
+        "5049084271", …}
+  state: "PA"
+  updatedAt: "2019-10-03"
+  zip: 19111
+
+distributorOrganizationId: 1
+id: 5
+organizationId: 1
+updatedAt: "2019-10-05"
+ -->

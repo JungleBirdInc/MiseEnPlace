@@ -4,11 +4,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-// SERVICES
-import { NewdistributerService } from './services/newdistributer.service';
-import { RegisterService } from './services/register.service';
-import { OrganizationService } from './services/organization.service';
-
 // MATERIAL
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
@@ -52,7 +47,7 @@ import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.co
 import { TopnavComponent } from './topnav/topnav.component';
 import { BottomnavComponent } from './bottomnav/bottomnav.component';
 import { EditdistComponent } from './editdist/editdist.component';
-import { RequestTestComponent } from './request-test/request-test.component';
+import { GetdistComponent } from './getdist/getdist.component';
 import { NewrepComponent } from './newrep/newrep.component';
 import { NewdistComponent } from './newdist/newdist.component';
 import { NewprodComponent } from './newprod/newprod.component';
@@ -96,7 +91,7 @@ import {
     OrganizationComponent,
     InventoryWizardComponent,
     EditdistComponent,
-    RequestTestComponent,
+    GetdistComponent,
     NewrepComponent,
     NewdistComponent,
     NewprodComponent,
