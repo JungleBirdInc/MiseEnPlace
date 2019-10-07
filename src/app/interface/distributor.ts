@@ -4,7 +4,7 @@
   //   * state: 2 letter state abbreviation
   //   * zip: 5 digit American postal code
 
-export interface IDistributer{
+export interface IDistributor{
   id: number,
   name: string,
   address: string,

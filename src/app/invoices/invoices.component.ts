@@ -28,7 +28,7 @@ export class InvoicesComponent implements OnInit {
   displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
   dataSource = INVOICE_DATA;
 
-  public items: string[] = ['Distributer', 'Date', 'Invoice Number',];
+  public items: string[] = ['Distributor', 'Date', 'Invoice Number',];
 
   ngOnInit() {}
 
