@@ -72,6 +72,7 @@ import {
   IgxTimePickerModule,
   IgxComboModule,
   IgxSelectModule,
+  IgxCardModule,
   } from 'igniteui-angular';
 
 @NgModule({
@@ -137,6 +138,7 @@ import {
     HttpClientModule,
     MatTableModule,
     MatSnackBarModule,
+    IgxCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

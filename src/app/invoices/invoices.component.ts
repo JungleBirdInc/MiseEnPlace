@@ -25,6 +25,8 @@ export class InvoicesComponent implements OnInit {
 
   constructor() { }
 
+  show = false;
+
   displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
   dataSource = INVOICE_DATA;
 
@@ -34,5 +36,9 @@ export class InvoicesComponent implements OnInit {
 
   getTotalCost() {
     return this.dataSource.map(t => t.price).reduce((acc, value) => acc + value, 0);
+  }
+
+  toggleShow() {
+    this.show = !this.show;
   }
 }
