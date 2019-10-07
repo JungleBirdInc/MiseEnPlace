@@ -6,15 +6,11 @@ import { Observable } from 'rxjs/Observable';
 @Injectable({
   providedIn: 'root'
 })
-export class NewdistributerService {
+export class GetdistService {
 
   constructor(private http: HttpClient) { }
 
   private _url: string = `/api/getAllDists/1`;
-
-  // postDistributers(){
-  //   return this.http.post(this._url);
-  // }
 
   getDistributers(): Observable<IDistributer[]>{
     return this.http.get<IDistributer[]>(this._url);

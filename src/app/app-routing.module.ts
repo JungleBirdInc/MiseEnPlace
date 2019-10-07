@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RequestTestComponent } from './request-test/request-test.component';
+import { GetdistComponent } from './getdist/getdist.component';
 
 // LOGIN
 import { LogInComponent } from './log-in/log-in.component';
@@ -35,7 +35,6 @@ import { NewprodComponent } from './newprod/newprod.component';
 import { NewrepComponent } from './newrep/newrep.component';
 import { EditdistComponent } from './editdist/editdist.component';
 
-
 const routes: Routes = [
 { path: '', component: HomeComponent },
 { path: 'invoices', component: InvoicesComponent },
@@ -53,7 +52,7 @@ const routes: Routes = [
 { path: 'organization', component: OrganizationComponent},
 { path: 'inventory-wizard', component: InventoryWizardComponent},
 { path: 'editdist', component: EditdistComponent },
-{ path: 'requesttest', component: RequestTestComponent },
+{ path: 'getdist', component: GetdistComponent },
 { path: 'newrep', component: NewrepComponent },
 { path: 'newdist', component: NewdistComponent },
 { path: 'newprod', component: NewprodComponent }
