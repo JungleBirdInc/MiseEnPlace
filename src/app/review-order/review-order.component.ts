@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+// implement check boxes to select which orders to sebd, need icons
 @Component({
   selector: 'app-review-order',
   templateUrl: './review-order.component.html',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewOrderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
+  sendOrders() {
+    this.router.navigate(['orders']);
+  }
 }
