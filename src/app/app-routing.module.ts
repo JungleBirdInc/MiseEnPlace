@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RequestTestComponent } from './request-test/request-test.component';
 
 // LOGIN
 import { LogInComponent } from './log-in/log-in.component';
@@ -28,9 +29,12 @@ import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
 import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
-// TEMP
-// NEW DISTRIBUTER
+// DISTRIBUTER
+import { NewdistComponent } from './newdist/newdist.component';
+import { NewprodComponent } from './newprod/newprod.component';
+import { NewrepComponent } from './newrep/newrep.component';
 import { EditdistComponent } from './editdist/editdist.component';
+
 
 const routes: Routes = [
 { path: '', component: HomeComponent },
@@ -49,6 +53,11 @@ const routes: Routes = [
 { path: 'organization', component: OrganizationComponent},
 { path: 'inventory-wizard', component: InventoryWizardComponent},
 { path: 'editdist', component: EditdistComponent },
+{ path: 'requesttest', component: RequestTestComponent },
+{ path: 'newrep', component: NewrepComponent },
+{ path: 'newdist', component: NewdistComponent },
+{ path: 'newprod', component: NewprodComponent }
+
 ];
 
 @NgModule({

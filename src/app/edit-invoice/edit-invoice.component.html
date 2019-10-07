@@ -1,7 +1,7 @@
 <h4>Edit Invoice</h4>
 
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" width='500'>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" width='100%'>
 
   <!--- These columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -47,3 +47,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
 </table>
+
+<br />
+<br />
+<button (click)='finalizeInvoice()'>Finalize Inventory</button>

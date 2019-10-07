@@ -5,8 +5,8 @@ import {
   IgxInputGroupComponent
 } from 'igniteui-angular';
 import { FormBuilder, Form } from '@angular/forms';
-import { DistributorService } from '../services/distributor.service';
-import { InventoryWizardService } from '../services/inventoryWizard.service';
+// import { DistributorService } from '../services/distributor.service';
+// import { InventoryWizardService } from '../services/inventoryWizard.service';
 
 @Component({
   selector: 'app-inventory-wizard',
@@ -70,6 +70,9 @@ public openDropDown() {
 
   saveInput() {
     console.log(this.inventoryWizardForm.value);
+  }
+  newDist() {
+    console.log('new dist');
   }
 
 }

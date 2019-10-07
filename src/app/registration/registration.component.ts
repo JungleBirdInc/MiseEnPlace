@@ -11,6 +11,7 @@ import { RegisterService } from '../services/register.service';
 export class RegistrationComponent implements OnInit {
 
   constructor(
+    private _register: RegisterService,
     private router: Router,
     private reg: FormBuilder,
     private register: RegisterService
@@ -37,11 +38,10 @@ export class RegistrationComponent implements OnInit {
     } else {
         this.router.navigate(['']); // sends home
     }
-    // return this.register.createUser({
-    //   user
-    // });
-    // .subscribe(reply => {
-    //   console.log(reply);
-    // });
+
+    this._register.regUser(user)
+      .subscribe(data => {
+        console.log(data);
+      });
   }
 }

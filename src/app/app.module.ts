@@ -4,6 +4,11 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+// SERVICES
+import { NewdistributerService } from './services/newdistributer.service';
+import { RegisterService } from './services/register.service';
+import { OrganizationService } from './services/organization.service';
+
 // MATERIAL
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
@@ -47,25 +52,27 @@ import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.co
 import { TopnavComponent } from './topnav/topnav.component';
 import { BottomnavComponent } from './bottomnav/bottomnav.component';
 import { EditdistComponent } from './editdist/editdist.component';
+import { RequestTestComponent } from './request-test/request-test.component';
+import { NewrepComponent } from './newrep/newrep.component';
+import { NewdistComponent } from './newdist/newdist.component';
+import { NewprodComponent } from './newprod/newprod.component';
 
 // IGNITE
-import { IgxNavbarModule } from 'igniteui-angular';
-import { IgxBottomNavModule } from 'igniteui-angular';
 import {
+  IgxNavbarModule,
+  IgxBottomNavModule,
   IgxDividerModule,
   IgxDropDownModule,
   IgxInputGroupModule,
   IgxRippleModule,
   IgxIconModule,
-  IgxToggleModule } from 'igniteui-angular';
-
-import { IgxButtonModule,
-         IgxDatePickerModule,
-         IgxTimePickerModule,
-         IgxComboModule,
-         IgxSelectModule,
-         } from 'igniteui-angular';
-
+  IgxToggleModule,
+  IgxButtonModule,
+  IgxDatePickerModule,
+  IgxTimePickerModule,
+  IgxComboModule,
+  IgxSelectModule,
+  } from 'igniteui-angular';
 
 @NgModule({
   declarations: [
@@ -89,6 +96,10 @@ import { IgxButtonModule,
     OrganizationComponent,
     InventoryWizardComponent,
     EditdistComponent,
+    RequestTestComponent,
+    NewrepComponent,
+    NewdistComponent,
+    NewprodComponent,
   ],
   imports: [
     BrowserModule,

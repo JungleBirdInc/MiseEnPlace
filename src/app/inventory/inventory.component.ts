@@ -12,4 +12,8 @@ export class InventoryComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(){
+    console.log('submit');
+  }
+
 }

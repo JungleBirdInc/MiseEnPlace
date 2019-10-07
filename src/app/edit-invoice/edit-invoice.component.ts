@@ -1,6 +1,6 @@
 import { Component, OnInit, HostListener  } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
-import { InventoryWizardComponent } from '../inventory-wizard/inventory-wizard.component';
+import { Router } from '@angular/router';
 
 export interface MouseEvent {
   rowId: number;
@@ -31,7 +31,10 @@ const INVOICE_DATA: Inventory [] = [
 })
 export class EditInvoiceComponent implements OnInit {
 
-  constructor(public snackBar: MatSnackBar) { }
+  constructor(
+    public snackBar: MatSnackBar,
+    private router: Router,
+    ) { }
 
   displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
   dataSource = INVOICE_DATA;
@@ -231,5 +234,9 @@ export class EditInvoiceComponent implements OnInit {
   /** Gets the total cost of all transactions. */
   getTotalCost() {
     return this.dataSource.map(t => t.price).reduce((acc, value) => acc + value, 0);
+  }
+
+  finalizeInvoice() {
+    this.router.navigate(['invoices']);
   }
 }

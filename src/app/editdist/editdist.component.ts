@@ -6,14 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./editdist.component.css']
 })
 export class EditdistComponent implements OnInit {
+  constructor() { }
 
+  ngOnInit() {
+  }
+  
   public distributer = {
     name: undefined,
     address: undefined,
     state: undefined,
     zip: undefined,
   };
-  ngOnInit() {}
 
   public onSubmit() {
     console.log(`submitted:
