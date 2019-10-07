@@ -34,6 +34,8 @@ export class SuggestOrderComponent implements OnInit {
 
   constructor(public snackBar: MatSnackBar) {}
 
+  show = false;
+
   displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
   dataSource = ORDER_DATA; // new MatTableDataSource<OrderElement>();
   tableMouseDown: MouseEvent;
@@ -233,6 +235,10 @@ ngOnInit() {}
 /** Gets the total cost of all transactions. */
 getTotalCost() {
   return this.dataSource.map(t => t.price).reduce((acc, value) => acc + value, 0);
+}
+
+toggleShow() {
+  this.show = !this.show;
 }
 
 }

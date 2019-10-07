@@ -74,6 +74,7 @@ import {
   IgxSelectModule,
   IgxCardModule,
   } from 'igniteui-angular';
+import { ReviewOrderComponent } from './review-order/review-order.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import {
     NewrepComponent,
     NewdistComponent,
     NewprodComponent,
+    ReviewOrderComponent,
   ],
   imports: [
     BrowserModule,
