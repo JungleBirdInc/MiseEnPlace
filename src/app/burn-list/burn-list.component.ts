@@ -11,28 +11,27 @@ export interface MouseEvent {
 
 export interface Burn {
   productName: string;
-  unitCost: number;
-  volume: string;
-  quantity: number;
-   par: number;
+  previousVolume: number;
+  currentVolume: string;
+  burnCount: number;
 }
 
 const BOURBON_DATA: Burn [] = [
-  {productName: 'Jack Daniels', unitCost: 11.42, volume: '750mL', quantity: 4, par: 6},
-  {productName: 'Bulleit', unitCost: 11.42, volume: '1L', quantity: 4, par: 5},
-  {productName: 'Eagle Rare', unitCost: 11.42, volume: '750mL', quantity: 2, par: 2},
-  {productName: 'Jim Beam', unitCost: 11.42, volume: '1L', quantity: 3, par: 5},
-  {productName: 'Old Forester', unitCost: 11.42, volume: '750mL', quantity: 5, par: 8},
-  {productName: 'Blantons\'s', unitCost: 11.42, volume: '750mL', quantity: 2, par: 3},
+  {productName: 'Jack Daniels', previousVolume: 11.42, currentVolume: '750mL', burnCount: 4},
+  {productName: 'Bulleit', previousVolume: 11.42, currentVolume: '1L', burnCount: 4},
+  {productName: 'Eagle Rare', previousVolume: 11.42, currentVolume: '750mL', burnCount: 2},
+  {productName: 'Jim Beam', previousVolume: 11.42, currentVolume: '1L', burnCount: 3},
+  {productName: 'Old Forester', previousVolume: 11.42, currentVolume: '750mL', burnCount: 5},
+  {productName: 'Blantons\'s', previousVolume: 11.42, currentVolume: '750mL', burnCount: 2},
 ];
 
 const VODKA_DATA: Burn [] = [
-  {productName: 'Tito\'s', unitCost: 9.47, volume: '750mL', quantity: 4, par: 4},
-  {productName: 'Absolut', unitCost: 9.47, volume: '1L', quantity: 4, par: 5},
-  {productName: 'Smirnoff', unitCost: 9.47, volume: '750mL', quantity: 2, par: 4},
-  {productName: 'Rain', unitCost: 9.47, volume: '1L', quantity: 3, par: 3},
-  {productName: 'Grey Goose', unitCost: 9.47, volume: '750mL', quantity: 5, par: 7},
-  {productName: 'Stolichiniya', unitCost: 9.47, volume: '750mL', quantity: 2, par: 4},
+  {productName: 'Tito\'s', previousVolume: 9.47, currentVolume: '750mL', burnCount: 4},
+  {productName: 'Absolut', previousVolume: 9.47, currentVolume: '1L', burnCount: 4},
+  {productName: 'Smirnoff', previousVolume: 9.47, currentVolume: '750mL', burnCount: 2},
+  {productName: 'Rain', previousVolume: 9.47, currentVolume: '1L', burnCount: 3},
+  {productName: 'Grey Goose', previousVolume: 9.47, currentVolume: '750mL', burnCount: 5},
+  {productName: 'Stolichiniya', previousVolume: 9.47, currentVolume: '750mL', burnCount: 2},
 ];
 @Component({
   selector: 'app-burn-list',
@@ -48,7 +47,7 @@ export class BurnListComponent implements OnInit {
 
   show = false;
 
-  displayedColumns: string[] = ['productName', 'volume', 'unitCost', 'quantity', 'par'];
+  displayedColumns: string[] = ['productName', 'currentVolume', 'previousVolume', 'burnCount'];
   dataSource = BOURBON_DATA;
   dataSource2 = VODKA_DATA;
   tableMouseDown: MouseEvent;
@@ -65,28 +64,18 @@ export class BurnListComponent implements OnInit {
    * need to make this exponentially grow for each row
    */
   selectedCellsState: boolean[][] = [
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
-    [false, false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
+    [false, false, false, false],
   ];
 
   /**
