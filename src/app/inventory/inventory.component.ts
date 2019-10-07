@@ -38,7 +38,7 @@ export class InventoryComponent implements OnInit {
   show = false;
   showInterior = false;
 
-  displayedColumns: string[] = ['productName', 'volume', 'unit cost', 'quantity', 'par'];
+  displayedColumns: string[] = ['productName', 'volume', 'unitCost', 'quantity', 'par'];
   dataSource = BOURBON_DATA; // new MatTableDataSource<OrderElement>();
   dataSource2 = VODKA_DATA;
 
