@@ -34,9 +34,10 @@ const VODKA_DATA: OrderElement [] = [
 export class InventoryComponent implements OnInit {
 
   constructor() { }
-
+  current = true;
   show = false;
   showInterior = false;
+  showCurrent = true;
 
   displayedColumns: string[] = ['productName', 'volume', 'unitCost', 'quantity', 'par'];
   dataSource = BOURBON_DATA; // new MatTableDataSource<OrderElement>();
@@ -49,7 +50,15 @@ export class InventoryComponent implements OnInit {
     console.log('submit');
   }
 
-  toggleShow() {
+  toggleCurrent() {
+    this.current = !this.current;
+  }
+
+  toggleCurrentProduct() {
+    this.showCurrent = !this.showCurrent;
+  }
+
+  toggleHist() {
     this.show = !this.show;
   }
 
