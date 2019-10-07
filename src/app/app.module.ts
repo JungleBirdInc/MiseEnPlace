@@ -22,7 +22,9 @@ import { MatToolbarModule,
         MatListModule,
         MatButtonModule,
         MatCardModule,
-        MatInputModule } from '@angular/material';
+        MatInputModule,
+        MatSnackBarModule, } from '@angular/material';
+
 
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
@@ -133,7 +135,8 @@ import {
     IgxComboModule,
     IgxSelectModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
