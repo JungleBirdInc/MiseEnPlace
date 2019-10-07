@@ -12,10 +12,21 @@ export class ReviewOrderComponent implements OnInit {
     private router: Router
   ) { }
 
+  show = false;
+
   ngOnInit() {
   }
 
   sendOrders() {
     this.router.navigate(['orders']);
+  }
+
+  /** Gets the total cost of all transactions. */
+  getTotalCost() {
+    return this.dataSource.map(t => t.price).reduce((acc, value) => acc + value, 0);
+  }
+
+  toggleShow() {
+    this.show = !this.show;
   }
 }
