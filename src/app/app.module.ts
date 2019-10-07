@@ -51,6 +51,7 @@ import { GetdistComponent } from './getdist/getdist.component';
 import { NewrepComponent } from './newrep/newrep.component';
 import { NewdistComponent } from './newdist/newdist.component';
 import { NewprodComponent } from './newprod/newprod.component';
+import { ReviewOrderComponent } from './review-order/review-order.component';
 
 // IGNITE
 import {
@@ -67,6 +68,7 @@ import {
   IgxTimePickerModule,
   IgxComboModule,
   IgxSelectModule,
+  IgxCardModule,
   } from 'igniteui-angular';
 
 @NgModule({
@@ -95,6 +97,7 @@ import {
     NewrepComponent,
     NewdistComponent,
     NewprodComponent,
+    ReviewOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -132,6 +135,7 @@ import {
     HttpClientModule,
     MatTableModule,
     MatSnackBarModule,
+    IgxCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

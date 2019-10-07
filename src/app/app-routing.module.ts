@@ -14,6 +14,9 @@ import { OrganizationComponent } from './organization/organization.component';
 // INVENTORY WIZARD
 import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.component';
 
+// REVIEW ORDER COMPONENT
+import { ReviewOrderComponent} from './review-order/review-order.component';
+
 // PERSISTANT NAV
 import { HomeComponent } from './home/home.component';
 import { InventoryComponent } from './inventory/inventory.component';
@@ -55,8 +58,8 @@ const routes: Routes = [
 { path: 'getdist', component: GetdistComponent },
 { path: 'newrep', component: NewrepComponent },
 { path: 'newdist', component: NewdistComponent },
-{ path: 'newprod', component: NewprodComponent }
-
+{ path: 'newprod', component: NewprodComponent },
+{ path: 'review-orders', component: ReviewOrderComponent},
 ];
 
 @NgModule({

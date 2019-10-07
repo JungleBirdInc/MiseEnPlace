@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+// implement check boxes to select which orders to sebd, need icons
 
-export interface PeriodicElement {
+export interface OrderElement {
   productName: string;
   subCategory: string;
   volume: string;
   quantity: number;
   price: number;
 }
-const INVOICE_DATA: PeriodicElement [] = [
+
+const ORDER_DATA: OrderElement [] = [
   {productName: 'Jack Daniels', subCategory: 'Bourbon', volume: '750mL', quantity: 4, price: 57.23},
   {productName: 'Bulleit', subCategory: 'Bourbon', volume: '1L', quantity: 4, price: 52.74},
   {productName: 'Eagle Rare', subCategory: 'Bourbon', volume: '750mL', quantity: 2, price: 36.14},
@@ -17,23 +20,29 @@ const INVOICE_DATA: PeriodicElement [] = [
 ];
 
 @Component({
-  selector: 'app-invoices',
-  templateUrl: './invoices.component.html',
-  styleUrls: ['./invoices.component.css']
+  selector: 'app-review-order',
+  templateUrl: './review-order.component.html',
+  styleUrls: ['./review-order.component.css']
 })
-export class InvoicesComponent implements OnInit {
+export class ReviewOrderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   show = false;
 
   displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
-  dataSource = INVOICE_DATA;
+  dataSource = ORDER_DATA; // new MatTableDataSource<OrderElement>();
 
-  public items: string[] = ['Distributer', 'Date', 'Invoice Number'];
+  ngOnInit() {
+  }
 
-  ngOnInit() {}
+  sendOrders() {
+    this.router.navigate(['orders']);
+  }
 
+  /** Gets the total cost of all transactions. */
   getTotalCost() {
     return this.dataSource.map(t => t.price).reduce((acc, value) => acc + value, 0);
   }
