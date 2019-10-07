@@ -28,9 +28,9 @@ export class InvoicesComponent implements OnInit {
   displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
   dataSource = INVOICE_DATA;
 
-  ngOnInit() {}
+  public items: string[] = ['Distributer', 'Date', 'Invoice Number',];
 
-  public items: string[] = ["Distributer", "Date", "Invoice Number",];
+  ngOnInit() {}
 
   getTotalCost() {
     return this.dataSource.map(t => t.price).reduce((acc, value) => acc + value, 0);
