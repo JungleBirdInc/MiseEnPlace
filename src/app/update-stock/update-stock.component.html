@@ -57,19 +57,22 @@
     <!-- Product Name  Column -->
     <ng-container matColumnDef="productName">
       <th mat-header-cell *matHeaderCellDef> Product Name </th>
-      <td mat-cell *matCellDef="let element">{{element.productName}} </td>
+      <td (mousedown)="onMouseDown(i, 0, 'productName')" (mouseup)="onMouseUp(i, 0, 'productName')" *matCellDef="let element; let i = index"
+      [ngClass]="{'selected': selectedCellsState[i][0], 'unselected': !selectedCellsState[i]}">{{element.productName}} </td>
     </ng-container>
     
     <!-- Volume Column -->
     <ng-container matColumnDef="volume">
       <th mat-header-cell *matHeaderCellDef> Volume </th>
-      <td mat-cell *matCellDef="let element"> {{element.volume}} </td>
+      <td (mousedown)="onMouseDown(i, 1, 'volume')" (mouseup)="onMouseUp(i, 1, 'volume')" *matCellDef="let element; let i = index"
+      [ngClass]="{'selected': selectedCellsState[i][1], 'unselected': !selectedCellsState[i]}"> {{element.volume}} </td>
     </ng-container>
 
           <!-- Cost/Unit Column -->
           <ng-container matColumnDef="unitCost">
               <th mat-header-cell *matHeaderCellDef> Cost per Unit </th>
-              <td mat-cell *matCellDef="let element">{{element.unitCost | currency}}
+              <td (mousedown)="onMouseDown(i, 2, 'unitCost')" (mouseup)="onMouseUp(i, 2, 'unitCost')" *matCellDef="let element; let i = index"
+              [ngClass]="{'selected': selectedCellsState[i][2], 'unselected': !selectedCellsState[i]}">{{element.unitCost | currency}}
               </td>
           </ng-container>
         
@@ -77,13 +80,15 @@
           <!-- Quantity Column -->
           <ng-container matColumnDef="quantity">
             <th mat-header-cell *matHeaderCellDef> Quantity </th>
-            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+            <td (mousedown)="onMouseDown(i, 3, 'quantity')" (mouseup)="onMouseUp(i, 3, 'quantity')" *matCellDef="let element; let i = index"
+            [ngClass]="{'selected': selectedCellsState[i][3], 'unselected': !selectedCellsState[i]}"> {{element.quantity}} </td>
           </ng-container>
           
           <!-- Par Column -->
           <ng-container matColumnDef="par">
             <th mat-header-cell *matHeaderCellDef> Par </th>
-            <td mat-cell *matCellDef="let element"> {{element.par}} </td>
+            <td (mousedown)="onMouseDown(i, 4, 'par')" (mouseup)="onMouseUp(i, 4, 'par')" *matCellDef="let element; let i = index"
+            [ngClass]="{'selected': selectedCellsState[i][4], 'unselected': !selectedCellsState[i]}"> {{element.par}} </td>
           </ng-container>
           
 

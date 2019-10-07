@@ -10,15 +10,6 @@ export interface MouseEvent {
 }
 
 export interface UpdateInventory {
-    productName: string;
-    unitCost: number;
-    volume: string;
-    quantity: number;
-     par: number;
-  }
-
-
-export interface UpdateInventory {
   productName: string;
   unitCost: number;
   volume: string;
@@ -36,7 +27,7 @@ const BOURBON_DATA: UpdateInventory [] = [
 ];
 
 const VODKA_DATA: UpdateInventory [] = [
-  {productName: 'Tito\'s', unitCost: 9.47, volume: '750mL', quantity: 4, par: 44},
+  {productName: 'Tito\'s', unitCost: 9.47, volume: '750mL', quantity: 4, par: 4},
   {productName: 'Absolut', unitCost: 9.47, volume: '1L', quantity: 4, par: 5},
   {productName: 'Smirnoff', unitCost: 9.47, volume: '750mL', quantity: 2, par: 4},
   {productName: 'Rain', unitCost: 9.47, volume: '1L', quantity: 3, par: 3},
@@ -59,14 +50,14 @@ export class UpdateStockComponent implements OnInit {
   show = false;
 
   displayedColumns: string[] = ['productName', 'volume', 'unitCost', 'quantity', 'par'];
-  dataSource = BOURBON_DATA; // new MatTableDataSource<OrderElement>();
+  dataSource = BOURBON_DATA;
   dataSource2 = VODKA_DATA;
   tableMouseDown: MouseEvent;
   tableMouseUp: MouseEvent;
   FIRST_EDITABLE_ROW = 0;
-  LAST_EDITABLE_ROW: number = BOURBON_DATA.length > VODKA_DATA.length ? BOURBON_DATA.length - 1 : VODKA_DATA.length;
+  LAST_EDITABLE_ROW: number = (BOURBON_DATA.length - 1) + (VODKA_DATA.length - 1);
   FIRST_EDITABLE_COL = 1;                       // first column pos is not editable --> so start from index 1
-  LAST_EDITABLE_COL: number = this.displayedColumns.length - 1; // = 3
+  LAST_EDITABLE_COL: number = this.displayedColumns.length - 1; // = 4
   newCellValue = '';
 
   /**
@@ -75,6 +66,20 @@ export class UpdateStockComponent implements OnInit {
    * need to make this exponentially grow for each row
    */
   selectedCellsState: boolean[][] = [
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
+    [false, false, false, false, false],
     [false, false, false, false, false],
     [false, false, false, false, false],
     [false, false, false, false, false],
