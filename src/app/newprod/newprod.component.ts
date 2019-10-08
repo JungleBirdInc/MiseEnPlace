@@ -23,12 +23,11 @@ export class NewprodComponent implements OnInit {
   prodForm = this.prod.group({
     upc: undefined,
     product_name: undefined,
-    size: undefined,
+    btlSizeId: undefined,
     notes: undefined,
     tare: undefined,
     dist_id: undefined,
     price: undefined,
-
     categoryId: undefined,
     category_id: undefined,
     subcategoryId: undefined,
