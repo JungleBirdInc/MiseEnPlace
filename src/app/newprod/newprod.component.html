@@ -1,15 +1,21 @@
 <h3 id="title">New Product</h3>
 <br />
-1:53
-<igx-select [(ngModel)]="dist" #select>
-  <label igxLabel>Distributer</label>
-  <igx-select-item *ngFor="let dist of distributors" [value]='dist' required>
-  {{dist.distributor.name}}
-  </igx-select-item>
-</igx-select>
-<br />
 
 <mat-vertical-stepper>
+  <mat-step>
+    <igx-select [(ngModel)]="dist" #select>
+      <ng-template matStepLabel>
+        <td id="ngtext">Distributer</td>
+      </ng-template>
+      <igx-select-item *ngFor="let dist of distributors" [value]='dist' required>
+        {{dist.distributor.name}}
+      </igx-select-item>
+    </igx-select>
+    <div>
+      <button matButton matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
   <mat-step>
     <form [(formGroup)]="prodForm">
       <ng-template matStepLabel>
@@ -17,6 +23,7 @@
       </ng-template>
       <input matInput placeholder="Product Name" formControlName='product_name' required>
       <div>
+        <button matButton matStepperPrevious>Back</button>
         <button matButton matStepperNext>Next</button>
       </div>
     </form>
@@ -40,7 +47,7 @@
       <ng-template matStepLabel>
         <td id="ngtext">Category (id)</td>
       </ng-template>
-      <input matInput placeholder="Category" formControlName='category_id' required>
+      <input matInput placeholder="Category" formControlName='categoryId' required>
       <div>
         <button matButton matStepperPrevious>Back</button>
         <button matButton matStepperNext>Next</button>
@@ -53,7 +60,7 @@
       <ng-template matStepLabel>
         <td id="ngtext">Sub Category (id)</td>
       </ng-template>
-      <input matInput placeholder="Sub Category" formControlName='sub_category_id' required>
+      <input matInput placeholder="Sub Category" formControlName='subcategoryId' required>
       <div>
         <button matButton matStepperPrevious>Back</button>
         <button matButton matStepperNext>Next</button>

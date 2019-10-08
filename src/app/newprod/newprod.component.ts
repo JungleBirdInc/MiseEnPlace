@@ -23,13 +23,17 @@ export class NewprodComponent implements OnInit {
   prodForm = this.prod.group({
     upc: undefined,
     product_name: undefined,
-    category_id: undefined,
-    sub_category_id: undefined,
     size: undefined,
     notes: undefined,
     tare: undefined,
     dist_id: undefined,
     price: undefined,
+
+    categoryId: undefined,
+    category_id: undefined,
+    subcategoryId: undefined,
+    sub_category_id: undefined,
+    products: {categoryId: undefined}
   });
 
   ngOnInit() {
@@ -44,12 +48,16 @@ export class NewprodComponent implements OnInit {
     const newprod = this.prodForm.value;
 
     this.prodForm.value.dist_id = parseInt(this.dist.distributorOrganizationId);
-    this.prodForm.value.category_id = parseInt(this.prodForm.value.category_id);
-    this.prodForm.value.sub_category_id = parseInt(this.prodForm.value.sub_category_id);
+    this.prodForm.value.categoryId = parseInt(this.prodForm.value.categoryId);
+    this.prodForm.value.subcategoryId = parseInt(this.prodForm.value.subcategoryId);
     this.prodForm.value.tare = parseInt(this.prodForm.value.tare);
-    this.prodForm.value.upc = parseInt(this.prodForm.value.upc);
+    // this.prodForm.value.upc = parseInt(this.prodForm.value.upc);
     this.prodForm.value.price = parseInt(this.prodForm.value.price);
     // this.prodForm.value.size = parseInt(this.prodForm.value.size);
+
+    this.prodForm.value.category_id = parseInt(this.prodForm.value.categoryId);
+    this.prodForm.value.sub_category_id = parseInt(this.prodForm.value.subcategoryId);
+    this.prodForm.value.products.categoryId = parseInt(this.prodForm.value.categoryId);
 
     console.log(this.prodForm.value);
 
