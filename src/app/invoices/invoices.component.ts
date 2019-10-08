@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
-export interface PeriodicElement {
-  productName: string;
-  subCategory: string;
-  volume: string;
-  quantity: number;
-  price: number;
-}
-const INVOICE_DATA: PeriodicElement [] = [
+const REP1_DATA = [
   {productName: 'Jack Daniels', subCategory: 'Bourbon', volume: '750mL', quantity: 4, price: 57.23},
   {productName: 'Bulleit', subCategory: 'Bourbon', volume: '1L', quantity: 4, price: 52.74},
   {productName: 'Eagle Rare', subCategory: 'Bourbon', volume: '750mL', quantity: 2, price: 36.14},
@@ -23,19 +18,22 @@ const INVOICE_DATA: PeriodicElement [] = [
 })
 export class InvoicesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public snackBar: MatSnackBar,
+    private router: Router,
+  ) {
+   }
 
   show = false;
 
-  displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
-  dataSource = INVOICE_DATA;
+  rep1 = REP1_DATA;
 
   public items: string[] = ['Distributer', 'Date', 'Invoice Number'];
 
   ngOnInit() {}
 
-  getTotalCost() {
-    return this.dataSource.map(t => t.price).reduce((acc, value) => acc + value, 0);
+  getTotalCost(inventory) {
+    return inventory.map(t => t.price).reduce((acc, value) => acc + value, 0);
   }
 
   toggleShow() {
