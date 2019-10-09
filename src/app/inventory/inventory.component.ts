@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface OrderElement {
+export interface InvElement {
   productName: string;
   unitCost: number;
   volume: string;
@@ -8,7 +8,7 @@ export interface OrderElement {
    par: number;
 }
 
-const BOURBON_DATA: OrderElement [] = [
+const BOURBON_DATA: InvElement [] = [
   {productName: 'Jack Daniels', unitCost: 11.42, volume: '750mL', quantity: 4, par: 5},
   {productName: 'Bulleit', unitCost: 11.42, volume: '1L', quantity: 4, par: 5},
   {productName: 'Eagle Rare', unitCost: 11.42, volume: '750mL', quantity: 2, par: 3},
@@ -17,7 +17,7 @@ const BOURBON_DATA: OrderElement [] = [
   {productName: 'Blantons\'s', unitCost: 11.42, volume: '750mL', quantity: 2, par: 4},
 ];
 
-const VODKA_DATA: OrderElement [] = [
+const VODKA_DATA: InvElement [] = [
   {productName: 'Tito\'s', unitCost: 9.47, volume: '750mL', quantity: 4, par: 5},
   {productName: 'Absolut', unitCost: 9.47, volume: '1L', quantity: 4, par: 5},
   {productName: 'Smirnoff', unitCost: 9.47, volume: '750mL', quantity: 2, par: 3},
@@ -40,8 +40,8 @@ export class InventoryComponent implements OnInit {
   showCurrent = true;
 
   displayedColumns: string[] = ['productName', 'volume', 'unitCost', 'quantity', 'par'];
-  dataSource = BOURBON_DATA; // new MatTableDataSource<OrderElement>();
-  dataSource2 = VODKA_DATA;
+  productB = BOURBON_DATA; // new MatTableDataSource<InvElement>();
+  productV = VODKA_DATA;
 
   ngOnInit() {
   }

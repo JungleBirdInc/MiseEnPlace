@@ -61,177 +61,114 @@
 
     <button igxButton="raised" igxRipple>Apply</button>
   </div>
-  </form>
+</form>
 
-  <igx-card (click)='toggleCurrent()'>Current Inventory</igx-card>
-  <igx-card *ngIf='current' (click)='toggleCurrentProduct()'>Bourbon (subCategory)</igx-card>
+<igx-card (click)='toggleCurrent()'><h4>Current Inventory</h4></igx-card>
 
-  <table *ngIf='showCurrent && current' mat-table [dataSource]="dataSource" class="mat-elevation-z8" width='100%'>
-    
-    <!-- Product Name  Column -->
-    <ng-container matColumnDef="productName">
-      <th mat-header-cell *matHeaderCellDef> Product Name </th>
-      <td mat-cell *matCellDef="let element">{{element.productName}} </td>
-    </ng-container>
-    
-    <!-- Volume Column -->
-    <ng-container matColumnDef="volume">
-      <th mat-header-cell *matHeaderCellDef> Volume </th>
-      <td mat-cell *matCellDef="let element"> {{element.volume}} </td>
-    </ng-container>
-
-          <!-- Cost/Unit Column -->
-          <ng-container matColumnDef="unitCost">
-              <th mat-header-cell *matHeaderCellDef> Cost per Unit </th>
-              <td mat-cell *matCellDef="let element">{{element.unitCost | currency}}
-              </td>
-          </ng-container>
-        
-          
-          <!-- Quantity Column -->
-          <ng-container matColumnDef="quantity">
-            <th mat-header-cell *matHeaderCellDef> Quantity </th>
-            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
-          </ng-container>
-          
-          <!-- Par Column -->
-          <ng-container matColumnDef="par">
-            <th mat-header-cell *matHeaderCellDef> Par </th>
-            <td mat-cell *matCellDef="let element"> {{element.par}} </td>
-          </ng-container>
-          
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-
+<igx-card *ngIf='current' (click)='toggleCurrentProduct()'><h6>Bourbon (subCategory)</h6>
+  <table *ngIf='showCurrent && current'  class="mat-elevation-z8" width='100%'>
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productB">
+          <td>
+            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</igx-card>
         <br />
-
-        <igx-card *ngIf='current' (click)='toggleCurrentProduct()' width='90%'>Vodka (subCategory)</igx-card>
-
-  <table *ngIf='showCurrent && current' mat-table [dataSource]="dataSource2" class="mat-elevation-z8" width='100%'>
-    
-    <!-- Product Name  Column -->
-    <ng-container matColumnDef="productName">
-      <th mat-header-cell *matHeaderCellDef> Product Name </th>
-      <td mat-cell *matCellDef="let element">{{element.productName}} </td>
-    </ng-container>
-    
-    <!-- Volume Column -->
-    <ng-container matColumnDef="volume">
-      <th mat-header-cell *matHeaderCellDef> Volume </th>
-      <td mat-cell *matCellDef="let element"> {{element.volume}} </td>
-    </ng-container>
-
-          <!-- Cost/Unit Column -->
-          <ng-container matColumnDef="unitCost">
-              <th mat-header-cell *matHeaderCellDef> Cost per Unit </th>
-              <td mat-cell *matCellDef="let element">{{element.unitCost | currency}}
-              </td>
-          </ng-container>
-        
-          
-          <!-- Quantity Column -->
-          <ng-container matColumnDef="quantity">
-            <th mat-header-cell *matHeaderCellDef> Quantity </th>
-            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
-          </ng-container>
-          
-          <!-- Par Column -->
-          <ng-container matColumnDef="par">
-            <th mat-header-cell *matHeaderCellDef> Par </th>
-            <td mat-cell *matCellDef="let element"> {{element.par}} </td>
-          </ng-container>
-          
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-
+<igx-card *ngIf='current' (click)='toggleCurrentProduct()' width='90%'><h6>Vodka (subCategory)</h6>
+  <table *ngIf='showCurrent && current' class="mat-elevation-z8" width='100%'>
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productV">
+          <td>
+            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+          </td>
+        </tr>
+      </tbody>  
+  </table>
+</igx-card>
         <br />
- <igx-card (click)='toggleHist()'>Prev Inventory</igx-card>
-  <igx-card *ngIf='show' (click)='toggleProduct()'>Bourbon (subCategory)</igx-card>
+<igx-card (click)='toggleHist()'><h4>Prev Inventory</h4></igx-card>
 
-  <table *ngIf='showInterior' mat-table [dataSource]="dataSource" class="mat-elevation-z8" width='100%'>
-    
-    <!-- Product Name  Column -->
-    <ng-container matColumnDef="productName">
-      <th mat-header-cell *matHeaderCellDef> Product Name </th>
-      <td mat-cell *matCellDef="let element">{{element.productName}} </td>
-    </ng-container>
-    
-    <!-- Volume Column -->
-    <ng-container matColumnDef="volume">
-      <th mat-header-cell *matHeaderCellDef> Volume </th>
-      <td mat-cell *matCellDef="let element"> {{element.volume}} </td>
-    </ng-container>
-
-          <!-- Cost/Unit Column -->
-          <ng-container matColumnDef="unitCost">
-              <th mat-header-cell *matHeaderCellDef> Cost per Unit </th>
-              <td mat-cell *matCellDef="let element">{{element.unitCost | currency}}
-              </td>
-          </ng-container>
-        
-          
-          <!-- Quantity Column -->
-          <ng-container matColumnDef="quantity">
-            <th mat-header-cell *matHeaderCellDef> Quantity </th>
-            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
-          </ng-container>
-          
-          <!-- Par Column -->
-          <ng-container matColumnDef="par">
-            <th mat-header-cell *matHeaderCellDef> Par </th>
-            <td mat-cell *matCellDef="let element"> {{element.par}} </td>
-          </ng-container>
-          
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-
-        <br />
-
-        <igx-card *ngIf='show' (click)='toggleProduct()' width='90%'>Vodka (subCategory)</igx-card>
-
-  <table *ngIf='showInterior && show' mat-table [dataSource]="dataSource2" class="mat-elevation-z8" width='100%'>
-    
-    <!-- Product Name  Column -->
-    <ng-container matColumnDef="productName">
-      <th mat-header-cell *matHeaderCellDef> Product Name </th>
-      <td mat-cell *matCellDef="let element">{{element.productName}} </td>
-    </ng-container>
-    
-    <!-- Volume Column -->
-    <ng-container matColumnDef="volume">
-      <th mat-header-cell *matHeaderCellDef> Volume </th>
-      <td mat-cell *matCellDef="let element"> {{element.volume}} </td>
-    </ng-container>
-
-          <!-- Cost/Unit Column -->
-          <ng-container matColumnDef="unitCost">
-              <th mat-header-cell *matHeaderCellDef> Cost per Unit </th>
-              <td mat-cell *matCellDef="let element">{{element.unitCost | currency}}
-              </td>
-          </ng-container>
-        
-          
-          <!-- Quantity Column -->
-          <ng-container matColumnDef="quantity">
-            <th mat-header-cell *matHeaderCellDef> Quantity </th>
-            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
-          </ng-container>
-          
-          <!-- Par Column -->
-          <ng-container matColumnDef="par">
-            <th mat-header-cell *matHeaderCellDef> Par </th>
-            <td mat-cell *matCellDef="let element"> {{element.par} </td>
-          </ng-container>
-          
-
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
+<igx-card *ngIf='show' (click)='toggleProduct()'><h6>Bourbon (subCategory)</h6>
+  <table *ngIf='showInterior' class="mat-elevation-z8" width='100%'>
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productB">
+          <td>
+            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</igx-card>
+  <br />
+<igx-card *ngIf='show' (click)='toggleProduct()' width='90%'><h6>Vodka (subCategory)</h6>
+  <table *ngIf='showInterior && show' class="mat-elevation-z8" width='100%'>
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productV">
+          <td>
+            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</igx-card>
   
   
