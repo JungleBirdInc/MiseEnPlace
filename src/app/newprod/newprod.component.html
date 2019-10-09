@@ -43,42 +43,48 @@
   </mat-step>
 
   <mat-step>
-    <form [(formGroup)]="prodForm">
+    <igx-select [(ngModel)]="cate" #select>
       <ng-template matStepLabel>
-        <td id="ngtext">Category (id)</td>
+        <td id="ngtext">Category</td>
       </ng-template>
-      <input matInput placeholder="Category" formControlName='categoryId' required>
-      <div>
-        <button matButton matStepperPrevious>Back</button>
-        <button matButton matStepperNext>Next</button>
-      </div>
-    </form>
+      <igx-select-item *ngFor="let cate of categories" [value]='cate' required>
+        {{cate.category_name}}
+      </igx-select-item>
+    </igx-select>
+    <div>
+      <button matButton matStepperPrevious>Back</button>
+      <button matButton matStepperNext>Next</button>
+    </div>
   </mat-step>
 
   <mat-step>
-    <form [(formGroup)]="prodForm">
+    <igx-select [(ngModel)]="sub" #select>
       <ng-template matStepLabel>
-        <td id="ngtext">Sub Category (id)</td>
+        <td id="ngtext">Sub Category</td>
       </ng-template>
-      <input matInput placeholder="Sub Category" formControlName='subcategoryId' required>
-      <div>
-        <button matButton matStepperPrevious>Back</button>
-        <button matButton matStepperNext>Next</button>
-      </div>
-    </form>
+      <igx-select-item *ngFor="let sub of cate.subcategories" [value]='sub' required>
+        {{sub.subcategory_name}}
+      </igx-select-item>
+    </igx-select>
+    <div>
+      <button matButton matStepperPrevious>Back</button>
+      <button matButton matStepperNext>Next</button>
+    </div>
   </mat-step>
-  
+
   <mat-step>
-    <form [(formGroup)]="prodForm">
+    <igx-select [(ngModel)]="size" #select>
       <ng-template matStepLabel>
         <td id="ngtext">Bottle Size</td>
       </ng-template>
-      <input matInput placeholder="Size" formControlName='btlSizeId' required>
-      <div>
-        <button matButton matStepperPrevious>Back</button>
-        <button matButton matStepperNext>Next</button>
-      </div>
-    </form>
+      <igx-select-item *ngFor="let size of bottlesize" [value]='size' required>
+        {{size.size}}
+      </igx-select-item>
+    </igx-select>
+    <div>
+      <button matButton matStepperPrevious>Back</button>
+      <button matButton matStepperNext>Next</button>
+    </div>
   </mat-step>
   
   <mat-step>

@@ -4,15 +4,14 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class NewrepService {
+export class GetcategoriesService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `/api/createRep`;
+  private _url: string = `/categories/categories`;
 
-  regRep(data) {
-    console.log(data, 'DATA FROM REP SERVICE');
-    return this.http.post(this._url, data);
+  getCategories(){
+    return this.http.get(this._url);
   }
 
 }
