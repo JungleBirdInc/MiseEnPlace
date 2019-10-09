@@ -45,7 +45,7 @@ export class ReviewOrderComponent implements OnInit {
 
   /** Gets the total cost of all transactions. */
   getTotalCost(rep) {
-    return rep.map(t => t.unitCost * t.quantity).reduce((acc, value) => acc + value, 0);
+    return rep.map(t => t.unitCost * t.ordered).reduce((acc, value) => acc + value, 0);
   }
 
   toggleShow() {
