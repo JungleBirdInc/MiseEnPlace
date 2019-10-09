@@ -6,12 +6,12 @@ import { Router } from '@angular/router';
 
 
 const REP1_DATA = [
-  {productName: 'Jack Daniels', subCategory: 'Bourbon', volume: '750mL', quantity: 4, price: 57.23},
-  {productName: 'Bulleit', subCategory: 'Bourbon', volume: '1L', quantity: 4, price: 52.74},
-  {productName: 'Eagle Rare', subCategory: 'Bourbon', volume: '750mL', quantity: 2, price: 36.14},
-  {productName: 'Jim Beam', subCategory: 'Bourbon', volume: '1L', quantity: 3, price: 33.77},
-  {productName: 'Old Forester', subCategory: 'Bourbon', volume: '750mL', quantity: 5, price: 48.29},
-  {productName: 'Blantons\'s', subCategory: 'Bourbon', volume: '750mL', quantity: 2, price: 47.10},
+  {productName: 'Jack Daniels', unitCost: 10.17, volume: '750mL', quantity: 4, par: 5},
+  {productName: 'Bulleit', unitCost: 10.17, volume: '1L', quantity: 4, par: 5},
+  {productName: 'Eagle Rare', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4},
+  {productName: 'Jim Beam', unitCost: 10.17, volume: '1L', quantity: 3, par: 4},
+  {productName: 'Old Forester', unitCost: 10.17, volume: '750mL', quantity: 5, par: 3},
+  {productName: 'Blantons\'s', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4},
 ];
 
 @Component({
@@ -43,6 +43,10 @@ toggleShow() {
 
 confirmOrders() {
   this.router.navigate(['review-orders']);
+}
+
+suggestedOrder() {
+  console.log('yerp');
 }
 
 }

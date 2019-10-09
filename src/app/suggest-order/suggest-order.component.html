@@ -1,53 +1,40 @@
 <h3>Suggest Order</h3>
 <br />
-<igx-card (click)='toggleShow()'> Distributor -rep- cell</igx-card>
+<igx-card (click)='toggleShow()'> Distributor -rep- cell
+    <table *ngIf="show">
+        <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested Order</th></tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of rep1">
+            <td>
+              <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+            </td>
+            <td>
+               <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+               <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td></td><td></td><td></td><td> Total </td><td> {{getTotalCost(rep1) | currency}}</td>
+        </tfoot>
+      </table>     
+</igx-card>
 
-  <table *ngIf='show' mat-table [dataSource]="dataSource" class="mat-elevation-z8" width='100%'>
-
-          <!-- Product Name  Column -->
-          <ng-container matColumnDef="productName">
-            <th mat-header-cell *matHeaderCellDef> Product Name </th>
-            <td mat-cell (mousedown)="onMouseDown(i, 0, 'productName')" (mouseup)="onMouseUp(i, 0, 'productName')" *matCellDef="let element; let i = index"
-            [ngClass]="{'selected': selectedCellsState[i][0], 'unselected': !selectedCellsState[i]}">{{element.productName}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
-          </ng-container>
-        
-          <!-- Category Column -->
-          <ng-container matColumnDef="subCategory">
-              <th mat-header-cell *matHeaderCellDef> Category </th>
-              <td mat-cell (mousedown)="onMouseDown(i, 1, 'subCategory')" (mouseup)="onMouseUp(i, 1, 'subCategory')" *matCellDef="let element; let i = index"
-                [ngClass]="{'selected': selectedCellsState[i][1], 'unselected': !selectedCellsState[i]}">{{element.subCategory}}
-              </td>
-              <td mat-footer-cell *matFooterCellDef></td>
-          </ng-container>
-        
-          <!-- Volume Column -->
-          <ng-container matColumnDef="volume">
-            <th mat-header-cell *matHeaderCellDef> Volume </th>
-            <td mat-cell (mousedown)="onMouseDown(i, 2, 'volume')" (mouseup)="onMouseUp(i, 2, 'volume')" *matCellDef="let element; let i = index"
-              [ngClass]="{'selected': selectedCellsState[i][2], 'unselected': !selectedCellsState[i]}"> {{element.volume}} </td>
-            <td mat-footer-cell *matFooterCellDef></td>
-          </ng-container>
-        
-          <!-- Quantity Column -->
-          <ng-container matColumnDef="quantity">
-            <th mat-header-cell *matHeaderCellDef> Quantity </th>
-            <td mat-cell (mousedown)="onMouseDown(i, 3, 'quantity')" (mouseup)="onMouseUp(i, 3, 'quantity')" *matCellDef="let element; let i = index"
-            [ngClass]="{'selected': selectedCellsState[i][3], 'unselected': !selectedCellsState[i]}"> {{element.quantity}} </td>
-            <td mat-footer-cell *matFooterCellDef>Total</td>
-          </ng-container>
-
-           <!-- Price Column -->
-           <ng-container matColumnDef="price">
-            <th mat-header-cell *matHeaderCellDef> Quantity </th>
-            <td mat-cell (mousedown)="onMouseDown(i, 4, 'price')" (mouseup)="onMouseUp(i, 4, 'price')" *matCellDef="let element; let i = index"
-            [ngClass]="{'selected': selectedCellsState[i][4], 'unselected': !selectedCellsState[i]}"> {{element.price | currency}} </td>
-            <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
-          </ng-container>
-        
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
-        </table>
-
+  
         <button (click)='confirmOrders()'>Review Orders</button>
