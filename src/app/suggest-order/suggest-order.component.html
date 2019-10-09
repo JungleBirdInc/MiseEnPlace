@@ -1,7 +1,7 @@
 <h3>Suggest Order</h3>
 <br />
-<igx-card (click)='toggleShow()'> Distributor -rep- cell
-    <table *ngIf="show">
+<igx-card> Distributor -rep- cell
+    <table>
         <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested Order</th></tr>
         </thead>
         <tbody>
@@ -22,7 +22,7 @@
                 <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+                <input type="text" value={{suggestedOrder(rep1)}} [disabled]="!product.isEditable"/>
             </td>
             <td>
                <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>

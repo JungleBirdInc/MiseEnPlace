@@ -4,19 +4,20 @@ import { Router } from '@angular/router';
 
 export interface OrderElement {
   productName: string;
-  subCategory: string;
+  unitCost: number;
   volume: string;
   quantity: number;
-  price: number;
+  par: number;
+  suggested: number;
 }
 
-const ORDER_DATA: OrderElement [] = [
-  {productName: 'Jack Daniels', subCategory: 'Bourbon', volume: '750mL', quantity: 4, price: 57.23},
-  {productName: 'Bulleit', subCategory: 'Bourbon', volume: '1L', quantity: 4, price: 52.74},
-  {productName: 'Eagle Rare', subCategory: 'Bourbon', volume: '750mL', quantity: 2, price: 36.14},
-  {productName: 'Jim Beam', subCategory: 'Bourbon', volume: '1L', quantity: 3, price: 33.77},
-  {productName: 'Old Forester', subCategory: 'Bourbon', volume: '750mL', quantity: 5, price: 48.29},
-  {productName: 'Blantons\'s', subCategory: 'Bourbon', volume: '750mL', quantity: 2, price: 47.10},
+const REP1_DATA: OrderElement [] = [
+  {productName: 'Jack Daniels', unitCost: 10.17, volume: '750mL', quantity: 4, par: 5, suggested: 0},
+  {productName: 'Bulleit', unitCost: 10.17, volume: '1L', quantity: 4, par: 5, suggested: 0},
+  {productName: 'Eagle Rare', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, suggested: 0},
+  {productName: 'Jim Beam', unitCost: 10.17, volume: '1L', quantity: 3, par: 4, suggested: 0},
+  {productName: 'Old Forester', unitCost: 10.17, volume: '750mL', quantity: 5, par: 3, suggested: 0},
+  {productName: 'Blantons\'s', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, suggested: 0},
 ];
 
 @Component({
@@ -33,7 +34,7 @@ export class ReviewOrderComponent implements OnInit {
   show = false;
 
   displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
-  dataSource = ORDER_DATA; // new MatTableDataSource<OrderElement>();
+  rep1 = REP1_DATA;
 
   ngOnInit() {
   }
@@ -43,11 +44,15 @@ export class ReviewOrderComponent implements OnInit {
   }
 
   /** Gets the total cost of all transactions. */
-  getTotalCost() {
-    return this.dataSource.map(t => t.price).reduce((acc, value) => acc + value, 0);
+  getTotalCost(rep) {
+    return rep.map(t => t.unitCost * t.quantity).reduce((acc, value) => acc + value, 0);
   }
 
   toggleShow() {
     this.show = !this.show;
+  }
+
+  confirmOrders() {
+    this.router.navigate(['orders']);
   }
 }

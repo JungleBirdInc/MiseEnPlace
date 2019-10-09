@@ -3,15 +3,23 @@ import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 
 // implement check boxes to select which orders to sebd, need icons
+export interface OrderElement {
+  productName: string;
+  unitCost: number;
+  volume: string;
+  quantity: number;
+  par: number;
+  suggested: number;
+}
 
 
-const REP1_DATA = [
-  {productName: 'Jack Daniels', unitCost: 10.17, volume: '750mL', quantity: 4, par: 5},
-  {productName: 'Bulleit', unitCost: 10.17, volume: '1L', quantity: 4, par: 5},
-  {productName: 'Eagle Rare', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4},
-  {productName: 'Jim Beam', unitCost: 10.17, volume: '1L', quantity: 3, par: 4},
-  {productName: 'Old Forester', unitCost: 10.17, volume: '750mL', quantity: 5, par: 3},
-  {productName: 'Blantons\'s', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4},
+const REP1_DATA: OrderElement [] = [
+  {productName: 'Jack Daniels', unitCost: 10.17, volume: '750mL', quantity: 4, par: 5, suggested: 0},
+  {productName: 'Bulleit', unitCost: 10.17, volume: '1L', quantity: 4, par: 5, suggested: 0},
+  {productName: 'Eagle Rare', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, suggested: 0},
+  {productName: 'Jim Beam', unitCost: 10.17, volume: '1L', quantity: 3, par: 4, suggested: 0},
+  {productName: 'Old Forester', unitCost: 10.17, volume: '750mL', quantity: 5, par: 3, suggested: 0},
+  {productName: 'Blantons\'s', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, suggested: 0},
 ];
 
 @Component({
@@ -45,8 +53,14 @@ confirmOrders() {
   this.router.navigate(['review-orders']);
 }
 
-suggestedOrder() {
-  console.log('yerp');
+suggestedOrder(rep) {
+ const quantity: number = rep.quantity;
+ const par: number = rep.par;
+ let value = 0;
+ value = par - quantity;
+ return value;
 }
+
+
 
 }
