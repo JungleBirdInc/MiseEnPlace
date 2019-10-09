@@ -8,16 +8,16 @@ export interface OrderElement {
   volume: string;
   quantity: number;
   par: number;
-  suggested: number;
+  ordered: number;
 }
 
 const REP1_DATA: OrderElement [] = [
-  {productName: 'Jack Daniels', unitCost: 10.17, volume: '750mL', quantity: 4, par: 5, suggested: 0},
-  {productName: 'Bulleit', unitCost: 10.17, volume: '1L', quantity: 4, par: 5, suggested: 0},
-  {productName: 'Eagle Rare', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, suggested: 0},
-  {productName: 'Jim Beam', unitCost: 10.17, volume: '1L', quantity: 3, par: 4, suggested: 0},
-  {productName: 'Old Forester', unitCost: 10.17, volume: '750mL', quantity: 5, par: 3, suggested: 0},
-  {productName: 'Blantons\'s', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, suggested: 0},
+  {productName: 'Jack Daniels', unitCost: 10.17, volume: '750mL', quantity: 4, par: 5, ordered: 1},
+  {productName: 'Bulleit', unitCost: 10.17, volume: '1L', quantity: 4, par: 5, ordered: 1},
+  {productName: 'Eagle Rare', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, ordered: 2},
+  {productName: 'Jim Beam', unitCost: 10.17, volume: '1L', quantity: 3, par: 4, ordered: 2},
+  {productName: 'Old Forester', unitCost: 10.17, volume: '750mL', quantity: 5, par: 3, ordered: 0},
+  {productName: 'Blantons\'s', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, ordered: 2},
 ];
 
 @Component({

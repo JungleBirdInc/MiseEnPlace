@@ -21,7 +21,7 @@
             <td>
                 <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
             </td>
-            <td>
+            <td> <!--need to find a way to calculate and add to object to be sent-->
                 <input type="text" value={{suggestedOrder(rep1)}} [disabled]="!product.isEditable"/>
             </td>
             <td>
@@ -31,7 +31,7 @@
           </tr>
         </tbody>
         <tfoot>
-            <td></td><td></td><td></td><td> Total </td><td> {{getTotalCost(rep1) | currency}}</td>
+          <td></td><td></td><td></td><td></td><td> Total </td><td> {{getTotalCost(rep1) | currency}}</td>
         </tfoot>
       </table>     
 </igx-card>
