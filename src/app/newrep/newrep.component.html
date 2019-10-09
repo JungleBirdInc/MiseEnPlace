@@ -52,15 +52,18 @@
   </mat-step>
 
     <mat-step>
-      <form [(formGroup)]="repForm">
+      <igx-select [(ngModel)]="dist" #select>
         <ng-template matStepLabel>
-          <td id="ngtext">Distributor</td>
+          <td id="ngtext">Distributer</td>
         </ng-template>
-        <input matInput placeholder="Distributor" formControlName='dist_id' required>
-        <div>
-          <button matButton matStepperNext>Next</button>
-        </div>
-      </form>
+        <igx-select-item *ngFor="let dist of distributors" [value]='dist' required>
+          {{dist.distributor.name}}
+        </igx-select-item>
+      </igx-select>
+      <div>
+        <button matButton matStepperPrevious>Back</button>
+        <button matButton matStepperNext>Next</button>
+      </div>
     </mat-step>
 
   <mat-step>
