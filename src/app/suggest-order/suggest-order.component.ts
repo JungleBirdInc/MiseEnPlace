@@ -42,7 +42,7 @@ ngOnInit() {}
 
 /** Gets the total cost of all transactions. */
 getTotalCost(rep) {
-  return rep.map(t => t.price).reduce((acc, value) => acc + value, 0);
+  return rep.map(t => t.unitCost * (t.par - t.quantity)).reduce((acc, value) => acc + value, 0);
 }
 
 toggleShow() {
