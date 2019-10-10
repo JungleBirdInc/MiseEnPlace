@@ -93,6 +93,6 @@ export class ScanBarCodeComponent implements OnInit {
       Quagga.stop();
     }
   }
-
+// send code on click referenced in the line 90;
 
 }
