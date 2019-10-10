@@ -1,12 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import {
-  ConnectedPositioningStrategy,
-  IgxDropDownComponent,
-  IgxInputGroupComponent
-} from 'igniteui-angular';
-import { FormBuilder, Form } from '@angular/forms';
-// import { DistributorService } from '../services/distributor.service';
-// import { InventoryWizardService } from '../services/inventoryWizard.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { GetdistService } from '../services/getdist.service';
+import { GetdistprodsService } from '../services/getdistprods.service';
 
 @Component({
   selector: 'app-inventory-wizard',
@@ -16,63 +12,92 @@ import { FormBuilder, Form } from '@angular/forms';
 export class InventoryWizardComponent implements OnInit {
 
   constructor(
-    private dist: FormBuilder,
-    private setup: FormBuilder,
+    private _getdist: GetdistService,
+    private _getdistprods: GetdistprodsService,
+    private inv: FormBuilder,
   ) { }
 
-    show = false;
+  invForm = this.inv.group({
+    par: undefined,
+    qty: undefined,
+    distId: undefined,
+    prodId: undefined,
+  });
 
-  @ViewChild(IgxDropDownComponent, { static: true }) public igxDropDown: IgxDropDownComponent;
-  @ViewChild('inputGroup', { read: IgxInputGroupComponent, static: true }) public inputGroup: IgxInputGroupComponent;
+  public master = [];
+  public weekly = [];
 
-  public items: Array<{ field: string }> = [
-    { field: 'Republic' },
-    { field: 'Glazier\'s' },
-    { field: 'Southern Eagle' }
-];
+  public distributors;
+  public dist_id;
 
-newDistForm = this.dist.group({
-distributor: [''],
-repFirstName: [''],
-repLastName: [''],
-repCell: [''],
-repEmail: [''],
-});
-
-inventoryWizardForm = this.setup.group({
-brand: [''],
-brandName: [''],
-volume: [''],
-category: [''],
-subCategory: [''],
-par: [''],
-quantity: [''],
-distributor: ['choose Distributor'],
-});
-
-public openDropDown() {
-  if (this.igxDropDown.collapsed) {
-      this.igxDropDown.open({
-          modal: false,
-          positionStrategy: new ConnectedPositioningStrategy({
-              target: this.inputGroup.element.nativeElement
-          })
-      });
-  }
-}
-
-  toggleShow() {
-    this.show = !this.show;
-  }
+  public dist_products;
+  public product = {product: {name: ''}, productId: null, price: null};
 
   ngOnInit() {
+    this._getdist.getDistributors()
+      .subscribe(data => {
+        this.distributors = data;
+      });
+    console.log('distributors', this.distributors);
   }
 
-  saveInput() {
-    console.log(this.inventoryWizardForm.value);
-  }
-  newDist() {
-    console.log('new dist');
+  getProd(){
+    this._getdistprods.getDistProds(this.dist_id.id)
+      .subscribe(data => {
+        this.dist_products = data;
+      });
+    console.log('dist products', this.dist_products);
   }
 
+  add(){
+
+    let weeklyProduct = {
+      qty: this.invForm.value.qty,
+      id: undefined,
+      dist_id: this.dist_id.id,
+      productId: this.product.productId,
+      price: this.product.price,
+      createdAt: undefined,
+      updatedAt: undefined,
+      product: this.product.product
+    }
+    console.log('WEEKLY', weeklyProduct);
+    this.weekly.push(weeklyProduct);
+
+    let masterProduct = {
+      qty: this.invForm.value.par,
+      id: undefined,
+      dist_id: this.dist_id.id,
+      productId: this.product.productId,
+      price: this.product.price,
+      createdAt: undefined,
+      updatedAt: undefined,
+      product: this.product
+    }
+    console.log('MASTER', masterProduct);
+    this.master.push(masterProduct);
+
+    console.log('----------');
+    console.log('master', this.master);
+
+    console.log('----------');
+    console.log('weekly', this.weekly);
+
+  }
+
+  onSubmit() {
+    console.log(this.product);
+    this.invForm.value.qty = parseInt(this.invForm.value.qty);
+    this.invForm.value.par = parseInt(this.invForm.value.par);
+
+    this.invForm.value.distId = parseInt(this.dist_id.id);
+    // this.invForm.value.prodId = parseInt(this.product.id);
+
+    console.log(this.invForm.value);
+
+    // this._newprod.regProd(newprod)
+    //   .subscribe(data => {
+    //     console.log(data);
+    //   });
+  }
 }
