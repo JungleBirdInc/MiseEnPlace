@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-scan-invoice',
   templateUrl: './scan-invoice.component.html',
@@ -10,6 +11,7 @@ export class ScanInvoiceComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
