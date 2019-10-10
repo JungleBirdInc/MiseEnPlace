@@ -43,12 +43,12 @@ export class ScanInvoiceComponent implements OnInit {
     this.trigger.next();
   }
 
-  public handleInitError(error: WebcamInitError): void {
-    this.errors.push(error);
+  public showNextWebcam(): void {
+    this.showWebcam = !this.showWebcam;
   }
 
-  public showNextWebcam(directionOrDeviceId: boolean|string): void {
-    this.nextWebcam.next(directionOrDeviceId);
+  public handleInitError(error: WebcamInitError): void {
+    this.errors.push(error);
   }
 
   public handleImage(webcamImage: WebcamImage): void {
