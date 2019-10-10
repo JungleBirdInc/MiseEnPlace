@@ -4,9 +4,8 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-// Quagga -bar code scanner
-import { BarecodeScannerLivestreamModule } from 'ngx-barcode-scanner';
-import Quagga from 'quagga';
+// NG-BOOTSTRAP
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // MATERIAL
 import { MatTableModule } from '@angular/material/table';
@@ -142,8 +141,7 @@ import {
     MatTableModule,
     MatSnackBarModule,
     IgxCardModule,
-    BarecodeScannerLivestreamModule,
-    Quagga,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

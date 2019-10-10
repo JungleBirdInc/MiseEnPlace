@@ -24,6 +24,7 @@
     "@angular/router": "~8.2.8",
     "@angular/service-worker": "~8.2.8",
     "@material/fab": "^3.2.0",
+    "@ng-bootstrap/ng-bootstrap": "^5.1.1",
     "@types/hammerjs": "^2.0.36",
     "canvasjs": "^1.8.1",
     "eslint": "^6.5.1",
