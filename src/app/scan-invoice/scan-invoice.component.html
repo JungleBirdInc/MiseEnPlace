@@ -1,6 +1,25 @@
 <h3>Scan Invoice</h3>
-<h3>CURRENTLY IN PROGRESS</h3>
 <br />
+
+<div>
+    <ngb-alert type="info" [dismissible]='false'>
+        <strong>Scan</strong> the bar code
+    </ngb-alert>
+</div>
+<div *ngIf="barcode">
+    <ngb-alert type='success' [dismissable]='false'>
+        {{barcode}}
+    </ngb-alert>
+</div>
+<button type='button' class='btn btn-warning' (click)="startScanner()">
+    Start Scanning the Barcode
+</button>
+
+<div class='input-group'>
+    <div id="inputBarcode" style='position: static'>
+        <div id="interactive" class=>'viewport</div>
+    </div>
+</div>
 
 
 
