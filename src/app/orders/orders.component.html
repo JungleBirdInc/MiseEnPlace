@@ -1,6 +1,6 @@
+<h3 class="title">Order History</h3>
 <form class="input-group-form">
     <!-- (submit)="onSubmit()" -->
-  <h4 class="title">Order History</h4>
   <div class="container">
 
     <igx-select #select>
@@ -14,7 +14,7 @@
   </div>
 </form>
 
-  <igx-card (click)='toggleShow()'>Glazier's - Generic Rep - cell#
+  <igx-card (click)='toggleShow()'><h4>Glazier's - Generic Rep - cell#</h4>
 
     <table *ngIf='show'>
     
@@ -23,7 +23,7 @@
 
       <br />
       
-  <igx-card (click)='toggleShow()'>Republic - Generic Rep - cell#
+  <igx-card (click)='toggleShow()'><h4>Republic - Generic Rep - cell#</h4>
     <table *ngIf='show'>
         <thead><tr><th>ProductName</th><th>Volume</th><th>UnitCost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
         </thead>
