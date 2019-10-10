@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 // Quagga -bar code scanner
 import { BarecodeScannerLivestreamModule } from 'ngx-barcode-scanner';
+import Quagga from 'quagga';
 
 // MATERIAL
 import { MatTableModule } from '@angular/material/table';
@@ -142,6 +143,7 @@ import {
     MatSnackBarModule,
     IgxCardModule,
     BarecodeScannerLivestreamModule,
+    Quagga,
   ],
   providers: [],
   bootstrap: [AppComponent],
