@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import Quagga from 'quagga';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -33,7 +34,10 @@ export class ScanBarCodeComponent implements OnInit {
     }
   };
 
-  constructor(private ref: ChangeDetectorRef) { }
+  constructor(
+    private ref: ChangeDetectorRef,
+    private modal: NgbModal,
+    ) { }
 
   ngOnInit() {
     console.log('Barcode: initialization');
@@ -95,4 +99,6 @@ export class ScanBarCodeComponent implements OnInit {
   }
 // send code on click referenced in the line 90;
 
+
 }
+

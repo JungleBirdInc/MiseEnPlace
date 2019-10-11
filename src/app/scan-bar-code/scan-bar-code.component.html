@@ -1,15 +1,30 @@
-<p>scanner in progress</p>
+<h3>scanner in progress</h3>
 
-<div>
+<div *ngIf='!barcode'>
     <ngb-alert type="info" [dismissible]="false">
         <strong>Scan</strong> the bar code
     </ngb-alert>
 </div>
-<div *ngIf="barcode">
+<ng-template #content let-modal>
+    <div class='bar-code-modal' *ngIf='barcode'>
+            <div class='modal-header'>
+                <h4 class='modal-title'>Bar Code Scanned</h4>
+            </div>
+            <div class='modal-body'>
+                <p><strong>{{barcode}}</strong></p>
+                <p>Would you like to advance to the scale?</p>
+            </div>
+            <div class='modal-footer'>
+                <button type='button' class='close-modal' (click)='modal.dismiss("Cross click")'>Cancel</button>
+                <button type='button' class='send-bar-code' (click)='modal.close("Save click")'>Send Bar Code</button>
+            </div>
+    </div>
+</ng-template>
+<!-- <div *ngIf="barcode">
     <ngb-alert type='success' [dismissible]="false">
         {{barcode}}
     </ngb-alert>
-</div>
+</div> -->
 <button type='button' class='btn btn-warning' (click)="startScanner()">
     Start Scanning the Barcode
 </button>

@@ -76,6 +76,7 @@ import {
   IgxSelectModule,
   IgxCardModule,
   } from 'igniteui-angular';
+import { BarCodeModalComponent } from './bar-code-modal/bar-code-modal.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import {
     NewprodComponent,
     ReviewOrderComponent,
     BurnListComponent,
+    BarCodeModalComponent,
   ],
   imports: [
     BrowserModule,
