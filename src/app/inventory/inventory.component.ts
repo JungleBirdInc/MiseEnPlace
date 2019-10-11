@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetinventoryService } from '../services/getinventory.service';
 
 export interface InvElement {
   productName: string;
@@ -33,7 +34,7 @@ const VODKA_DATA: InvElement [] = [
 })
 export class InventoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _getinventory: GetinventoryService,) { }
   current = true;
   show = false;
   showInterior = false;
@@ -43,7 +44,13 @@ export class InventoryComponent implements OnInit {
   productB = BOURBON_DATA; // new MatTableDataSource<InvElement>();
   productV = VODKA_DATA;
 
+  public inventory;
   ngOnInit() {
+    this._getinventory.getInventory()
+      .subscribe(data => {
+        this.inventory = data;
+      });
+    console.log('invoices', this.inventory);
   }
 
   onSubmit() {
