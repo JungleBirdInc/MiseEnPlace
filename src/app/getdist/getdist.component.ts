@@ -11,7 +11,6 @@ export class GetdistComponent implements OnInit {
   constructor(private _getdist: GetdistService) { }
 
   ngOnInit() {
-    /* CODE FOR REQUEST*/
     this._getdist.getDistributors()
     .subscribe(data => {
     this.distributors = data;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { GetinvoicesService } from '../services/getinvoices.service';
 
 const REP1_DATA = [
   {productName: 'Jack Daniels', subCategory: 'Bourbon', volume: '750mL', quantity: 4, price: 57.23},
@@ -19,6 +20,7 @@ const REP1_DATA = [
 export class InvoicesComponent implements OnInit {
 
   constructor(
+    private _getinvoices: GetinvoicesService,
     public snackBar: MatSnackBar,
     private router: Router,
   ) {
@@ -30,7 +32,15 @@ export class InvoicesComponent implements OnInit {
 
   public items: string[] = ['Distributer', 'Date', 'Invoice Number'];
 
-  ngOnInit() {}
+  public invoices;
+
+  ngOnInit() {
+    this._getinvoices.getInvoices()
+      .subscribe(data => {
+        this.invoices = data;
+      });
+      console.log('invoices', this.invoices);
+  }
 
   getTotalCost(inventory) {
     return inventory.map(t => t.price).reduce((acc, value) => acc + value, 0);
