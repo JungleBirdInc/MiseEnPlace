@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetordersService } from '../services/getorders.service';
 
 export interface OrderElement {
   productName: string;
@@ -25,7 +26,7 @@ const REP1_DATA: OrderElement [] = [
 })
 export class OrdersComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _getorders: GetordersService) { }
 
   public items: string[] = ['Distributer', 'Date', 'Invoice Number', ];
 
@@ -34,7 +35,14 @@ export class OrdersComponent implements OnInit {
   displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
   rep1 = REP1_DATA;
 
+  public orders;
+
   ngOnInit() {
+    this._getorders.getOrders()
+      .subscribe(data => {
+        this.orders = data;
+      });
+    console.log('orders', this.orders);
   }
 
   onSubmit() {
