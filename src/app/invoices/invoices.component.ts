@@ -38,8 +38,9 @@ export class InvoicesComponent implements OnInit {
     this._getinvoices.getInvoices()
       .subscribe(data => {
         this.invoices = data;
+        console.log('invoices response', data);
       });
-      console.log('invoices', this.invoices);
+      
   }
 
   getTotalCost(inventory) {

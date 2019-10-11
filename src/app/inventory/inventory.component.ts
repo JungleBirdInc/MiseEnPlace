@@ -49,8 +49,8 @@ export class InventoryComponent implements OnInit {
     this._getinventory.getInventory()
       .subscribe(data => {
         this.inventory = data;
+        console.log('inventory response', data)
       });
-    console.log('invoices', this.inventory);
   }
 
   onSubmit() {

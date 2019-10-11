@@ -41,8 +41,8 @@ export class OrdersComponent implements OnInit {
     this._getorders.getOrders()
       .subscribe(data => {
         this.orders = data;
+        console.log('orders response', data);
       });
-    console.log('orders', this.orders);
   }
 
   onSubmit() {
