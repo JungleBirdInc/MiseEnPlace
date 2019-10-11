@@ -1,5 +1,29 @@
 <h3>Scan Invoice</h3>
 <br />
 
+<div>
+    <webcam [height]='500' [width]='500' [trigger]='triggerObservable' (imageCapture)='handleImage($event)'
+            *ngIf='showWebcam' [allowCameraSwitch]='allowCameraSwitch' [switchCamera]='nextWebcamObservable'
+            [videoOptions]='videoOptions' [imageQuality]='1' (cameraSwitched)='cameraWasSwitched($event)'
+            (initError)='handleInitError($event)'>
+    </webcam>
+    <br/>
+    <button class='actionBtn' (click)="triggerSnapshot()">Take Picture of Invoice</button>
+    <button class='actionBtn' (click)='toggleWebcam()'>Toggle Webcam</button>
+    <br/>
+    <button class='actionBtn' (click)='shownextWebcam(true)' [disabled]='!multipleWebcamsAvailable'>Next Webcam</button>
+    <input id='cameraSwitchCheckbox' type='checkbox' [(ngModel)]='allowCameraSwitch'><label for='cameraSwitchCheckbox'>Allow Camera to Switch</label>
+</div>
+
+<div class="snapshot" *ngIf='webcamImage'>
+    <p>Succesful Photo</p>
+    <img [src]='webcamImage.imageAsDataUrl'/>
+</div>
+
+<h4 *ngIf="errors.length > 0">Messages:</h4>
+<ul *ngFor='let error of errors'>
+    <li>{{error | json</li>
+</ul>
+
 
 <h4><a href='#' routerLink='/edit-invoice'>Manually Enter Invoice</a></h4>
