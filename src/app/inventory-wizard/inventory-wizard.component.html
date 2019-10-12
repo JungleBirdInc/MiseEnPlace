@@ -68,3 +68,15 @@
     </div>
   </mat-step>
 </mat-vertical-stepper>
+
+<div>
+  added products
+  <ul>
+    <li *ngFor="let product of master">
+      Name: {{product.product.product.product_name}} <br />
+      Price: {{product.price}} <br />
+      Qty: {{product.qty}} <br />
+      <br /><br />
+    </li>
+  </ul>
+</div>
