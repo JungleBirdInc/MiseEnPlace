@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import {ActivatedRoute} from '@angular/router';
 import {Observable} from 'rxjs';
-import { GetCurrentInvService } from '../services/getcurrentinventory.service';
+import { GetOpenBottlesService } from '../services/getopenbottle.service';
 
 export interface Burn {
   productName: string;
@@ -41,7 +41,7 @@ export class BurnListComponent implements OnInit {
     public snackBar: MatSnackBar,
     private router: Router,
     public activatedRoute: ActivatedRoute,
-    public _getCurrentInv: GetCurrentInvService,
+    public _getOpenBottles: GetOpenBottlesService,
   ) { }
 
   show = false;
@@ -57,8 +57,8 @@ export class BurnListComponent implements OnInit {
 
   ngOnInit() {
     this.state$ = this.activatedRoute.paramMap.pipe(() => window.history.state);
-    this._getCurrentInv.getCurentInventory()
-      .subscribe(data => {
+    this._getOpenBottles.getOpenBottles()
+      .then(data => {
         this.inventory = data;
         console.log(data);
       });

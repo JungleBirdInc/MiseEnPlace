@@ -8,7 +8,7 @@ export class GetCurrentInvService {
 
     constructor(private http: HttpClient) {}
 
-    orgId = 17;
+    orgId = 1;
 
     private _url: string = `/inventory/getCurrent/${this.orgId}`;
 
