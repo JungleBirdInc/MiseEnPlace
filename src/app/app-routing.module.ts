@@ -17,6 +17,10 @@ import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.co
 // REVIEW ORDER COMPONENT
 import { ReviewOrderComponent} from './review-order/review-order.component';
 
+
+// INVOICE
+import { NewinvoiceComponent } from './newinvoice/newinvoice.component';
+
 // PERSISTANT NAV
 import { HomeComponent } from './home/home.component';
 import { InventoryComponent } from './inventory/inventory.component';
@@ -62,6 +66,7 @@ const routes: Routes = [
 { path: 'newprod', component: NewprodComponent },
 { path: 'review-orders', component: ReviewOrderComponent},
 { path: 'burn', component: BurnListComponent},
+{ path: 'newinvoice', component: NewinvoiceComponent}
 ];
 
 @NgModule({
