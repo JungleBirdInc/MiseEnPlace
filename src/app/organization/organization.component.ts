@@ -38,7 +38,7 @@ export class OrganizationComponent implements OnInit {
     }
 
     this._organization.regOrg(organization)
-      .subscribe(data => {
+      .then(data => {
         console.log(data);
       });
   }

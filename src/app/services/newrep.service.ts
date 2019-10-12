@@ -11,8 +11,18 @@ export class NewrepService {
   private _url: string = `/reps/create`;
 
   regRep(data) {
-    console.log(data, 'DATA FROM REP SERVICE');
-    return this.http.post(this._url, data);
+    let promise = new Promise((resolve, reject) => {
+      this.http.post(this._url, data)
+        .toPromise()
+        .then(
+          res => {
+            resolve(res);
+          },
+          msg => {
+            reject(msg);
+          }
+        );
+    });
+    return promise;
   }
-
 }

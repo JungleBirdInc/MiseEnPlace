@@ -35,7 +35,7 @@ export class NewinvoiceComponent implements OnInit {
 
   ngOnInit() {
     this._getdist.getDistributors()
-      .subscribe(data => {
+      .then(data => {
         this.distributors = data;
       });
     console.log('distributors', this.distributors);
@@ -43,7 +43,7 @@ export class NewinvoiceComponent implements OnInit {
 
   getProd() {
     this._getdistprods.getDistProds(this.dist_id.id)
-      .subscribe(data => {
+      .then(data => {
         this.dist_products = data;
       });
     console.log('dist products', this.dist_products);
@@ -76,7 +76,7 @@ export class NewinvoiceComponent implements OnInit {
     };
 
     this._newinvoice.newInvoice(body)
-      .subscribe(data => {
+      .then(data => {
         console.log(data);
       });
   }

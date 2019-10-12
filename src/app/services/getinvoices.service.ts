@@ -11,6 +11,18 @@ export class GetinvoicesService {
   private _url: string = `/invoice/getAll/1`;
 
   getInvoices(){
-    return this.http.get(this._url);
+    let promise = new Promise((resolve, reject) => {
+      this.http.get(this._url)
+        .toPromise()
+        .then(
+          res => {
+            resolve(res);
+          },
+          msg => {
+            reject(msg);
+          }
+        );
+    });
+    return promise;
   }
 }

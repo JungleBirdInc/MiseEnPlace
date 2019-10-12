@@ -39,7 +39,7 @@ export class NewdistComponent implements OnInit {
     }
 
     this._newdist.regDist(newdist)
-      .subscribe(data => {
+      .then(data => {
         console.log(data);
       });
   }

@@ -11,7 +11,18 @@ export class NewprodService {
   private _url: string = `/product/create`;
 
   regProd(data) {
-    return this.http.post(this._url, data);
+    let promise = new Promise((resolve, reject) => {
+      this.http.post(this._url, data)
+        .toPromise()
+        .then(
+          res => {
+            resolve(res);
+          },
+          msg => {
+            reject(msg);
+          }
+        );
+    });
+    return promise;
   }
-
 }
