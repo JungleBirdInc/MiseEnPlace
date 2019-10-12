@@ -23,6 +23,9 @@ import { MatToolbarModule,
         MatInputModule,
         MatSnackBarModule, } from '@angular/material';
 
+// WEBCAM
+import { WebcamModule } from 'ngx-webcam';
+
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -143,6 +146,7 @@ import {
     MatSnackBarModule,
     IgxCardModule,
     NgbModule,
+    WebcamModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
