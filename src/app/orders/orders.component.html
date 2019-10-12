@@ -18,19 +18,23 @@
           <tr *ngFor="let product of orderList[i].products">
             <td>
               <input type="text" 
-              [(ngModel)]="product.name"/>
+              [(ngModel)]="product.name"
+              [disabled]="!product.isEditable"/>
             </td>
             <td>
               <input type="text" 
-              [(ngModel)]="product.bottleSize"/>
+              [(ngModel)]="product.bottleSize"
+              [disabled]="!product.isEditable"/>
             </td>
             <td>
               <input type="text" 
-              [(ngModel)]="product.qty"/>
+              [(ngModel)]="product.qty"
+              [disabled]="!product.isEditable"/>
             </td>
             <td>
               <input type="text" 
-              [(ngModel)]="product.price"/>
+              [(ngModel)]="product.price"
+              [disabled]="!product.isEditable">
             </td>
           </tr>
         </tbody>
