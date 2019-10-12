@@ -1,4 +1,4 @@
-<h3 id="title">Initialize Inventory</h3>
+<h3 id="title">New Invoice</h3>
 <br />
 
 <mat-vertical-stepper>
@@ -30,24 +30,11 @@
       <button matButton matStepperNext>Next</button>
     </div>
   </mat-step>
- 
-  <mat-step>
-    <form [(formGroup)]="invForm">
-      <ng-template matStepLabel>
-        <td id="ngtext">Set Par</td>
-      </ng-template>
-      <input matInput placeholder="par" formControlName='par' required>
-      <div>
-        <button matButton matStepperPrevious>Back</button>
-        <button matButton matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
 
   <mat-step>
-    <form [(formGroup)]="invForm">
+    <form [(formGroup)]="invoiceForm">
       <ng-template matStepLabel>
-        <td id="ngtext">Set Quantity</td>
+        <td id="ngtext">Qty</td>
       </ng-template>
       <input matInput placeholder="qty" formControlName='qty' required>
       <div>
@@ -71,12 +58,12 @@
 
 <div>
   added products
-  <ul>
-    <li *ngFor="let product of master">
+  <!-- <ul>
+    <li *ngFor="let product of list">
       Name: {{product.product.product.product_name}} <br />
       Price: {{product.price}} <br />
       Qty: {{product.qty}} <br />
       <br /><br />
     </li>
-  </ul>
+  </ul> -->
 </div>

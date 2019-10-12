@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { GetdistService } from '../services/getdist.service';
 import { GetdistprodsService } from '../services/getdistprods.service';
+import { InitializeInventoryService } from '../services/initializeInventory.service';
 
 @Component({
   selector: 'app-inventory-wizard',
@@ -12,6 +13,7 @@ import { GetdistprodsService } from '../services/getdistprods.service';
 export class InventoryWizardComponent implements OnInit {
 
   constructor(
+    private _initializeInventory: InitializeInventoryService,
     private _getdist: GetdistService,
     private _getdistprods: GetdistprodsService,
     private inv: FormBuilder,
@@ -50,7 +52,10 @@ export class InventoryWizardComponent implements OnInit {
   }
 
   add(){
-
+    this.invForm.value.qty = parseInt(this.invForm.value.qty);
+    this.invForm.value.par = parseInt(this.invForm.value.par);
+    this.invForm.value.distId = parseInt(this.dist_id.id);
+    
     let weeklyProduct = {
       qty: this.invForm.value.qty,
       id: undefined,
@@ -64,7 +69,7 @@ export class InventoryWizardComponent implements OnInit {
     console.log('WEEKLY', weeklyProduct);
     this.weekly.push(weeklyProduct);
 
-    let masterProduct = {
+    const masterProduct = {
       qty: this.invForm.value.par,
       id: undefined,
       dist_id: this.dist_id.id,
@@ -82,22 +87,27 @@ export class InventoryWizardComponent implements OnInit {
 
     console.log('----------');
     console.log('weekly', this.weekly);
-
   }
 
   onSubmit() {
     console.log(this.product);
     this.invForm.value.qty = parseInt(this.invForm.value.qty);
     this.invForm.value.par = parseInt(this.invForm.value.par);
-
     this.invForm.value.distId = parseInt(this.dist_id.id);
-    // this.invForm.value.prodId = parseInt(this.product.id);
 
-    console.log(this.invForm.value);
+    const body = {
+      admin_id: 1,
+      type: undefined,
+      dist_id: undefined,
+      rep_id: undefined,
+      total_price: undefined,
+      masterSet: this.master,
+      currentSet: this.weekly,
+    };
 
-    // this._newprod.regProd(newprod)
-    //   .subscribe(data => {
-    //     console.log(data);
-    //   });
+    this._initializeInventory.initializeInventory(body)
+      .subscribe(data => {
+        console.log(data);
+      });
   }
 }

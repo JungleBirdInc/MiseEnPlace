@@ -4,13 +4,14 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class GetdistService {
+export class GetordersService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `/distributor/getAll/1`;
+  private _url: string = `/order/getAll/1`;
 
-  getDistributors(){
+  getOrders(){
     return this.http.get(this._url);
   }
+
 }

@@ -8,7 +8,7 @@ export class RegisterService {
   
   constructor(private http: HttpClient) { }
 
-  private _url: string = `/api/createUser`;
+  private _url: string = `/user/create`;
 
     regUser(data){
     return this.http.post(this._url, data);

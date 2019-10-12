@@ -8,7 +8,7 @@ export class NewrepService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `/api/createRep`;
+  private _url: string = `/reps/create`;
 
   regRep(data) {
     console.log(data, 'DATA FROM REP SERVICE');

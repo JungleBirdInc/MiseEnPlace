@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import {NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { ScanphotoService } from '../services/scanphoto.service';
 
 @Component({
   selector: 'app-scan-invoice',
@@ -11,6 +12,10 @@ import {NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./scan-invoice.component.css']
 })
 export class ScanInvoiceComponent implements OnInit {
+
+  constructor(
+    private _scanPhoto: ScanphotoService,
+    private modalService: NgbModal) { }
 
   // toggle webcam on/off
   public showWebcam = true;
@@ -26,10 +31,6 @@ export class ScanInvoiceComponent implements OnInit {
   // webcam trigger
   private trigger: Subject<void> = new Subject<void>();
   private nextWebcam: Subject<boolean|string> = new Subject<boolean|string>();
-
-  constructor(
-    private modalService: NgbModal
-  ) { }
 
   public ngOnInit(): void {
     WebcamUtil.getAvailableVideoInputs()
@@ -56,8 +57,17 @@ export class ScanInvoiceComponent implements OnInit {
     this.errors.push(error);
   }
 
-  public handleImage(webcamImage: WebcamImage): void {
-    console.log('recieved webcam image', webcamImage);
+  public handleImage(image){
+    console.log('recieved webcam image', image);
+    console.log('route activated!')
+    let data = {
+      orgId: 1,
+      url: image._imageAsDataUrl,
+    }
+    console.log('DATA OBJECT TO BE SENT TO SERVICE', data);
+    this._scanPhoto.scanPhoto(data).subscribe(subData => {
+      console.log('Subscribe Data', subData);
+    });
   }
 
   public cameraWasSwitched(deviceId: string): void {
