@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+// import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 @Injectable({
     providedIn: 'root'
@@ -12,9 +12,9 @@ export class ScanphotoService {
     private _url: string = `/scan/photo`;
 
     scanPhoto(data) {
-        console.log('routing...')
-    return this.http.post(this._url, JSON.stringify(data));
-
+        console.log('routing...');
+        console.log('SERVICE RECIEVED', data);
+      return this.http.post(this._url, data);
     }
 
 }

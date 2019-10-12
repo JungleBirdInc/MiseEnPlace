@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
 import { ScanphotoService } from '../services/scanphoto.service';
 
-
 @Component({
   selector: 'app-scan-invoice',
   templateUrl: './scan-invoice.component.html',
@@ -54,14 +53,17 @@ export class ScanInvoiceComponent implements OnInit {
     this.errors.push(error);
   }
 
-  public handleImage(webcamImage: WebcamImage): void {
-    console.log('recieved webcam image', webcamImage);
+  public handleImage(image){
+    console.log('recieved webcam image', image);
     console.log('route activated!')
     let data = {
-      url: WebcamImage,
+      orgId: 1,
+      url: image._imageAsDataUrl,
     }
-    console.log(data);
-    this._scanPhoto.scanPhoto(data).subscribe();
+    console.log('DATA OBJECT TO BE SENT TO SERVICE', data);
+    this._scanPhoto.scanPhoto(data).subscribe(subData => {
+      console.log('Subscribe Data', subData);
+    });
   }
 
   public cameraWasSwitched(deviceId: string): void {
