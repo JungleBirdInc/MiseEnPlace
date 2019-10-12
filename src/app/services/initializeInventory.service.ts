@@ -11,7 +11,18 @@ export class InitializeInventoryService {
   private _url: string = `/inventory/initialize`;
 
   initializeInventory(body){
-    return this.http.post(this._url, body);
+    let promise = new Promise((resolve, reject) => {
+      this.http.post(this._url, body)
+        .toPromise()
+        .then(
+          res => {
+            resolve(res);
+          },
+          msg => {
+            reject(msg);
+          }
+        );
+    });
+    return promise;
   }
-
 }

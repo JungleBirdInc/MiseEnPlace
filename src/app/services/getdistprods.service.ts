@@ -11,6 +11,18 @@ export class GetdistprodsService {
   private _url: string = `/product/getAll`;
 
   getDistProds(id) {
-    return this.http.get(`${this._url}/${id}`);
+    let promise = new Promise((resolve, reject) => {
+      this.http.get(`${this._url}/${id}`)
+        .toPromise()
+        .then(
+          res => {
+            resolve(res);
+          },
+          msg => {
+            reject(msg);
+          }
+        );
+    });
+    return promise;
   }
 }

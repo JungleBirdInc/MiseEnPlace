@@ -36,7 +36,7 @@ export class InvoicesComponent implements OnInit {
 
   ngOnInit() {
     this._getinvoices.getInvoices()
-      .subscribe(data => {
+      .then(data => {
         this.invoices = data;
         console.log('invoices response', data);
       });

@@ -11,7 +11,19 @@ export class GetcategoriesService {
   private _url: string = `/categories/categories`;
 
   getCategories(){
-    return this.http.get(this._url);
+    let promise = new Promise((resolve, reject) => {
+      this.http.get(this._url)
+        .toPromise()
+        .then(
+          res => {
+            resolve(res);
+          },
+          msg => {
+            reject(msg);
+          }
+        );
+    });
+    return promise;
   }
 
 }

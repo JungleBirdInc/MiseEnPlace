@@ -11,8 +11,19 @@ export class OrganizationService {
   private _url: string = `/organization/create`;
 
   regOrg(data) {
-    console.log(data, 'DATA FROM ORGANIZATION SERVICE');
-    return this.http.post(this._url, data);
+    let promise = new Promise((resolve, reject) => {
+      this.http.post(this._url, data)
+        .toPromise()
+        .then(
+          res => {
+            resolve(res);
+          },
+          msg => {
+            reject(msg);
+          }
+        );
+    });
+    return promise;
   }
 
 }
