@@ -126,11 +126,8 @@ private getDismissReason(reason: any): string {
 }
 
 sendCode(code) {
-  // console.log(code);
-  this.data.sendUPC(code);
-  // this.router.navigate(['scale']); to send to scale, no route yet.
-  this.router.navigate(['burn']);
+  this.router.navigateByUrl('burn', {state: {barcode: this.barcode}});
+  // change burn to route for scale and will send to scale
 }
 
-}
 

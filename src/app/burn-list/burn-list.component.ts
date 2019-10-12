@@ -2,6 +2,10 @@ import { Component, OnInit,  HostListener } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { UPCService } from '../services/sendUPC.service';
+import {ActivatedRoute} from '@angular/router';
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import { GetCurrentInvService } from '../services/getcurrentinventory.service';
 
 export interface Burn {
   productName: string;
@@ -34,11 +38,13 @@ export interface Burn {
   providers: [UPCService]
 })
 export class BurnListComponent implements OnInit {
+  state$: Observable<object>;
 
   constructor(
     public snackBar: MatSnackBar,
     private router: Router,
     private data: UPCService,
+    public activatedRoute: ActivatedRoute
   ) { }
 
   show = false;
@@ -52,8 +58,8 @@ export class BurnListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.currentCode.subscribe(code => this.barcode = code);
-    console.log(this.barcode);
+    this.state$ = this.activatedRoute.paramMap.pipe(() => window.history.state);
+    console.log(this.state$);
   }
 
   toggleShow() {
