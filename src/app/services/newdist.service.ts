@@ -8,7 +8,7 @@ export class NewdistService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `/api/createDist`;
+  private _url: string = `/distributor/create`;
 
   regDist(data) {
     console.log(data, 'DATA FROM CREATE DIST SERVICE');
