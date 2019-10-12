@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import Quagga from 'quagga';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { UPCService } from '../services/sendUPC.service';
 
 @Component({
   selector: 'app-scan-bar-code',
@@ -38,6 +39,7 @@ export class ScanBarCodeComponent implements OnInit {
   constructor(
     private ref: ChangeDetectorRef,
     private modalService: NgbModal,
+    private data: UPCService,
     ) { }
 
   ngOnInit() {
@@ -120,9 +122,9 @@ private getDismissReason(reason: any): string {
   }
 }
 
-// sendUPC (){
-//   this.messageEvent.emit(this.)
-// }
+sendUPC(code) {
+  this.data.sendUPC(code);
+}
 
 }
 
