@@ -103,31 +103,15 @@ export class ScanBarCodeComponent implements OnInit {
       Quagga.stop();
     }
   }
-// send code on click referenced in the line 90;
 
-open(content) {
-  this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-    this.closeResult = `Closed with: ${result}`;
-  }, (reason) => {
-    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-  });
-}
-
-
-private getDismissReason(reason: any): string {
-  if (reason === ModalDismissReasons.ESC) {
-    return 'by pressing ESC';
-  } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-    return 'by clicking on a backdrop';
-  } else {
-    return  `with: ${reason}`;
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'});
   }
-}
 
-sendCode(code) {
-  this.router.navigateByUrl('scale', {state: {barcode: this.barcode}});
-  // change burn to route for scale and will send to scale
-}
+  sendCode(code) {
+    this.router.navigateByUrl('scale', {state: {barcode: this.barcode}});
+    this.modalService.dismissAll();
+  }
 
 }
 

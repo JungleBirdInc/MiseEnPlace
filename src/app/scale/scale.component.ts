@@ -10,12 +10,43 @@ import { UpdateOpenBottlesService } from '../services/updateOpenBottles.service'
   templateUrl: './scale.component.html',
   styleUrls: ['./scale.component.css'],
   template: `
+  <h3>Weigh Bottle</h3>
+  <br />
+  <h5>Scale Coming Soon</h5>
+  <br />
   <div>{{code}}</div>
+  <br />
+  <h4 (click)='!manual' >Manually Enter Weight</h4>
+  <table *ngIf='manual'  class="mat-elevation-z8" width='100%'>
+      <thead>
+        <tr>
+          <th>ProductName</th>
+          <th>Weight</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" 
+            value='product.name'
+            // [(ngModel)]="product.name" 
+            [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text"
+              value='enter weight'
+              // [(ngModel)]="product.weight"
+              contenteditable="true"/>
+          </td>
+        </tr>
+      </tbody>
+  </table>
   `
 })
 export class ScaleComponent implements OnInit {
 
   state$: Observable<object>;
+  manual = false;
   code = window.history.state.barcode;
 //   navigation = this.router.getCurrentNavigation();
 // this.barcode = navigation.extras.state.barcode;
@@ -29,17 +60,12 @@ constructor(
   ) { }
 
 ngOnInit() {
-    // this.state$ = this.activatedRoute.paramMap.pipe(() => window.history.state);
-    this._getByUPC.getBottleUPC(this.code)
-    .then(data => {
-      this.bottle = data;
-      console.log(data);
-    });
-    console.log(window.history.state.barcode);
+    // this._getByUPC.getBottleUPC(this.code)
+    // .then(data => {
+    //   this.bottle = data;
+    //   console.log(data);
+    // });
   }
 
-  show(){
-    console.log(this.code);
-  }
 
 }
