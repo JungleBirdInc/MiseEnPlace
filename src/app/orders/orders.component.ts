@@ -1,59 +1,97 @@
+// ANGULAR IMPORTS
 import { Component, OnInit } from '@angular/core';
+
+// SERVICES
 import { GetordersService } from '../services/getorders.service';
-
-export interface OrderElement {
-  productName: string;
-  unitCost: number;
-  volume: string;
-  quantity: number;
-  par: number;
-  ordered: number;
-}
-
-const REP1_DATA: OrderElement [] = [
-  {productName: 'Jack Daniels', unitCost: 10.17, volume: '750mL', quantity: 4, par: 5, ordered: 1},
-  {productName: 'Bulleit', unitCost: 10.17, volume: '1L', quantity: 4, par: 5, ordered: 1},
-  {productName: 'Eagle Rare', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, ordered: 2},
-  {productName: 'Jim Beam', unitCost: 10.17, volume: '1L', quantity: 3, par: 4, ordered: 2},
-  {productName: 'Old Forester', unitCost: 10.17, volume: '750mL', quantity: 5, par: 3, ordered: 0},
-  {productName: 'Blantons\'s', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, ordered: 2},
-];
+import { GetbotsizeService } from '../services/getbotsize.service';
+import { GetdistService } from '../services/getdist.service';
 
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
+
 export class OrdersComponent implements OnInit {
 
-  constructor(private _getorders: GetordersService) { }
+  constructor(
+    private _getorders: GetordersService,
+    private _getbotsize: GetbotsizeService,
+    private _getdist: GetdistService,
+    ) { }
 
-  public items: string[] = ['Distributer', 'Date', 'Invoice Number', ];
+    // RESPONSE FROM SERVICES
+    public orders;
+    public botsize;
+    public dists;
 
-  show = false;
-
-  displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
-  rep1 = REP1_DATA;
-
-  public orders;
-
-  ngOnInit() {
-    this._getorders.getOrders()
-      .subscribe(data => {
+    ngOnInit() {
+      // GET ORDERS
+      this._getorders.getOrders()
+      .then(data => {
         this.orders = data;
-        console.log('orders response', data);
       });
-  }
+      
+      // GET BOTTLE SIZES
+      this._getbotsize.getCategories()
+      .then(data => {
+        this.botsize = data;
+      });
 
-  onSubmit() {
-    console.log('submit');
-  }
+      // GET DISTRIBUTORS
+      this._getdist.getDistributors()
+      .then(data => {
+        this.dists = data;
+        
+      })
+      .then(() => {
+        this.convert();
+      });
+    }
 
-  getTotalCost(rep) {
-    return rep.map(t => t.unitCost * t.ordered).reduce((acc, value) => acc + value, 0);
-  }
+    // STORE CONVERTED DATA
+    public orderList = [];
 
-  toggleShow() {
-    this.show = !this.show;
-  }
+    convert(){
+      // CONVERT PRODUCT OBJECTS AND STORE IN MASTER ARRAY
+      this.orders.forEach(order => {
+        let prod = 
+          {
+            distributor: order.dist_id,
+            repName: order.rep_id,
+            repNum: undefined,
+            total: order.total_price,
+            products: [],
+            date: order.createdAt,
+          }
+        
+        // ASSIGN DISTRIBUTOR AND REP NAME/NUMBER
+        this.dists.forEach(dist => {
+          if(prod.distributor === dist.distributorOrganizationId){
+            prod.distributor = dist.distributor.name;
+            
+            if(dist.distributor.reps.length !== 0){
+              prod.repName = `${dist.distributor.reps[0].first_name} ${dist.distributor.reps[0].last_name}`;
+              prod.repNum = dist.distributor.reps[0].phone;
+            }else{
+              prod.repName = `Dist. #`;
+              prod.repNum = dist.distributor.phone;
+            }
+          }
+        });
+
+        // ASSIGN PRODUCT NAME / BOTTLE SIZE / PRICE / ORDER QTY
+        order.logs_products.forEach(product => {
+          prod.products.push({
+            name: product.distributors_product.product.product_name,
+            bottleSize: this.botsize[product.distributors_product.product.btlSizeId - 1].size,
+            price: product.distributors_product.price,
+            qty: product.qty,
+            //NOT SURE IF QTY REFERS TO ON HAND OR ON ORDER
+          });
+        });
+        this.orderList.push(prod);
+      });
+      console.log('order list', this.orderList);
+    }
 }

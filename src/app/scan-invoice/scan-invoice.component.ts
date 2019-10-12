@@ -61,7 +61,7 @@ export class ScanInvoiceComponent implements OnInit {
       url: image._imageAsDataUrl,
     }
     console.log('DATA OBJECT TO BE SENT TO SERVICE', data);
-    this._scanPhoto.scanPhoto(data).subscribe(subData => {
+    this._scanPhoto.scanPhoto(data).then(subData => {
       console.log('Subscribe Data', subData);
     });
   }

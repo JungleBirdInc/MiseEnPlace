@@ -30,7 +30,7 @@ export class NewrepComponent implements OnInit {
 
   ngOnInit() {
     this._getdist.getDistributors()
-      .subscribe(data => {
+      .then(data => {
         this.distributors = data;
         console.log(this.distributors, 'distributors');
       });
@@ -49,7 +49,7 @@ export class NewrepComponent implements OnInit {
     }
 
     this._newrep.regRep(newrep)
-      .subscribe(data => {
+      .then(data => {
         console.log(data);
       });
   }

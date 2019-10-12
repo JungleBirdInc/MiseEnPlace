@@ -27,19 +27,19 @@ export class InventoryComponent implements OnInit {
   ngOnInit() {
     // GET INVENTORY
     this._getinventory.getInventory()
-    .subscribe(data => {
+    .then(data => {
       this.inventory = data;
     });
 
     // GET CATEGORIES
     this._getcategories.getCategories()
-    .subscribe(data => {
+    .then(data => {
       this.categories = data;
     });
         
     // GET BOTTLE SIZES
     this._getbotsize.getCategories()
-    .subscribe(data => {
+    .then(data => {
       this.botsize = data;
     });
   }
@@ -77,16 +77,14 @@ export class InventoryComponent implements OnInit {
       // MISSING: PAR
       // CONVERT PRODUCT OBJECTS AND STORE IN MASTER ARRAY
       this.inventory[0].logs_products.forEach(item => {
-        this.usablefuckingdata.push(
-          {
+        this.usablefuckingdata.push({
             name: item.distributors_product.product.product_name,
             quantity: item.qty,
             par: 0,
             price: item.distributors_product.price,
             bottleSize: this.botsize[item.distributors_product.product.btlSizeId - 1].size,
             category: this.categories[item.distributors_product.product.category_id - 1].category_name,
-          }
-        );
+          });
       });
   
       // ORDER BY CATEGORY

@@ -47,17 +47,17 @@ export class NewprodComponent implements OnInit {
 
   ngOnInit() {
     this._getdist.getDistributors()
-      .subscribe(data => {
+      .then(data => {
         this.distributors = data;
       });
 
     this._getcate.getCategories()
-      .subscribe(data => {
+      .then(data => {
         this.categories = data;
       });
 
     this._getbotsize.getCategories()
-      .subscribe(data => {
+      .then(data => {
         this.bottlesize = data;
       });
   }
@@ -85,7 +85,7 @@ export class NewprodComponent implements OnInit {
     console.log(this.cate, 'cate');
 
     this._newprod.regProd(newprod)
-      .subscribe(data => {
+      .then(data => {
         console.log(data);
       });
   }
