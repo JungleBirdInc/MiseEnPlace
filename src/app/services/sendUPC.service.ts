@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })
 export class UPCService {
-    private UPCSource = new BehaviorSubject('default message');
-    currentMessage = this.UPCSource.asObservable();
+    private UPCSource = new BehaviorSubject('default code');
+    currentCode = this.UPCSource.asObservable();
 
     constructor() {}
 

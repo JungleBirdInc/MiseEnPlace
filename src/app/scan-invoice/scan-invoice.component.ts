@@ -73,9 +73,9 @@ export class ScanInvoiceComponent implements OnInit {
     return this.nextWebcam.asObservable();
   }
 
-  open() {
-    const modalRef = this.modalService.open(ScanInvoiceModal);
-    modalRef.componentInstance.name = 'invoice';
-  }
+  // open() {
+  //   const modalRef = this.modalService.open(ScanInvoiceModal);
+  //   modalRef.componentInstance.name = 'invoice';
+  // }
 
 }

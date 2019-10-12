@@ -1,17 +1,18 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import Quagga from 'quagga';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 import { UPCService } from '../services/sendUPC.service';
 
 @Component({
   selector: 'app-scan-bar-code',
   templateUrl: './scan-bar-code.component.html',
   styleUrls: ['./scan-bar-code.component.css'],
-  // directives: [BarCodeModalComponent]
+  providers: [UPCService]
 })
 export class ScanBarCodeComponent implements OnInit {
   closeResult: string;
-  barcode = '';
+  barcode: string;
   configQuagga = {
     inputStrem: {
       name: 'Live',
@@ -40,10 +41,12 @@ export class ScanBarCodeComponent implements OnInit {
     private ref: ChangeDetectorRef,
     private modalService: NgbModal,
     private data: UPCService,
+    private router: Router,
     ) { }
 
   ngOnInit() {
     console.log('Barcode: initialization');
+    this.data.currentCode.subscribe(code => this.barcode = code);
   }
 
 
@@ -122,8 +125,11 @@ private getDismissReason(reason: any): string {
   }
 }
 
-sendUPC(code) {
+sendCode(code) {
+  // console.log(code);
   this.data.sendUPC(code);
+  // this.router.navigate(['scale']); to send to scale, no route yet.
+  this.router.navigate(['burn']);
 }
 
 }

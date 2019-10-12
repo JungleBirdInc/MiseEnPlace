@@ -20,8 +20,8 @@
     <img [src]='webcamImage.imageAsDataUrl'/>
 </div> -->
 
-<button *ngIf="barcode" class="btn btn-lg btn-outline-primary" (click)="open(content)">Code Scanned Succesfully, Review Bar Code</button>
-
+<!-- <button *ngIf="barcode" class="btn btn-lg btn-outline-primary" (click)="open(content)">Code Scanned Succesfully, Review Bar Code</button> -->
+<!-- 
 <ng-template #content let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Bar Code Scanned</h4>
@@ -33,7 +33,7 @@
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
     </div>
-</ng-template>
+</ng-template> -->
 
 <h4 *ngIf="errors.length > 0">Messages:</h4>
 <ul *ngFor='let error of errors'>
