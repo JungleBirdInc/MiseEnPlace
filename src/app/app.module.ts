@@ -1,28 +1,38 @@
 // tslint:disable-next-line: max-line-length
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+// NG-BOOTSTRAP
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // MATERIAL
+import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatToolbarModule, 
-        MatIconModule, 
-        MatSidenavModule, 
-        MatListModule, 
-        MatButtonModule, 
-        MatCardModule, 
-        MatInputModule } from '@angular/material';
+import { MatToolbarModule,
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        MatButtonModule,
+        MatCardModule,
+        MatInputModule,
+        MatSnackBarModule, } from '@angular/material';
 
-//ROUTING
+// WEBCAM
+import { WebcamModule } from 'ngx-webcam';
+
+// ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-//COMPONENTS
+// COMPONENTS
 import { HomeComponent } from './home/home.component';
 import { InvoicesComponent } from './invoices/invoices.component';
 import { OrdersComponent } from './orders/orders.component';
@@ -40,18 +50,32 @@ import { RegistrationComponent } from './registration/registration.component';
 import { OrganizationComponent } from './organization/organization.component';
 import { InventoryWizardComponent } from './inventory-wizard/inventory-wizard.component';
 import { TopnavComponent } from './topnav/topnav.component';
-import { BottomnavComponent } from './bottomnav/bottomnav.component'; 
+import { BottomnavComponent } from './bottomnav/bottomnav.component';
+import { EditdistComponent } from './editdist/editdist.component';
+import { GetdistComponent } from './getdist/getdist.component';
+import { NewrepComponent } from './newrep/newrep.component';
+import { NewdistComponent } from './newdist/newdist.component';
+import { NewprodComponent } from './newprod/newprod.component';
+import { ReviewOrderComponent } from './review-order/review-order.component';
+import { BurnListComponent } from './burn-list/burn-list.component';
 
-//IGNITE
-import { IgxNavbarModule } from 'igniteui-angular';
-import { IgxBottomNavModule } from 'igniteui-angular';
+// IGNITE
 import {
+  IgxNavbarModule,
+  IgxBottomNavModule,
   IgxDividerModule,
   IgxDropDownModule,
   IgxInputGroupModule,
   IgxRippleModule,
   IgxIconModule,
-  IgxToggleModule } from 'igniteui-angular';
+  IgxToggleModule,
+  IgxButtonModule,
+  IgxDatePickerModule,
+  IgxTimePickerModule,
+  IgxComboModule,
+  IgxSelectModule,
+  IgxCardModule,
+  } from 'igniteui-angular';
 
 @NgModule({
   declarations: [
@@ -73,7 +97,14 @@ import {
     TopnavComponent,
     BottomnavComponent,
     OrganizationComponent,
-    InventoryWizardComponent
+    InventoryWizardComponent,
+    EditdistComponent,
+    GetdistComponent,
+    NewrepComponent,
+    NewdistComponent,
+    NewprodComponent,
+    ReviewOrderComponent,
+    BurnListComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,10 +127,24 @@ import {
     IgxNavbarModule,
     IgxDividerModule,
     IgxDropDownModule,
-		IgxInputGroupModule,
-		IgxRippleModule,
-		IgxIconModule,
-		IgxToggleModule
+    IgxInputGroupModule,
+    IgxRippleModule,
+    IgxIconModule,
+    IgxToggleModule,
+    ReactiveFormsModule,
+    IgxToggleModule,
+    FormsModule,
+    IgxButtonModule,
+    IgxDatePickerModule,
+    IgxTimePickerModule,
+    IgxComboModule,
+    IgxSelectModule,
+    HttpClientModule,
+    MatTableModule,
+    MatSnackBarModule,
+    IgxCardModule,
+    NgbModule,
+    WebcamModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

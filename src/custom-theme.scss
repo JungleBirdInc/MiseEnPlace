@@ -25,4 +25,3 @@ $MiseEnPlace-theme: mat-light-theme($MiseEnPlace-primary, $MiseEnPlace-accent, $
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($MiseEnPlace-theme);
-

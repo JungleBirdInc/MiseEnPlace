@@ -1,1 +1,35 @@
-<p>edit-invoice works!</p>
+<h3>Review Invoice</h3>
+<igx-card><h4>Glazier's - Generic Rep - cell#</h4>
+<table>
+  <thead><tr><th>ProductName</th><th>Category</th><th>Volume</th><th>Quantity</th><th>Price</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of rep1">
+      <td>
+        <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+      </td>
+      <td>
+          <input type="text" [(ngModel)]="product.subCategory" [disabled]="!product.isEditable"/>
+      </td>
+      <td>
+          <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+      </td>
+      <td>
+          <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+      </td>
+      <td>
+          <input type="text" [(ngModel)]="product.price" [disabled]="!product.isEditable"/>
+      </td>
+      <td>
+         <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+         <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+      </td>
+    </tr>
+  </tbody>
+  <tfoot>
+      <td></td><td></td><td></td><td> Total </td><td> {{getTotalCost(rep1) | currency}}</td>
+  </tfoot>
+</table>
+</igx-card>
+<br />
+<button (click)="finalizeInvoice()">Submit Invoice</button>

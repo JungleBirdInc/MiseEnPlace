@@ -1,0 +1,101 @@
+<h3 id="title">New Distributor</h3>
+
+<mat-vertical-stepper>
+  <mat-step>
+    <form [(formGroup)]="newdistForm">
+      <ng-template matStepLabel>
+        <td id="ngtext">Name</td>
+      </ng-template>
+      <input matInput placeholder="Dist Name" formControlName='name' required>
+      <div>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <form [(formGroup)]="newdistForm">
+      <ng-template matStepLabel>
+        <td id="ngtext">Address</td>
+      </ng-template>
+      <input matInput placeholder="Address" formControlName='address' required>
+      <div>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+    <mat-step>
+      <form [(formGroup)]="newdistForm">
+        <ng-template matStepLabel>
+          <td id="ngtext">City</td>
+        </ng-template>
+        <input matInput placeholder="City" formControlName='city' required>
+        <div>
+          <button matButton matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+      <mat-step>
+        <form [(formGroup)]="newdistForm">
+          <ng-template matStepLabel>
+            <td id="ngtext">State</td>
+          </ng-template>
+          <input matInput placeholder="State" formControlName='state' required>
+          <div>
+            <button matButton matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+        <mat-step>
+          <form [(formGroup)]="newdistForm">
+            <ng-template matStepLabel>
+              <td id="ngtext">Zip</td>
+            </ng-template>
+            <input matInput placeholder="Zip" formControlName='zip' required>
+            <div>
+              <button matButton matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+  <mat-step>
+    <form [(formGroup)]="newdistForm">
+      <ng-template matStepLabel>
+        <td id="ngtext">Email</td>
+      </ng-template>
+      <input matInput placeholder="Email" formControlName='email' required>
+      <div>
+        <button matButton matStepperPrevious>Back</button>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <form [(formGroup)]="newdistForm">
+      <ng-template matStepLabel>
+        <td id="ngtext">Phone Number</td>
+      </ng-template>
+      <input matInput placeholder="phone" formControlName='phone' required>
+      <div>
+        <button matButton matStepperPrevious>Back</button>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>
+      <td id="ngtext">Send</td>
+    </ng-template>
+    Finished?
+
+    <div>
+      <button matButton matStepperPrevious>Back</button>
+      <button matButton matStepperNext (click)="onSubmit()">Submit</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

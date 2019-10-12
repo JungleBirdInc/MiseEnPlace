@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
+import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
+import { ScanphotoService } from '../services/scanphoto.service';
+
 
 @Component({
   selector: 'app-scan-invoice',
@@ -7,9 +12,68 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScanInvoiceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _scanPhoto: ScanphotoService) { };
 
-  ngOnInit() {
+  // toggle webcam on/off
+  public showWebcam = true;
+  public allowCameraSwitch = true;
+  public multipleWebcamsAvailable = false;
+  public deviceId: string;
+  public videoOptions: MediaTrackConstraints = {};
+  public errors: WebcamInitError[] = [];
+
+  // latest snapshot
+  public webcamImage: WebcamImage = null;
+
+  // webcam trigger
+  private trigger: Subject<void> = new Subject<void>();
+  private nextWebcam: Subject<boolean|string> = new Subject<boolean|string>();
+
+  // constructor() { }
+
+  public ngOnInit(): void {
+    WebcamUtil.getAvailableVideoInputs()
+    .then((MediaDevices: MediaDeviceInfo[]) => {
+      this.multipleWebcamsAvailable = MediaDevices && MediaDevices.length > 1;
+    });
   }
 
+  public toggleWebcam(): void {
+    this.showWebcam = !this.showWebcam;
+  }
+
+  public triggerSnapshot(): void {
+    this.trigger.next();
+  }
+
+  public showNextWebcam(): void {
+    this.showWebcam = !this.showWebcam;
+  }
+
+  public handleInitError(error: WebcamInitError): void {
+    this.errors.push(error);
+  }
+
+  public handleImage(webcamImage: WebcamImage): void {
+    console.log('recieved webcam image', webcamImage);
+    console.log('route activated!')
+    let data = {
+      url: WebcamImage,
+    }
+    console.log(data);
+    this._scanPhoto.scanPhoto(data).subscribe();
+  }
+
+  public cameraWasSwitched(deviceId: string): void {
+    console.log('active device: ' + deviceId);
+    this.deviceId = deviceId;
+  }
+
+  public get triggerObservable(): Observable<void> {
+    return this.trigger.asObservable();
+  }
+
+  public get nextWebcamObservable(): Observable<boolean|string> {
+    return this.nextWebcam.asObservable();
+  }
 }

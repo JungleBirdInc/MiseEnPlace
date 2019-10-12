@@ -1,1 +1,67 @@
-<p>update-stock works!</p>
+<h3>Update Inventory</h3>
+
+<br />
+
+<igx-card (click)='toggleShow()'><h4>Bourbon (subCategory)</h4>
+
+  <table *ngIf='show'class="mat-elevation-z8" width='100%'>
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productB">
+          <td>
+            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+              <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</igx-card>
+      <br />
+
+<igx-card (click)='toggleShow()'><h4>Vodka (subCategory)</h4>
+
+  <table *ngIf='show' class="mat-elevation-z8" width='100%'>
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productB">
+          <td>
+            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+              <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</igx-card>
+

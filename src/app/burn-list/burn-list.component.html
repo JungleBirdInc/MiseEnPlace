@@ -1,0 +1,32 @@
+<h3>Burn List</h3>
+
+<br />
+
+<igx-card (click)='toggleShow()'><h4>Bourbon (subCategory)</h4>
+
+  <table *ngIf='show' class="mat-elevation-z8" width='100%'>
+      <thead><tr><th>ProductName</th><th>Starting Volume Oz</th><th>Current Volume Oz</th><th>Burn Count</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of productB">
+          <td>
+            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.previousVolume" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.currentVolume" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.burnCount" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+              <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>  
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</igx-card>
+        <br />

@@ -1,0 +1,21 @@
+Distributors<br />
+
+<ul>
+  <li *ngFor="let dist of distributors">
+    <b>{{dist.distributor.name}}</b><br />
+    <b>Address:</b> {{dist.distributor.address}}<br />
+    <b>Email:</b> {{dist.distributor.email}}<br />
+    <b>Phone:</b> {{dist.distributor.phone}}<br />
+
+    <ul>
+      <b>Reps:</b><br />
+      <li *ngFor="let rep of dist.distributor.reps">
+        <i>{{rep.first_name}} {{rep.last_name}}</i><br />
+        <b>Email:</b> {{rep.email}}<br />
+        <b>Phone:</b> {{rep.phone}}<br />
+      </li>
+    </ul>
+    <br /><br />
+
+  </li>
+</ul>

@@ -1,0 +1,80 @@
+<h3 id="title">New Rep</h3>
+
+<mat-vertical-stepper>
+  <mat-step>
+    <form [(formGroup)]="repForm">
+      <ng-template matStepLabel>
+        <td id="ngtext">First Name</td>
+      </ng-template>
+      <input matInput placeholder="First Name" formControlName='first_name' required>
+      <div>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  
+    <mat-step>
+      <form [(formGroup)]="repForm">
+        <ng-template matStepLabel>
+          <td id="ngtext">Last Name</td>
+        </ng-template>
+        <input matInput placeholder="Last Name" formControlName='last_name' required>
+        <div>
+          <button matButton matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+  <mat-step>
+    <form [(formGroup)]="repForm">
+      <ng-template matStepLabel>
+        <td id="ngtext">Email</td>
+      </ng-template>
+      <input matInput placeholder="Email" formControlName='email' required>
+      <div>
+        <button matButton matStepperPrevious>Back</button>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step>
+    <form [(formGroup)]="repForm">
+      <ng-template matStepLabel>
+        <td id="ngtext">Phone Number</td>
+      </ng-template>
+      <input matInput placeholder="phone" formControlName='phone' required>
+      <div>
+        <button matButton matStepperPrevious>Back</button>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+    <mat-step>
+      <igx-select [(ngModel)]="dist" #select>
+        <ng-template matStepLabel>
+          <td id="ngtext">Distributer</td>
+        </ng-template>
+        <igx-select-item *ngFor="let dist of distributors" [value]='dist' required>
+          {{dist.distributor.name}}
+        </igx-select-item>
+      </igx-select>
+      <div>
+        <button matButton matStepperPrevious>Back</button>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>
+      <td id="ngtext">Send</td>
+    </ng-template>
+    Finished?
+
+    <div>
+      <button matButton matStepperPrevious>Back</button>
+      <button matButton matStepperNext (click)="onSubmit()">Submit</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

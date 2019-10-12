@@ -1,1 +1,23 @@
-<p>scan-bar-code works!</p>
+<p>scanner in progress</p>
+
+<div>
+    <ngb-alert type="info" [dismissible]="false">
+        <strong>Scan</strong> the bar code
+    </ngb-alert>
+</div>
+<div *ngIf="barcode">
+    <ngb-alert type='success' [dismissible]="false">
+        {{barcode}}
+    </ngb-alert>
+</div>
+<button type='button' class='btn btn-warning' (click)="startScanner()">
+    Start Scanning the Barcode
+</button>
+
+<div class='input-group'>
+    <div id="inputBarcode" style='position: static'>
+        <div id="interactive" class='viewport'></div>
+    </div>
+</div>
+
+<h4 routerLink="/burn">Manually Enter Burn Count</h4>

@@ -1,1 +1,56 @@
-<p>orders works!</p>
+<h3 class="title">Order History</h3>
+<form class="input-group-form">
+    <!-- (submit)="onSubmit()" -->
+  <div class="container">
+
+    <igx-select #select>
+      <label igxLabel>Search By</label>
+      <igx-select-item *ngFor="let item of items" [value]="item">
+        {{item}}
+      </igx-select-item>
+    </igx-select>
+
+    <button igxButton="raised" igxRipple>Apply</button>
+  </div>
+</form>
+
+  <igx-card (click)='toggleShow()'><h4>Glazier's - Generic Rep - cell#</h4>
+
+    <table *ngIf='show'>
+    
+    </table>
+  </igx-card>
+
+      <br />
+      
+  <igx-card (click)='toggleShow()'><h4>Republic - Generic Rep - cell#</h4>
+    <table *ngIf='show'>
+        <thead><tr><th>ProductName</th><th>Volume</th><th>UnitCost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of rep1">
+            <td>
+              <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.ordered" [disabled]="!product.isEditable"/>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <td></td><td></td><td></td><td></td><td> Total </td><td> {{getTotalCost(rep1) | currency}}</td>
+        </tfoot>
+    </table>
+  </igx-card>
