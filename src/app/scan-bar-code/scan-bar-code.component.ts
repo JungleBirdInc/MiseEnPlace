@@ -97,7 +97,7 @@ export class ScanBarCodeComponent implements OnInit {
   private logCode(result) {
     const code = result.codeResult.code;
     if (this.barcode !== code) {
-      this.barcode = 'bar code : ' + code;
+      this.barcode = code;
       this.ref.detectChanges();
       console.log(this.barcode);
       Quagga.stop();
