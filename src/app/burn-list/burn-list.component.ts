@@ -1,6 +1,9 @@
 import { Component, OnInit,  HostListener } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
+import {Observable} from 'rxjs';
+import { GetOpenBottlesService } from '../services/getopenbottle.service';
 
 export interface Burn {
   productName: string;
@@ -29,18 +32,22 @@ const VODKA_DATA: Burn [] = [
 @Component({
   selector: 'app-burn-list',
   templateUrl: './burn-list.component.html',
-  styleUrls: ['./burn-list.component.css']
+  styleUrls: ['./burn-list.component.css'],
 })
 export class BurnListComponent implements OnInit {
+  state$: Observable<object>;
 
   constructor(
     public snackBar: MatSnackBar,
     private router: Router,
+    public activatedRoute: ActivatedRoute,
+    public _getOpenBottles: GetOpenBottlesService,
   ) { }
 
   show = false;
-
-  // displayedColumns: string[] = ['productName', 'currentVolume', 'previousVolume', 'burnCount'];
+  barcode: string;
+  public inventory;
+  displayedColumns: string[] = ['productName', 'currentVolume', 'previousVolume', 'burnCount'];
   productB = BOURBON_DATA;
   productV = VODKA_DATA;
 
@@ -49,10 +56,21 @@ export class BurnListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.state$ = this.activatedRoute.paramMap.pipe(() => window.history.state);
+    this._getOpenBottles.getOpenBottles()
+      .then(data => {
+        this.inventory = data;
+        console.log(data);
+      });
+    console.log(this.state$);
   }
 
   toggleShow() {
     this.show = !this.show;
+  }
+
+  test() {
+    console.log(this.barcode);
   }
 
 }

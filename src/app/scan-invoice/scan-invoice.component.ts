@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
+import {NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { ScanphotoService } from '../services/scanphoto.service';
 
 @Component({
@@ -11,7 +13,9 @@ import { ScanphotoService } from '../services/scanphoto.service';
 })
 export class ScanInvoiceComponent implements OnInit {
 
-  constructor(private _scanPhoto: ScanphotoService) { };
+  constructor(
+    private _scanPhoto: ScanphotoService,
+    private modalService: NgbModal) { }
 
   // toggle webcam on/off
   public showWebcam = true;
@@ -28,8 +32,6 @@ export class ScanInvoiceComponent implements OnInit {
   private trigger: Subject<void> = new Subject<void>();
   private nextWebcam: Subject<boolean|string> = new Subject<boolean|string>();
 
-  // constructor() { }
-
   public ngOnInit(): void {
     WebcamUtil.getAvailableVideoInputs()
     .then((MediaDevices: MediaDeviceInfo[]) => {
@@ -43,6 +45,8 @@ export class ScanInvoiceComponent implements OnInit {
 
   public triggerSnapshot(): void {
     this.trigger.next();
+    this.toggleWebcam();
+    open();
   }
 
   public showNextWebcam(): void {
@@ -78,4 +82,10 @@ export class ScanInvoiceComponent implements OnInit {
   public get nextWebcamObservable(): Observable<boolean|string> {
     return this.nextWebcam.asObservable();
   }
+
+  // open() {
+  //   const modalRef = this.modalService.open(ScanInvoiceModal);
+  //   modalRef.componentInstance.name = 'invoice';
+  // }
+
 }

@@ -1,14 +1,18 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import Quagga from 'quagga';
-import { environment } from 'src/environments/environment';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+import { UPCService } from '../services/sendUPC.service';
 
 @Component({
   selector: 'app-scan-bar-code',
   templateUrl: './scan-bar-code.component.html',
-  styleUrls: ['./scan-bar-code.component.css']
+  styleUrls: ['./scan-bar-code.component.css'],
+  providers: [UPCService]
 })
 export class ScanBarCodeComponent implements OnInit {
-  barcode = '';
+  closeResult: string;
+  barcode: string;
   configQuagga = {
     inputStrem: {
       name: 'Live',
@@ -33,11 +37,17 @@ export class ScanBarCodeComponent implements OnInit {
     }
   };
 
-  constructor(private ref: ChangeDetectorRef) { }
+  constructor(
+    private ref: ChangeDetectorRef,
+    private modalService: NgbModal,
+    private data: UPCService,
+    private router: Router,
+    ) { }
 
   ngOnInit() {
     console.log('Barcode: initialization');
   }
+
 
   testChangeValues() {
     this.barcode = 'barcode number: 0123456789';
@@ -95,4 +105,29 @@ export class ScanBarCodeComponent implements OnInit {
   }
 // send code on click referenced in the line 90;
 
+open(content) {
+  this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.closeResult = `Closed with: ${result}`;
+  }, (reason) => {
+    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  });
 }
+
+
+private getDismissReason(reason: any): string {
+  if (reason === ModalDismissReasons.ESC) {
+    return 'by pressing ESC';
+  } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+    return 'by clicking on a backdrop';
+  } else {
+    return  `with: ${reason}`;
+  }
+}
+
+sendCode(code) {
+  this.router.navigateByUrl('burn', {state: {barcode: this.barcode}});
+  // change burn to route for scale and will send to scale
+}
+
+}
+
