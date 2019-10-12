@@ -8,7 +8,7 @@ export class GetdistService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `/api/getAllDists/1`;
+  private _url: string = `/api/getAllDists/`;
 
   getDistributors(){
     return this.http.get(this._url);
