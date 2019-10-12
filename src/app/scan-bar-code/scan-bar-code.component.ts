@@ -46,7 +46,6 @@ export class ScanBarCodeComponent implements OnInit {
 
   ngOnInit() {
     console.log('Barcode: initialization');
-    this.data.currentCode.subscribe(code => this.barcode = code);
   }
 
 
@@ -130,4 +129,5 @@ sendCode(code) {
   // change burn to route for scale and will send to scale
 }
 
+}
 

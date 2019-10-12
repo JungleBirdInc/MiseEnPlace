@@ -10,7 +10,10 @@ export class GetCurrentInvService {
 
     orgId = 1;
 
-    private _url: string = `'/getCurrent/:${this.orgId}'`;
+    private _url: string = `/inventory/getCurrent/${this.orgId}`;
 
+    getCurentInventory(){
+      return this.http.get(this._url);
+    }
 }
 
