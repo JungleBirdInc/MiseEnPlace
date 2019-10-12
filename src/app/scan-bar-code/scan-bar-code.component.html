@@ -1,33 +1,29 @@
 <h3>scanner in progress</h3>
 
+<button type='button' class='btn btn-warning' (click)="startScanner()">
+    Start Scanning the Barcode
+</button>
+<br />
 <div *ngIf='!barcode'>
     <ngb-alert type="info" [dismissible]="false">
         <strong>Scan</strong> the bar code
     </ngb-alert>
 </div>
-<!-- <ng-template #content let-modal>
-    <div class='bar-code-modal' *ngIf='barcode'>
-            <div class='modal-header'>
-                <h4 class='modal-title'>Bar Code Scanned</h4>
-            </div>
-            <div class='modal-body'>
-                <p><strong>{{barcode}}</strong></p>
-                <p>Would you like to advance to the scale?</p>
-            </div>
-            <div class='modal-footer'>
-                <button type='button' class='close-modal' (click)='modal.dismiss("Cross click")'>Cancel</button>
-                <button type='button' class='send-bar-code' (click)='modal.close("Save click")'>Send Bar Code</button>
-            </div>
+
+<button *ngIf="barcode" class="btn btn-lg btn-outline-primary" (click)="open(content)">Code Scanned Succesfully, Review Bar Code</button>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Bar Code Scanned</h4>
     </div>
-</ng-template> -->
-<!-- <div *ngIf="barcode">
-    <ngb-alert type='success' [dismissible]="false">
-        {{barcode}}
-    </ngb-alert>
-</div> -->
-<button type='button' class='btn btn-warning' (click)="startScanner()">
-    Start Scanning the Barcode
-</button>
+    <div class="modal-body">
+        <p><strong>{{barcode}}</strong></p>
+        <p>Would you like to advance to the scale?</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
 
 <div class='input-group'>
     <div id="inputBarcode" style='position: static'>
@@ -36,3 +32,5 @@
 </div>
 
 <h4 routerLink="/burn">Manually Enter Burn Count</h4>
+
+      

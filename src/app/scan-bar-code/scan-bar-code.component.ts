@@ -1,14 +1,15 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import Quagga from 'quagga';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { environment } from 'src/environments/environment';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-scan-bar-code',
   templateUrl: './scan-bar-code.component.html',
-  styleUrls: ['./scan-bar-code.component.css']
+  styleUrls: ['./scan-bar-code.component.css'],
+  // directives: [BarCodeModalComponent]
 })
 export class ScanBarCodeComponent implements OnInit {
+  closeResult: string;
   barcode = '';
   configQuagga = {
     inputStrem: {
@@ -36,12 +37,13 @@ export class ScanBarCodeComponent implements OnInit {
 
   constructor(
     private ref: ChangeDetectorRef,
-    private modal: NgbModal,
+    private modalService: NgbModal,
     ) { }
 
   ngOnInit() {
     console.log('Barcode: initialization');
   }
+
 
   testChangeValues() {
     this.barcode = 'barcode number: 0123456789';
@@ -99,6 +101,28 @@ export class ScanBarCodeComponent implements OnInit {
   }
 // send code on click referenced in the line 90;
 
+open(content) {
+  this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.closeResult = `Closed with: ${result}`;
+  }, (reason) => {
+    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  });
+}
+
+
+private getDismissReason(reason: any): string {
+  if (reason === ModalDismissReasons.ESC) {
+    return 'by pressing ESC';
+  } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+    return 'by clicking on a backdrop';
+  } else {
+    return  `with: ${reason}`;
+  }
+}
+
+// sendUPC (){
+//   this.messageEvent.emit(this.)
+// }
 
 }
 

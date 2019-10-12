@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
+import {NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -26,7 +27,9 @@ export class ScanInvoiceComponent implements OnInit {
   private trigger: Subject<void> = new Subject<void>();
   private nextWebcam: Subject<boolean|string> = new Subject<boolean|string>();
 
-  constructor() { }
+  constructor(
+    private modalService: NgbModal
+  ) { }
 
   public ngOnInit(): void {
     WebcamUtil.getAvailableVideoInputs()
@@ -41,6 +44,8 @@ export class ScanInvoiceComponent implements OnInit {
 
   public triggerSnapshot(): void {
     this.trigger.next();
+    this.toggleWebcam();
+    open();
   }
 
   public showNextWebcam(): void {
@@ -67,4 +72,10 @@ export class ScanInvoiceComponent implements OnInit {
   public get nextWebcamObservable(): Observable<boolean|string> {
     return this.nextWebcam.asObservable();
   }
+
+  open() {
+    const modalRef = this.modalService.open(ScanInvoiceModal);
+    modalRef.componentInstance.name = 'invoice';
+  }
+
 }

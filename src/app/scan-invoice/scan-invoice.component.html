@@ -15,10 +15,25 @@
     <input id='cameraSwitchCheckbox' type='checkbox' [(ngModel)]='allowCameraSwitch'><label for='cameraSwitchCheckbox'>Allow Camera to Switch</label>
 </div>
 
-<div class="snapshot" *ngIf='webcamImage'>
+<!-- <div class="snapshot" *ngIf='webcamImage'>
     <p>Succesful Photo</p>
     <img [src]='webcamImage.imageAsDataUrl'/>
-</div>
+</div> -->
+
+<button *ngIf="barcode" class="btn btn-lg btn-outline-primary" (click)="open(content)">Code Scanned Succesfully, Review Bar Code</button>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Bar Code Scanned</h4>
+    </div>
+    <div class="modal-body">
+        <p>Succesful Photo</p>
+        <img [src]='webcamImage.imageAsDataUrl'/>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
 
 <h4 *ngIf="errors.length > 0">Messages:</h4>
 <ul *ngFor='let error of errors'>

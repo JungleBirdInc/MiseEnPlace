@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 // NG-BOOTSTRAP
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 // MATERIAL
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
@@ -76,7 +77,6 @@ import {
   IgxSelectModule,
   IgxCardModule,
   } from 'igniteui-angular';
-import { BarCodeModalComponent } from './bar-code-modal/bar-code-modal.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +106,6 @@ import { BarCodeModalComponent } from './bar-code-modal/bar-code-modal.component
     NewprodComponent,
     ReviewOrderComponent,
     BurnListComponent,
-    BarCodeModalComponent,
   ],
   imports: [
     BrowserModule,
