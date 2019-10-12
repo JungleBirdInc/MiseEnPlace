@@ -125,7 +125,7 @@ private getDismissReason(reason: any): string {
 }
 
 sendCode(code) {
-  this.router.navigateByUrl('burn', {state: {barcode: this.barcode}});
+  this.router.navigateByUrl('scale', {state: {barcode: this.barcode}});
   // change burn to route for scale and will send to scale
 }
 

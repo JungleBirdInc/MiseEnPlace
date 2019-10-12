@@ -60,6 +60,7 @@ import { NewprodComponent } from './newprod/newprod.component';
 import { ReviewOrderComponent } from './review-order/review-order.component';
 import { BurnListComponent } from './burn-list/burn-list.component';
 import { NewinvoiceComponent } from './newinvoice/newinvoice.component';
+import { ScaleComponent } from './scale/scale.component';
 
 // IGNITE
 import {
@@ -108,6 +109,7 @@ import {
     ReviewOrderComponent,
     BurnListComponent,
     NewinvoiceComponent,
+    ScaleComponent,
   ],
   imports: [
     BrowserModule,

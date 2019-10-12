@@ -1,9 +1,10 @@
 import { Component, OnInit,  HostListener } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
-import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { GetOpenBottlesService } from '../services/getopenbottle.service';
+import { UpdateOpenBottlesService } from '../services/updateOpenBottles.service';
 
 export interface Burn {
   productName: string;
@@ -42,6 +43,7 @@ export class BurnListComponent implements OnInit {
     private router: Router,
     public activatedRoute: ActivatedRoute,
     public _getOpenBottles: GetOpenBottlesService,
+    public _updateOpenBottles: UpdateOpenBottlesService,
   ) { }
 
   show = false;
@@ -56,7 +58,6 @@ export class BurnListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.state$ = this.activatedRoute.paramMap.pipe(() => window.history.state);
     this._getOpenBottles.getOpenBottles()
       .then(data => {
         this.inventory = data;
