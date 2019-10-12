@@ -23,7 +23,6 @@ import { MatToolbarModule,
         MatInputModule,
         MatSnackBarModule, } from '@angular/material';
 
-
 // ROUTING
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -56,6 +55,7 @@ import { NewdistComponent } from './newdist/newdist.component';
 import { NewprodComponent } from './newprod/newprod.component';
 import { ReviewOrderComponent } from './review-order/review-order.component';
 import { BurnListComponent } from './burn-list/burn-list.component';
+import { NewinvoiceComponent } from './newinvoice/newinvoice.component';
 
 // IGNITE
 import {
@@ -103,6 +103,7 @@ import {
     NewprodComponent,
     ReviewOrderComponent,
     BurnListComponent,
+    NewinvoiceComponent,
   ],
   imports: [
     BrowserModule,
