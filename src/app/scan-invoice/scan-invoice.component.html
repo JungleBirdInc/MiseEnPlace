@@ -11,7 +11,7 @@
     <button class='actionBtn' (click)="triggerSnapshot()">Take Picture of Invoice</button>
     <button class='actionBtn' (click)='toggleWebcam()'>Toggle Webcam</button>
     <br/>
-    <button class='actionBtn' (click)='shownextWebcam(true)' [disabled]='!multipleWebcamsAvailable'>Next Webcam</button>
+    <button class='actionBtn' (click)='showNextWebcam(true)' [disabled]='!multipleWebcamsAvailable'>Next Webcam</button>
     <input id='cameraSwitchCheckbox' type='checkbox' [(ngModel)]='allowCameraSwitch'><label for='cameraSwitchCheckbox'>Allow Camera to Switch</label>
 </div>
 

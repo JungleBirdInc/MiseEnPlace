@@ -8,7 +8,7 @@ export class OrganizationService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `/api/createOrg`;
+  private _url: string = `/organization/create`;
 
   regOrg(data) {
     console.log(data, 'DATA FROM ORGANIZATION SERVICE');

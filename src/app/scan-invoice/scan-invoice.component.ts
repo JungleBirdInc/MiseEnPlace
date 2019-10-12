@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
+import { ScanphotoService } from '../services/scanphoto.service';
 
 
 @Component({
@@ -10,6 +11,8 @@ import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
   styleUrls: ['./scan-invoice.component.css']
 })
 export class ScanInvoiceComponent implements OnInit {
+
+  constructor(private _scanPhoto: ScanphotoService) { };
 
   // toggle webcam on/off
   public showWebcam = true;
@@ -26,7 +29,7 @@ export class ScanInvoiceComponent implements OnInit {
   private trigger: Subject<void> = new Subject<void>();
   private nextWebcam: Subject<boolean|string> = new Subject<boolean|string>();
 
-  constructor() { }
+  // constructor() { }
 
   public ngOnInit(): void {
     WebcamUtil.getAvailableVideoInputs()
@@ -53,6 +56,12 @@ export class ScanInvoiceComponent implements OnInit {
 
   public handleImage(webcamImage: WebcamImage): void {
     console.log('recieved webcam image', webcamImage);
+    console.log('route activated!')
+    let data = {
+      url: WebcamImage,
+    }
+    console.log(data);
+    this._scanPhoto.scanPhoto(data).subscribe();
   }
 
   public cameraWasSwitched(deviceId: string): void {
