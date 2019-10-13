@@ -2,7 +2,7 @@
 <br />
 
 <ul>
-  <li *ngFor="let order of orderList">
+  <li *ngFor="let order of orderList; let i = index">
     <igx-card>
       <h6>{{order.distributor}}</h6>
       <table class="mat-elevation-z8" width='100%'>
@@ -15,30 +15,31 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of order.products">
+          <tr *ngFor="let product of orderList[i].products">
             <td>
               <input type="text" 
-              [(ngModel)]="product.name" [
-              disabled]="!product.isEditable" />
+              [(ngModel)]="product.name"
+              [disabled]="!product.isEditable"/>
             </td>
             <td>
               <input type="text" 
-              [(ngModel)]="product.bottleSize" 
-              [disabled]="!product.isEditable" />
+              [(ngModel)]="product.bottleSize"
+              [disabled]="!product.isEditable"/>
             </td>
             <td>
               <input type="text" 
-              [(ngModel)]="product.quantity" 
-              [disabled]="!product.isEditable" />
+              [(ngModel)]="product.qty"
+              [disabled]="!product.isEditable"/>
             </td>
             <td>
               <input type="text" 
-              [(ngModel)]="product.price" 
-              [disabled]="!product.isEditable" />
+              [(ngModel)]="product.price"
+              [disabled]="!product.isEditable">
             </td>
           </tr>
         </tbody>
       </table>
+      <div style="float: right">Total: {{order.total}}</div>
     </igx-card>
     <br />
   </li>
