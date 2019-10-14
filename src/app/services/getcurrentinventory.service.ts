@@ -13,7 +13,19 @@ export class GetCurrentInvService {
     private _url: string = `/inventory/getCurrent/${this.orgId}`;
 
     getCurentInventory() {
-      return this.http.get(this._url);
+      const promise = new Promise((resolve, reject) => {
+        this.http.get(this._url)
+        .toPromise()
+        .then(
+          res => {
+            resolve(res);
+          },
+          msg => {
+            reject(msg);
+          }
+        );
+      });
+      return promise;
     }
 }
 
