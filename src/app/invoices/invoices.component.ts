@@ -48,7 +48,7 @@ export class InvoicesComponent implements OnInit {
       })
       .then(() => {
         this.convert();
-      })
+      });
   }
 
   // STORE CONVERTED DATA
