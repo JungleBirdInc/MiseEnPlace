@@ -89,9 +89,9 @@ ngOnInit() {
   // GET REPS
   this._getReps.getReps()
   .then(data => {
-    this.reps = data
-  })  
-
+    this.reps = data;
+    console.log(data, 'reps');
+  });
 
 }
 
@@ -126,19 +126,19 @@ convert() {
 }
 
 /** Gets the total cost of all transactions. */
-    getTotalCost(rep); {
+    getTotalCost(rep) {
   return rep.map(t => t.unitCost * (t.par - t.quantity)).reduce((acc, value) => acc + value, 0);
 }
 
-    toggleShow(); {
+    toggleShow() {
   this.show = !this.show;
 }
 
-    confirmOrders(); {
+    confirmOrders() {
   this.router.navigate(['review-orders']);
 }
 
-    suggestedOrder(rep); {
+    suggestedOrder(rep) {
  const quantity: number = rep.quantity;
  const par: number = rep.par;
  let value = 0;
@@ -148,4 +148,5 @@ convert() {
 
 
 
-};
+}
+
