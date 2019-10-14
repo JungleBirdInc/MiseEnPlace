@@ -97,37 +97,35 @@ export class ScanBarCodeComponent implements OnInit {
   private logCode(result) {
     const code = result.codeResult.code;
     if (this.barcode !== code) {
-      this.barcode = 'bar code : ' + code;
+      this.barcode = code;
       this.ref.detectChanges();
       console.log(this.barcode);
       Quagga.stop();
     }
   }
-// send code on click referenced in the line 90;
 
-open(content) {
-  this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-    this.closeResult = `Closed with: ${result}`;
-  }, (reason) => {
-    this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-  });
-}
-
-
-private getDismissReason(reason: any): string {
-  if (reason === ModalDismissReasons.ESC) {
-    return 'by pressing ESC';
-  } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-    return 'by clicking on a backdrop';
-  } else {
-    return  `with: ${reason}`;
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
   }
-}
 
-sendCode(code) {
-  this.router.navigateByUrl('burn', {state: {barcode: this.barcode}});
-  // change burn to route for scale and will send to scale
-}
+   private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+   }
+
+  sendCode(code) {
+    this.modalService.dismissAll();
+    this.router.navigateByUrl('scale', {state: {barcode: code}});
+  }
 
 }
 

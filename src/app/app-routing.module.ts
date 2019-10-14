@@ -20,6 +20,7 @@ import { ReviewOrderComponent} from './review-order/review-order.component';
 
 // INVOICE
 import { NewinvoiceComponent } from './newinvoice/newinvoice.component';
+import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
 // PERSISTANT NAV
 import { HomeComponent } from './home/home.component';
@@ -31,17 +32,21 @@ import { ForecastingComponent } from './forecasting/forecasting.component';
 
 // HOME PAGE
 import { ScanInvoiceComponent } from './scan-invoice/scan-invoice.component';
-import { SuggestOrderComponent } from './suggest-order/suggest-order.component';
 import { ScanBarCodeComponent } from './scan-bar-code/scan-bar-code.component';
+import { SuggestOrderComponent } from './suggest-order/suggest-order.component';
 import { UpdateStockComponent } from './update-stock/update-stock.component';
-import { EditInvoiceComponent } from './edit-invoice/edit-invoice.component';
 
 // DISTRIBUTOR
 import { NewdistComponent } from './newdist/newdist.component';
 import { NewprodComponent } from './newprod/newprod.component';
 import { NewrepComponent } from './newrep/newrep.component';
 import { EditdistComponent } from './editdist/editdist.component';
+
+// BURNLIST
 import { BurnListComponent } from './burn-list/burn-list.component';
+
+// SCALE
+import { ScaleComponent } from './scale/scale.component';
 
 const routes: Routes = [
 { path: '', component: HomeComponent },
@@ -66,7 +71,8 @@ const routes: Routes = [
 { path: 'newprod', component: NewprodComponent },
 { path: 'review-orders', component: ReviewOrderComponent},
 { path: 'burn', component: BurnListComponent},
-{ path: 'newinvoice', component: NewinvoiceComponent}
+{ path: 'newinvoice', component: NewinvoiceComponent},
+{ path: 'scale', component: ScaleComponent },
 ];
 
 @NgModule({
