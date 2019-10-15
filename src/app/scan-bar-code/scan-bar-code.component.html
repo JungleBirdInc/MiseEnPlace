@@ -1,36 +1,13 @@
-<h3>scanner in progress</h3>
+<h3>Scan Barcode</h3><br />
+<button (click)="startScanner()">Scan</button><br />
 
-<button type='button' class='btn btn-warning' (click)="startScanner()">
-    Start Scanning the Barcode
-</button>
-<br />
-<div *ngIf='!barcode'>
-    <ngb-alert type="info" [dismissible]="false">
-        <strong>Scan</strong> the bar code
-    </ngb-alert>
-</div>
-
-<button *ngIf="barcode" class="btn btn-lg btn-outline-primary" (click)="open(content)">Code Scanned Succesfully, Review Bar Code</button>
-
-<ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Bar Code Scanned</h4>
-    </div>
-    <div class="modal-body">
-        <p><strong>{{barcode}}</strong></p>
-        <p>Would you like to advance to the scale?</p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="sendCode(this.barcode)">Save</button>
-    </div>
-</ng-template>
+<input type="text" value='ENTER UPC' [(ngModel)]="barcode" contenteditable="true" /><br />
+<button type="button" (click)="sendCode(this.barcode)">Weigh bottle</button>
 
 <div class='input-group'>
-    <div id="inputBarcode" style='position: static'>
-        <div id="interactive" class='viewport'></div>
-    </div>
+  <div id="inputBarcode">
+    <div id="interactive" class='viewport'></div>
+  </div>
 </div>
 
-<h4 routerLink="/burn">Manually Enter Burn Count</h4>
-
-      
+<h5 routerLink="/burn">Burn Count</h5>
