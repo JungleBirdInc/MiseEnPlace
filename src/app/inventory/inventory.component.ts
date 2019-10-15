@@ -36,7 +36,7 @@ export class InventoryComponent implements OnInit {
     .then(data => {
       this.categories = data;
     });
-        
+
     // GET BOTTLE SIZES
     this._getbotsize.getCategories()
     .then(data => {

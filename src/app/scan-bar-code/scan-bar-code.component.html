@@ -1,23 +1,13 @@
-<p>scanner in progress</p>
+<h3>Scan Barcode</h3><br />
+<button (click)="startScanner()">Scan</button><br />
 
-<div>
-    <ngb-alert type="info" [dismissible]="false">
-        <strong>Scan</strong> the bar code
-    </ngb-alert>
-</div>
-<div *ngIf="barcode">
-    <ngb-alert type='success' [dismissible]="false">
-        {{barcode}}
-    </ngb-alert>
-</div>
-<button type='button' class='btn btn-warning' (click)="startScanner()">
-    Start Scanning the Barcode
-</button>
+<input type="text" value='ENTER UPC' [(ngModel)]="barcode" contenteditable="true" /><br />
+<button type="button" (click)="sendCode(this.barcode)">Weigh bottle</button>
 
 <div class='input-group'>
-    <div id="inputBarcode" style='position: static'>
-        <div id="interactive" class='viewport'></div>
-    </div>
+  <div id="inputBarcode">
+    <div id="interactive" class='viewport'></div>
+  </div>
 </div>
 
-<h4 routerLink="/burn">Manually Enter Burn Count</h4>
+<h5 routerLink="/burn">Burn Count</h5>

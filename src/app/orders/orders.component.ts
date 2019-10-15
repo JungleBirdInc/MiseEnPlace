@@ -42,7 +42,6 @@ export class OrdersComponent implements OnInit {
       this._getdist.getDistributors()
       .then(data => {
         this.dists = data;
-        
       })
       .then(() => {
         this.convert();

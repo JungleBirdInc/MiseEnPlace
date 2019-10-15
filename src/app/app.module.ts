@@ -4,8 +4,10 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/cor
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 // NG-BOOTSTRAP
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 // MATERIAL
 import { MatTableModule } from '@angular/material/table';
@@ -61,6 +63,7 @@ import { BurnListComponent } from './burn-list/burn-list.component';
 import { NewinvoiceComponent } from './newinvoice/newinvoice.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UploadService } from './upload/upload.service';
+import { ScaleComponent } from './scale/scale.component';
 
 // IGNITE
 import {
@@ -113,6 +116,7 @@ import { DialogComponent } from './upload/dialog/dialog.component';
     NewinvoiceComponent,
     UploadComponent,
     DialogComponent,
+    ScaleComponent,
   ],
   imports: [
     BrowserModule,
