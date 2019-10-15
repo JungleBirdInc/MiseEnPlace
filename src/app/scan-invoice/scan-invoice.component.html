@@ -1,50 +1,19 @@
 <h3>Scan Invoice</h3>
 <br />
 
-<div>
-    <webcam [height]='500' [width]='500' [trigger]='triggerObservable' (imageCapture)='handleImage($event)'
-            *ngIf='showWebcam' [allowCameraSwitch]='allowCameraSwitch' [switchCamera]='nextWebcamObservable'
-            [videoOptions]='videoOptions' [imageQuality]='1' (cameraSwitched)='cameraWasSwitched($event)'
-            (initError)='handleInitError($event)'>
-    </webcam>
-    <br/>
-    <button class='actionBtn' (click)="triggerSnapshot()">Take Picture of Invoice</button>
-    <button class='actionBtn' (click)='toggleWebcam()'>Toggle Webcam</button>
-    <br/>
-    <button class='actionBtn' (click)='showNextWebcam()' [disabled]='!multipleWebcamsAvailable'>Next Webcam</button>
-    <input id='cameraSwitchCheckbox' type='checkbox' [(ngModel)]='allowCameraSwitch'><label for='cameraSwitchCheckbox'>Allow Camera to Switch</label>
-</div>
 
 <app-upload></app-upload>
 
 
 
-<h3>Upload Image</h3>
-<form action="/upload" method="post" enctype="multipart/form-data">
+<!-- <h2>Upload Image</h2> -->
+<!-- <form action="/upload" method="post" enctype="multipart/form-data">
     <input type="file" accept="image/*" name="photo">
     <input type="submit" value="upload" (click)="handleImage(photo)">
-</form>
+</form> -->
 
 <div class="snapshot" *ngIf='webcamImage'>
-<!-- <div class="snapshot" *ngIf='webcamImage'>
-    <p>Succesful Photo</p>
-    <img [src]='webcamImage.imageAsDataUrl'/>
-</div> -->
 
-<!-- <button *ngIf="barcode" class="btn btn-lg btn-outline-primary" (click)="open(content)">Code Scanned Succesfully, Review Bar Code</button> -->
-<!-- 
-<ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Bar Code Scanned</h4>
-    </div>
-    <div class="modal-body">
-        <p>Succesful Photo</p>
-        <img [src]='webcamImage.imageAsDataUrl'/>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div>
-</ng-template> -->
 
 <h4 *ngIf="errors.length > 0">Messages:</h4>
 <ul *ngFor='let error of errors'>
