@@ -15,6 +15,7 @@ export class ScanInvoiceComponent implements OnInit {
 
   // toggle webcam on/off
   public showWebcam = true;
+  public captureImageData = true;
   public allowCameraSwitch = true;
   public multipleWebcamsAvailable = false;
   public deviceId: string;
@@ -58,7 +59,7 @@ export class ScanInvoiceComponent implements OnInit {
     console.log('route activated!')
     let data = {
       orgId: 1,
-      url: image._imageAsDataUrl,
+      image: image,
     }
     console.log('DATA OBJECT TO BE SENT TO SERVICE', data);
     this._scanPhoto.scanPhoto(data).then(subData => {

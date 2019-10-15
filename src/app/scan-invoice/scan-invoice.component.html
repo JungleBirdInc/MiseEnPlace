@@ -15,6 +15,16 @@
     <input id='cameraSwitchCheckbox' type='checkbox' [(ngModel)]='allowCameraSwitch'><label for='cameraSwitchCheckbox'>Allow Camera to Switch</label> -->
 </div>
 
+<app-upload></app-upload>
+
+
+
+<h3>Upload Image</h3>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" accept="image/*" name="photo">
+    <input type="submit" value="upload" (click)="handleImage(photo)">
+</form>
+
 <div class="snapshot" *ngIf='webcamImage'>
     <p>Succesful Photo</p>
     <img [src]='webcamImage.imageAsDataUrl'/>
