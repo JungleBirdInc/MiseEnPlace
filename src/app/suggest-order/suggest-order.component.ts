@@ -46,83 +46,137 @@ export class SuggestOrderComponent implements OnInit {
     public _getReps: GetrepsService,
 
     ) {}
-
+  conv = false;
   show = false;
   public dist;
   public inventory;
   public botsize;
   public masterInv;
-  public reps;
+  public reps: any = [{
+  createdAt: '',
+  dist_id: 0,
+  distributorOrganizationId: 1,
+  email: '',
+  first_name: '',
+  last_name: '',
+  phone: '',
+  updatedAt: '',
+}];
   public orderList = [];
+  public dist1;
+  public dist2;
 
-  rep1 = REP1_DATA;
+  // tables states
+  rep1 = false;
+  rep2 = false;
 
-ngOnInit() {
+  ngOnInit() {
 
-  // GET DISTRIBUTORS
-  this._getdist.getDistributors()
-  .then(data => {
-  this.dist = data;
-  console.log(data, 'dist');
-  });
+    // GET DISTRIBUTORS
+    this._getdist.getDistributors()
+    .then(data => {
+      this.dist = data;
+      console.log(data, 'dist');
+    });
+
+    // GET MASTER INV
+    this._master.getMaster()
+    .then(data => {
+    this.masterInv = data;
+    console.log(data, 'master');
+    });
+
   // GET CURRENT INV
-  this._getInv.getCurentInventory()
+    this._getInv.getCurentInventory()
   .then(data => {
     this.inventory = data;
     console.log(data, 'inv');
   });
 
   // GET BOTTLE SIZES
-  this._getbotsize.getCategories()
+    this._getbotsize.getCategories()
   .then(data => {
   this.botsize = data;
   console.log(data, 'bot');
   });
 
-  // GET MASTER INV
-  this._master.getMaster()
-  .then(data => {
-  this.masterInv = data;
-  console.log(data, 'master');
-  });
 
   // GET REPS
-  this._getReps.getReps()
+    this._getReps.getReps()
   .then(data => {
     this.reps = data;
     console.log(data, 'reps');
+  }).then (() => {
+    this.convert();
   });
 
 }
 
+// toggle(id){
+// this.convert();
+// id = !id;
+// }
+
 // takes requested data and makes into new array
 convert() {
-  this.dist.forEach((dist) => {
-    const distrib = {
-      name: dist.distributor.name,
-      id: dist.id,
-      products: []
-    };
-    this.inventory['0'].logs_products.forEach((prod) => {
-      if (prod.distributors_product.dist_id === distrib.id) {
+  if(!this.conv){
+    this.conv = true;
+    this.dist.forEach((dist) => {
+      const distrib = {
+        name: dist.distributor.name,
+        id: dist.id,
+        products: [],
+        rep: dist.distributor.reps[0].first_name,
+        cell: dist.distributor.reps[0].phone,
+      };
+      this.inventory[0].logs_products.forEach((prod) => {
+        if (prod.distributors_product.dist_id === distrib.id) {
         const prodName = prod.distributors_product.product.product_name;
-        const cost = prod.distributors_product.price;
+        const cost = (prod.distributors_product.price) / 100;
         const qty = prod.qty;
-        const usedId = prod.distributorsProductId;
-        const volId = prod.distributors_product.product.botSizeId;
-        this.masterInv['0'].logs_products.forEach(master => {
+        const usedId = prod.distributors_product.id;
+        const volId = prod.distributors_product.product.btlSizeId;
+        this.masterInv[0].logs_products.forEach(master => {
           if (master.distributorsProductId === usedId) {
             const par = master.qty;
+            this.botsize.forEach((sizes) => {
+              if (volId === sizes.id) {
+                const usedSize = sizes.size;
+                if ((par - qty) > 0) {
+                  const suggest = par - qty;
+                  const usedData = {
+                    prod: prodName,
+                    cost,
+                    qty,
+                    par,
+                    size: usedSize,
+                    suggest,
+                  };
+                  distrib.products.push(usedData);
+                  this.orderList.push(distrib);
+                } else {
+                  const suggest = 0;
+                  const usedData = {
+                    prod: prodName,
+                    cost,
+                    qty,
+                    par,
+                    size: usedSize,
+                    suggest,
+                  };
+                  distrib.products.push(usedData);
+                  this.orderList.push(distrib);
+                }
+              }
+            });
           }
-          this.botsize.forEach((sizes) => {
-            if (volId === sizes.id) {
-              const usedSize = sizes.size;
-            }
-          });
         });
       }
     });
   });
+  }
+  this.dist1 = this.orderList[0];
+  this.dist2 = this.orderList[9];
 }
 
 /** Gets the total cost of all transactions. */
