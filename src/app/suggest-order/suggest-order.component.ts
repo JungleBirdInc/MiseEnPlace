@@ -250,19 +250,7 @@ convert() {
 //   this.show = !this.show;
 // }
 
-//     confirmOrders() {
-//   this.router.navigate(['review-orders']);
-// }
-
-//     suggestedOrder(rep) {
-//  const quantity: number = rep.quantity;
-//  const par: number = rep.par;
-//  let value = 0;
-//  value = par - quantity;
-//  return value;
-// }
-
-
-
-// }
+  confirmOrders() {
+    this.router.navigateByUrl('review-orders', {state: {order: this.masterArray}});
+  }
 }
