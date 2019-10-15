@@ -20,8 +20,8 @@ import { GetweightService } from '../services/getweight.service';
   PRV. WEIGHT:<br />
   BASE TARE:<br />
 
-  <button *ngIf='options' routerLink='scan-bar-code'>Scan Another Bottle</button> 
-  <button *ngIf='options' routerLink='burn'>Finish Weighing</button>`
+  <button routerLink='scan-bar-code'>Scan Another Bottle</button> 
+  <button routerLink='burn'>Finish Weighing</button>`
 })
 
 export class ScaleComponent implements OnInit {
