@@ -1,4 +1,23 @@
-<h3>Suggest Order</h3>
+
+<button (click)="convert()">POPULATE</button>
+
+<div>
+  <ul>
+    <li *ngFor='let product of masterArray'>
+      {{product.productName}}
+    </li>
+  </ul>
+</div>
+
+<div>
+  <ul>
+    <li *ngFor='let product of currentArray'>
+      {{product.productName}}
+    </li>
+  </ul>
+</div>
+
+<!-- <h3>Suggest Order</h3>
 <br />
 <igx-card><h4>{{dist1.name}}</h4>
     <table >
@@ -68,4 +87,4 @@
 </igx-card>
 
   
-        <button (click)='confirmOrders()'>Review Orders</button>
+        <button (click)='confirmOrders()'>Review Orders</button> -->
