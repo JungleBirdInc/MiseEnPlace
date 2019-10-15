@@ -1,14 +1,18 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import Quagga from 'quagga';
-import { environment } from 'src/environments/environment';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
+import { UPCService } from '../services/sendUPC.service';
 
 @Component({
   selector: 'app-scan-bar-code',
   templateUrl: './scan-bar-code.component.html',
-  styleUrls: ['./scan-bar-code.component.css']
+  styleUrls: ['./scan-bar-code.component.css'],
+  providers: [UPCService]
 })
 export class ScanBarCodeComponent implements OnInit {
-  barcode = '';
+  closeResult: string;
+  barcode: string;
   configQuagga = {
     inputStrem: {
       name: 'Live',
@@ -33,7 +37,12 @@ export class ScanBarCodeComponent implements OnInit {
     }
   };
 
-  constructor(private ref: ChangeDetectorRef) { }
+  constructor(
+    private ref: ChangeDetectorRef,
+    private modalService: NgbModal,
+    private data: UPCService,
+    private router: Router,
+    ) { }
 
   ngOnInit() {
     console.log('Barcode: initialization');
@@ -87,12 +96,36 @@ export class ScanBarCodeComponent implements OnInit {
   private logCode(result) {
     const code = result.codeResult.code;
     if (this.barcode !== code) {
-      this.barcode = 'bar code : ' + code;
+      this.barcode = code;
       this.ref.detectChanges();
       console.log(this.barcode);
       Quagga.stop();
+      this.router.navigateByUrl('scale', { state: { barcode: code } });
     }
   }
-// send code on click referenced in the line 90;
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+   private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+   }
+
+  sendCode(code) {
+    this.modalService.dismissAll();
+    this.router.navigateByUrl('scale', {state: {barcode: code}});
+  }
 
 }
+

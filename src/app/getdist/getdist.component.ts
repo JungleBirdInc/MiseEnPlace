@@ -12,7 +12,7 @@ export class GetdistComponent implements OnInit {
 
   ngOnInit() {
     this._getdist.getDistributors()
-    .subscribe(data => {
+    .then(data => {
     this.distributors = data;
     });
   }

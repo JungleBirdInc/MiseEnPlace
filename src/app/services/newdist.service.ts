@@ -11,8 +11,18 @@ export class NewdistService {
   private _url: string = `/distributor/create`;
 
   regDist(data) {
-    console.log(data, 'DATA FROM CREATE DIST SERVICE');
-    return this.http.post(this._url, data);
+    let promise = new Promise((resolve, reject) => {
+      this.http.post(this._url, data)
+        .toPromise()
+        .then(
+          res => {
+            resolve(res);
+          },
+          msg => {
+            reject(msg);
+          }
+        );
+    });
+    return promise;
   }
-
 }

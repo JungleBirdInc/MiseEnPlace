@@ -1,174 +1,153 @@
-<h3 class="title">Inventory</h3>
-<form class="input-group-form">
-    <!-- (submit)="onSubmit()" -->
-  <div class="container">
+<h4>Inventory</h4>
+<br/>
 
-    <igx-select #select>
-      <label igxLabel>Month</label>
-<igx-select-item value="Jan">Jan</igx-select-item>
-<igx-select-item value="Feb">Feb</igx-select-item>
-<igx-select-item value="Mar">Mar</igx-select-item>
-<igx-select-item value="Apr">Apr</igx-select-item>
-<igx-select-item value="May">May</igx-select-item>
-<igx-select-item value="Jun">Jun</igx-select-item>
-<igx-select-item value="Jul">Jul</igx-select-item>
-<igx-select-item value="Aug">Aug</igx-select-item>
-<igx-select-item value="Sep">Sep</igx-select-item>
-<igx-select-item value="Oct">Oct</igx-select-item>
-<igx-select-item value="Nov">Nov</igx-select-item>
-<igx-select-item value="Dec">Dec</igx-select-item>
-    </igx-select>
-
-        <igx-select #select>
-          <label igxLabel>Day</label>
-          <igx-select-item value="01">01</igx-select-item>
-          <igx-select-item value="02">02</igx-select-item>
-          <igx-select-item value="03">03</igx-select-item>
-          <igx-select-item value="04">04</igx-select-item>
-          <igx-select-item value="05">05</igx-select-item>
-          <igx-select-item value="06">06</igx-select-item>
-          <igx-select-item value="07">07</igx-select-item>
-          <igx-select-item value="08">08</igx-select-item>
-          <igx-select-item value="09">09</igx-select-item>
-          <igx-select-item value="10">10</igx-select-item>
-          <igx-select-item value="11">11</igx-select-item>
-          <igx-select-item value="12">12</igx-select-item>
-          <igx-select-item value="13">13</igx-select-item>
-          <igx-select-item value="14">14</igx-select-item>
-          <igx-select-item value="15">15</igx-select-item>
-          <igx-select-item value="16">16</igx-select-item>
-          <igx-select-item value="17">17</igx-select-item>
-          <igx-select-item value="18">18</igx-select-item>
-          <igx-select-item value="19">19</igx-select-item>
-          <igx-select-item value="20">20</igx-select-item>
-          <igx-select-item value="21">21</igx-select-item>
-          <igx-select-item value="22">22</igx-select-item>
-          <igx-select-item value="23">23</igx-select-item>
-          <igx-select-item value="24">24</igx-select-item>
-          <igx-select-item value="25">25</igx-select-item>
-          <igx-select-item value="26">26</igx-select-item>
-          <igx-select-item value="27">27</igx-select-item>
-          <igx-select-item value="28">28</igx-select-item>
-          <igx-select-item value="29">29</igx-select-item>
-          <igx-select-item value="30">30</igx-select-item>
-          <igx-select-item value="31">31</igx-select-item>
-        </igx-select>
-
-        <igx-select #select>
-            <label igxLabel>Year</label>
-            <igx-select-item value="Jan">2019</igx-select-item>
-        </igx-select>
-
-    <button igxButton="raised" igxRipple>Apply</button>
-  </div>
-</form>
-
-<igx-card (click)='toggleCurrent()'><h4>Current Inventory</h4></igx-card>
-
-<igx-card *ngIf='current' (click)='toggleCurrentProduct()'><h6>Bourbon (subCategory)</h6>
-  <table *ngIf='showCurrent && current'  class="mat-elevation-z8" width='100%'>
-      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th></tr>
+<igx-card (click)='toggle("liqOn")'><h6>Liquor</h6>
+  <table *ngIf='liqOn' class="mat-elevation-z8" width='100%'>
+      <thead>
+        <tr>
+          <th>ProductName</th>
+          <th>Volume</th>
+          <th>Quantity</th>
+          <th>Par</th>
+        </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of productB">
+        <tr *ngFor="let product of liquor">
           <td>
-            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+            <input type="text" 
+            [(ngModel)]="product.name" 
+            [disabled]="!product.isEditable"/>
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+              <input type="text" 
+              [(ngModel)]="product.bottleSize" 
+              [disabled]="!product.isEditable"/>
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+              <input type="text" 
+              [(ngModel)]="product.quantity" 
+              [disabled]="!product.isEditable"/>
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
-          </td>
-          <td>
-              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+              <input type="text" 
+              [(ngModel)]="product.par" 
+              [disabled]="!product.isEditable"/>
           </td>
         </tr>
       </tbody>
   </table>
 </igx-card>
-        <br />
-<igx-card *ngIf='current' (click)='toggleCurrentProduct()' width='90%'><h6>Vodka (subCategory)</h6>
-  <table *ngIf='showCurrent && current' class="mat-elevation-z8" width='100%'>
-      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th></tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of productV">
-          <td>
-            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
-          </td>
-          <td>
-              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
-          </td>
-          <td>
-              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
-          </td>
-          <td>
-              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
-          </td>
-          <td>
-              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
-          </td>
-        </tr>
-      </tbody>  
-  </table>
-</igx-card>
-        <br />
-<igx-card (click)='toggleHist()'><h4>Prev Inventory</h4></igx-card>
+<br />
 
-<igx-card *ngIf='show' (click)='toggleProduct()'><h6>Bourbon (subCategory)</h6>
-  <table *ngIf='showInterior' class="mat-elevation-z8" width='100%'>
-      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th></tr>
+<igx-card (click)='toggle("wineOn")'><h6>Wine</h6>
+  <table *ngIf='wineOn'  class="mat-elevation-z8" width='100%'>
+      <thead>
+        <tr>
+          <th>ProductName</th>
+          <th>Volume</th>
+          <th>Quantity</th>
+          <th>Par</th>
+        </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of productB">
+        <tr *ngFor="let product of wine">
           <td>
-            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+            <input type="text" 
+            [(ngModel)]="product.name" 
+            [disabled]="!product.isEditable"/>
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+              <input type="text" 
+              [(ngModel)]="product.bottleSize" 
+              [disabled]="!product.isEditable"/>
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+              <input type="text" 
+              [(ngModel)]="product.quantity" 
+              [disabled]="!product.isEditable"/>
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
-          </td>
-          <td>
-              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+              <input type="text" 
+              [(ngModel)]="product.par" 
+              [disabled]="!product.isEditable"/>
           </td>
         </tr>
       </tbody>
   </table>
 </igx-card>
-  <br />
-<igx-card *ngIf='show' (click)='toggleProduct()' width='90%'><h6>Vodka (subCategory)</h6>
-  <table *ngIf='showInterior && show' class="mat-elevation-z8" width='100%'>
-      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
+<br />
+
+<igx-card (click)='toggle("beerOn")'><h6>Beer</h6>
+  <table *ngIf='beerOn'  class="mat-elevation-z8" width='100%'>
+      <thead>
+        <tr>
+          <th>ProductName</th>
+          <th>Volume</th>
+          <th>Quantity</th>
+          <th>Par</th>
+        </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of productV">
+        <tr *ngFor="let product of beer">
           <td>
-            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+            <input type="text" 
+            [(ngModel)]="product.name" 
+            [disabled]="!product.isEditable"/>
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+              <input type="text" 
+              [(ngModel)]="product.bottleSize" 
+              [disabled]="!product.isEditable"/>
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+              <input type="text" 
+              [(ngModel)]="product.quantity" 
+              [disabled]="!product.isEditable"/>
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
-          </td>
-          <td>
-              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+              <input type="text" 
+              [(ngModel)]="product.par" 
+              [disabled]="!product.isEditable"/>
           </td>
         </tr>
       </tbody>
   </table>
 </igx-card>
-  
-  
+<br />
+
+<igx-card (click)='toggle("nonOn")'><h6>Non-Alcoholic</h6>
+  <table *ngIf='nonOn'  class="mat-elevation-z8" width='100%'>
+      <thead>
+        <tr>
+          <th>ProductName</th>
+          <th>Volume</th>
+          <th>Quantity</th>
+          <th>Par</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of non">
+          <td>
+            <input type="text" 
+            [(ngModel)]="product.name" 
+            [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" 
+              [(ngModel)]="product.bottleSize" 
+              [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" 
+              [(ngModel)]="product.quantity" 
+              [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" 
+              [(ngModel)]="product.par" 
+              [disabled]="!product.isEditable"/>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</igx-card>

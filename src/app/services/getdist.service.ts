@@ -11,6 +11,18 @@ export class GetdistService {
   private _url: string = `/distributor/getAll/1`;
 
   getDistributors(){
-    return this.http.get(this._url);
+    let promise = new Promise((resolve, reject) => {
+      this.http.get(this._url)
+        .toPromise()
+        .then(
+          res => {
+            resolve(res);
+          },
+          msg => {
+            reject(msg);
+          }
+        );
+    });
+    return promise;
   }
 }

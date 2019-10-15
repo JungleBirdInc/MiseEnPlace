@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 import { WebcamImage, WebcamInitError, WebcamUtil } from 'ngx-webcam';
-import { ScanphotoService } from '../services/scanphoto.service';
+import {NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+import { ScanphotoService } from '../services/scanphoto.service';
 
 @Component({
   selector: 'app-scan-invoice',
@@ -12,10 +13,13 @@ import { ScanphotoService } from '../services/scanphoto.service';
 })
 export class ScanInvoiceComponent implements OnInit {
 
-  constructor(private _scanPhoto: ScanphotoService) { };
+  constructor(
+    private _scanPhoto: ScanphotoService,
+    private modalService: NgbModal) { }
 
   // toggle webcam on/off
   public showWebcam = true;
+  public captureImageData = true;
   public allowCameraSwitch = true;
   public multipleWebcamsAvailable = false;
   public deviceId: string;
@@ -28,8 +32,6 @@ export class ScanInvoiceComponent implements OnInit {
   // webcam trigger
   private trigger: Subject<void> = new Subject<void>();
   private nextWebcam: Subject<boolean|string> = new Subject<boolean|string>();
-
-  // constructor() { }
 
   public ngOnInit(): void {
     WebcamUtil.getAvailableVideoInputs()
@@ -44,6 +46,8 @@ export class ScanInvoiceComponent implements OnInit {
 
   public triggerSnapshot(): void {
     this.trigger.next();
+    this.toggleWebcam();
+    open();
   }
 
   public showNextWebcam(): void {
@@ -54,14 +58,17 @@ export class ScanInvoiceComponent implements OnInit {
     this.errors.push(error);
   }
 
-  public handleImage(webcamImage: WebcamImage): void {
-    console.log('recieved webcam image', webcamImage);
+  public handleImage(image){
+    console.log('recieved webcam image', image);
     console.log('route activated!')
     let data = {
-      url: WebcamImage,
+      orgId: 1,
+      image: image,
     }
-    console.log(data);
-    this._scanPhoto.scanPhoto(data).subscribe();
+    console.log('DATA OBJECT TO BE SENT TO SERVICE', data);
+    this._scanPhoto.scanPhoto(data).then(subData => {
+      console.log('Subscribe Data', subData);
+    });
   }
 
   public cameraWasSwitched(deviceId: string): void {
@@ -76,4 +83,10 @@ export class ScanInvoiceComponent implements OnInit {
   public get nextWebcamObservable(): Observable<boolean|string> {
     return this.nextWebcam.asObservable();
   }
+
+  // open() {
+  //   const modalRef = this.modalService.open(ScanInvoiceModal);
+  //   modalRef.componentInstance.name = 'invoice';
+  // }
+
 }

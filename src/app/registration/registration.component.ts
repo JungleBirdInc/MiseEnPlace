@@ -40,7 +40,7 @@ export class RegistrationComponent implements OnInit {
     }
 
     this._register.regUser(user)
-      .subscribe(data => {
+      .then(data => {
         console.log(data);
       });
   }

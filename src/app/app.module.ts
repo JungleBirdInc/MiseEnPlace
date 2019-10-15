@@ -1,11 +1,13 @@
 // tslint:disable-next-line: max-line-length
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule, FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 // NG-BOOTSTRAP
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 // MATERIAL
 import { MatTableModule } from '@angular/material/table';
@@ -58,6 +60,10 @@ import { NewdistComponent } from './newdist/newdist.component';
 import { NewprodComponent } from './newprod/newprod.component';
 import { ReviewOrderComponent } from './review-order/review-order.component';
 import { BurnListComponent } from './burn-list/burn-list.component';
+import { NewinvoiceComponent } from './newinvoice/newinvoice.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UploadService } from './upload/upload.service';
+import { ScaleComponent } from './scale/scale.component';
 
 // IGNITE
 import {
@@ -76,6 +82,8 @@ import {
   IgxSelectModule,
   IgxCardModule,
   } from 'igniteui-angular';
+import { UploadComponent } from './upload/upload.component';
+import { DialogComponent } from './upload/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +113,10 @@ import {
     NewprodComponent,
     ReviewOrderComponent,
     BurnListComponent,
+    NewinvoiceComponent,
+    UploadComponent,
+    DialogComponent,
+    ScaleComponent,
   ],
   imports: [
     BrowserModule,
@@ -145,9 +157,17 @@ import {
     IgxCardModule,
     NgbModule,
     WebcamModule,
+    MatDialogModule,
   ],
-  providers: [],
+  providers: [
+    UploadService,
+  ],
   bootstrap: [AppComponent],
+  entryComponents: [DialogComponent],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule {
 }
