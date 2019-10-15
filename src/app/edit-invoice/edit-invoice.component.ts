@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener  } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { GetCurrentInvService } from '../services/getcurrentinventory.service';
 
 const REP1_DATA = [
   {productName: 'Jack Daniels', subCategory: 'Bourbon', volume: '750mL', quantity: 4, price: 57.23},
@@ -21,11 +22,19 @@ export class EditInvoiceComponent implements OnInit {
 constructor(
     public snackBar: MatSnackBar,
     private router: Router,
+    public _getcurrent: GetCurrentInvService,
     ) {}
 
   rep1 = REP1_DATA;
+  current;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this._getcurrent.getCurentInventory()
+    .then((data) => {
+      this.current = data;
+      console.log(data);
+    });
+  }
 
   /** Gets the total cost of all transactions. */
   getTotalCost(invoice) {

@@ -52,45 +52,60 @@ export class SuggestOrderComponent implements OnInit {
   public inventory;
   public botsize;
   public masterInv;
-  public reps;
+  public reps: any = [{
+  createdAt: '',
+  dist_id: 0,
+  distributorOrganizationId: 1,
+  email: '',
+  first_name: '',
+  last_name: '',
+  phone: '',
+  updatedAt: '',
+}];
   public orderList = [];
 
   rep1 = REP1_DATA;
 
-ngOnInit() {
+  ngOnInit() {
 
-  // GET DISTRIBUTORS
-  this._getdist.getDistributors()
-  .then(data => {
-  this.dist = data;
-  console.log(data, 'dist');
-  });
+    // GET DISTRIBUTORS
+    this._getdist.getDistributors()
+    .then(data => {
+      this.dist = data;
+      console.log(data, 'dist');
+    });
+
+    // GET MASTER INV
+    this._master.getMaster()
+    .then(data => {
+    this.masterInv = data;
+    console.log(data, 'master');
+    });
+
   // GET CURRENT INV
-  this._getInv.getCurentInventory()
+    this._getInv.getCurentInventory()
   .then(data => {
     this.inventory = data;
     console.log(data, 'inv');
   });
 
   // GET BOTTLE SIZES
-  this._getbotsize.getCategories()
+    this._getbotsize.getCategories()
   .then(data => {
   this.botsize = data;
   console.log(data, 'bot');
   });
 
-  // GET MASTER INV
-  this._master.getMaster()
-  .then(data => {
-  this.masterInv = data;
-  console.log(data, 'master');
-  });
 
   // GET REPS
-  this._getReps.getReps()
+    this._getReps.getReps()
   .then(data => {
     this.reps = data;
     console.log(data, 'reps');
+  }).then(() => {
+    this.convert();
+  }).then(() => {
+    console.log(this.orderList, 'ol');
   });
 
 }
@@ -101,24 +116,60 @@ convert() {
     const distrib = {
       name: dist.distributor.name,
       id: dist.id,
-      products: []
+      products: [],
+      rep: dist.distributor.reps[0].first_name,
+      cell: dist.distributor.reps[0].phone,
     };
-    this.inventory['0'].logs_products.forEach((prod) => {
+    this.inventory[0].logs_products.forEach((prod) => {
       if (prod.distributors_product.dist_id === distrib.id) {
         const prodName = prod.distributors_product.product.product_name;
-        const cost = prod.distributors_product.price;
+        const cost = (prod.distributors_product.price) / 100;
         const qty = prod.qty;
         const usedId = prod.distributorsProductId;
-        const volId = prod.distributors_product.product.botSizeId;
-        this.masterInv['0'].logs_products.forEach(master => {
+        const volId = prod.distributors_product.product.btlSizeId;
+        console.log('1');
+        this.masterInv[0].logs_products.forEach(master => {
           if (master.distributorsProductId === usedId) {
             const par = master.qty;
+            console.log('2');
+            this.botsize.forEach((sizes) => {
+              if (volId === sizes.id) {
+                const usedSize = sizes.size;
+                if ((par - qty) > 0) {
+                  const suggest = par - qty;
+                  const usedData = {
+                    prod: prodName,
+                    cost,
+                    qty,
+                    par,
+                    size: usedSize,
+                    suggest,
+                  };
+                  console.log('3');
+                  distrib.products.push(usedData);
+                  console.log(usedData, 'used');
+                  this.orderList.push(distrib);
+                  console.log(this.orderList);
+                } else {
+                  const suggest = 0;
+                  const usedData = {
+                    prod: prodName,
+                    cost,
+                    qty,
+                    par,
+                    size: usedSize,
+                    suggest,
+                  };
+                  console.log('4');
+                  distrib.products.push(usedData);
+                  console.log(usedData, 'used');
+                  this.orderList.push(distrib);
+                  console.log(this.orderList);
+                }
+
+              }
+            });
           }
-          this.botsize.forEach((sizes) => {
-            if (volId === sizes.id) {
-              const usedSize = sizes.size;
-            }
-          });
         });
       }
     });
