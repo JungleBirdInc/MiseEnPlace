@@ -10,40 +10,18 @@ import { GetweightService } from '../services/getweight.service';
   selector: 'app-scale',
   styleUrls: ['./scale.component.css'],
   template: 
-  `<h3>Weigh Bottle</h3>
-    <br />
+  `<h3>Weigh Bottle</h3><br />
+  <h4 *ngIf='weight === undefined'>PLACE BOTTLE ON SCALE</h4>
+  <h4 *ngIf='weight'>{{weight.weight}} ounces</h4><br />
+    
+  PRODUCT: <br />
+  UPC: <input value={{code}}><br />
+  WEIGHT:  <input type="text" value={{this.weight.weight}} contenteditable="true" /><br />
+  PRV. WEIGHT:<br />
+  BASE TARE:<br />
 
-    <div>
-      <h4 *ngIf='weight === undefined'>PLACE BOTTLE ON SCALE</h4>
-      <h4 *ngIf='weight'>{{weight.weight}}</h4>
-    </div><br />
-    UPC: <input value={{code}}>
-
-    <br />
-
-    <table *ngIf='manual' width='100%'>
-      <thead>
-        <tr>
-          <th>ProductName</th>
-          <th>Weight</th>
-        </tr>
-      </thead>
-
-      <tbody>
-      <tr>
-        <td>
-          Prod name
-        </td>
-          <td>
-            <input type="text" value='enter weight' contenteditable="true" />
-          </td>
-        </tr>
-      </tbody>
-
-    </table>
-    <button *ngIf='options' routerLink='scan-bar-code'>Scan Another Bottle</button> 
-    <button *ngIf='options' routerLink='burn'>Finish Weighing</button>`
-
+  <button *ngIf='options' routerLink='scan-bar-code'>Scan Another Bottle</button> 
+  <button *ngIf='options' routerLink='burn'>Finish Weighing</button>`
 })
 
 export class ScaleComponent implements OnInit {
@@ -65,12 +43,20 @@ constructor(
   public weight;
 
   ngOnInit() {
+    this._getByUPC.getBottleUPC(this.code)
+      .then(data => {
+        this.bottle = data;
+        console.log('BOTTLE', data);
+      })
+    
     this._getweight.getWeight()
     .then(data => {
-      let temp = data;
-      this.weight= temp;
+      this.weight = data;
       console.log('WEIGHT', data);
-    });
+    })
+    .then(() => {
+      this.weight.weight = (this.weight.weight/100).toFixed(2);
+    })
   }
 
   toggleOptions() {
