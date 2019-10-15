@@ -10,7 +10,7 @@ export class GetweightService {
 
   getWeight(){
     let promise = new Promise((resolve, reject) => {
-      this.http.get('http://0c724ade.ngrok.io/weigh')
+      this.http.get('http://ac9f7b2f.ngrok.io/weigh')
         .toPromise()
         .then(
           res => {
