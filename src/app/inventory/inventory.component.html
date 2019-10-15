@@ -1,7 +1,7 @@
 <h4>Inventory</h4>
 <br/>
 
-<div (click)='toggle("liqOn")'><h6>Liquor</h6>
+<igx-card (click)='toggle("liqOn")'><h6>Liquor</h6>
   <table *ngIf='liqOn' class="mat-elevation-z8" width='100%'>
       <thead>
         <tr>
@@ -36,7 +36,7 @@
         </tr>
       </tbody>
   </table>
-</div>
+</igx-card>
 <br />
 
 <igx-card (click)='toggle("wineOn")'><h6>Wine</h6>
