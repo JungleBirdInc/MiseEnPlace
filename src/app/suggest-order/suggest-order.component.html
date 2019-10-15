@@ -1,23 +1,6 @@
 <h3>Suggested Orders</h3>
 <button *ngIf='!suggested' (click)="convert()">Suggest Orders</button>
 
-<!-- <div>
-  <ul>
-    <li *ngFor='let product of masterArray'>
-      {{product.productName}}
-    </li>
-  </ul>
-</div>
-
-<div>
-  <ul>
-    <li *ngFor='let product of currentArray'>
-      {{product.productName}}
-    </li>
-  </ul>
-</div> -->
-
-
 <br />
 <igx-card *ngIf='suggested'><h4>Suggested Order</h4>
     <table >
@@ -50,7 +33,7 @@
           </tr>
         </tbody>
         <tfoot>
-          <button (click)='confirmOrders()'></button>
+          <button (click)='confirmOrders()'>Confirm Your Order</button>
         </tfoot>
       </table>     
 </igx-card>
