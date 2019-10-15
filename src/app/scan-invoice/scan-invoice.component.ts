@@ -46,7 +46,7 @@ export class ScanInvoiceComponent implements OnInit {
   public triggerSnapshot(): void {
     this.trigger.next();
     this.toggleWebcam();
-    open();
+    // open();
   }
 
   public showNextWebcam(): void {

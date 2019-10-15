@@ -48,6 +48,11 @@ export class SuggestOrderComponent implements OnInit {
   public inventory;
   public botsize;
   public reps;
+  public suggested = false;
+
+public masterArray = [];
+public currentArray = [];
+public visible = false;
 
   ngOnInit() {
     // GET MASTER INV
@@ -83,89 +88,99 @@ export class SuggestOrderComponent implements OnInit {
       .then(data => {
         this.reps = data;
         console.log(data, 'reps');
-      })
+      });
 }
-
-public masterArray = [];
-public currentArray = [];
-public visible = false;
 // takes requested data and makes into new array
 convert() {
-  //ORGANIZE MASTER INVENTORY
+  this.suggested = !this.suggested;
+  // ORGANIZE MASTER INVENTORY
   this.masterInv[0].logs_products.forEach(product => {
     this.masterArray.push({
       productName: product.distributors_product.product.product_name,
-      unitCost: product.distributors_product.price, 
-      //(i think this is price ?)
+      unitCost: product.distributors_product.price,
+      // (i think this is price ?)
       volume: product.distributors_product.product.btlSizeId,
-      quantity: product.qty,
-      par: undefined, 
-      //not sure how qty and par is refrenced in this database
-      suggested: undefined, //to be calculated
-      distributor: product.distributors_product.dist_id,
+      par: product.qty,
+      // not sure how qty and par is refrenced in this database
+      suggested: undefined, // to be calculated
+      distributorId: product.distributors_product.dist_id,
+
     });
   });
 
-  //ORGANIZE CURRENT INVENTORY
+  // ORGANIZE CURRENT INVENTORY
   this.inventory[0].logs_products.forEach(product => {
     this.currentArray.push({
       productName: product.distributors_product.product.product_name,
       unitCost: product.distributors_product.price,
-      //(i think this is price ?)
+      // (i think this is price ?)
       volume: product.distributors_product.product.btlSizeId,
       quantity: product.qty,
       par: undefined,
-      //not sure how qty and par is refrenced in this database
-      suggested: undefined, //to be calculated
-      distributor: product.distributors_product.dist_id,
+      // not sure how qty and par is refrenced in this database
+      suggested: undefined, // to be calculated
+      distributorId: product.distributors_product.dist_id,
     });
   });
 
-  //ASSIGN FOREIGN KEYS FOR MASTER ARRAY
+  // ASSIGN FOREIGN KEYS FOR MASTER ARRAY
   this.masterArray.forEach(product => {
-    //ASSIGN BOTTLE SIZE FOR MASTER ARRAY
-    this.botsize.forEach(size => {
-      if(product.volume === size.id){
-        product.volume = size.size;
-      }
-    });
-
-    //ASSIGN DISTRIBUTOR NAME FOR MASTER ARRAY
-    this.dist.forEach(dist => {
-      if(product.distributor === dist.distributor.distributorOrganizationId){
-        //not sure if that is actually the correct id
-        product.distributor = dist.distributor.name;
-        }
-      });
-    });//ASSIGN FOREGIN KEYS FOR MASTER ARRAY
-
-
-    //ASSIGN FOREIGN KEYS FOR CURRENT INV
-    this.currentArray.forEach(product => {
-      //ASSIGN BOTTLE SIZE FOR MASTER ARRAY
+    // ASSIGN BOTTLE SIZE FOR MASTER ARRAY
     this.botsize.forEach(size => {
       if (product.volume === size.id) {
         product.volume = size.size;
       }
     });
 
-    //ASSIGN DISTRIBUTOR NAME FOR MASTER ARRAY
+    // ASSIGN DISTRIBUTOR NAME FOR MASTER ARRAY
     this.dist.forEach(dist => {
-      if (product.distributor === dist.distributor.distributorOrganizationId) {
-        //not sure if that is actually the correct id
+      if (product.distributorId === dist.distributor.distributorOrganizationId) {
+        // not sure if that is actually the correct id
+        product.distributor = dist.distributor.name;
+        product.rep = dist.distributor.reps[0].first_name;
+        product.cell = dist.distributor.reps[0].phone;
+        }
+      });
+    this.currentArray.forEach((p) => {
+      if (product.distributorId === p.distributorId)  {
+        product.quantity = p.qty;
+      }
+    });
+    if ((product.par - product.quantity) > 0){
+      product.suggest = (product.par - product.quantity);
+    } else {
+      product.suggest = 0;
+    }
+  });
+
+    // ASSIGN FOREIGN KEYS FOR CURRENT INV
+  this.currentArray.forEach(product => {
+      // ASSIGN BOTTLE SIZE FOR MASTER ARRAY
+    this.botsize.forEach(size => {
+      if (product.volume === size.id) {
+        product.volume = size.size;
+      }
+    });
+
+    // ASSIGN DISTRIBUTOR NAME FOR CURRENT ARRAY
+    this.dist.forEach(dist => {
+      if (product.distributorId === dist.distributor.distributorOrganizationId) {
+        // not sure if that is actually the correct id
         product.distributor = dist.distributor.name;
       }
     });
-    console.log('masterArray', this.masterArray);
-    console.log('currentArray', this.currentArray);
-  })
 
-  this.visible = true;
-}
-
+    // ASSIGN REP
+  });
   
+  console.log('masterArray', this.masterArray);
+  console.log('currentArray', this.currentArray);
+  this.visible = true;
+} 
 
-//OLDER CODE BELOW
+
+
+// OLDER CODE BELOW
   // if(!this.conv){
   //   this.conv = true;
   //   this.dist.forEach((dist) => {
