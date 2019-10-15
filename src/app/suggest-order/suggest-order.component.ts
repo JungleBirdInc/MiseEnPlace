@@ -97,7 +97,7 @@ convert() {
   this.masterInv[0].logs_products.forEach(product => {
     this.masterArray.push({
       productName: product.distributors_product.product.product_name,
-      unitCost: product.distributors_product.price,
+      unitCost: (product.distributors_product.price) / 100,
       // (i think this is price ?)
       volume: product.distributors_product.product.btlSizeId,
       par: product.qty,
@@ -143,13 +143,13 @@ convert() {
       });
     this.currentArray.forEach((p) => {
       if (product.distributorId === p.distributorId)  {
-        product.quantity = p.qty;
+        product.quantity = p.quantity;
       }
     });
     if ((product.par - product.quantity) > 0){
-      product.suggest = (product.par - product.quantity);
+      product.suggested = (product.par - product.quantity);
     } else {
-      product.suggest = 0;
+      product.suggested = 0;
     }
   });
 
