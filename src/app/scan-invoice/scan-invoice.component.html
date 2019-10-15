@@ -22,7 +22,7 @@
 <h3>Upload Image</h3>
 <form action="/upload" method="post" enctype="multipart/form-data">
     <input type="file" accept="image/*" name="photo">
-    <input type="submit" value="upload" (click)="handleImage(photo)">
+    <input type="submit" value="upload" (click)="handleImage(this.photo)">
 </form>
 
 <div class="snapshot" *ngIf='webcamImage'>
