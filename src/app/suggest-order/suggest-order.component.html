@@ -1,28 +1,29 @@
 <h3>Suggest Order</h3>
 <br />
-<igx-card><h4>Distributor -rep- cell</h4>
-    <table>
+<igx-card><h4>{{dist1.name}}</h4>
+    <table >
         <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested Order</th></tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of rep1">
+          <tr *ngFor='let product of dist1.products'>
             <td>
-              <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+              <input type="text" [(ngModel)]="product.prod" [disabled]="!product.isEditable"/>
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+                <input type="text" [(ngModel)]="product.size" [disabled]="!product.isEditable"/>
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+                <input type="text" [(ngModel)]="product.cost" [disabled]="!product.isEditable"/>
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+                <input type="text" [(ngModel)]="product.qty" [disabled]="!product.isEditable"/>
             </td>
             <td>
                 <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
             </td>
-            <td> <!--need to find a way to calculate and add to object to be sent-->
-                <input type="text" value={{suggestedOrder(rep1)}} [disabled]="!product.isEditable"/>
+            <td> 
+              <td>
+                <input type="text" [(ngModel)]="product.suggest" [disabled]="!product.isEditable"/>
             </td>
             <td>
                <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -30,10 +31,40 @@
             </td>
           </tr>
         </tbody>
-        <tfoot>
-          <td></td><td></td><td></td><td></td><td> Total </td><td> {{getTotalCost(rep1) | currency}}</td>
-        </tfoot>
       </table>     
+</igx-card>
+
+<igx-card><h4>{{dist2.name}}</h4>
+  <table>
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested Order</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let product of dist2'>
+          <td>
+            <input type="text" [(ngModel)]="product.prod" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.size" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.cost" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.qty" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.suggest" [disabled]="!product.isEditable"/>
+          </td>
+          <td>
+             <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+             <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+          </td>
+        </tr>
+      </tbody>
+    </table>     
 </igx-card>
 
   
