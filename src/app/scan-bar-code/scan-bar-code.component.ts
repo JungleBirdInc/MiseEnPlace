@@ -48,7 +48,6 @@ export class ScanBarCodeComponent implements OnInit {
     console.log('Barcode: initialization');
   }
 
-
   testChangeValues() {
     this.barcode = 'barcode number: 0123456789';
   }
@@ -101,6 +100,7 @@ export class ScanBarCodeComponent implements OnInit {
       this.ref.detectChanges();
       console.log(this.barcode);
       Quagga.stop();
+      this.router.navigateByUrl('scale', { state: { barcode: code } });
     }
   }
 
