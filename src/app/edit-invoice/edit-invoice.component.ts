@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener  } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { GetCurrentInvService } from '../services/getcurrentinventory.service';
+import { NewinvoiceService } from '../services/newinvoice.service';
 
 const REP1_DATA = [
   {productName: 'Jack Daniels', subCategory: 'Bourbon', volume: '750mL', quantity: 4, price: 57.23},
@@ -23,6 +24,7 @@ constructor(
     public snackBar: MatSnackBar,
     private router: Router,
     public _getcurrent: GetCurrentInvService,
+    public_newinvoice: NewinvoiceService,
     ) {}
 
   rep1 = REP1_DATA;
