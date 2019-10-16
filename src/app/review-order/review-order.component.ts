@@ -11,12 +11,12 @@ import { PostOrderService } from '../services/placeorder.service';
 export class ReviewOrderComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    public _placeOrder: PostOrderService,
   ) { }
 
-  
+
   ordered = window.history.state.ordered;
-  public _placeOrder: PostOrderService;
   show = false;
   show1 = false;
   show2 = false;
@@ -24,6 +24,10 @@ export class ReviewOrderComponent implements OnInit {
   show4 = false;
 
   ngOnInit() {
+  }
+
+  totalPrice(dist) {
+    return dist.map(t => t.unitCost * t.qty).reduce((acc, value) => acc + value, 0);
   }
 
   toggleShow() {
@@ -38,44 +42,77 @@ export class ReviewOrderComponent implements OnInit {
     const send = {
       admin_id: 1,
       type: 3,
-      rep_id: data[0].rep_id,
-      total_price: 'need to fix',
+      rep_id: data[0].repId,
+      total_price: Math.floor(Math.floor(this.totalPrice(data) * 100)),
+      dist_id: data[0].distributorId,
       weeklySet: data
     };
-    this._placeOrder.sendOrder(send);
+    send.weeklySet.forEach(set => {
+      set.unitCost = Math.floor(set.unitCost * 100);
+    });
+
+    console.log(send, '1');
     this.show1 = !this.show1;
+    setTimeout(() => { this._placeOrder.sendOrder(send).then((res) => {
+      console.log(res);
+    }); }, 500);
+
   }
   confirmOrders2(data) {
     const send = {
       admin_id: 1,
       type: 3,
-      rep_id: data[0].rep_id,
-      total_price: 'need to fix',
+      rep_id: data[0].repId,
+      total_price: Math.floor(this.totalPrice(data) * 100),
+      dist_id: data[0].distributorId,
       weeklySet: data
     };
-    this._placeOrder.sendOrder(send);
+    send.weeklySet.forEach(set => {
+      set.unitCost = Math.floor(set.unitCost * 100);
+    });
+    console.log(send, '2');
     this.show2 = !this.show2;
+    setTimeout(() => {this._placeOrder.sendOrder(send).then((res) => {
+      console.log(res);
+    }); }, 500);
+
   }
   confirmOrders3(data) {
     const send = {
       admin_id: 1,
       type: 3,
-      rep_id: data[0].rep_id,
-      total_price: 'need to fix',
+      rep_id: data[0].repId,
+      total_price: Math.floor(this.totalPrice(data) * 100),
+      dist_id: data[0].distributorId,
       weeklySet: data
     };
-    this._placeOrder.sendOrder(send);
+    send.weeklySet.forEach(set => {
+      set.unitCost = Math.floor(set.unitCost * 100);
+    });
     this.show3 = !this.show3;
+    console.log(send, '3');
+    setTimeout(() => {this._placeOrder.sendOrder(send).then((res) => {
+      console.log(res);
+    }); }, 500);
+
   }
   confirmOrders4(data) {
     const send = {
       admin_id: 1,
       type: 3,
-      rep_id: data[0].rep_id,
-      total_price: 'need to fix',
+      rep_id: data[0].repId,
+      total_price: Math.floor(this.totalPrice(data) * 100),
+      dist_id: data[0].distributorId,
       weeklySet: data
     };
-    this._placeOrder.sendOrder(send);
+    send.weeklySet.forEach(set => {
+      set.unitCost = Math.floor(set.unitCost * 100);
+    });
+    console.log(send, '4');
     this.show4 = !this.show4;
+    setTimeout(() => {this._placeOrder.sendOrder(send).then((res) => {
+      console.log(res);
+    }); }, 500);
+
   }
 }

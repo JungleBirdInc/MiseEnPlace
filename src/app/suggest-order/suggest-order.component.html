@@ -1,5 +1,6 @@
 <h3>Suggested Orders</h3>
-<button *ngIf='!suggested' (click)="convert()">Suggest Orders</button>
+<button *ngIf='!suggested' (click)="convert()" style="float: right;" >Suggest Orders</button>
+<button *ngIf='suggested' (click)='confirmOrders()' style="float: right;">Confirm Your Order</button>
 
 <br />
 <igx-card *ngIf='suggested'><h4>{{ordered[1][0].distributor}}</h4>
@@ -9,25 +10,25 @@
         <tbody>
           <tr *ngFor='let product of ordered[1]'>
             <td>
-              <input type="text" [(ngModel)]="product.productName"/>
+              {{product.productName}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.volume"/>
+                {{product.volume}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.unitCost"/>
+                {{product.unitCost}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.quantity"/>
+                {{product.quantity}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.par"/>
+                {{product.par}}
             </td>
             <td> 
-                <input type="text" [(ngModel)]="product.suggested"/>
+                {{product.suggested}}
             </td>
             <td> 
-              <input type="text" [(ngModel)]="product.orderNum" [disabled]="!product.isEditable"/>
+            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
           </td>
             <td>
                <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -36,7 +37,7 @@
           </tr>
         </tbody>
         <tfoot>
-          <button (click)='confirmOrders()'>Confirm Your Order</button>
+          <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[1]) | currency}}</td>
         </tfoot>
       </table>     
 </igx-card>
@@ -48,25 +49,25 @@
       <tbody>
         <tr *ngFor='let product of ordered[9]'>
           <td>
-            <input type="text" [(ngModel)]="product.productName"/>
+            {{product.productName}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.volume"/>
+              {{product.volume}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.unitCost"/>
+              {{product.unitCost}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.quantity"/>
+              {{product.quantity}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.par"/>
+              {{product.par}}
           </td>
           <td> 
-              <input type="text" [(ngModel)]="product.suggested"/>
+              {{product.suggested}}
           </td>
           <td> 
-            <input type="text" [(ngModel)]="product.orderNum" [disabled]="!product.isEditable"/>
+            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
         </td>
           <td>
              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -75,7 +76,7 @@
         </tr>
       </tbody>
       <tfoot>
-        <button (click)='confirmOrders()'>Confirm Your Order</button>
+        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[9]) | currency}}</td>
       </tfoot>
     </table>     
 </igx-card>
@@ -87,25 +88,25 @@
       <tbody>
         <tr *ngFor='let product of ordered[8]'>
           <td>
-            <input type="text" [(ngModel)]="product.productName"/>
+            {{product.productName}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.volume"/>
+              {{product.volume}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.unitCost"/>
+              {{product.unitCost}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.quantity"/>
+              {{product.quantity}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.par"/>
+              {{product.par}}
           </td>
           <td> 
-              <input type="text" [(ngModel)]="product.suggested"/>
+              {{product.suggested}}
           </td>
           <td> 
-            <input type="text" [(ngModel)]="product.orderNum" [disabled]="!product.isEditable"/>
+              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white"/>
         </td>
           <td>
              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -114,7 +115,7 @@
         </tr>
       </tbody>
       <tfoot>
-        <button (click)='confirmOrders()'>Confirm Your Order</button>
+        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[8]) | currency}}</td>
       </tfoot>
     </table>     
 </igx-card>
@@ -126,25 +127,25 @@
       <tbody>
         <tr *ngFor='let product of ordered[5]'>
           <td>
-            <input type="text" [(ngModel)]="product.productName"/>
+            {{product.productName}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.volume"/>
+              {{product.volume}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.unitCost"/>
+              {{product.unitCost}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.quantity"/>
+              {{product.quantity}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.par"/>
+              {{product.par}}
           </td>
           <td> 
-              <input type="text" [(ngModel)]="product.suggested"/>
+              {{product.suggested}}
           </td>
           <td> 
-            <input type="text" [(ngModel)]="product.orderNum" [disabled]="!product.isEditable"/>
+            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white"/>
         </td>
           <td>
              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -153,8 +154,14 @@
         </tr>
       </tbody>
       <tfoot>
-        <button (click)='confirmOrders()'>Confirm Your Order</button>
+        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[5]) | currency}}</td>
       </tfoot>
     </table>     
 </igx-card>
-  
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+

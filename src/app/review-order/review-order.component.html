@@ -9,30 +9,33 @@
     <tbody>
       <tr *ngFor="let product of ordered[1]">
         <td>
-          <input type="text" [(ngModel)]="product.productName"/>
+         {{product.productName}}
         </td>
         <td>
-            <input type="text" [(ngModel)]="product.volume"/>
+           {{product.volume}}
         </td>
         <td>
-            <input type="text" [(ngModel)]="product.unitCost"/>
+           {{product.unitCost}}
         </td>
         <td>
-            <input type="text" [(ngModel)]="product.quantity"/>
+           {{product.quantity}}
         </td>
         <td>
-            <input type="text" [(ngModel)]="product.par"/>
+           {{product.par}}
         </td>
         <td>
-          <input type="text" [(ngModel)]="product.orderNum"/>
+         {{product.qty}}
         </td>
       </tr>
     </tbody>
+    <tfoot>
+      <td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[1]) | currency}}</td>
+    </tfoot>
   </table>
-  <button (click)='confirmOrders1(ordered[1])'>Confirm Orders</button>
+  <button (click)='confirmOrders1(ordered[1])'>Confirm Order</button>
 </igx-card>
   <br />
-  <igx-card *ngIf='show2'> <button (click)='toggleShow()'></button><h4>{{ordered[9][0].distributor}}</h4>
+  <igx-card *ngIf='show2'><h4>{{ordered[9][0].distributor}}</h4>
 
     <table>
       <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
@@ -40,30 +43,33 @@
       <tbody>
         <tr *ngFor="let product of ordered[9]">
           <td>
-            <input type="text" [(ngModel)]="product.productName"/>
+           {{product.productName}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.volume"/>
+             {{product.volume}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.unitCost"/>
+             {{product.unitCost}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.quantity"/>
+             {{product.quantity}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.par"/>
+             {{product.par}}
           </td>
           <td>
-            <input type="text" [(ngModel)]="product.orderNum"/>
+           {{product.qty}}
           </td>
         </tr>
       </tbody>
+      <tfoot>
+        <td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[9]) | currency}}</td>
+      </tfoot>
     </table>
-    <button (click)='confirmOrders2(ordered[9])'>Confirm Orders</button>
+    <button (click)='confirmOrders2(ordered[9])'>Confirm Order</button>
   </igx-card>
     <br />
-    <igx-card *ngIf='show3'> <button (click)='toggleShow()'></button><h4>{{ordered[8][0].distributor}}</h4>
+    <igx-card *ngIf='show3'><h4>{{ordered[8][0].distributor}}</h4>
 
       <table>
         <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
@@ -71,30 +77,33 @@
         <tbody>
           <tr *ngFor="let product of ordered[8]">
             <td>
-              <input type="text" [(ngModel)]="product.productName"/>
+             {{product.productName}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.volume"/>
+               {{product.volume}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.unitCost"/>
+               {{product.unitCost}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.quantity"/>
+               {{product.quantity}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.par"/>
+               {{product.par}}
             </td>
             <td>
-              <input type="text" [(ngModel)]="product.orderNum"/>
+             {{product.qty}}
             </td>
           </tr>
         </tbody>
+        <tfoot>
+          <td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[8]) | currency}}</td>
+        </tfoot>
       </table>
-      <button (click)='confirmOrders3(ordered[8])'>Confirm Orders</button>
+      <button (click)='confirmOrders3(ordered[8])'>Confirm Order</button>
     </igx-card>
     <br />
-      <igx-card *ngIf='show4'> <button (click)='toggleShow()'></button><h4>{{ordered[5][0].distributor}}</h4>
+      <igx-card *ngIf='show4'><h4>{{ordered[5][0].distributor}}</h4>
 
         <table>
           <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
@@ -102,25 +111,33 @@
           <tbody>
             <tr *ngFor="let product of ordered[5]">
               <td>
-                <input type="text" [(ngModel)]="product.productName"/>
+               {{product.productName}}
               </td>
               <td>
-                  <input type="text" [(ngModel)]="product.volume"/>
+                 {{product.volume}}
               </td>
               <td>
-                  <input type="text" [(ngModel)]="product.unitCost"/>
+                 {{product.unitCost}}
               </td>
               <td>
-                  <input type="text" [(ngModel)]="product.quantity"/>
+                 {{product.quantity}}
               </td>
               <td>
-                  <input type="text" [(ngModel)]="product.par"/>
+                 {{product.par}}
               </td>
               <td>
-                <input type="text" [(ngModel)]="product.orderNum"/>
+               {{product.qty}}
               </td>
             </tr>
           </tbody>
+          <tfoot>
+            <td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[5]) | currency}}</td>
+          </tfoot>
         </table>
-        <button (click)='confirmOrders4(ordered[5])'>Confirm Orders</button>
+        <button (click)='confirmOrders4(ordered[5])'>Confirm Order</button>
       </igx-card>
+      <br />
+      <br />
+      <br />
+      <br />
+

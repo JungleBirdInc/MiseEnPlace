@@ -105,7 +105,7 @@ convert() {
       // not sure how qty and par is refrenced in this database
       suggested: undefined, // to be calculated
       distributorId: product.distributors_product.dist_id,
-      orderNum: undefined
+      dist_products_id: product.distributors_product.id,
 
     });
   });
@@ -151,10 +151,10 @@ convert() {
     });
     if ((product.par - product.quantity) > 0) {
       product.suggested = (product.par - product.quantity);
-      product.orderNum = (product.par - product.quantity);
+      product.qty = (product.par - product.quantity);
     } else {
       product.suggested = 0;
-      product.orderNum = 0;
+      product.qty = 0;
     }
   });
 
@@ -195,4 +195,9 @@ convert() {
   confirmOrders() {
     this.router.navigateByUrl('review-orders', {state: {ordered: this.ordered}});
   }
+
+  totalPrice(dist) {
+      return dist.map(t => t.unitCost * t.qty).reduce((acc, value) => acc + value, 0);
+    }
+
 }

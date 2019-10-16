@@ -12,7 +12,7 @@ export class PostOrderService {
 
   sendOrder(data) {
     let promise = new Promise((resolve, reject) => {
-      this.http.post(this._url, data)
+      this.http.post(this._url, data, {responseType: 'text'})
         .toPromise()
         .then(
           res => {
