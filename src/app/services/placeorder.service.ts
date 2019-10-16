@@ -8,7 +8,7 @@ export class PostOrderService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `order/send`;
+  private _url: string = `/order/send`;
 
   sendOrder(data) {
     let promise = new Promise((resolve, reject) => {

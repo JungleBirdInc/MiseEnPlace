@@ -15,29 +15,20 @@ export class ReviewOrderComponent implements OnInit {
   ) { }
 
   show = false;
-  order = window.history.state.order;
-  public _placeOrder = PostOrderService;
-
-  displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
+  ordered = window.history.state.ordered;
+  public _placeOrder: PostOrderService;
 
   ngOnInit() {
-    console.log(window.history.state.order);
-  }
-
-  sendOrders() {
-    this.router.navigate(['orders']);
-  }
-
-  /** Gets the total cost of all transactions. */
-  getTotalCost(rep) {
-    return rep.map(t => t.unitCost * t.ordered).reduce((acc, value) => acc + value, 0);
   }
 
   toggleShow() {
     this.show = !this.show;
   }
 
-  confirmOrders() {
-    this.router.navigateByUrl('orders')
+  confirmOrders(data) {
+    this._placeOrder.sendOrder(data)
+    .then(() => {
+      this.router.navigateByUrl('orders');
+    });
   }
 }

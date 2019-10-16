@@ -1,36 +1,126 @@
 <h3>Review Orders Before Sending</h3>
 <br />
-<igx-card (click)='toggleShow()'><h4>Review Your Order</h4>
+<button *ngIf='!show' (click)='toggleShow()'>Review</button>
+<igx-card *ngIf='show'><h4>{{ordered[1][0].distributor}}</h4>
 
-  <table *ngIf='show'  width='100%'>
+  <table>
     <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of order">
+      <tr *ngFor="let product of ordered[1]">
         <td>
-          <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+          <input type="text" [(ngModel)]="product.productName"/>
         </td>
         <td>
-            <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+            <input type="text" [(ngModel)]="product.volume"/>
         </td>
         <td>
-            <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+            <input type="text" [(ngModel)]="product.unitCost"/>
         </td>
         <td>
-            <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+            <input type="text" [(ngModel)]="product.quantity"/>
         </td>
         <td>
-            <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+            <input type="text" [(ngModel)]="product.par"/>
         </td>
         <td>
-          <input type="text" [(ngModel)]="product.suggested" [disabled]="!product.isEditable"/>
+          <input type="text" [(ngModel)]="product.orderNum"/>
         </td>
       </tr>
     </tbody>
-    <tfoot>
-        <td></td><td></td><td><td></td><td> Total </td><td> {{getTotalCost(rep1) | currency}}</td>
-    </tfoot>
   </table>
 </igx-card>
+  <button (click)='confirmOrders(ordered[1])'>Confirm Orders</button>
+  <br />
+  <igx-card *ngIf='show'> <button (click)='toggleShow()'></button><h4>{{ordered[9][0].distributor}}</h4>
 
-  <button (click)='sendOrders()'>Send Orders</button>
+    <table>
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of ordered[9]">
+          <td>
+            <input type="text" [(ngModel)]="product.productName"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.volume"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.unitCost"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.quantity"/>
+          </td>
+          <td>
+              <input type="text" [(ngModel)]="product.par"/>
+          </td>
+          <td>
+            <input type="text" [(ngModel)]="product.orderNum"/>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </igx-card>
+    <button (click)='confirmOrders(ordered[9])'>Confirm Orders</button>
+    <br />
+    <igx-card *ngIf='show'> <button (click)='toggleShow()'></button><h4>{{ordered[8][0].distributor}}</h4>
+
+      <table>
+        <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of ordered[8]">
+            <td>
+              <input type="text" [(ngModel)]="product.productName"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.volume"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.unitCost"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.quantity"/>
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="product.par"/>
+            </td>
+            <td>
+              <input type="text" [(ngModel)]="product.orderNum"/>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </igx-card>
+      <button (click)='confirmOrders(ordered[8])'>Confirm Orders</button>
+    <br />
+      <igx-card *ngIf='show'> <button (click)='toggleShow()'></button><h4>{{ordered[5][0].distributor}}</h4>
+
+        <table>
+          <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of ordered[5]">
+              <td>
+                <input type="text" [(ngModel)]="product.productName"/>
+              </td>
+              <td>
+                  <input type="text" [(ngModel)]="product.volume"/>
+              </td>
+              <td>
+                  <input type="text" [(ngModel)]="product.unitCost"/>
+              </td>
+              <td>
+                  <input type="text" [(ngModel)]="product.quantity"/>
+              </td>
+              <td>
+                  <input type="text" [(ngModel)]="product.par"/>
+              </td>
+              <td>
+                <input type="text" [(ngModel)]="product.orderNum"/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </igx-card>
+        <button (click)='confirmOrders(ordered[5])'>Confirm Orders</button>
