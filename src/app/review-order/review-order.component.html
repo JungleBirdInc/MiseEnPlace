@@ -1,7 +1,7 @@
 <h3>Review Orders Before Sending</h3>
 <br />
 <button *ngIf='!show' (click)='toggleShow()'>Review</button>
-<igx-card *ngIf='show'><h4>{{ordered[1][0].distributor}}</h4>
+<igx-card *ngIf='show1'><h4>{{ordered[1][0].distributor}}</h4>
 
   <table>
     <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
@@ -29,10 +29,10 @@
       </tr>
     </tbody>
   </table>
-  <button (click)='confirmOrders(ordered[1])'>Confirm Orders</button>
+  <button (click)='confirmOrders1(ordered[1])'>Confirm Orders</button>
 </igx-card>
   <br />
-  <igx-card *ngIf='show'> <button (click)='toggleShow()'></button><h4>{{ordered[9][0].distributor}}</h4>
+  <igx-card *ngIf='show2'> <button (click)='toggleShow()'></button><h4>{{ordered[9][0].distributor}}</h4>
 
     <table>
       <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
@@ -60,10 +60,10 @@
         </tr>
       </tbody>
     </table>
-    <button (click)='confirmOrders(ordered[9])'>Confirm Orders</button>
+    <button (click)='confirmOrders2(ordered[9])'>Confirm Orders</button>
   </igx-card>
     <br />
-    <igx-card *ngIf='show'> <button (click)='toggleShow()'></button><h4>{{ordered[8][0].distributor}}</h4>
+    <igx-card *ngIf='show3'> <button (click)='toggleShow()'></button><h4>{{ordered[8][0].distributor}}</h4>
 
       <table>
         <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
@@ -91,10 +91,10 @@
           </tr>
         </tbody>
       </table>
-      <button (click)='confirmOrders(ordered[8])'>Confirm Orders</button>
+      <button (click)='confirmOrders3(ordered[8])'>Confirm Orders</button>
     </igx-card>
     <br />
-      <igx-card *ngIf='show'> <button (click)='toggleShow()'></button><h4>{{ordered[5][0].distributor}}</h4>
+      <igx-card *ngIf='show4'> <button (click)='toggleShow()'></button><h4>{{ordered[5][0].distributor}}</h4>
 
         <table>
           <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
@@ -122,5 +122,5 @@
             </tr>
           </tbody>
         </table>
-        <button (click)='confirmOrders(ordered[5])'>Confirm Orders</button>
+        <button (click)='confirmOrders4(ordered[5])'>Confirm Orders</button>
       </igx-card>
