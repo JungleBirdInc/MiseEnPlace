@@ -1,8 +1,8 @@
 <h3>Scan Barcode</h3><br />
 <button (click)="startScanner()">Scan</button><br />
 
-<input type="text" value='ENTER UPC' [(ngModel)]="barcode" contenteditable="true" /><br />
-<button type="button" (click)="sendCode(this.barcode)">Weigh bottle</button>
+<input type="text" value='ENTER UPC' [(ngModel)]="barcode" contenteditable="true" />
+<button type="button" (click)="sendCode(this.barcode)">Send (Manual entered UPC)</button>
 
 <div class='input-group'>
   <div id="inputBarcode">
