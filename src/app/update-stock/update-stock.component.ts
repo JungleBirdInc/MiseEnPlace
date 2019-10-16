@@ -6,32 +6,8 @@ import { GetbotsizeService } from '../services/getbotsize.service';
 import { GetMasterInvService } from '../services/getmasterinv.service';
 import { GetdistService } from '../services/getdist.service';
 import { GetrepsService } from '../services/getreps.service';
+import { GetcategoriesService } from '../services/getcategories.service';
 
-export interface UpdateInventory {
-  productName: string;
-  unitCost: number;
-  volume: string;
-  quantity: number;
-   par: number;
-}
-
-const BOURBON_DATA: UpdateInventory [] = [
-  {productName: 'Jack Daniels', unitCost: 11.42, volume: '750mL', quantity: 4, par: 6},
-  {productName: 'Bulleit', unitCost: 11.42, volume: '1L', quantity: 4, par: 5},
-  {productName: 'Eagle Rare', unitCost: 11.42, volume: '750mL', quantity: 2, par: 2},
-  {productName: 'Jim Beam', unitCost: 11.42, volume: '1L', quantity: 3, par: 5},
-  {productName: 'Old Forester', unitCost: 11.42, volume: '750mL', quantity: 5, par: 8},
-  {productName: 'Blantons\'s', unitCost: 11.42, volume: '750mL', quantity: 2, par: 3},
-];
-
-const VODKA_DATA: UpdateInventory [] = [
-  {productName: 'Tito\'s', unitCost: 9.47, volume: '750mL', quantity: 4, par: 4},
-  {productName: 'Absolut', unitCost: 9.47, volume: '1L', quantity: 4, par: 5},
-  {productName: 'Smirnoff', unitCost: 9.47, volume: '750mL', quantity: 2, par: 4},
-  {productName: 'Rain', unitCost: 9.47, volume: '1L', quantity: 3, par: 3},
-  {productName: 'Grey Goose', unitCost: 9.47, volume: '750mL', quantity: 5, par: 7},
-  {productName: 'Stolichiniya', unitCost: 9.47, volume: '750mL', quantity: 2, par: 4},
-];
 
 @Component({
   selector: 'app-update-stock',
@@ -48,24 +24,21 @@ export class UpdateStockComponent implements OnInit {
     public _master: GetMasterInvService,
     public _getdist: GetdistService,
     public _getReps: GetrepsService,
+    public _getCats: GetcategoriesService,
   ) { }
 
   show = false;
   public suggested = false;
   public inventory;
+  public cats;
   public masterInv;
   public dist;
   public botsize;
   public reps;
-  public ordered = {id: []};
+  public updated = {id: []};
   public masterArray = [];
   public currentArray = [];
   public visible = false;
-
-  productB = BOURBON_DATA;
-  productV = VODKA_DATA;
-
-
 
   ngOnInit() {
     // GET MASTER INV
@@ -102,6 +75,13 @@ export class UpdateStockComponent implements OnInit {
         this.reps = data;
         console.log(data, 'reps');
       });
+
+      // Get Cats
+    this._getCats.getCategories()
+      .then( data => {
+        this.cats = data;
+        console.log(data);
+      });
   }
 
   toggleShow() {
@@ -122,10 +102,10 @@ export class UpdateStockComponent implements OnInit {
         suggested: undefined, // to be calculated
         distributorId: product.distributors_product.dist_id,
         dist_products_id: product.distributors_product.id,
-  
+
       });
     });
-  
+
     // ORGANIZE CURRENT INVENTORY
     this.inventory[0].logs_products.forEach(product => {
       this.currentArray.push({
@@ -140,7 +120,7 @@ export class UpdateStockComponent implements OnInit {
         distributorId: product.distributors_product.dist_id,
       });
     });
-  
+
     // ASSIGN FOREIGN KEYS FOR MASTER ARRAY
     this.masterArray.forEach(product => {
       // ASSIGN BOTTLE SIZE FOR MASTER ARRAY
@@ -149,7 +129,7 @@ export class UpdateStockComponent implements OnInit {
           product.volume = size.size;
         }
       });
-  
+
       // ASSIGN DISTRIBUTOR NAME FOR MASTER ARRAY
       this.dist.forEach(dist => {
         if (product.distributorId === dist.distributor.distributorOrganizationId) {
@@ -173,7 +153,7 @@ export class UpdateStockComponent implements OnInit {
         product.qty = 0;
       }
     });
-  
+
       // ASSIGN FOREIGN KEYS FOR CURRENT INV
     this.currentArray.forEach(product => {
         // ASSIGN BOTTLE SIZE FOR MASTER ARRAY
@@ -182,7 +162,7 @@ export class UpdateStockComponent implements OnInit {
           product.volume = size.size;
         }
       });
-  
+
       // ASSIGN DISTRIBUTOR NAME FOR CURRENT ARRAY
       this.dist.forEach(dist => {
         if (product.distributorId === dist.distributor.distributorOrganizationId) {
@@ -191,21 +171,29 @@ export class UpdateStockComponent implements OnInit {
         }
       });
     });
-  
-      // SET UP ORDERED OBJ
+
+      // SET UP updated OBJ
     this.masterArray.forEach(obj => {
         const id = obj.distributorId;
-        if (this.ordered.hasOwnProperty(id)) {
-          this.ordered[id].push(obj);
+        if (this.updated.hasOwnProperty(id)) {
+          this.updated[id].push(obj);
         } else {
-          this.ordered[id] = [obj];
+          this.updated[id] = [obj];
         }
       });
-  
+
     console.log('masterArray', this.masterArray);
     console.log('currentArray', this.currentArray);
-    console.log(this.ordered, 'ordered');
+    console.log(this.updated, 'updated');
     this.visible = true;
+  }
+
+  totalPrice(dist) {
+    return dist.map(t => t.unitCost * t.qty).reduce((acc, value) => acc + value, 0);
+  }
+
+  confirmOrders() {
+    console.log('need to make route to save');
   }
 
 }

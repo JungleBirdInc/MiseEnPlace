@@ -176,7 +176,7 @@ convert() {
     });
   });
 
-    // SET UP ORDERED OBJ
+    // SET UP ordered OBJ
   this.masterArray.forEach(obj => {
       const id = obj.distributorId;
       if (this.ordered.hasOwnProperty(id)) {
