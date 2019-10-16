@@ -1,6 +1,7 @@
 import { Component, OnInit,  HostListener } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
+import { GetCurrentInvService } from '../services/getcurrentinventory.service';
 
 export interface UpdateInventory {
   productName: string;
@@ -37,7 +38,8 @@ export class UpdateStockComponent implements OnInit {
 
   constructor(
     public snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    public _getInv: GetCurrentInvService
   ) { }
 
   show = false;

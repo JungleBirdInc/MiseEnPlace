@@ -49,9 +49,10 @@ export class SuggestOrderComponent implements OnInit {
   public botsize;
   public reps;
   public suggested = false;
-
+public ordered = {id: []};
 public masterArray = [];
 public currentArray = [];
+public OrderArray = [];
 public visible = false;
 
   ngOnInit() {
@@ -104,6 +105,7 @@ convert() {
       // not sure how qty and par is refrenced in this database
       suggested: undefined, // to be calculated
       distributorId: product.distributors_product.dist_id,
+      dist_products_id: product.distributors_product.id,
 
     });
   });
@@ -139,6 +141,7 @@ convert() {
         product.distributor = dist.distributor.name;
         product.rep = dist.distributor.reps[0].first_name;
         product.cell = dist.distributor.reps[0].phone;
+        product.repId = dist.distributor.distributorOrganizationId;
         }
       });
     this.currentArray.forEach((p) => {
@@ -146,10 +149,12 @@ convert() {
         product.quantity = p.quantity;
       }
     });
-    if ((product.par - product.quantity) > 0){
+    if ((product.par - product.quantity) > 0) {
       product.suggested = (product.par - product.quantity);
+      product.qty = (product.par - product.quantity);
     } else {
       product.suggested = 0;
+      product.qty = 0;
     }
   });
 
@@ -169,88 +174,30 @@ convert() {
         product.distributor = dist.distributor.name;
       }
     });
-
-    // ASSIGN REP
   });
-  
+
+    // SET UP ORDERED OBJ
+  this.masterArray.forEach(obj => {
+      const id = obj.distributorId;
+      if (this.ordered.hasOwnProperty(id)) {
+        this.ordered[id].push(obj);
+      } else {
+        this.ordered[id] = [obj];
+      }
+    });
+
   console.log('masterArray', this.masterArray);
   console.log('currentArray', this.currentArray);
+  console.log(this.ordered, 'ordered');
   this.visible = true;
-} 
-
-
-
-// OLDER CODE BELOW
-  // if(!this.conv){
-  //   this.conv = true;
-  //   this.dist.forEach((dist) => {
-  //     const distrib = {
-  //       name: dist.distributor.name,
-  //       id: dist.id,
-  //       products: [],
-  //       rep: dist.distributor.reps[0].first_name,
-  //       cell: dist.distributor.reps[0].phone,
-  //     };
-  //     this.inventory[0].logs_products.forEach((prod) => {
-  //       if (prod.distributors_product.dist_id === distrib.id) {
-  //       const prodName = prod.distributors_product.product.product_name;
-  //       const cost = (prod.distributors_product.price) / 100;
-  //       const qty = prod.qty;
-  //       const usedId = prod.distributors_product.id;
-  //       const volId = prod.distributors_product.product.btlSizeId;
-  //       this.masterInv[0].logs_products.forEach(master => {
-  //         if (master.distributorsProductId === usedId) {
-  //           const par = master.qty;
-  //           this.botsize.forEach((sizes) => {
-  //             if (volId === sizes.id) {
-  //               const usedSize = sizes.size;
-  //               if ((par - qty) > 0) {
-  //                 const suggest = par - qty;
-  //                 const usedData = {
-  //                   prod: prodName,
-  //                   cost,
-  //                   qty,
-  //                   par,
-  //                   size: usedSize,
-  //                   suggest,
-  //                 };
-  //                 distrib.products.push(usedData);
-  //                 this.orderList.push(distrib);
-  //               } else {
-  //                 const suggest = 0;
-  //                 const usedData = {
-  //                   prod: prodName,
-  //                   cost,
-  //                   qty,
-  //                   par,
-  //                   size: usedSize,
-  //                   suggest,
-  //                 };
-  //                 distrib.products.push(usedData);
-  //                 this.orderList.push(distrib);
-  //               }
-  //             }
-  //           });
-  //         }
-  //       });
-  //     }
-  //   });
-  // });
-  // }
-  // this.dist1 = this.orderList[0];
-  // this.dist2 = this.orderList[9];
-
-
-/** Gets the total cost of all transactions. */
-//     getTotalCost(rep) {
-//   return rep.map(t => t.unitCost * (t.par - t.quantity)).reduce((acc, value) => acc + value, 0);
-// }
-
-//     toggleShow() {
-//   this.show = !this.show;
-// }
+}
 
   confirmOrders() {
-    this.router.navigateByUrl('review-orders', {state: {order: this.masterArray}});
+    this.router.navigateByUrl('review-orders', {state: {ordered: this.ordered}});
   }
+
+  totalPrice(dist) {
+      return dist.map(t => t.unitCost * t.qty).reduce((acc, value) => acc + value, 0);
+    }
+
 }

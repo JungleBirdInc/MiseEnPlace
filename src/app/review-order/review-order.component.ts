@@ -1,24 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// implement check boxes to select which orders to sebd, need icons
+import { PostOrderService } from '../services/placeorder.service';
 
-export interface OrderElement {
-  productName: string;
-  unitCost: number;
-  volume: string;
-  quantity: number;
-  par: number;
-  ordered: number;
-}
-
-const REP1_DATA: OrderElement [] = [
-  {productName: 'Jack Daniels', unitCost: 10.17, volume: '750mL', quantity: 4, par: 5, ordered: 1},
-  {productName: 'Bulleit', unitCost: 10.17, volume: '1L', quantity: 4, par: 5, ordered: 1},
-  {productName: 'Eagle Rare', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, ordered: 2},
-  {productName: 'Jim Beam', unitCost: 10.17, volume: '1L', quantity: 3, par: 4, ordered: 2},
-  {productName: 'Old Forester', unitCost: 10.17, volume: '750mL', quantity: 5, par: 3, ordered: 0},
-  {productName: 'Blantons\'s', unitCost: 10.17, volume: '750mL', quantity: 2, par: 4, ordered: 2},
-];
 
 @Component({
   selector: 'app-review-order',
@@ -28,31 +11,108 @@ const REP1_DATA: OrderElement [] = [
 export class ReviewOrderComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    public _placeOrder: PostOrderService,
   ) { }
 
-  show = false;
 
-  displayedColumns: string[] = ['productName', 'subCategory', 'volume', 'quantity', 'price'];
-  rep1 = REP1_DATA;
+  ordered = window.history.state.ordered;
+  show = false;
+  show1 = false;
+  show2 = false;
+  show3 = false;
+  show4 = false;
 
   ngOnInit() {
   }
 
-  sendOrders() {
-    this.router.navigate(['orders']);
-  }
-
-  /** Gets the total cost of all transactions. */
-  getTotalCost(rep) {
-    return rep.map(t => t.unitCost * t.ordered).reduce((acc, value) => acc + value, 0);
+  totalPrice(dist) {
+    return dist.map(t => t.unitCost * t.qty).reduce((acc, value) => acc + value, 0);
   }
 
   toggleShow() {
     this.show = !this.show;
+    this.show1 = !this.show1;
+    this.show2 = !this.show2;
+    this.show3 = !this.show3;
+    this.show4 = !this.show4;
   }
 
-  confirmOrders() {
-    this.router.navigate(['orders']);
+  confirmOrders1(data) {
+    const send = {
+      admin_id: 1,
+      type: 3,
+      rep_id: data[0].repId,
+      total_price: Math.floor(Math.floor(this.totalPrice(data) * 100)),
+      dist_id: data[0].distributorId,
+      weeklySet: data
+    };
+    send.weeklySet.forEach(set => {
+      set.unitCost = Math.floor(set.unitCost * 100);
+    });
+
+    console.log(send, '1');
+    this.show1 = !this.show1;
+    setTimeout(() => { this._placeOrder.sendOrder(send).then((res) => {
+      console.log(res);
+    }); }, 500);
+
+  }
+  confirmOrders2(data) {
+    const send = {
+      admin_id: 1,
+      type: 3,
+      rep_id: data[0].repId,
+      total_price: Math.floor(this.totalPrice(data) * 100),
+      dist_id: data[0].distributorId,
+      weeklySet: data
+    };
+    send.weeklySet.forEach(set => {
+      set.unitCost = Math.floor(set.unitCost * 100);
+    });
+    console.log(send, '2');
+    this.show2 = !this.show2;
+    setTimeout(() => {this._placeOrder.sendOrder(send).then((res) => {
+      console.log(res);
+    }); }, 500);
+
+  }
+  confirmOrders3(data) {
+    const send = {
+      admin_id: 1,
+      type: 3,
+      rep_id: data[0].repId,
+      total_price: Math.floor(this.totalPrice(data) * 100),
+      dist_id: data[0].distributorId,
+      weeklySet: data
+    };
+    send.weeklySet.forEach(set => {
+      set.unitCost = Math.floor(set.unitCost * 100);
+    });
+    this.show3 = !this.show3;
+    console.log(send, '3');
+    setTimeout(() => {this._placeOrder.sendOrder(send).then((res) => {
+      console.log(res);
+    }); }, 500);
+
+  }
+  confirmOrders4(data) {
+    const send = {
+      admin_id: 1,
+      type: 3,
+      rep_id: data[0].repId,
+      total_price: Math.floor(this.totalPrice(data) * 100),
+      dist_id: data[0].distributorId,
+      weeklySet: data
+    };
+    send.weeklySet.forEach(set => {
+      set.unitCost = Math.floor(set.unitCost * 100);
+    });
+    console.log(send, '4');
+    this.show4 = !this.show4;
+    setTimeout(() => {this._placeOrder.sendOrder(send).then((res) => {
+      console.log(res);
+    }); }, 500);
+
   }
 }
