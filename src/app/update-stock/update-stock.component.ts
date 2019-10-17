@@ -102,6 +102,7 @@ export class UpdateStockComponent implements OnInit {
         suggested: undefined, // to be calculated
         distributorId: product.distributors_product.dist_id,
         dist_products_id: product.distributors_product.id,
+        catId: product.distributors_product.product.category_id
 
       });
     });
@@ -173,23 +174,28 @@ export class UpdateStockComponent implements OnInit {
     });
 
       // SET UP updated OBJ
-    this.masterArray.forEach(obj => {
-        const id = obj.distributorId;
-        if (this.updated.hasOwnProperty(id)) {
-          this.updated[id].push(obj);
+    this.cats.forEach(cat => {
+      const id = cat.id;
+      const categ = cat.category_name;
+      this.masterArray.forEach(obj => {
+        if (this.updated.hasOwnProperty(categ)) {
+          if (id === obj.catId) {
+            obj.categ = categ;
+            this.updated[categ].push(obj);
+          }
         } else {
-          this.updated[id] = [obj];
+          if (id === obj.catId) {
+            obj.categ = categ;
+            this.updated[categ] = [obj];
+          }
         }
       });
+    });
 
     console.log('masterArray', this.masterArray);
     console.log('currentArray', this.currentArray);
-    console.log(this.updated, 'updated');
+    console.log(this.updated, 'updated', this.updated);
     this.visible = true;
-  }
-
-  totalPrice(dist) {
-    return dist.map(t => t.unitCost * t.qty).reduce((acc, value) => acc + value, 0);
   }
 
   confirmOrders() {

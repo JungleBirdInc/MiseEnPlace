@@ -34,7 +34,7 @@
 </igx-card> -->
      <button *ngIf='!suggested' (click)="convert()" style="float: right;" >Suggest Orders</button>
 <button *ngIf='suggested' (click)='confirmOrders()' style="float: right;">Confirm Your Order</button>
-
+<!--
 <br />
 <igx-card *ngIf='suggested'><h4>{{updated[1][0].distributor}}</h4>
     <table >
@@ -64,8 +64,5 @@
             </td>
           </tr>
         </tbody>
-        <tfoot>
-          <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(updated[1]) | currency}}</td>
-        </tfoot>
       </table>     
-</igx-card>
+</igx-card> -->
