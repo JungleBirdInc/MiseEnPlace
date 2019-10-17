@@ -7,6 +7,7 @@ import { GetMasterInvService } from '../services/getmasterinv.service';
 import { GetdistService } from '../services/getdist.service';
 import { GetrepsService } from '../services/getreps.service';
 import { GetcategoriesService } from '../services/getcategories.service';
+import { UpdateCurrentInvService } from '../services/updateCurrentInv.service';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class UpdateStockComponent implements OnInit {
     public _getdist: GetdistService,
     public _getReps: GetrepsService,
     public _getCats: GetcategoriesService,
+    public _update: UpdateCurrentInvService,
   ) { }
 
   show = false;
@@ -199,7 +201,26 @@ convert() {
   }
 
 confirmOrders() {
-    console.log('need to make route to save');
+
   }
+  // confirmOrders4(data) {
+  //   const send = {
+  //     admin_id: 1,
+  //     type: 3,
+  //     rep_id: data[0].repId,
+  //     total_price: Math.floor(this.totalPrice(data) * 100),
+  //     dist_id: data[0].distributorId,
+  //     weeklySet: data
+  //   };
+  //   send.weeklySet.forEach(set => {
+  //     set.unitCost = Math.floor(set.unitCost * 100);
+  //   });
+  //   console.log(send, '4');
+  //   this.show4 = !this.show4;
+  //   setTimeout(() => {this._placeOrder.sendOrder(send).then((res) => {
+  //     console.log(res);
+  //   }); }, 500);
+
+  // }
 
 }
