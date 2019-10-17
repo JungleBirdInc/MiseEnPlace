@@ -150,10 +150,8 @@ convert() {
       });
       if ((product.par - product.quantity) > 0) {
         product.suggested = (product.par - product.quantity);
-        product.qty = (product.par - product.quantity);
       } else {
         product.suggested = 0;
-        product.qty = 0;
       }
     });
 
@@ -200,27 +198,19 @@ convert() {
     this.visible = true;
   }
 
-confirmOrders() {
-
-  }
-  // confirmOrders4(data) {
-  //   const send = {
-  //     admin_id: 1,
-  //     type: 3,
-  //     rep_id: data[0].repId,
-  //     total_price: Math.floor(this.totalPrice(data) * 100),
-  //     dist_id: data[0].distributorId,
-  //     weeklySet: data
-  //   };
-  //   send.weeklySet.forEach(set => {
-  //     set.unitCost = Math.floor(set.unitCost * 100);
-  //   });
-  //   console.log(send, '4');
-  //   this.show4 = !this.show4;
-  //   setTimeout(() => {this._placeOrder.sendOrder(send).then((res) => {
-  //     console.log(res);
-  //   }); }, 500);
-
-  // }
+confirmOrders(data) {
+  const send = {
+    currentSet: data
+  };
+  send.currentSet.forEach(set => {
+    set.unitCost = Math.floor(set.unitCost * 100);
+    set.qty = set.quantity;
+    set.distributorsProductId = set.dist_products_id;
+    // set.id = which one
+  });
+  setTimeout(() => {this._update.updateInv(send).then((res) => {
+    console.log(res);
+  }); }, 500);
+}
 
 }

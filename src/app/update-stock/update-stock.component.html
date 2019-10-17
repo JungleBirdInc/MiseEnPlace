@@ -2,11 +2,10 @@
 
 <br />
 <button *ngIf='!suggested' (click)="convert()" style="float: right;" >Show Inventory</button>
-<button *ngIf='suggested' (click)='confirmOrders()' style="float: right;">Save Updates</button>
 <br />
 <igx-card *ngIf='suggested'><h4>{{updated[1][0].categ}}</h4>
     <table >
-        <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th></tr>
+        <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Par</th><th>Quantity</th></tr>
         </thead>
         <tbody>
           <tr *ngFor='let product of updated[1]'>
@@ -17,13 +16,13 @@
                 {{product.volume}}
             </td>
             <td>
-                <input type = 'text' [(ngModel)]="product.unitCost" [disabled]="!product.isEditable" style="background-color: white" />
+                <input type = 'text' [(ngModel)]="product.unitCost" style="background-color: white" />
             </td>
             <td>
-                <input type = 'text' [(ngModel)]="product.quantity" [disabled]="!product.isEditable" style="background-color: white" />
+                <input type = 'text' [(ngModel)]="product.par" style="background-color: white" />
             </td>
             <td>
-                <input type = 'text' [(ngModel)]="product.par" [disabled]="!product.isEditable" style="background-color: white" />
+                <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
             </td>
 
             <td>
@@ -32,7 +31,8 @@
             </td>
           </tr>
         </tbody>
-      </table>     
+      </table>
+      <!-- <button *ngIf='suggested' (click)='confirmOrders(updated[1])' style="float: right;">Save Updates</button>   -->
 </igx-card>
 <br />
 <igx-card *ngIf='suggested'><h4>{{updated[2][0].categ}}</h4>
@@ -63,7 +63,8 @@
           </td>
         </tr>
       </tbody>
-    </table>     
+    </table>  
+    <!-- <button *ngIf='suggested' (click)='confirmOrders(updated[2])' style="float: right;">Save Updates</button>    -->
 </igx-card>
 <br />
 <igx-card *ngIf='suggested'><h4>{{updated[3][0].categ}}</h4>
@@ -82,7 +83,7 @@
               <input type = 'text' [(ngModel)]="product.unitCost" [disabled]="!product.isEditable" style="background-color: white" />
           </td>
           <td>
-              <input type = 'text' [(ngModel)]="product.quantity" [disabled]="!product.isEditable" style="background-color: white" />
+              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
           </td>
           <td>
               <input type = 'text' [(ngModel)]="product.par" [disabled]="!product.isEditable" style="background-color: white" />
@@ -94,7 +95,8 @@
           </td>
         </tr>
       </tbody>
-    </table>     
+    </table>    
+    <!-- <button *ngIf='suggested' (click)='confirmOrders(updated[3])' style="float: right;">Save Updates</button>  -->
 </igx-card>
 <br />
 <igx-card *ngIf='suggested'><h4>{{updated[4][0].categ}}</h4>
@@ -113,12 +115,11 @@
               <input type = 'text' [(ngModel)]="product.unitCost" [disabled]="!product.isEditable" style="background-color: white" />
           </td>
           <td>
-              <input type = 'text' [(ngModel)]="product.quantity" [disabled]="!product.isEditable" style="background-color: white" />
+              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
           </td>
           <td>
               <input type = 'text' [(ngModel)]="product.par" [disabled]="!product.isEditable" style="background-color: white" />
           </td>
-
           <td>
              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
              <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
@@ -126,6 +127,7 @@
         </tr>
       </tbody>
     </table>     
+    <!-- <button *ngIf='suggested' (click)='confirmOrders(updated[4])' style="float: right;">Save Updates</button> -->
 </igx-card>
 <br />
 <br />
