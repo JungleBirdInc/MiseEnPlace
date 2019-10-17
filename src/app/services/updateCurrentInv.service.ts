@@ -12,7 +12,7 @@ export class UpdateCurrentInvService {
 
     updateInv(data) {
       let promise = new Promise((resolve, reject) => {
-        this.http.put(this._url, data)
+        this.http.put(this._url, data, {responseType: 'text'})
           .toPromise()
           .then(
             res => {
