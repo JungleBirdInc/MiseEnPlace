@@ -35,12 +35,12 @@ export class UpdateStockComponent implements OnInit {
   public dist;
   public botsize;
   public reps;
-  public updated = {id: []};
   public masterArray = [];
   public currentArray = [];
   public visible = false;
+  public updated = {id: []};
 
-  ngOnInit() {
+ngOnInit() {
     // GET MASTER INV
     this._master.getMaster()
       .then(data => {
@@ -84,11 +84,11 @@ export class UpdateStockComponent implements OnInit {
       });
   }
 
-  toggleShow() {
+toggleShow() {
     this.show = !this.show;
   }
 
-  convert() {
+convert() {
     this.suggested = !this.suggested;
     // ORGANIZE MASTER INVENTORY
     this.masterInv[0].logs_products.forEach(product => {
@@ -178,15 +178,15 @@ export class UpdateStockComponent implements OnInit {
       const id = cat.id;
       const categ = cat.category_name;
       this.masterArray.forEach(obj => {
-        if (this.updated.hasOwnProperty(categ)) {
+        if (this.updated.hasOwnProperty(id)) {
           if (id === obj.catId) {
             obj.categ = categ;
-            this.updated[categ].push(obj);
+            this.updated[id].push(obj);
           }
         } else {
           if (id === obj.catId) {
             obj.categ = categ;
-            this.updated[categ] = [obj];
+            this.updated[id] = [obj];
           }
         }
       });
@@ -198,7 +198,7 @@ export class UpdateStockComponent implements OnInit {
     this.visible = true;
   }
 
-  confirmOrders() {
+confirmOrders() {
     console.log('need to make route to save');
   }
 
