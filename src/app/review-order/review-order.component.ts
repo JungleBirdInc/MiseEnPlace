@@ -48,9 +48,13 @@ export class ReviewOrderComponent implements OnInit {
       dist_id: data[0].distributorId,
       weeklySet: data
     };
+    const mess = [];
+    data.forEach(prod => {
+      mess.push(`${prod.qty} ${prod.productName}`);
+    });
     const repInfo = {
-      phone: 'test',
-      message: 'rando message'
+      phone: data[0].cell,
+      message: mess.toString().split(',').join('\n'),
     };
     send.weeklySet.forEach(set => {
       set.unitCost = Math.floor(set.unitCost * 100);
@@ -60,8 +64,8 @@ export class ReviewOrderComponent implements OnInit {
     this.show1 = !this.show1;
     setTimeout(() => { this._placeOrder.sendOrder(send).then((res) => {
       console.log(res);
-      this._textRep.textOrder(repInfo);
     }); }, 500);
+    this._textRep.textOrder(repInfo);
 
   }
   confirmOrders2(data) {
