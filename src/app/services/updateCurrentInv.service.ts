@@ -8,7 +8,7 @@ export class UpdateCurrentInvService {
 
     constructor(private http: HttpClient) { }
     id = 17;
-    private _url: string = `/updateCurrent/${this.id}`;
+    private _url: string = `/inventory/updateCurrent/${this.id}`;
 
     updateInv(data) {
       let promise = new Promise((resolve, reject) => {

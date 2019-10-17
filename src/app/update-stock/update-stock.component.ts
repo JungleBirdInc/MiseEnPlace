@@ -104,8 +104,9 @@ convert() {
         suggested: undefined, // to be calculated
         distributorId: product.distributors_product.dist_id,
         dist_products_id: product.distributors_product.id,
-        catId: product.distributors_product.product.category_id
-
+        distributorsProductId: product.distributors_product.id,
+        catId: product.distributors_product.product.category_id,
+        id: product.logId
       });
     });
 
@@ -121,6 +122,7 @@ convert() {
         // not sure how qty and par is refrenced in this database
         suggested: undefined, // to be calculated
         distributorId: product.distributors_product.dist_id,
+        id: product.logId
       });
     });
 
@@ -199,16 +201,14 @@ convert() {
   }
 
 confirmOrders(data) {
-  const send = {
-    currentSet: data
-  };
-  send.currentSet.forEach(set => {
+  console.log(data);
+  const currentSet = data;
+  currentSet.forEach(set => {
     set.unitCost = Math.floor(set.unitCost * 100);
     set.qty = set.quantity;
     set.distributorsProductId = set.dist_products_id;
-    // set.id = which one
   });
-  setTimeout(() => {this._update.updateInv(send).then((res) => {
+  setTimeout(() => {this._update.updateInv(currentSet).then((res) => {
     console.log(res);
   }); }, 500);
 }
