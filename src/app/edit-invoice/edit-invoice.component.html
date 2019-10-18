@@ -1,7 +1,7 @@
 <h3 class='titles'>Review Invoice</h3>
-<igx-card><h4>Glazier's - Generic Rep - cell#</h4>
+<div><h4>Glazier's - Generic Rep - cell#</h4>
 <table>
-  <thead><tr><th>ProductName</th><th>Category</th><th>Volume</th><th>Quantity</th><th>Price</th></tr>
+  <thead><tr><th>ProductName</th><th>Category</th><th>Vol</th><th>Qty</th><th>Price</th></tr>
   </thead>
   <tbody>
     <tr *ngFor="let product of rep1">
@@ -30,6 +30,6 @@
       <td></td><td></td><td></td><td> Total </td><td> {{getTotalCost(rep1) | currency}}</td>
   </tfoot>
 </table>
-</igx-card>
+</div>
 <br />
 <button (click)="finalizeInvoice()">Submit Invoice</button>

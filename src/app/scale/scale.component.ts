@@ -9,11 +9,11 @@ import { GetweightService } from '../services/getweight.service';
 @Component({
   selector: 'app-scale',
   styleUrls: ['./scale.component.css'],
-  template: 
-  `<h3>Weigh Bottle</h3><br />
-  <h4 *ngIf='weight === undefined'>PLACE BOTTLE ON SCALE</h4>
-  <h4 *ngIf='weight'>{{weight.weight}} ounces</h4><br />
-    
+  template:
+  `<h3 class='titles'>Weigh Bottle</h3><br />
+  <h4 *ngIf='weight === undefined' class="instruct" class="smlTitle">PLACE BOTTLE ON SCALE</h4>
+  <h4 *ngIf='weight' class="smlTitle">{{weight.weight}} ounces</h4><br />
+
   PRODUCT: <br />
   UPC: <input value={{code}}><br />
   WEIGHT:  <input type="text" value={{this.weight.weight}} contenteditable="true" /><br />

@@ -3,10 +3,10 @@
 <br />
 <button (click)='test()'></button>
 
-<igx-card (click)='toggleShow()'><h4>Bourbon (subCategory)</h4>
+<div (click)='toggleShow()'><h4>Bourbon (subCategory)</h4>
 
   <table *ngIf='show' class="mat-elevation-z8" width='100%'>
-      <thead><tr><th>ProductName</th><th>Starting Volume Oz</th><th>Current Volume Oz</th><th>Burn Count</th></tr>
+      <thead><tr><th>ProductName</th><th>Start Vol Oz</th><th>Curr Vol Oz</th><th>Burn Count</th></tr>
       </thead>
       <tbody>
         <tr *ngFor="let product of productB">
@@ -29,5 +29,5 @@
         </tr>
       </tbody>
   </table>
-</igx-card>
+</div>
         <br />

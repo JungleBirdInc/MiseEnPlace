@@ -1,13 +1,13 @@
-<h4>Inventory</h4>
+<h3 class='titles'  style="color:#ffa700; margin: auto; width: 50%; text-align: center">Inventory</h3>
 <br/>
 
-<igx-card (click)='toggle("liqOn")'><h6>Liquor</h6>
+<div (click)='toggle("liqOn")'><h6 class="smlTitle">Liquor</h6>
   <table *ngIf='liqOn' class="mat-elevation-z8" width='100%'>
       <thead>
         <tr>
           <th>ProductName</th>
-          <th>Volume</th>
-          <th>Quantity</th>
+          <th>Vol</th>
+          <th>Qty</th>
           <th>Par</th>
         </tr>
       </thead>
@@ -36,16 +36,16 @@
         </tr>
       </tbody>
   </table>
-</igx-card>
+</div>
 <br />
 
-<igx-card (click)='toggle("wineOn")'><h6>Wine</h6>
+<div (click)='toggle("wineOn")'><h6 class="smlTitle">Wine</h6>
   <table *ngIf='wineOn'  class="mat-elevation-z8" width='100%'>
       <thead>
         <tr>
           <th>ProductName</th>
-          <th>Volume</th>
-          <th>Quantity</th>
+          <th>Vol</th>
+          <th>Qty</th>
           <th>Par</th>
         </tr>
       </thead>
@@ -74,16 +74,16 @@
         </tr>
       </tbody>
   </table>
-</igx-card>
+</div>
 <br />
 
-<igx-card (click)='toggle("beerOn")'><h6>Beer</h6>
+<div (click)='toggle("beerOn")'><h6 class="smlTitle">Beer</h6>
   <table *ngIf='beerOn'  class="mat-elevation-z8" width='100%'>
       <thead>
         <tr>
           <th>ProductName</th>
-          <th>Volume</th>
-          <th>Quantity</th>
+          <th>Vol</th>
+          <th>Qty</th>
           <th>Par</th>
         </tr>
       </thead>
@@ -112,16 +112,16 @@
         </tr>
       </tbody>
   </table>
-</igx-card>
+</div>
 <br />
 
-<igx-card (click)='toggle("nonOn")'><h6>Non-Alcoholic</h6>
+<div (click)='toggle("nonOn")'><h6 class="smlTitle">Non-Alcoholic</h6>
   <table *ngIf='nonOn'  class="mat-elevation-z8" width='100%'>
       <thead>
         <tr>
           <th>ProductName</th>
-          <th>Volume</th>
-          <th>Quantity</th>
+          <th>Vol</th>
+          <th>Qty</th>
           <th>Par</th>
         </tr>
       </thead>
@@ -150,4 +150,4 @@
         </tr>
       </tbody>
   </table>
-</igx-card>
+</div>
