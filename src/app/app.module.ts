@@ -81,6 +81,8 @@ import {
   IgxComboModule,
   IgxSelectModule,
   IgxCardModule,
+  IgxDialogModule,
+  IgxToastModule,
   } from 'igniteui-angular';
 import { UploadComponent } from './upload/upload.component';
 import { DialogComponent } from './upload/dialog/dialog.component';
@@ -158,6 +160,8 @@ import { DialogComponent } from './upload/dialog/dialog.component';
     NgbModule,
     WebcamModule,
     MatDialogModule,
+    IgxDialogModule,
+    IgxToastModule
   ],
   providers: [
     UploadService,
