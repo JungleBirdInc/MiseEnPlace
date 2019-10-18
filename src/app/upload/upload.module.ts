@@ -11,9 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [CommonModule, MatButtonModule, MatDialogModule, MatListModule, FlexLayoutModule, HttpClientModule, BrowserAnimationsModule, MatProgressBarModule],
-  declarations: [],
-  exports: [],
-  entryComponents: [], // Add the DialogComponent as entry component
+  // declarations: [ DialogComponent], // UploadComponent
+  // exports: [UploadComponent],
+  // entryComponents: [DialogComponent], // Add the DialogComponent as entry component
   providers: [UploadService],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

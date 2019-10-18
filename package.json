@@ -45,6 +45,7 @@
     "rxjs-compat": "^6.5.3",
     "sequelize": "^5.19.1",
     "tslib": "^1.10.0",
+    "twilio": "^3.36.0",
     "web-animations-js": "^2.3.2",
     "zone.js": "~0.9.1"
   },

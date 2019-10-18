@@ -1,48 +1,35 @@
 <h3>Suggested Orders</h3>
-<button *ngIf='!suggested' (click)="convert()">Suggest Orders</button>
-
-<!-- <div>
-  <ul>
-    <li *ngFor='let product of masterArray'>
-      {{product.productName}}
-    </li>
-  </ul>
-</div>
-
-<div>
-  <ul>
-    <li *ngFor='let product of currentArray'>
-      {{product.productName}}
-    </li>
-  </ul>
-</div> -->
-
+<button *ngIf='!suggested' (click)="convert()" style="float: right;" >Suggest Orders</button>
+<button *ngIf='suggested' (click)='confirmOrders()' style="float: right;">Confirm Your Order</button>
 
 <br />
-<igx-card *ngIf='suggested'><h4>Suggested Order</h4>
+<igx-card *ngIf='suggested'><h4>{{ordered[1][0].distributor}}</h4>
     <table >
-        <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested</th></tr>
+        <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested</th><th>Order</th></tr>
         </thead>
         <tbody>
-          <tr *ngFor='let product of masterArray'>
+          <tr *ngFor='let product of ordered[1]'>
             <td>
-              <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+              {{product.productName}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+                {{product.volume}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+                {{product.unitCost}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+                {{product.quantity}}
             </td>
             <td>
-                <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+                {{product.par}}
             </td>
             <td> 
-                <input type="text" [(ngModel)]="product.suggested" [disabled]="!product.isEditable"/>
+                {{product.suggested}}
             </td>
+            <td> 
+            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
+          </td>
             <td>
                <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
                <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
@@ -50,8 +37,131 @@
           </tr>
         </tbody>
         <tfoot>
-          <button (click)='confirmOrders()'></button>
+          <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[1]) | currency}}</td>
         </tfoot>
       </table>     
 </igx-card>
-  
+  <br />
+<igx-card *ngIf='suggested'><h4>{{ordered[9][0].distributor}}</h4>
+  <table >
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested</th><th>Order</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let product of ordered[9]'>
+          <td>
+            {{product.productName}}
+          </td>
+          <td>
+              {{product.volume}}
+          </td>
+          <td>
+              {{product.unitCost}}
+          </td>
+          <td>
+              {{product.quantity}}
+          </td>
+          <td>
+              {{product.par}}
+          </td>
+          <td> 
+              {{product.suggested}}
+          </td>
+          <td> 
+            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
+        </td>
+          <td>
+             <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+             <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[9]) | currency}}</td>
+      </tfoot>
+    </table>     
+</igx-card>
+  <br />
+<igx-card *ngIf='suggested'><h4>{{ordered[8][0].distributor}}</h4>
+  <table >
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested</th><th>Order</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let product of ordered[8]'>
+          <td>
+            {{product.productName}}
+          </td>
+          <td>
+              {{product.volume}}
+          </td>
+          <td>
+              {{product.unitCost}}
+          </td>
+          <td>
+              {{product.quantity}}
+          </td>
+          <td>
+              {{product.par}}
+          </td>
+          <td> 
+              {{product.suggested}}
+          </td>
+          <td> 
+              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white"/>
+        </td>
+          <td>
+             <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+             <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[8]) | currency}}</td>
+      </tfoot>
+    </table>     
+</igx-card>
+  <br />
+<igx-card *ngIf='suggested'><h4>{{ordered[5][0].distributor}}</h4>
+  <table >
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested</th><th>Order</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let product of ordered[5]'>
+          <td>
+            {{product.productName}}
+          </td>
+          <td>
+              {{product.volume}}
+          </td>
+          <td>
+              {{product.unitCost}}
+          </td>
+          <td>
+              {{product.quantity}}
+          </td>
+          <td>
+              {{product.par}}
+          </td>
+          <td> 
+              {{product.suggested}}
+          </td>
+          <td> 
+            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white"/>
+        </td>
+          <td>
+             <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+             <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[5]) | currency}}</td>
+      </tfoot>
+    </table>     
+</igx-card>
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+<br /> 
+
