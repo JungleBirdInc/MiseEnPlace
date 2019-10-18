@@ -1,10 +1,10 @@
-<h3>Review Orders Before Sending</h3>
+<h3 class='titles'>Review Orders Before Sending</h3>
 <br />
 <button *ngIf='!show' (click)='toggleShow()'>Review</button>
-<igx-card *ngIf='show1'><h4>{{ordered[1][0].distributor}}</h4>
+<div *ngIf='show1'><h4 class="smlTitle">{{ordered[1][0].distributor}}</h4>
 
   <table>
-    <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
+    <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Order</th></tr>
     </thead>
     <tbody>
       <tr *ngFor="let product of ordered[1]">
@@ -33,12 +33,12 @@
     </tfoot>
   </table>
   <button (click)='confirmOrders1(ordered[1])'>Confirm Order</button>
-</igx-card>
+</div>
   <br />
-  <igx-card *ngIf='show2'><h4>{{ordered[9][0].distributor}}</h4>
+  <div *ngIf='show2'><h4 class="smlTitle">{{ordered[9][0].distributor}}</h4>
 
     <table>
-      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
+      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Order</th></tr>
       </thead>
       <tbody>
         <tr *ngFor="let product of ordered[9]">
@@ -67,12 +67,12 @@
       </tfoot>
     </table>
     <button (click)='confirmOrders2(ordered[9])'>Confirm Order</button>
-  </igx-card>
+  </div>
     <br />
-    <igx-card *ngIf='show3'><h4>{{ordered[8][0].distributor}}</h4>
+    <div *ngIf='show3'><h4 class="smlTitle">{{ordered[8][0].distributor}}</h4>
 
       <table>
-        <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
+        <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Order</th></tr>
         </thead>
         <tbody>
           <tr *ngFor="let product of ordered[8]">
@@ -101,12 +101,12 @@
         </tfoot>
       </table>
       <button (click)='confirmOrders3(ordered[8])'>Confirm Order</button>
-    </igx-card>
+    </div>
     <br />
-      <igx-card *ngIf='show4'><h4>{{ordered[5][0].distributor}}</h4>
+      <div *ngIf='show4'><h4 class="smlTitle">{{ordered[5][0].distributor}}</h4>
 
         <table>
-          <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Ordered</th></tr>
+          <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Order</th></tr>
           </thead>
           <tbody>
             <tr *ngFor="let product of ordered[5]">
@@ -135,7 +135,7 @@
           </tfoot>
         </table>
         <button (click)='confirmOrders4(ordered[5])'>Confirm Order</button>
-      </igx-card>
+      </div>
       <br />
       <br />
       <br />

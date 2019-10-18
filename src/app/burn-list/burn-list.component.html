@@ -3,7 +3,7 @@
 <br />
 
 <div *ngFor='let distributor of displayBurn; let i = index'>
-<igx-card (click)="toggle(distributor[0])"><h4>{{distributor[0]}}</h4>
+<div (click)="toggle(distributor[0])"><h4 class="smlTitle">{{distributor[0]}}</h4>
   <table *ngIf='toggleIds[i][1]' class="mat-elevation-z8" width='100%'>
       <thead><tr><th>Product</th><th>Tare</th><th>Current Vol. Oz</th><th>Burn Count</th></tr>
       </thead>
@@ -28,6 +28,5 @@
         </tr>
       </tbody>
   </table>
-</igx-card>
-<br /><br />
 </div>
+        <br />

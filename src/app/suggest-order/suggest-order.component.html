@@ -1,11 +1,11 @@
-<h3>Suggested Orders</h3>
+<h3 class='titles'>Suggested Orders</h3>
 <button *ngIf='!suggested' (click)="convert()" style="float: right;" >Suggest Orders</button>
 <button *ngIf='suggested' (click)='confirmOrders()' style="float: right;">Confirm Your Order</button>
 
 <br />
-<igx-card *ngIf='suggested'><h4>{{ordered[1][0].distributor}}</h4>
+<div class="table" *ngIf='suggested'><h4 class="smlTitle">{{ordered[1][0].distributor}}</h4>
     <table >
-        <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested</th><th>Order</th></tr>
+        <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
         </thead>
         <tbody>
           <tr *ngFor='let product of ordered[1]'>
@@ -40,11 +40,11 @@
           <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[1]) | currency}}</td>
         </tfoot>
       </table>     
-</igx-card>
+</div>
   <br />
-<igx-card *ngIf='suggested'><h4>{{ordered[9][0].distributor}}</h4>
+<div *ngIf='suggested'><h4 class="smlTitle">{{ordered[9][0].distributor}}</h4>
   <table >
-      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested</th><th>Order</th></tr>
+      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
       </thead>
       <tbody>
         <tr *ngFor='let product of ordered[9]'>
@@ -79,11 +79,11 @@
         <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[9]) | currency}}</td>
       </tfoot>
     </table>     
-</igx-card>
+</div>
   <br />
-<igx-card *ngIf='suggested'><h4>{{ordered[8][0].distributor}}</h4>
+<div *ngIf='suggested'><h4 class="smlTitle">{{ordered[8][0].distributor}}</h4>
   <table >
-      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested</th><th>Order</th></tr>
+      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
       </thead>
       <tbody>
         <tr *ngFor='let product of ordered[8]'>
@@ -118,11 +118,11 @@
         <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[8]) | currency}}</td>
       </tfoot>
     </table>     
-</igx-card>
+</div>
   <br />
-<igx-card *ngIf='suggested'><h4>{{ordered[5][0].distributor}}</h4>
+<div *ngIf='suggested'><h4 class="smlTitle">{{ordered[5][0].distributor}}</h4>
   <table >
-      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th><th>Suggested</th><th>Order</th></tr>
+      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
       </thead>
       <tbody>
         <tr *ngFor='let product of ordered[5]'>
@@ -157,7 +157,7 @@
         <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[5]) | currency}}</td>
       </tfoot>
     </table>     
-</igx-card>
+</div>
 <br /> 
 <br /> 
 <br /> 

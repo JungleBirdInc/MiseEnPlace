@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 // NG-BOOTSTRAP
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+// NG-FLEXBOX
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // MATERIAL
 import { MatTableModule } from '@angular/material/table';
@@ -160,6 +162,7 @@ import {
     NgbModule,
     WebcamModule,
     MatDialogModule,
+    FlexLayoutModule,
     IgxDialogModule,
     IgxToastModule
   ],

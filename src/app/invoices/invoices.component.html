@@ -1,16 +1,16 @@
-<h4>Invoices</h4>
+<h3 class='titles'>Invoices</h3>
 <br />
 
 <ul>
   <li *ngFor="let invoice of invoiceList; let i = index">
-    <igx-card>
-      <h6>{{invoice.distributor}}</h6>
+    <div>
+      <h6 class="smlTitle">{{invoice.distributor}}</h6>
       <table class="mat-elevation-z8" width='100%'>
         <thead>
           <tr>
             <th>Product</th>
-            <th>Volume</th>
-            <th>Quantity</th>
+            <th>Vol</th>
+            <th>Qty</th>
             <th>Price</th>
           </tr>
         </thead>
@@ -38,9 +38,11 @@
             </td>
           </tr>
         </tbody>
+        <tfoot>
+          <td></td><td></td><td>Total Cost</td><td>{{invoice.total}}</td>
+        </tfoot>
       </table>
-      <div style="float: right">Total: {{invoice.total}}</div>
-    </igx-card>
+    </div>
     <br />
   </li>
 </ul>

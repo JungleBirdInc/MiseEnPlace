@@ -1,10 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
-html, body { height: 100%; }
+
+/* body styling */
+html, body { height: 100%; width: 500}
+
 body { 
   margin: 0; 
   font-family: Montserrat, "Helvetica Neue", sans-serif; 
   background-color: #34373C;
 }
+
+
+/* page titles */
+.titles{
+  color: #ffa700;
+  font-family: Montserrat, "Helvetica Neue", sans-serif; 
+  margin: auto; 
+  width: 50%; 
+  text-align: center
+}
+
+ /* tables stlying */
+table{
+  display: block;
+  overflow: scroll;
+  white-space: nowrap;
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+/* .tables{
+
+} */
+td {
+width: 50px;
+text-align: center;
+}
+th {
+width: 50px;
+text-align: center
+}
+input{
+width: 50px;
+text-align: center;
+}
+
+tbody tr:nth-child(odd){
+  background-color: rgb(209, 209, 209);
+}
+tbody tr:nth-child(even){
+  background-color: rgb(255, 255, 255);
+}
+
+thead th{
+  color: #ffa700;
+}
+
+tfoot td{
+  color: #ffa700;
+  font-weight: bold;
+}
+
+/* // smaller titles on */
+.smlTitle{
+  color: #ffa700;
+  margin: auto; 
+  width: 50%; 
+  text-align: center
+}
+
+/* skittles */
+.skittles {
+  color: #ffa700;
+  cursor: pointer;
+}
+
+/* bottom nav buttons */
+bottomNavButtons{
+  color: #ffa700;
+  cursor: pointer;
+  
+}
+
+/* bottom nav bar */
+.bottomNav {
+  color: black;
+}
+
+
+
+
+
+
 
 .action-button{
   color: white;
