@@ -10,7 +10,7 @@ import { GetweightService } from '../services/getweight.service';
   selector: 'app-scale',
   styleUrls: ['./scale.component.css'],
   template:
-  `<h3 class='titles'>Weigh Bottle</h3><br />
+  `<h4 class='titles'>Weigh Bottle</h4><br />
   <h4 *ngIf='weight === undefined' class="instruct" class="smlTitle">PLACE BOTTLE ON SCALE</h4>
   <h4 *ngIf='weight' class="smlTitle">{{weight.weight}} ounces</h4><br />
 
