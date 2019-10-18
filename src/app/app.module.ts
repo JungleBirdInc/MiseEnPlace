@@ -64,6 +64,8 @@ import { NewinvoiceComponent } from './newinvoice/newinvoice.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UploadService } from './upload/upload.service';
 import { ScaleComponent } from './scale/scale.component';
+import { DialogComponent } from './upload/dialog/dialog.component';
+import { UploadComponent } from './upload/upload.component';
 
 // IGNITE
 import {
@@ -82,8 +84,6 @@ import {
   IgxSelectModule,
   IgxCardModule,
   } from 'igniteui-angular';
-import { UploadComponent } from './upload/upload.component';
-import { DialogComponent } from './upload/dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -163,7 +163,7 @@ import { DialogComponent } from './upload/dialog/dialog.component';
     UploadService,
   ],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponent],
+  // entryComponents: [DialogComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA

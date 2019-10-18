@@ -41,7 +41,6 @@ export class NewrepComponent implements OnInit {
     this.repForm.value.dist_id = parseInt(this.dist.distributorOrganizationId);
 
     console.log(this.repForm.value);
-    
     if (this.repForm.value.establishment === '99') {
       // this.router.navigate(['organization']); 
     } else {
