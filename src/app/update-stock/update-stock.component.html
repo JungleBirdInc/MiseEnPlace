@@ -1,67 +1,134 @@
 <h3>Update Inventory</h3>
 
 <br />
+<button *ngIf='!suggested' (click)="convert()" style="float: right;" >Show Inventory</button>
+<br />
+<igx-card *ngIf='suggested'><h4>{{updated[1][0].categ}}</h4>
+    <table >
+        <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Par</th><th>Quantity</th></tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let product of updated[1]'>
+            <td>
+              {{product.productName}}
+            </td>
+            <td>
+                {{product.volume}}
+            </td>
+            <td>
+              {{product.unitCost}}
+            </td>
+            <td>
+              {{product.par}}
+            </td>
+            <td>
+                <input type = 'text' [(ngModel)]="product.quantity" [disabled]="!product.isEditable" style="background-color: white" />
+            </td>
 
-<igx-card (click)='toggleShow()'><h4>Bourbon</h4>
-
-  <table *ngIf='show'class="mat-elevation-z8" width='100%'>
-      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th></tr>
+            <td>
+               <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+               <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button *ngIf='suggested' (click)='confirmOrders(updated[1])' style="float: right;">Save Updates</button>  
+</igx-card>
+<br />
+<igx-card *ngIf='suggested'><h4>{{updated[2][0].categ}}</h4>
+  <table >
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Par</th><th>Quantity</th></tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of productB">
+        <tr *ngFor='let product of updated[2]'>
           <td>
-            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+            {{product.productName}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+              {{product.volume}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+            {{product.unitCost}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
-          </td>
+            {{product.par}}
+        </td>
           <td>
-              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
+              <input type = 'text' [(ngModel)]="product.quantity" [disabled]="!product.isEditable" style="background-color: white" />
           </td>
+
           <td>
-              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
-              <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+             <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+             <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
           </td>
         </tr>
       </tbody>
-  </table>
+    </table>  
+    <button *ngIf='suggested' (click)='confirmOrders(updated[2])' style="float: right;">Save Updates</button>   
 </igx-card>
-      <br />
-
-<igx-card (click)='toggleShow()'><h4>Vodka</h4>
-
-  <table *ngIf='show' class="mat-elevation-z8" width='100%'>
-      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Quantity</th><th>Par</th></tr>
+<br />
+<igx-card *ngIf='suggested'><h4>{{updated[3][0].categ}}</h4>
+  <table >
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Par</th><th>Quantity</th></tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of productB">
+        <tr *ngFor='let product of updated[3]'>
           <td>
-            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+            {{product.productName}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.volume" [disabled]="!product.isEditable"/>
+              {{product.volume}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.unitCost" [disabled]="!product.isEditable"/>
+            {{product.unitCost}}
+          </td> 
+          <td>
+            {{product.par}}
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.quantity" [disabled]="!product.isEditable"/>
+              <input type = 'text' [(ngModel)]="product.quantity" [disabled]="!product.isEditable" style="background-color: white" />
           </td>
+
           <td>
-              <input type="text" [(ngModel)]="product.par" [disabled]="!product.isEditable"/>
-          </td>
-          <td>
-              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
-              <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+             <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+             <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
           </td>
         </tr>
       </tbody>
-  </table>
+    </table>    
+    <button *ngIf='suggested' (click)='confirmOrders(updated[3])' style="float: right;">Save Updates</button> 
 </igx-card>
-
+<br />
+<igx-card *ngIf='suggested'><h4>{{updated[4][0].categ}}</h4>
+  <table >
+      <thead><tr><th>ProductName</th><th>Volume</th><th>Unit Cost</th><th>Par</th><th>Quantity</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let product of updated[4]'>
+          <td>
+            {{product.productName}}
+          </td>
+          <td>
+              {{product.volume}}
+          </td>
+          <td>
+            {{product.unitCost}}
+          </td>
+          <td>
+            {{product.par}}
+          </td>
+          <td>
+              <input type = 'text' [(ngModel)]="product.quantity" [disabled]="!product.isEditable" style="background-color: white" />
+          </td>
+          <td>
+             <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
+             <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
+          </td>
+        </tr>
+      </tbody>
+    </table>     
+    <button *ngIf='suggested' (click)='confirmOrders(updated[4])' style="float: right;">Save Updates</button>
+</igx-card>
+<br />
+<br />
+<br />

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostOrderService } from '../services/placeorder.service';
-
+import { SendTextService } from '../services/sendText.service';
 
 @Component({
   selector: 'app-review-order',
@@ -13,6 +13,7 @@ export class ReviewOrderComponent implements OnInit {
   constructor(
     private router: Router,
     public _placeOrder: PostOrderService,
+    public _textRep: SendTextService,
   ) { }
 
 
@@ -47,6 +48,14 @@ export class ReviewOrderComponent implements OnInit {
       dist_id: data[0].distributorId,
       weeklySet: data
     };
+    const mess = [];
+    data.forEach(prod => {
+      mess.push(`${prod.qty} ${prod.productName}`);
+    });
+    const repInfo = {
+      phone: data[0].cell,
+      message: mess.toString().split(',').join('\n'),
+    };
     send.weeklySet.forEach(set => {
       set.unitCost = Math.floor(set.unitCost * 100);
     });
@@ -56,6 +65,7 @@ export class ReviewOrderComponent implements OnInit {
     setTimeout(() => { this._placeOrder.sendOrder(send).then((res) => {
       console.log(res);
     }); }, 500);
+    this._textRep.textOrder(repInfo);
 
   }
   confirmOrders2(data) {
@@ -116,3 +126,5 @@ export class ReviewOrderComponent implements OnInit {
 
   }
 }
+
+

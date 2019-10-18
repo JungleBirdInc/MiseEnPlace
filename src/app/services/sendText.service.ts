@@ -1,33 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-// import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
 @Injectable({
     providedIn: 'root'
 })
-export class ScanphotoService {
+export class SendTextService {
 
     constructor(private http: HttpClient) { }
 
-    private _url: string = `/scan/photo`;
+    private _url: string = `/sms/text`;
 
-    scanPhoto(data) {
-        console.log('routing...');
-        console.log('SERVICE RECIEVED', data);
-
+    textOrder(data) {
         let promise = new Promise((resolve, reject) => {
-        this.http.post(this._url, data)
+          this.http.post(this._url, data)
             .toPromise()
             .then(
-            res => {
+              res => {
                 resolve(res);
-            },
-            msg => {
+              },
+              msg => {
                 reject(msg);
-            }
+              }
             );
         });
         return promise;
+      }
     }
-}
