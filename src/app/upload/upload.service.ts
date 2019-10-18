@@ -7,7 +7,8 @@ import {
 } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
 
-const url = 'http://localhost:3000/upload';
+// const url = 'http://localhost:3000/upload';
+const url = __dirname + '../miseenplace/dist/MiseEnPlace/';
 
 @Injectable()
 export class UploadService {
