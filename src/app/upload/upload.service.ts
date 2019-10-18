@@ -8,7 +8,7 @@ import {
 import { Subject, Observable } from 'rxjs';
 
 // const url = 'http://localhost:3000/upload';
-const url = __dirname + '../miseenplace/dist/MiseEnPlace/';
+const url = __dirname + '/upload';
 
 @Injectable()
 export class UploadService {
