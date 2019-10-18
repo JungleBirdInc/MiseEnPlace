@@ -1,6 +1,6 @@
 <h3>Scan Invoice</h3>
 <br />
-<!-- <button mat-raised-button (click)="this.openUploadDialog()">Upload</button><br /><br /> -->
+<button mat-raised-button (click)="this.import()">Generate</button><br /><br />
 
 <div *ngIf='invoiceRaw !== undefined'>
   
@@ -16,8 +16,8 @@
         <th>Edit/Delete</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let product of invoice.products; index as i">
+    <tbody *ngIf='invoice.receiptSet !== undefined'>
+      <tr *ngFor="let product of invoice.receiptSet; index as i">
         <td>
           <input type="text" [(ngModel)]="product.name" [disabled]="!product.isEditable" />
         </td>

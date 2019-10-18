@@ -167,7 +167,7 @@ import {
     UploadService,
   ],
   bootstrap: [AppComponent],
-  // entryComponents: [DialogComponent],
+  entryComponents: [DialogComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA

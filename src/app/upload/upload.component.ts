@@ -4,7 +4,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { UploadService } from './upload.service';
 import { GetbotsizeService } from '../services/getbotsize.service';
 import { NewinvoiceService } from '../services/newinvoice.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-upload',
@@ -14,6 +14,7 @@ import { NewinvoiceService } from '../services/newinvoice.service';
 export class UploadComponent implements OnInit {
 
   constructor(
+    public router: Router,
     public dialog: MatDialog, 
     public uploadService: UploadService,
     private _getbotsize: GetbotsizeService,
@@ -32,9 +33,6 @@ export class UploadComponent implements OnInit {
       .then(data => {
         this.botsize = data;
         console.log('bottle sizes', data);
-      })
-      .then(() => {
-        this.import();
       });
   }
 
@@ -106,29 +104,32 @@ export class UploadComponent implements OnInit {
     this._newinvoice.newInvoice(this.invoice)
       .then(data => {
         console.log('newinvoice return', data);
-      })
-      .then(() => {
-
-      })
+        return this.router.navigate(['invoices'])
+      });
   }
 
   calcTotal(){
-    let sum = 0;
-    this.invoice.products.forEach(product => {
-      sum += product.qty * product.price;
-    });
-    this.invoice.total_price = sum;
-    return sum;
+    console.log(this.invoice);
+
+    if(this.invoice !== undefined){
+      let sum = 0;
+      this.invoice.receiptSet.forEach(product => {
+        sum += product.qty * product.price;
+      });
+      this.invoice.total_price = sum;
+      return sum;
+    }else{
+      return 0;
+    }
   }
-
-
+  
   remove(i: string | number){
-    console.log('deleted', this.invoice.products[i]);
-    this.invoice.products.splice(i, 1);
-    console.log(this.invoice.products);
+    console.log('deleted', this.invoice.receiptSet[i]);
+    this.invoice.receiptSet.splice(i, 1);
+    console.log(this.invoice.receiptSet);
   }
 
   public openUploadDialog() {
-    let dialogRef = this.dialog.open(DialogComponent);
+    let dialogRef = this.dialog.open(DialogComponent);  
   }
 } 
