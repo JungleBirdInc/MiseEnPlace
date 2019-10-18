@@ -10,18 +10,19 @@ import { GetweightService } from '../services/getweight.service';
   selector: 'app-scale',
   styleUrls: ['./scale.component.css'],
   template:
-  `<h4 class='titles'>Weigh Bottle</h4><br />
-  <h4 *ngIf='weight === undefined' class="instruct" class="smlTitle">PLACE BOTTLE ON SCALE</h4>
+  `<h4 class="smlTitle">Weigh Bottle</h4><br />
+  <h4 *ngIf='weight === undefined' class="smlTitle">PLACE BOTTLE ON SCALE</h4>
   <h4 *ngIf='weight' class="smlTitle">{{weight.weight}} ounces</h4><br />
 
-  PRODUCT: <br />
-  UPC: <input value={{code}}><br />
-  WEIGHT:  <input type="text" value={{this.weight.weight}} contenteditable="true" /><br />
-  PRV. WEIGHT:<br />
-  BASE TARE:<br />
+  PRODUCT: {{targetBottle.distributors_product.product.product_name}} <br />
+  UPC: {{code}} <br />
+  WEIGHT:  <input type="text" value={{this.weight.weight}} contenteditable="true" />
+  <button *ngIf='this.weight.weight !== 0' (click)='weighAgain()'>*Weigh again</button> <br />
+  PRV. WEIGHT: {{(targetBottle.weight / 100).toFixed(2)}} <br />
+  BASE TARE: {{(targetBottle.distributors_product.product.tare / 100).toFixed(2)}}<br />
 
-  <button routerLink='scan-bar-code'>Scan Another Bottle</button> 
-  <button routerLink='burn'>Finish Weighing</button>`
+  <button routerLink='../scan-bar-code'>Scan Another Bottle</button> 
+  <button routerLink='../burn-list'>Finish Weighing</button>`
 })
 
 export class ScaleComponent implements OnInit {
@@ -30,7 +31,8 @@ export class ScaleComponent implements OnInit {
   manual = false;
   options = false;
   code = window.history.state.barcode;
-  public bottle;
+  public bottles;
+  public targetBottle;
 
 constructor(
     private _getweight: GetweightService,
@@ -45,8 +47,11 @@ constructor(
   ngOnInit() {
     this._getByUPC.getBottleUPC(this.code)
       .then(data => {
-        this.bottle = data;
-        console.log('BOTTLE', data);
+        this.bottles = data;
+        console.log('BOTTLES', data);
+      })
+      .then(() => {
+        this.findBottle();
       })
     
     this._getweight.getWeight()
@@ -59,16 +64,25 @@ constructor(
     })
   }
 
-  toggleOptions() {
-    this.options = !this.options;
+  findBottle(){
+    this.bottles.forEach(bottle => {
+      if(bottle.distributors_product.product.upc === this.code){
+        this.targetBottle = bottle;
+      }
+    });
   }
 
-  updateBottle(id) {
-    this._updateOpenBottle.updateOpenBottles(id);
-    this.toggleOptions();
+  weighAgain(){
+    this.weight.weight = undefined;
+
+    this._getweight.getWeight()
+      .then(data => {
+        this.weight = data;
+        console.log('WEIGHT', data);
+      })
+      .then(() => {
+        this.weight.weight = (this.weight.weight / 100).toFixed(2);
+      })
   }
 
-  toggleManual(){
-    this.manual = !this.manual;
-  }
 }

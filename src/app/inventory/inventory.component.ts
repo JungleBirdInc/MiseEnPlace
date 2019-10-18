@@ -63,7 +63,7 @@ export class InventoryComponent implements OnInit {
   }
 
   // STORE CONVERTED DATA
-  public usablefuckingdata = [];
+  public usabledata = [];
   public beer = [];
   public wine = [];
   public liquor = [];
@@ -77,7 +77,7 @@ export class InventoryComponent implements OnInit {
       // MISSING: PAR
       // CONVERT PRODUCT OBJECTS AND STORE IN MASTER ARRAY
       this.inventory[0].logs_products.forEach(item => {
-        this.usablefuckingdata.push({
+        this.usabledata.push({
             name: item.distributors_product.product.product_name,
             quantity: item.qty,
             par: 0,
@@ -88,7 +88,7 @@ export class InventoryComponent implements OnInit {
       });
   
       // ORDER BY CATEGORY
-      this.usablefuckingdata.forEach(product => {
+      this.usabledata.forEach(product => {
         switch(product.category){
           case 'Non-Alcoholic': this.non.push(product); break;
           case 'Liquor': this.liquor.push(product); break;

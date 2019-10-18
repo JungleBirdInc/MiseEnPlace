@@ -1,23 +1,22 @@
 <h3 class='titles' >Burn List</h3>
 
 <br />
-<button (click)='test()'></button>
 
-<div (click)='toggleShow()'><h4>Bourbon (subCategory)</h4>
-
-  <table *ngIf='show' class="mat-elevation-z8" width='100%'>
-      <thead><tr><th>ProductName</th><th>Start Vol Oz</th><th>Curr Vol Oz</th><th>Burn Count</th></tr>
+<div *ngFor='let distributor of displayBurn; let i = index'>
+<div (click)="toggle(distributor[0])"><h4 class="smlTitle">{{distributor[0]}}</h4>
+  <table *ngIf='toggleIds[i][1]' class="mat-elevation-z8" width='100%'>
+      <thead><tr><th>Product</th><th>Tare</th><th>Current Vol. Oz</th><th>Burn Count</th></tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of productB">
+        <tr *ngFor="let product of distributor[1]">
           <td>
-            <input type="text" [(ngModel)]="product.productName" [disabled]="!product.isEditable"/>
+            <input type="text" [(ngModel)]="product.name" [disabled]="!product.isEditable"/>
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.previousVolume" [disabled]="!product.isEditable"/>
+              <input type="text" [(ngModel)]="product.tare" [disabled]="!product.isEditable"/>
           </td>
           <td>
-              <input type="text" [(ngModel)]="product.currentVolume" [disabled]="!product.isEditable"/>
+              <input type="text" [(ngModel)]="product.weight" [disabled]="!product.isEditable"/>
           </td>
           <td>
               <input type="text" [(ngModel)]="product.burnCount" [disabled]="!product.isEditable"/>

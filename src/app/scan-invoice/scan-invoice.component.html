@@ -1,8 +1,8 @@
 <h3 class='titles'>Scan Invoice</h3>
 <br />
-
-
 <app-upload></app-upload>
+
+<!-- SHOULDNT WE JUST LINK TO UPLOAD? -->
 
 <!-- <h2>Upload Image</h2> -->
 <!-- <form action="/upload" method="post" enctype="multipart/form-data">
@@ -10,13 +10,9 @@
     <input type="submit" value="upload" (click)="handleImage(photo)">
 </form> -->
 
-<div class="snapshot" *ngIf='webcamImage'>
-
-
-<h4 *ngIf="errors.length > 0" class="smlTitle">Messages:</h4>
+<!-- <div class="snapshot" *ngIf='webcamImage'>
+<h4 *ngIf="errors.length > 0">Messages:</h4>
 <ul *ngFor='let error of errors'>
     <li>{{error | json</li>
 </ul>
-
-
-<h4 class="smlTitle"><a href='#' routerLink='/newinvoice'>Manually Enter Invoice</a></h4>
+<h4><a href='#' routerLink='/newinvoice'>Manually Enter Invoice</a></h4> -->

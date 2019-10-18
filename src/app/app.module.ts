@@ -85,6 +85,8 @@ import {
   IgxComboModule,
   IgxSelectModule,
   IgxCardModule,
+  IgxDialogModule,
+  IgxToastModule,
   } from 'igniteui-angular';
 
 @NgModule({
@@ -160,13 +162,15 @@ import {
     NgbModule,
     WebcamModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    IgxDialogModule,
+    IgxToastModule
   ],
   providers: [
     UploadService,
   ],
   bootstrap: [AppComponent],
-  // entryComponents: [DialogComponent],
+  entryComponents: [DialogComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA
