@@ -20,7 +20,7 @@ export class UploadService {
     const status: { [key: string]: { progress: Observable<number> } } = {};
 
     files.forEach(file => {
-      console.log(file);
+      console.log('FILE', file);
       // create a new multipart-form for every file
       const formData: FormData = new FormData();
       formData.append('file', file, file.name);
@@ -45,6 +45,8 @@ export class UploadService {
           // pass the percentage into the progress-stream
           progress.next(percentDone);
         } else if (event instanceof HttpResponse) {
+          console.log(event);
+          window.localStorage.setItem('invoice', JSON.stringify(event));
           // Close the progress-stream if we get an answer form the API
           // The upload is complete
           progress.complete();

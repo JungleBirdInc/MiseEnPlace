@@ -71,7 +71,7 @@ const routes: Routes = [
 { path: 'newdist', component: NewdistComponent },
 { path: 'newprod', component: NewprodComponent },
 { path: 'review-orders', component: ReviewOrderComponent},
-{ path: 'burn', component: BurnListComponent},
+{ path: 'burn-list', component: BurnListComponent},
 { path: 'newinvoice', component: NewinvoiceComponent},
 { path: 'scale', component: ScaleComponent },
 ];

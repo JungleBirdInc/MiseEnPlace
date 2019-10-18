@@ -13,7 +13,10 @@ export class DialogComponent implements OnInit {
 
   public files: Set<File> = new Set();
 
-  constructor(public dialogRef: MatDialogRef<DialogComponent>, public uploadService: UploadService) { }
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponent>, 
+    public uploadService: UploadService
+    ) { }
 
   ngOnInit() { }
 
@@ -48,9 +51,9 @@ export class DialogComponent implements OnInit {
 
     // start the upload and save the progress map
     this.progress = this.uploadService.upload(this.files);
-    console.log(this.progress);
+    console.log('PROGRESS', this.progress);
     for (const key in this.progress) {
-      this.progress[key].progress.subscribe(val => console.log(val));
+      this.progress[key].progress.subscribe(val => console.log('VAL', val));
     }
 
     // convert the progress map into an array
