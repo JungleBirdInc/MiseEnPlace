@@ -1,0 +1,12 @@
+mat-vertical-stepper {
+    background: transparent;
+  }
+  
+  #ngtext {
+    color: #CCCCCC;
+  }
+  
+  #title {
+    color: #ffa700;
+    text-align: center
+  }
