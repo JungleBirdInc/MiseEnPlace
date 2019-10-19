@@ -3,10 +3,22 @@
 <button *ngIf='suggested' (click)='confirmOrders()' style="float: right;">Confirm Your Order</button>
 
 <br />
-<div class="table" *ngIf='suggested'><h4 class="smlTitle">{{ordered[1][0].distributor}}</h4>
-    <table >
-        <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
+<center>
+  <div *ngIf='suggested' class='tables'>
+    <h4 class="smlTitle">{{ordered[1][0].distributor}}</h4>
+    <table>
+        <thead>
+          <tr>
+            <th>ProductName</th>
+            <th>Vol</th>
+            <th>Cost</th>
+            <th>Qty</th>
+            <th>Par</th>
+            <th>Suggest</th>
+            <th>Order</th>
+          </tr>
         </thead>
+
         <tbody>
           <tr *ngFor='let product of ordered[1]'>
             <td>
@@ -28,34 +40,48 @@
                 {{product.suggested}}
             </td>
             <td> 
-            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
-          </td>
+              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
+            </td>
             <td>
                <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
                <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
             </td>
           </tr>
         </tbody>
+        
         <tfoot>
-          <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[1]) | currency}}</td>
+          <td></td><td></td><td></td><td></td><td></td>
+          <td>Total Price</td><td>{{totalPrice(ordered[1]) | currency}}</td>
         </tfoot>
-      </table>     
-</div>
+    </table> 
+  </div>
   <br />
-<div *ngIf='suggested'><h4 class="smlTitle">{{ordered[9][0].distributor}}</h4>
-  <table >
-      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
-      </thead>
-      <tbody>
-        <tr *ngFor='let product of ordered[9]'>
-          <td>
-            {{product.productName}}
-          </td>
-          <td>
-              {{product.volume}}
-          </td>
-          <td>
-              {{product.unitCost}}
+
+  <div *ngIf='suggested' class='tables'>
+    <h4 class="smlTitle">{{ordered[9][0].distributor}}</h4>
+      <table>
+        <thead>
+          <tr>
+            <th>ProductName</th>
+            <th>Vol</th>
+            <th>Cost</th>
+            <th>Qty</th>
+            <th>Par</th>
+            <th>Suggest</th>
+            <th>Order</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <tr *ngFor='let product of ordered[9]'>
+            <td>
+              {{product.productName}}
+            </td>
+            <td>
+                {{product.volume}}
+            </td>
+            <td>
+                {{product.unitCost}}
           </td>
           <td>
               {{product.quantity}}
@@ -68,7 +94,7 @@
           </td>
           <td> 
             <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
-        </td>
+          </td>
           <td>
              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
              <button *ngIf="product.isEditable" (click)="product.isEditable=!product.isEditable">Save</button>    
@@ -81,7 +107,7 @@
     </table>     
 </div>
   <br />
-<div *ngIf='suggested'><h4 class="smlTitle">{{ordered[8][0].distributor}}</h4>
+<div *ngIf='suggested' class='tables'><h4 class="smlTitle">{{ordered[8][0].distributor}}</h4>
   <table >
       <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
       </thead>
@@ -120,8 +146,8 @@
     </table>     
 </div>
   <br />
-<div *ngIf='suggested'><h4 class="smlTitle">{{ordered[5][0].distributor}}</h4>
-  <table >
+<div *ngIf='suggested' class='tables'><h4 class="smlTitle">{{ordered[5][0].distributor}}</h4>
+  <table>
       <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
       </thead>
       <tbody>
@@ -156,12 +182,7 @@
       <tfoot>
         <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[5]) | currency}}</td>
       </tfoot>
-    </table>     
+    </table>
+    
 </div>
-<br /> 
-<br /> 
-<br /> 
-<br /> 
-<br /> 
-<br /> 
-
+</center>

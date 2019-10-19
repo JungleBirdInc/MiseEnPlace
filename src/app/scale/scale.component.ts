@@ -10,20 +10,35 @@ import { GetweightService } from '../services/getweight.service';
   selector: 'app-scale',
   styleUrls: ['./scale.component.css'],
   template:
-  `<h4 class="smlTitle">Weigh Bottle</h4><br />
-  <h4 *ngIf='weight === undefined' class="smlTitle">PLACE BOTTLE ON SCALE</h4>
-  <h4 *ngIf='weight' class="smlTitle">{{weight.weight}} ounces</h4><br />
+  `<h3 class='titles'>Weigh Bottle</h3><br />
 
-  PRODUCT: {{targetBottle.distributors_product.product.product_name}} <br />
-  UPC: {{code}} <br />
-  WEIGHT:  <input type="text" value={{this.weight.weight}} contenteditable="true" />
-  <button *ngIf='this.weight.weight !== 0' (click)='weighAgain()'>*Weigh again</button> <br />
-  PRV. WEIGHT: {{(targetBottle.weight / 100).toFixed(2)}} <br />
-  BASE TARE: {{(targetBottle.distributors_product.product.tare / 100).toFixed(2)}}<br />
+  <div class='container'>
+  <h6 *ngIf='weight === undefined' class="smlTitle">< place bottle on scale ></h6>
+  <h5 *ngIf='weight' class="smlTitle">{{weight.weight}} ounces</h5><br />
 
-  <button routerLink='../scan-bar-code'>Scan Another Bottle</button> 
-  <button routerLink='../burn-list'>Finish Weighing</button>`
+  <p class='category'>Product:</p><br />
+  <input type="text" value={{targetBottle.distributors_product.product.product_name}} contenteditable="true" />
+  <br /><br />
+
+  <p class='category'>UPC:</p><br />
+  <input type="text" value={{code}} contenteditable="true" />
+  <br /><br />
+
+  <p class='category'>Weight:</p><br />
+  <input type="text" value={{this.weight.weight}} contenteditable="true" /> &nbsp;
+  <button *ngIf='this.weight.weight !== 0' (click)='weighAgain()'>*Weigh again</button>
+  <br /><br />
+
+  <p class='category'>Prev. Weight:</p><br />
+  {{ (targetBottle.weight / 100).toFixed(2) }} 
+  <br /><br />
+
+  <button routerLink='/scan-bar-code'>Next Bottle</button> &nbsp; &nbsp; 
+  <button routerLink='/burn-list'>Finish</button>`
 })
+  // <p class='category'>Tare:</p><br />
+  // {{ (targetBottle.distributors_product.product.tare / 100).toFixed(2) }}
+  // <br />
 
 export class ScaleComponent implements OnInit {
 

@@ -1,11 +1,15 @@
 <h3 class='titles'>Scan Barcode</h3><br />
-<button (click)="startScanner()">Scan</button><br />
 
-<input type="text" value='ENTER UPC' [(ngModel)]="barcode" contenteditable="true" />
-<button type="button" (click)="sendCode(this.barcode)">Send (Manual entered UPC)</button>
+<div class='container'>
 
-<div class='input-group'>
-  <div id="inputBarcode">
-    <div id="interactive" class='viewport'></div>
+  <input type="text" placeholder='Enter / Scan UPC' [(ngModel)]="barcode" contenteditable="true" />
+  &nbsp;&nbsp; <button type="button" (click)="sendCode(this.barcode)">Send</button>
+  <br /><br />
+
+  <div class='input-group'>
+    <div id="inputBarcode">
+      <div id="interactive" class='viewport'></div>
+    </div>
   </div>
+
 </div>
