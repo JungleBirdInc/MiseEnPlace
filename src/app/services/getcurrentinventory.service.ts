@@ -10,7 +10,7 @@ export class GetCurrentInvService {
     constructor(private http: HttpClient) {}
 
     orgId = 1;
-
+    // ${environment.baseURL}
     private _url: string = `${environment.baseURL}/inventory/getCurrent/${this.orgId}`;
 
     getCurentInventory() {

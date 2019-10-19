@@ -8,10 +8,10 @@ import { environment } from '../../environments/environment';
 export class UpdateSingleBottleService {
 
     constructor(private http: HttpClient) {}
-
+    // ${environment.baseURL}
     updateOpenBottles(bottleId) {
         const promise = new Promise((resolve, reject) => {
-            this.http.put(`${environment.baseURL}openBottles/weight/${bottleId}`, bottleId)
+            this.http.put(`openBottles/weight/${bottleId}`, bottleId)
               .toPromise()
               .then(
                 res => {

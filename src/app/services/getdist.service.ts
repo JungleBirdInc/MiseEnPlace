@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 export class GetdistService {
 
   constructor(private http: HttpClient) { }
-
+  // ${environment.baseURL}
   private _url: string = `${environment.baseURL}/distributor/getAll/1`;
 
   getDistributors(){

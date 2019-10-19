@@ -10,8 +10,8 @@ import { environment } from '../../environments/environment';
 export class ScanphotoService {
 
     constructor(private http: HttpClient) { }
-
-    private _url: string = `${environment.baseURL}/scan/photo`;
+    // ${environment.baseURL}
+    private _url: string = `/scan/photo`;
 
     scanPhoto(data) {
         console.log('routing...');

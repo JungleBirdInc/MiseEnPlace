@@ -8,8 +8,8 @@ import { environment } from '../../environments/environment';
 export class PostOrderService {
 
   constructor(private http: HttpClient) { }
-
-  private _url: string = `${environment.baseURL}/order/send`;
+  // ${environment.baseURL}
+  private _url: string = `/order/send`;
 
   sendOrder(data) {
     let promise = new Promise((resolve, reject) => {

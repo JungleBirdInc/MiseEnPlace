@@ -9,12 +9,12 @@ export class GetBottleByUPCService {
 
   constructor(private http: HttpClient) { }
 
-//   private _url: string = `/openbottles/`;
-
+//   private _url: string = `${environment.baseURL}/openbottles/`;
+// ${environment.baseURL}
   getBottleUPC(upc) {
     console.log(`UPC: ${upc}`);
     let promise = new Promise((resolve, reject) => {
-      this.http.get(`${environment.baseURL}/openBottles/getAll/1`)
+      this.http.get(`/openBottles/getAll/1`)
         .toPromise()
         .then(
           res => {

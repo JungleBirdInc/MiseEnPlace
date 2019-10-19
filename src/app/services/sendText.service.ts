@@ -7,8 +7,8 @@ import { environment } from '../../environments/environment';
 export class SendTextService {
 
     constructor(private http: HttpClient) { }
-
-    private _url: string = `${environment.baseURL}/sms/text`;
+    // ${environment.baseURL}
+    private _url: string = `/sms/text`;
 
     textOrder(data) {
         let promise = new Promise((resolve, reject) => {

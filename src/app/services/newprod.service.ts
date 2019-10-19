@@ -8,8 +8,8 @@ import { environment } from '../../environments/environment';
 export class NewprodService {
 
   constructor(private http: HttpClient) { }
-
-  private _url: string = `${environment.baseURL}/product/create`;
+  // ${environment.baseURL}
+  private _url: string = `/product/create`;
 
   regProd(data) {
     let promise = new Promise((resolve, reject) => {

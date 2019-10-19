@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class GetbotsizeService {
-
+  // ${environment.baseURL}
   constructor(private http: HttpClient) { }
 
   private _url: string = `${environment.baseURL}/categories/bottlesizes`;

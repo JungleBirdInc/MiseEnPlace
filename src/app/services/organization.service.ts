@@ -7,8 +7,8 @@ import { environment } from '../../environments/environment';
 export class OrganizationService {
 
   constructor(private http: HttpClient) { }
-
-  private _url: string = `${environment.baseURL}/organization/create`;
+  // ${environment.baseURL}
+  private _url: string = `/organization/create`;
 
   regOrg(data) {
     let promise = new Promise((resolve, reject) => {

@@ -9,8 +9,8 @@ export class InitializeInventoryService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `${environment.baseURL}/inventory/initialize`;
-
+  private _url: string = `/inventory/initialize`;
+  // ${environment.baseURL}
   initializeInventory(body){
     let promise = new Promise((resolve, reject) => {
       this.http.post(this._url, body)

@@ -7,8 +7,8 @@ import { environment } from '../../environments/environment';
 export class GetordersService {
 
   constructor(private http: HttpClient) { }
-
-  private _url: string = `${environment.baseURL}/order/getAll/1`;
+  // ${environment.baseURL}
+  private _url: string = `/order/getAll/1`;
 
   public getOrders(){
     let promise = new Promise((resolve, reject) => {

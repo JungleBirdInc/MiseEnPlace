@@ -8,8 +8,8 @@ import { environment } from '../../environments/environment';
 export class GetrepsService {
 
   constructor(private http: HttpClient) { }
-
-  private _url: string = `${environment.baseURL}/reps/getAll/1`;
+  // ${environment.baseURL}
+  private _url: string = `/reps/getAll/1`;
 
   getReps(){
     let promise = new Promise((resolve, reject) => {

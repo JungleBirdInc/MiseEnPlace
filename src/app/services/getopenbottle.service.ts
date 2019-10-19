@@ -10,7 +10,7 @@ export class GetOpenBottlesService {
     constructor(private http: HttpClient) {}
 
     orgId = 1;
-
+    // ${environment.baseURL}
     private _url: string = `${environment.baseURL}/openBottles/getAll/${this.orgId}`;
 
     getOpenBottles() {

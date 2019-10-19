@@ -8,8 +8,8 @@ import { environment } from '../../environments/environment';
 export class NewrepService {
 
   constructor(private http: HttpClient) { }
-
-  private _url: string = `${environment.baseURL}/reps/create`;
+  // ${environment.baseURL}
+  private _url: string = `/reps/create`;
 
   regRep(data) {
     let promise = new Promise((resolve, reject) => {

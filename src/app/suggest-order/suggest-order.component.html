@@ -40,7 +40,7 @@
                 {{product.suggested}}
             </td>
             <td> 
-              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
+              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" />
             </td>
             <td>
                <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -93,7 +93,7 @@
               {{product.suggested}}
           </td>
           <td> 
-            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
+            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" />
           </td>
           <td>
              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -132,7 +132,7 @@
               {{product.suggested}}
           </td>
           <td> 
-              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white"/>
+              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" />
         </td>
           <td>
              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -171,7 +171,7 @@
               {{product.suggested}}
           </td>
           <td> 
-            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white"/>
+            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" />
         </td>
           <td>
              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>

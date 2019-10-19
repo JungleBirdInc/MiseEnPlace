@@ -261,3 +261,9 @@ a:hover{
   }
 
 }
+
+/* Stepper Styling */
+
+.stepper{
+  background: transparent;
+}

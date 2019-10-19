@@ -7,8 +7,8 @@ import { environment } from '../../environments/environment';
 export class NewInvoiceService {
 
   constructor(private http: HttpClient) { }
-
-  private _url: string = `${environment.baseURL}/product/create`;
+  // ${environment.baseURL}
+  private _url: string = `/product/create`;
 
   postInv(data) {
     let promise = new Promise((resolve, reject) => {
