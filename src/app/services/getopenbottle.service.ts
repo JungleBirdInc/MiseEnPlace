@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +11,7 @@ export class GetOpenBottlesService {
 
     orgId = 1;
 
-    private _url: string = `/openBottles/getAll/${this.orgId}`;
+    private _url: string = `${environment.baseURL}/openBottles/getAll/${this.orgId}`;
 
     getOpenBottles() {
         const promise = new Promise((resolve, reject) => {

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class GetdistprodsService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = `/product/getAll`;
+  private _url: string = `${environment.baseURL}/product/getAll`;
 
   getDistProds(id) {
     let promise = new Promise((resolve, reject) => {
