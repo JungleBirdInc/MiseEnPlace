@@ -93,7 +93,7 @@ tfoot td{
 /* filter: blur(2px); */
 width: 185px;
 height: 225px;
-background-image: url("../../pics-thesis/barM2.png");
+background-image: url("./pics-thesis/barM2.png");
 /* object-fit: fill; */
 
 }
@@ -102,7 +102,7 @@ background-image: url("../../pics-thesis/barM2.png");
   /* filter: blur(2px); */
   width: 185px;
   height: 225px;
-  background-image: url("../../pics-thesis/cellarM.png");
+  background-image: url("./pics-thesis/cellarM.png");
   /* object-fit: fill; */
 
 }
@@ -114,7 +114,7 @@ justify-content: space-around;
   /* filter: blur(2px); */
   width: 185px;
   height: 225px;
-  background-image: url("../../pics-thesis/barM1.png");
+  background-image: url("./pics-thesis/barM1.png");
   /* object-fit: fill; */
 
 }
@@ -123,7 +123,7 @@ justify-content: space-around;
   /* filter: blur(2px); */
   width: 185px;
   height: 225px;
-  background-image: url("../../pics-thesis/jbirdM.png");
+  background-image: url("./pics-thesis/jbirdM.png");
   /* object-fit: fill; */
 }
 .container-2{
@@ -166,7 +166,7 @@ a:hover{
   /* width: 460px; */
   width: 45%;
   height: 569px;
-  background-image: url("../../pics-thesis/bar2.png");
+  background-image: url("./pics-thesis/bar2.png");
   /* object-fit: fill; */
 
   }
@@ -176,7 +176,7 @@ a:hover{
     /* width: 460px; */
     width: 45%;
     height: 569px;
-    background-image: url("../../pics-thesis/cellar.png");
+    background-image: url("./pics-thesis/cellar.png");
     /* object-fit: fill; */
   
   }
@@ -189,7 +189,7 @@ a:hover{
     /* width: 460px; */
     width: 45%;
     height: 569px;
-    background-image: url("../../pics-thesis/bar1.png");
+    background-image: url("./pics-thesis/bar1.png");
     /* object-fit: fill; */
   
   }
@@ -199,7 +199,7 @@ a:hover{
     /* width: 460p  x; */
     width: 45%;
     height: 569px;
-    background-image: url("../../pics-thesis/jBird.png");
+    background-image: url("./pics-thesis/jBird.png");
     /* object-fit: fill; */
   }
   .container-2{
