@@ -1,6 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-
-/* body styling */
+/* BODY */
 html, body { height: 100%; width: 500}
 
 body { 
@@ -10,13 +8,14 @@ body {
 }
 
 
-/* page titles */
+/* PAGE TITLES */
 .titles{
   color: #ffa700;
   font-family: Montserrat, "Helvetica Neue", sans-serif; 
   margin: auto; 
-  width: 50%; 
-  text-align: center
+  width: 100%; 
+  text-align: center;
+  text-shadow: 1px 1px 5px #000000;
 }
 
  /* tables stlying */
@@ -73,22 +72,32 @@ tfoot td{
   cursor: pointer;
 }
 
-/* bottom nav buttons */
-bottomNavButtons{
+button{
+  background: transparent;
+  border: 1px solid #CCCCCC;
   color: #ffa700;
-  cursor: pointer;
-  
+  padding: 5px;
+  width: 100px;
 }
 
-/* bottom nav bar */
-.bottomNav {
-  color: black;
+button:hover{
+  background: #ffa700;
+  border: 1px solid #ffa700;
+  color: #000000;
 }
 
+.container{
+  text-align: center;
+  width: 100%;
+}
 
-
-
-
+input{
+  background: transparent;
+  border: 1px solid #CCCCCC;
+  color: #CCCCCC;
+  padding: 5px;
+  width: 100px;
+}
 
 
 .action-button{

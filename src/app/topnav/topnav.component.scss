@@ -1,0 +1,13 @@
+@import '~igniteui-angular/lib/core/styles/themes/index';
+$dark-navbar: igx-navbar-theme(
+    $text-color: #FFA700,
+    $background: #141518,
+    $idle-icon-color: #CCCCCC,
+    $hover-icon-color: #FFA700,
+);
+@include igx-navbar($dark-navbar);
+:host {
+    ::ng-deep {
+        @include igx-navbar($dark-navbar);
+    }
+}

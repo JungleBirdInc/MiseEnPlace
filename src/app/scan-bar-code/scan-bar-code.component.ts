@@ -45,7 +45,7 @@ export class ScanBarCodeComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    console.log('Barcode: initialization');
+    this.startScanner()
   }
 
   testChangeValues() {

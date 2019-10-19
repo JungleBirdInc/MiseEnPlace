@@ -1,0 +1,14 @@
+@import '~igniteui-angular/lib/core/styles/themes/index';
+
+$dark-bottom-nav: igx-bottom-nav-theme(
+    $background: #141518,
+    $active-item-color: #FFA700,
+);
+
+@include igx-bottom-nav($dark-bottom-nav);
+
+:host {
+     ::ng-deep {
+        @include igx-bottom-nav($dark-bottom-nav);
+    }
+}

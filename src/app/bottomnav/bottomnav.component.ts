@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-bottomnav',
   templateUrl: './bottomnav.component.html',
-  styleUrls: ['./bottomnav.component.css']
+  styleUrls: ['./bottomnav.component.scss']
 })
 export class BottomnavComponent implements OnInit {
 
