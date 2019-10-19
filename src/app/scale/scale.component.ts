@@ -16,15 +16,29 @@ import { GetweightService } from '../services/getweight.service';
   <h5 *ngIf='weight === undefined' class="smlTitle">< Place bottle on scale ></h5>
   <h5 *ngIf='weight' class="smlTitle">{{weight.weight}} ounces</h5><br />
 
-  <p class='category'>Product:</p> {{targetBottle.distributors_product.product.product_name}} <br />
-  <p class='category'>UPC: {{code}} <br />
-  <p class='category'>Weight:  <input type="text" value={{this.weight.weight}} contenteditable="true" />
-  <button *ngIf='this.weight.weight !== 0' (click)='weighAgain()'>*Weigh again</button> <br />
-  <p class='category'>Prev. Weight: {{(targetBottle.weight / 100).toFixed(2)}} <br />
-  <p class='category'>Tare: {{(targetBottle.distributors_product.product.tare / 100).toFixed(2)}}<br />
+  <p class='category'>Product:</p><br />
+  <input type="text" value={{targetBottle.distributors_product.product.product_name}} contenteditable="true" />
+  <br /><br />
 
-  <button routerLink='../scan-bar-code'>Scan Another Bottle</button> 
-  <button routerLink='../burn-list'>Finish Weighing</button>`
+  <p class='category'>UPC:</p><br />
+  <input type="text" value={{code}} contenteditable="true" />
+  <br /><br />
+
+  <p class='category'>Weight:</p><br />
+  <input type="text" value={{this.weight.weight}} contenteditable="true" /> &nbsp;
+  <button *ngIf='this.weight.weight !== 0' (click)='weighAgain()'>*Weigh again</button>
+  <br /><br />
+
+  <p class='category'>Prev. Weight:</p><br />
+  {{ (targetBottle.weight / 100).toFixed(2) }} 
+  <br /><br />
+
+  <p class='category'>Tare:</p><br />
+  {{ (targetBottle.distributors_product.product.tare / 100).toFixed(2) }}
+  <br /><br />
+
+  <button routerLink='../scan-bar-code'>Next Bottle</button> &nbsp; &nbsp; 
+  <button routerLink='../burn-list'>Finish</button>`
 })
 
 export class ScaleComponent implements OnInit {

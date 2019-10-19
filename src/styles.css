@@ -19,31 +19,56 @@ body {
 }
 
  /* tables stlying */
+
 table{
-  display: block;
-  width: 90%;
+  width: 100%;
   color: white;
   overflow: scroll;
   white-space: nowrap;
   /* margin-left: auto;
   margin-right: auto; */
 }
-/* .tables{
 
-} */
+.tables{
+  text-align: center;
+  width: 75%;
+}
+
+
+@media screen and (max-width: 550px){
+  table{ 
+  display: block;
+  width: 100%;
+  color: white;
+  overflow: scroll;
+  white-space: nowrap;
+  /* margin-left: auto;
+  margin-right: auto; */
+  }
+  .tables{
+    text-align: center;
+    width: 75%;
+  }
+}
+
 td {
 width: 50px;
 text-align: center;
+padding: 5px;
+margin: 5px;
 }
+
 th {
 width: 50px;
 background-color: black;
-text-align: center
+text-align: center;
+padding: 5px;
+margin: 5px;
 }
-input{
+/* input{
 width: 50px;
 text-align: center;
-}
+} */
 
 tbody tr:nth-child(odd){
   background-color: rgb(90, 90, 90);
@@ -75,6 +100,8 @@ tfoot td{
     cursor: pointer;
   }
 
+/* BUTTONS */
+
 button{
   background: transparent;
   border: 1px solid #CCCCCC;
@@ -96,6 +123,7 @@ button:hover{
 
 .category{
   color: #CCCCCC;
+  display: inline;
 }
 
 input{
@@ -152,8 +180,8 @@ justify-content: space-around;
   font-family: Montserrat, "Helvetica Neue", sans-serif; 
   font-weight: bold; 
   text-align: center;
-  bottom: 0;
-  color:  white;
+  color:  #CCCCCC;
+  text-shadow: 1px 1px 5px #000000;
 }
 
 .right {
@@ -181,7 +209,7 @@ a:hover{
 #botAct{
   /* filter: blur(2px); */
   /* width: 460px; */
-  width: 45%;
+  width: 345px;
   height: 569px;
   background-image: url("./pics-thesis/bar2.png");
   /* object-fit: fill; */
@@ -190,7 +218,7 @@ a:hover{
   #stockAct{
     /* filter: blur(2px); */
     /* width: 460px; */
-    width: 45%;
+    width: 345px;
     height: 569px;
     background-image: url("./pics-thesis/cellar.png");
     /* object-fit: fill; */
@@ -203,7 +231,7 @@ a:hover{
   #invoiceAct{
     /* filter: blur(2px); */
     /* width: 460px; */
-    width: 45%;
+    width: 345px;
     height: 569px;
     background-image: url("./pics-thesis/bar1.png");
     /* object-fit: fill; */
@@ -213,7 +241,7 @@ a:hover{
   #suggestAct{
     /* filter: blur(2px); */
     /* width: 460p  x; */
-    width: 45%;
+    width: 345px;
     height: 569px;
     background-image: url("./pics-thesis/jBird.png");
     /* object-fit: fill; */
