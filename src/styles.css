@@ -22,6 +22,8 @@ body {
  /* tables stlying */
 table{
   display: block;
+  width: 90%;
+  color: white;
   overflow: scroll;
   white-space: nowrap;
   /* margin-left: auto;
@@ -36,6 +38,7 @@ text-align: center;
 }
 th {
 width: 50px;
+background-color: black;
 text-align: center
 }
 input{
@@ -44,10 +47,10 @@ text-align: center;
 }
 
 tbody tr:nth-child(odd){
-  background-color: rgb(209, 209, 209);
+  background-color: rgb(90, 90, 90);
 }
 tbody tr:nth-child(even){
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(65, 64, 64);
 }
 
 thead th{
@@ -63,36 +66,77 @@ tfoot td{
 .smlTitle{
   color: #ffa700;
   margin: auto; 
-  width: 50%; 
-  text-align: center
+    width: 50%; 
+    text-align: center
+  }
+
+  /* skittles */
+  .skittles {
+    color: #ffa700;
+    cursor: pointer;
+  }
+
+  /* bottom nav buttons */
+  bottomNavButtons{
+    color: #ffa700;
+    cursor: pointer;
+
+  }
+
+  /* bottom nav bar */
+  .bottomNav {
+    color: black;
+  }
+
+ /* action ids */
+#botAct{
+/* filter: blur(2px); */
+width: 185px;
+height: 225px;
+background-image: url("../../pics-thesis/barM2.png");
+/* object-fit: fill; */
+
 }
 
-/* skittles */
-.skittles {
-  color: #ffa700;
-  cursor: pointer;
+#stockAct{
+  /* filter: blur(2px); */
+  width: 185px;
+  height: 225px;
+  background-image: url("../../pics-thesis/cellarM.png");
+  /* object-fit: fill; */
+
+}
+.container-1{
+display: flex;
+justify-content: space-around;
+}
+#invoiceAct{
+  /* filter: blur(2px); */
+  width: 185px;
+  height: 225px;
+  background-image: url("../../pics-thesis/barM1.png");
+  /* object-fit: fill; */
+
 }
 
-/* bottom nav buttons */
-bottomNavButtons{
-  color: #ffa700;
-  cursor: pointer;
-  
+#suggestAct{
+  /* filter: blur(2px); */
+  width: 185px;
+  height: 225px;
+  background-image: url("../../pics-thesis/jbirdM.png");
+  /* object-fit: fill; */
+}
+.container-2{
+  display: flex;
+  justify-content: space-around;
 }
 
-/* bottom nav bar */
-.bottomNav {
-  color: black;
-}
-
-
-
-
-
-
-
-.action-button{
-  color: white;
+.actions{
+  font-family: Montserrat, "Helvetica Neue", sans-serif; 
+  font-weight: bold; 
+  text-align: center;
+  bottom: 0;
+  color:  white;
 }
 
 .right {
@@ -113,4 +157,54 @@ a:active{
 
 a:hover{
   text-decoration: none;
+}
+
+@media screen and (min-width: 700px){
+  /* action ids */
+#botAct{
+  /* filter: blur(2px); */
+  /* width: 460px; */
+  width: 45%;
+  height: 569px;
+  background-image: url("../../pics-thesis/bar2.png");
+  /* object-fit: fill; */
+
+  }
+
+  #stockAct{
+    /* filter: blur(2px); */
+    /* width: 460px; */
+    width: 45%;
+    height: 569px;
+    background-image: url("../../pics-thesis/cellar.png");
+    /* object-fit: fill; */
+  
+  }
+  .container-1{
+  display: flex;
+  justify-content: space-around;
+  }
+  #invoiceAct{
+    /* filter: blur(2px); */
+    /* width: 460px; */
+    width: 45%;
+    height: 569px;
+    background-image: url("../../pics-thesis/bar1.png");
+    /* object-fit: fill; */
+  
+  }
+
+  #suggestAct{
+    /* filter: blur(2px); */
+    /* width: 460p  x; */
+    width: 45%;
+    height: 569px;
+    background-image: url("../../pics-thesis/jBird.png");
+    /* object-fit: fill; */
+  }
+  .container-2{
+    display: flex;
+    justify-content: space-around;
+  }
+
 }
