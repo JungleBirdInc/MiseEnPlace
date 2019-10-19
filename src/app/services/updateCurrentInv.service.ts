@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -8,7 +9,7 @@ export class UpdateCurrentInvService {
 
     constructor(private http: HttpClient) { }
     id = 17;
-    private _url: string = `/inventory/updateCurrent/${this.id}`;
+    private _url: string = `${environment.baseURL}/inventory/updateCurrent/${this.id}`;
 
     updateInv(data) {
       let promise = new Promise((resolve, reject) => {
