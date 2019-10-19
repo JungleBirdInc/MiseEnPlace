@@ -13,7 +13,7 @@ import { GetweightService } from '../services/getweight.service';
   `<h3 class='titles'>Weigh Bottle</h3><br />
 
   <div class='container'>
-  <h5 *ngIf='weight === undefined' class="smlTitle">< Place bottle on scale ></h5>
+  <h6 *ngIf='weight === undefined' class="smlTitle">< place bottle on scale ></h6>
   <h5 *ngIf='weight' class="smlTitle">{{weight.weight}} ounces</h5><br />
 
   <p class='category'>Product:</p><br />
@@ -33,13 +33,12 @@ import { GetweightService } from '../services/getweight.service';
   {{ (targetBottle.weight / 100).toFixed(2) }} 
   <br /><br />
 
-  <p class='category'>Tare:</p><br />
-  {{ (targetBottle.distributors_product.product.tare / 100).toFixed(2) }}
-  <br /><br />
-
-  <button routerLink='../scan-bar-code'>Next Bottle</button> &nbsp; &nbsp; 
-  <button routerLink='../burn-list'>Finish</button>`
+  <button routerLink='/scan-bar-code'>Next Bottle</button> &nbsp; &nbsp; 
+  <button routerLink='/burn-list'>Finish</button>`
 })
+  // <p class='category'>Tare:</p><br />
+  // {{ (targetBottle.distributors_product.product.tare / 100).toFixed(2) }}
+  // <br />
 
 export class ScaleComponent implements OnInit {
 
