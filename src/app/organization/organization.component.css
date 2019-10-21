@@ -10,3 +10,8 @@ mat-vertical-stepper {
     color: #ffa700;
     text-align: center
   }
+
+  ::placeholder{
+    color: #CCCCCC;
+    opacity: .2;
+  }
