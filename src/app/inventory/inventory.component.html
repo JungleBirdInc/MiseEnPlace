@@ -1,7 +1,8 @@
-<h3 class='titles'  style="color:#ffa700; margin: auto; width: 50%; text-align: center">Inventory</h3>
+<h3 class='titles'>Inventory</h3>
 <br/>
 
-<div (click)='toggle("liqOn")'><h6 class="smlTitle">Liquor</h6>
+<div (click)='toggle("liqOn")' class='tablehead'>
+  <h6 class="smlTitle">Liquor <p class='down'>↴</p></h6> 
   <table *ngIf='liqOn' class="mat-elevation-z8" width='100%'>
       <thead>
         <tr>
@@ -31,7 +32,8 @@
 </div>
 <br />
 
-<div (click)='toggle("wineOn")'><h6 class="smlTitle">Wine</h6>
+<div (click)='toggle("wineOn")' class='tablehead'>
+  <h6 class="smlTitle">Wine <p class='down'>↴</p></h6> 
   <table *ngIf='wineOn'  class="mat-elevation-z8" width='100%'>
       <thead>
         <tr>
@@ -61,7 +63,8 @@
 </div>
 <br />
 
-<div (click)='toggle("beerOn")'><h6 class="smlTitle">Beer</h6>
+<div (click)='toggle("beerOn")' class='tablehead'>
+  <h6 class="smlTitle">Beer <p class='down'>↴</p></h6> 
   <table *ngIf='beerOn'  class="mat-elevation-z8" width='100%'>
       <thead>
         <tr>
@@ -91,7 +94,8 @@
 </div>
 <br />
 
-<div (click)='toggle("nonOn")'><h6 class="smlTitle">Non-Alcoholic</h6>
+<div (click)='toggle("nonOn")'  class='tablehead'>
+  <h6 class="smlTitle">Non-Alcoholic <p class='down'>↴</p></h6>
   <table *ngIf='nonOn'  class="mat-elevation-z8" width='100%'>
       <thead>
         <tr>

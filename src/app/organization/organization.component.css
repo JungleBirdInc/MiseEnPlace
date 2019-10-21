@@ -2,16 +2,11 @@ mat-vertical-stepper {
     background: transparent;
   }
   
-  input {
-    color: #ffa700;
-  }
-  
   #ngtext {
-    color: #ffa700
+    color: #CCCCCC;
   }
   
   #title {
     color: #ffa700;
     text-align: center
   }
-  
