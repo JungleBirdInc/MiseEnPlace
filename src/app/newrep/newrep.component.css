@@ -16,10 +16,7 @@ mat-vertical-stepper {
     opacity: .2;
   }
 
-  ::ng-deep .mat-step-header .mat-step-icon {
-    background-color: #CCCCCC; 
- }
-
- ::ng-deep .mat-step-header .mat-step-icon-selected {
-  background-color: #ffa700; 
-}
+  .selector{
+    background-color:  rgb(65, 65, 65);
+    color: #CCCCCC;
+  }
