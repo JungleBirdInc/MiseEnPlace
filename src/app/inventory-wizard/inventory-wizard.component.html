@@ -7,7 +7,7 @@
       <ng-template matStepLabel>
         <td id="ngtext">Distributer</td>
       </ng-template>
-      <igx-select-item *ngFor="let dist of distributors" [value]='dist' required>
+      <igx-select-item *ngFor="let dist of distributors" [value]='dist' required class='selector'>
         {{dist.distributor.name}}
       </igx-select-item>
     </igx-select>
@@ -21,7 +21,7 @@
       <ng-template matStepLabel>
         <td id="ngtext">Product</td>
       </ng-template>
-      <igx-select-item *ngFor="let product of dist_products" [value]='product' required>
+      <igx-select-item *ngFor="let product of dist_products" [value]='product' required class='selector'>
         {{product.product.product_name}}
       </igx-select-item>
     </igx-select>
@@ -70,7 +70,6 @@
 </mat-vertical-stepper>
 
 <div>
-  added products
   <ul>
     <li *ngFor="let product of master">
       Name: {{product.product.product.product_name}} <br />
@@ -80,3 +79,7 @@
     </li>
   </ul>
 </div>
+
+<br />
+<br />
+<br />
