@@ -2,12 +2,13 @@
 <br />
 
 <mat-vertical-stepper class='stepper'>
-  <mat-step>
-    <igx-select [(ngModel)]="dist" #select>
+  
+  <mat-step class='selected'>
+    <igx-select [(ngModel)]="dist" #select class='selected'>
       <ng-template matStepLabel>
         <td id="ngtext">Distributer</td>
       </ng-template>
-      <igx-select-item *ngFor="let dist of distributors" [value]='dist' required>
+      <igx-select-item *ngFor="let dist of distributors" [value]='dist' required class='selector'>
         {{dist.distributor.name}}
       </igx-select-item>
     </igx-select>
@@ -47,7 +48,7 @@
       <ng-template matStepLabel>
         <td id="ngtext">Category</td>
       </ng-template>
-      <igx-select-item *ngFor="let cate of categories" [value]='cate' required>
+      <igx-select-item *ngFor="let cate of categories" [value]='cate' required class='selector'>
         {{cate.category_name}}
       </igx-select-item>
     </igx-select>
@@ -62,7 +63,7 @@
       <ng-template matStepLabel>
         <td id="ngtext">Sub Category</td>
       </ng-template>
-      <igx-select-item *ngFor="let sub of cate.subcategories" [value]='sub' required>
+      <igx-select-item *ngFor="let sub of cate.subcategories" [value]='sub' required class='selector'>
         {{sub.subcategory_name}}
       </igx-select-item>
     </igx-select>
@@ -77,7 +78,7 @@
       <ng-template matStepLabel>
         <td id="ngtext">Bottle Size</td>
       </ng-template>
-      <igx-select-item *ngFor="let size of bottlesize" [value]='size' required>
+      <igx-select-item *ngFor="let size of bottlesize" [value]='size' required class='selector'>
         {{size.size}}
       </igx-select-item>
     </igx-select>
@@ -130,7 +131,7 @@
     <ng-template matStepLabel>
       <td id="ngtext">Send</td>
     </ng-template>
-    Finished?
+
 
     <div>
       <button matButton matStepperPrevious>Back</button>
@@ -138,3 +139,6 @@
     </div>
   </mat-step>
 </mat-vertical-stepper>
+<br />
+<br />
+<br />
