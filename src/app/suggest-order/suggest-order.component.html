@@ -70,6 +70,7 @@
             <th>Par</th>
             <th>Suggest</th>
             <th>Order</th>
+            <th></th>
           </tr>
         </thead>
       
@@ -103,14 +104,14 @@
         </tr>
       </tbody>
       <tfoot>
-        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[9]) | currency}}</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[9]) | currency}}</td>
       </tfoot>
     </table>     
 </div>
   <br />
 <div *ngIf='suggested' class='tables'><h4 class="smlTitle">{{ordered[8][0].distributor}}</h4>
   <table >
-      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
+      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th><th></th></tr>
       </thead>
       <tbody>
         <tr *ngFor='let product of ordered[8]'>
@@ -142,14 +143,14 @@
         </tr>
       </tbody>
       <tfoot>
-        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[8]) | currency}}</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[8]) | currency}}</td>
       </tfoot>
     </table>     
 </div>
   <br />
 <div *ngIf='suggested' class='tables'><h4 class="smlTitle">{{ordered[5][0].distributor}}</h4>
   <table>
-      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
+      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th><th></th></tr>
       </thead>
       <tbody>
         <tr *ngFor='let product of ordered[5]'>
@@ -181,9 +182,13 @@
         </tr>
       </tbody>
       <tfoot>
-        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[5]) | currency}}</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[5]) | currency}}</td>
       </tfoot>
     </table>
     
 </div>
 </center>
+
+<br />
+<br />
+<br />
