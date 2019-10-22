@@ -5,3 +5,11 @@ html, body {
     left:0;
     right:0;
 }
+
+.textbutton{
+    float: right
+}
+
+.link{
+    float: right;
+}

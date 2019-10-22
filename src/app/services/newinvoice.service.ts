@@ -8,8 +8,8 @@ import { environment } from '../../environments/environment';
 export class NewinvoiceService {
 
   constructor(private http: HttpClient) { }
-
-  private _url: string = `${environment.baseURL}/invoice/record`;
+  // ${environment.baseURL}
+  private _url: string = `/invoice/record`;
 
   newInvoice(body){
     let promise = new Promise((resolve, reject) => {

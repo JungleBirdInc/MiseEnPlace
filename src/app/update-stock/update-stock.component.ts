@@ -84,6 +84,8 @@ ngOnInit() {
         this.cats = data;
         console.log(data);
       });
+
+    setTimeout(() => {this.convert(); }, 500);
   }
 
 toggleShow() {

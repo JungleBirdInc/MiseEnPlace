@@ -10,8 +10,8 @@ export class UpdateOpenBottlesService {
     constructor(private http: HttpClient) {}
 
     orgId = 1;
-
-    private _url: string = `${environment.baseURL}/openBottles/newWeights/${this.orgId}`;
+    // ${environment.baseURL}
+    private _url: string = `/openBottles/newWeights/${this.orgId}`;
 
     updateOpenBottles(bottles) {
         const promise = new Promise((resolve, reject) => {

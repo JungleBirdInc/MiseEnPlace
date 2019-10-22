@@ -25,6 +25,7 @@ export class ReviewOrderComponent implements OnInit {
   show4 = false;
 
   ngOnInit() {
+    setTimeout(() => {this.toggleShow(); }, 200);
   }
 
   totalPrice(dist) {

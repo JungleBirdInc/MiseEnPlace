@@ -6,12 +6,12 @@ import { environment } from '../../environments/environment';
     providedIn: 'root'
   })
 export class GetSingleInvoiceService {
-
+  // ${environment.baseURL}
     constructor(private http: HttpClient) {}
 
     orgId = 1;
 
-    private _url: string = `${environment.baseURL}/inventory/getOne/${this.orgId}`;
+    private _url: string = `/inventory/getOne/${this.orgId}`;
 
     getCurentInventory() {
       return this.http.get(this._url);

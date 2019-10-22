@@ -5,3 +5,25 @@ mat-divider{
 #test{
    border-color: #ffa700;
 }
+
+::placeholder{
+    color: #CCCCCC;
+    opacity: .2;
+  }
+
+  .selector{
+    background-color:  rgb(65, 65, 65);
+    color: #CCCCCC;
+  }
+
+  .selected {
+    color:#CCCCCC
+  }
+
+  ::ng-deep .mat-step-header .mat-step-icon {
+    background-color: #CCCCCC; 
+ }
+
+ ::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #ffa700; 
+}

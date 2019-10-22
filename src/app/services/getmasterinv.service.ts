@@ -9,7 +9,7 @@ export class GetMasterInvService {
 
   constructor(private http: HttpClient) { }
   orgId = 1;
-  
+  // ${environment.baseURL}
   private _url: string = `${environment.baseURL}/inventory/getMaster/${this.orgId}`;
 
   getMaster(){

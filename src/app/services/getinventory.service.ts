@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 export class GetinventoryService {
 
   constructor(private http: HttpClient) { }
-
+  // ${environment.baseURL}
   private _url: string = `${environment.baseURL}/inventory/getAll/1`;
 
   getInventory(){

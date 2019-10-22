@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 export class DeleteUserService {
 
     constructor(private http: HttpClient) { }
-
+    // ${environment.baseURL}
     private _url: string = `${environment.baseURL}/user/delete/:id`;
 
     deleteUser(data) {

@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 export class GetinvoicesService {
 
   constructor(private http: HttpClient) { }
-
+  // ${environment.baseURL}
   private _url: string = `${environment.baseURL}/invoice/getAll/1`;
 
   getInvoices(){

@@ -90,6 +90,8 @@ public visible = false;
         this.reps = data;
         console.log(data, 'reps');
       });
+
+    setTimeout(() => {this.convert(); }, 500);
 }
 // takes requested data and makes into new array
 convert() {

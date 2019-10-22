@@ -1,5 +1,5 @@
 <h3 class='titles'>Suggested Orders</h3>
-<button *ngIf='!suggested' (click)="convert()" style="float: right;" >Suggest Orders</button>
+<!-- <button *ngIf='!suggested' (click)="convert()" style="float: right;" >Suggest Orders</button> -->
 <button *ngIf='suggested' (click)='confirmOrders()' style="float: right;">Confirm Your Order</button>
 
 <br />
@@ -16,6 +16,7 @@
             <th>Par</th>
             <th>Suggest</th>
             <th>Order</th>
+            <th></th>
           </tr>
         </thead>
 
@@ -40,7 +41,7 @@
                 {{product.suggested}}
             </td>
             <td> 
-              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
+              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" />
             </td>
             <td>
                <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -50,7 +51,7 @@
         </tbody>
         
         <tfoot>
-          <td></td><td></td><td></td><td></td><td></td>
+          <td></td><td></td><td></td><td></td><td></td><td></td>
           <td>Total Price</td><td>{{totalPrice(ordered[1]) | currency}}</td>
         </tfoot>
     </table> 
@@ -69,6 +70,7 @@
             <th>Par</th>
             <th>Suggest</th>
             <th>Order</th>
+            <th></th>
           </tr>
         </thead>
       
@@ -93,7 +95,7 @@
               {{product.suggested}}
           </td>
           <td> 
-            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white" />
+            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" />
           </td>
           <td>
              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -102,14 +104,14 @@
         </tr>
       </tbody>
       <tfoot>
-        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[9]) | currency}}</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[9]) | currency}}</td>
       </tfoot>
     </table>     
 </div>
   <br />
 <div *ngIf='suggested' class='tables'><h4 class="smlTitle">{{ordered[8][0].distributor}}</h4>
   <table >
-      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
+      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th><th></th></tr>
       </thead>
       <tbody>
         <tr *ngFor='let product of ordered[8]'>
@@ -132,7 +134,7 @@
               {{product.suggested}}
           </td>
           <td> 
-              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white"/>
+              <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" />
         </td>
           <td>
              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -141,14 +143,14 @@
         </tr>
       </tbody>
       <tfoot>
-        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[8]) | currency}}</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[8]) | currency}}</td>
       </tfoot>
     </table>     
 </div>
   <br />
 <div *ngIf='suggested' class='tables'><h4 class="smlTitle">{{ordered[5][0].distributor}}</h4>
   <table>
-      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th></tr>
+      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Qty</th><th>Par</th><th>Suggest</th><th>Order</th><th></th></tr>
       </thead>
       <tbody>
         <tr *ngFor='let product of ordered[5]'>
@@ -171,7 +173,7 @@
               {{product.suggested}}
           </td>
           <td> 
-            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" style="background-color: white"/>
+            <input type = 'text' [(ngModel)]="product.qty" [disabled]="!product.isEditable" />
         </td>
           <td>
              <button (click)="product.isEditable=!product.isEditable" *ngIf="!product.isEditable">Edit</button>
@@ -180,9 +182,13 @@
         </tr>
       </tbody>
       <tfoot>
-        <td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[5]) | currency}}</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td>Total Price</td><td>{{totalPrice(ordered[5]) | currency}}</td>
       </tfoot>
     </table>
     
 </div>
 </center>
+
+<br />
+<br />
+<br />

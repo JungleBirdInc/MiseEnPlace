@@ -17,24 +17,16 @@
         <tbody>
           <tr *ngFor="let product of invoiceList[i].products">
             <td>
-              <input type="text" 
-              [(ngModel)]="product.name"
-              [disabled]="!product.isEditable" />
+              {{product.name}}
             </td>
             <td>
-              <input type="text" 
-              [(ngModel)]="product.bottleSize"
-              [disabled]="!product.isEditable" />
+              {{product.bottleSize}}
             </td>
             <td>
-              <input type="text" 
-              [(ngModel)]="product.qty"
-              [disabled]="!product.isEditable" />
+              {{product.qty}}
             </td>
             <td>
-              <input type="text" 
-              [(ngModel)]="product.price"
-              [disabled]="!product.isEditable" />
+              {{product.price}}
             </td>
           </tr>
         </tbody>

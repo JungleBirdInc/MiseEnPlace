@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 export class GetdistprodsService {
 
   constructor(private http: HttpClient) { }
-
+  // ${environment.baseURL}
   private _url: string = `${environment.baseURL}/product/getAll`;
 
   getDistProds(id) {

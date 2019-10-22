@@ -1,11 +1,11 @@
 <h3 class='titles'>Update Inventory</h3>
-
+<button class='invButton' routerLink="invoices">Inventory History</button>
 <br />
-<button *ngIf='!suggested' (click)="convert()" style="float: right;" >Show Inventory</button>
+<!-- <button *ngIf='!suggested' (click)="convert()" style="float: right;" >Show Inventory</button> -->
 <br />
 <div *ngIf='suggested'><h4 class="smlTitle">{{updated[1][0].categ}}</h4>
     <table >
-        <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Par</th><th>Qty</th></tr>
+        <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Par</th><th>Qty</th><th></th></tr>
         </thead>
         <tbody>
           <tr *ngFor='let product of updated[1]'>
@@ -37,7 +37,7 @@
 <br />
 <div *ngIf='suggested'><h4 class="smlTitle">{{updated[2][0].categ}}</h4>
   <table >
-      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Par</th><th>Qty</th></tr>
+      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Par</th><th>Qty</th><th></th></tr>
       </thead>
       <tbody>
         <tr *ngFor='let product of updated[2]'>
@@ -69,7 +69,7 @@
 <br />
 <div *ngIf='suggested'><h4 class="smlTitle">{{updated[3][0].categ}}</h4>
   <table >
-      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Par</th><th>Qty</th></tr>
+      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Par</th><th>Qty</th><th></th></tr>
       </thead>
       <tbody>
         <tr *ngFor='let product of updated[3]'>
@@ -101,7 +101,7 @@
 <br />
 <div *ngIf='suggested'><h4 class="smlTitle">{{updated[4][0].categ}}</h4>
   <table >
-      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Par</th><th>Qty</th></tr>
+      <thead><tr><th>ProductName</th><th>Vol</th><th>Cost</th><th>Par</th><th>Qty</th><th></th></tr>
       </thead>
       <tbody>
         <tr *ngFor='let product of updated[4]'>
@@ -132,3 +132,5 @@
 <br />
 <br />
 <br />
+<br/>
+<br/>

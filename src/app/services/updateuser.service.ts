@@ -7,8 +7,8 @@ import { environment } from '../../environments/environment';
 export class UpdateUserService {
 
     constructor(private http: HttpClient) { }
-
-    private _url: string = `${environment.baseURL}/user/update/:id`;
+    // ${environment.baseURL}
+    private _url: string = `/user/update/:id`;
 
     updateUser(data) {
       let promise = new Promise((resolve, reject) => {

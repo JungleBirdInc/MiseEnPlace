@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 export class GetcategoriesService {
 
   constructor(private http: HttpClient) { }
-
+  // ${environment.baseURL}
   private _url: string = `${environment.baseURL}/categories/categories`;
 
   getCategories(){
