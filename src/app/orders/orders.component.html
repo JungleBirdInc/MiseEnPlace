@@ -1,7 +1,7 @@
 <h3 class='titles'>Orders</h3>
 <br />
 
-<ul>
+<ul *ngIf='show'>
   <li *ngFor="let order of orderList; let i = index">
     <div>
       <h6 class="smlTitle">{{order.distributor}}</h6>

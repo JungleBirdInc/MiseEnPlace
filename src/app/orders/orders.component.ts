@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { GetordersService } from '../services/getorders.service';
 import { GetbotsizeService } from '../services/getbotsize.service';
 import { GetdistService } from '../services/getdist.service';
+import { showMessage } from 'igniteui-angular/lib/core/deprecateDecorators';
 
 @Component({
   selector: 'app-orders',
@@ -22,57 +23,60 @@ export class OrdersComponent implements OnInit {
 
     // RESPONSE FROM SERVICES
     public orders;
+    public show = false;
     public botsize;
     public dists;
+    public orderList = [];
 
     ngOnInit() {
       // GET ORDERS
       this._getorders.getOrders()
       .then(data => {
         this.orders = data;
+        console.log(data, 'orders');
+        setTimeout(() => {this.convert(); }, 150);
       });
-      
+
       // GET BOTTLE SIZES
       this._getbotsize.getCategories()
       .then(data => {
         this.botsize = data;
+        console.log(data, 'bots');
       });
 
       // GET DISTRIBUTORS
       this._getdist.getDistributors()
       .then(data => {
         this.dists = data;
-      })
-      .then(() => {
-        this.convert();
+        console.log(data, 'dists');
       });
+
     }
 
     // STORE CONVERTED DATA
-    public orderList = [];
 
-    convert(){
+    convert() {
       // CONVERT PRODUCT OBJECTS AND STORE IN MASTER ARRAY
+      this.show = !this.show;
       this.orders.forEach(order => {
-        let prod = 
-          {
+        const prod = {
             distributor: order.dist_id,
             repName: order.rep_id,
             repNum: undefined,
             total: order.total_price,
             products: [],
             date: order.createdAt,
-          }
-        
+          };
+
         // ASSIGN DISTRIBUTOR AND REP NAME/NUMBER
         this.dists.forEach(dist => {
-          if(prod.distributor === dist.distributorOrganizationId){
+          if (prod.distributor === dist.distributorOrganizationId) {
             prod.distributor = dist.distributor.name;
-            
-            if(dist.distributor.reps.length !== 0){
+
+            if (dist.distributor.reps.length !== 0) {
               prod.repName = `${dist.distributor.reps[0].first_name} ${dist.distributor.reps[0].last_name}`;
               prod.repNum = dist.distributor.reps[0].phone;
-            }else{
+            } else {
               prod.repName = `Dist. #`;
               prod.repNum = dist.distributor.phone;
             }
@@ -86,7 +90,7 @@ export class OrdersComponent implements OnInit {
             bottleSize: this.botsize[product.distributors_product.product.btlSizeId - 1].size,
             price: product.distributors_product.price,
             qty: product.qty,
-            //NOT SURE IF QTY REFERS TO ON HAND OR ON ORDER
+            // NOT SURE IF QTY REFERS TO ON HAND OR ON ORDER
           });
         });
         this.orderList.push(prod);

@@ -11,7 +11,7 @@ export class GetbotsizeService {
 
   private _url: string = `${environment.baseURL}/categories/bottlesizes`;
 
-  getCategories(){
+  getCategories() {
     let promise = new Promise((resolve, reject) => {
       this.http.get(this._url)
         .toPromise()
