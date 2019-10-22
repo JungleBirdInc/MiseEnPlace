@@ -8,7 +8,7 @@ export class GetordersService {
 
   constructor(private http: HttpClient) { }
   // ${environment.baseURL}
-  private _url: string = `/order/getAll/1`;
+  private _url: string = `${environment.baseURL}/order/getAll/1`;
 
   public getOrders(){
     let promise = new Promise((resolve, reject) => {
