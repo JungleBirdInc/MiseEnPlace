@@ -30,11 +30,19 @@ import { GetweightService } from '../services/getweight.service';
   <br /><br />
 
   <p class='category'>Prev. Weight:</p><br />
-  {{ (targetBottle.weight / 100).toFixed(2) }} 
+  {{ (targetBottle.weight / 100).toFixed(2) }}
   <br /><br />
 
-  <button routerLink='/scan-bar-code'>Next Bottle</button> &nbsp; &nbsp; 
-  <button routerLink='/burn-list'>Finish</button>`
+  <button routerLink='/scan-bar-code'>Next Bottle</button> &nbsp; &nbsp;
+  <button routerLink='/burn-list'>Finish</button>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  `
 })
   // <p class='category'>Tare:</p><br />
   // {{ (targetBottle.distributors_product.product.tare / 100).toFixed(2) }}
@@ -67,27 +75,27 @@ constructor(
       })
       .then(() => {
         this.findBottle();
-      })
-    
+      });
+
     this._getweight.getWeight()
     .then(data => {
       this.weight = data;
       console.log('WEIGHT', data);
     })
     .then(() => {
-      this.weight.weight = (this.weight.weight/100).toFixed(2);
-    })
+      this.weight.weight = (this.weight.weight / 100).toFixed(2);
+    });
   }
 
-  findBottle(){
+  findBottle() {
     this.bottles.forEach(bottle => {
-      if(bottle.distributors_product.product.upc === this.code){
+      if (bottle.distributors_product.product.upc === this.code) {
         this.targetBottle = bottle;
       }
     });
   }
 
-  weighAgain(){
+  weighAgain() {
     this.weight.weight = undefined;
 
     this._getweight.getWeight()
@@ -97,7 +105,7 @@ constructor(
       })
       .then(() => {
         this.weight.weight = (this.weight.weight / 100).toFixed(2);
-      })
+      });
   }
 
 }
