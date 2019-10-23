@@ -1,8 +1,10 @@
-<!-- <h3>Scan Invoice</h3> -->
-<br />
-<button mat-raised-button (click)="this.import()">Generate</button><br /><br />
+<center><button *ngIf='invoiceRaw === undefined' (click)='import()'>Populate</button></center>
 
 <div *ngIf='invoiceRaw !== undefined'>
+  <center><button (click)='save.open()'>Save</button></center>
+  <igx-dialog #save title="Save" leftButtonLabel="Cancel" (onLeftButtonSelect)="save.close()" rightButtonLabel="Yes"
+    (onRightButtonSelect)="saveData()" message="Are you ready to save?">
+  </igx-dialog>
   
   <igx-card><h6>{{invoice.distributor}}</h6>  Invoice #: {{invoice.invoice}} <br />
   <table class="mat-elevation-z8" width='100%'>
@@ -51,9 +53,3 @@
 </igx-card>
 <br />
 </div>
-
-<button (click)='save.open()'>SAVE TO DATABASE</button>
-          <igx-dialog #save title="Save" leftButtonLabel="Cancel" (onLeftButtonSelect)="save.close()"
-            rightButtonLabel="Yes" (onRightButtonSelect)="saveData()" message="Are you ready to save?">
-          </igx-dialog>
-

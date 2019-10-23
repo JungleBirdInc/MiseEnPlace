@@ -1,13 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { UploadService } from '../upload.service';
 import { forkJoin } from 'rxjs';
+import { UploadComponent } from '../upload.component';
 
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss']
 })
+
 export class DialogComponent implements OnInit {
   @ViewChild('file', { static: false }) file;
 
@@ -45,15 +49,15 @@ export class DialogComponent implements OnInit {
     if (this.uploadSuccessful) {
       return this.dialogRef.close();
     }
-
     // set the component state to "uploading"
     this.uploading = true;
-
     // start the upload and save the progress map
     this.progress = this.uploadService.upload(this.files);
-    console.log('PROGRESS', this.progress);
+    // console.log('PROGRESS', this.progress);
     for (const key in this.progress) {
-      this.progress[key].progress.subscribe(val => console.log('VAL', val));
+      this.progress[key].progress.subscribe(val => {
+        //console.log(val);
+      });
     }
 
     // convert the progress map into an array
@@ -63,7 +67,6 @@ export class DialogComponent implements OnInit {
     }
 
     // Adjust the state variables
-
     // The OK-button should have the text "Finish" now
     this.primaryButtonText = 'Finish';
 
