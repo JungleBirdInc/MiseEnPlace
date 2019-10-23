@@ -26,6 +26,8 @@ import { MatToolbarModule,
         MatCardModule,
         MatInputModule,
         MatSnackBarModule, } from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // WEBCAM
 import { WebcamModule } from 'ngx-webcam';
@@ -164,7 +166,9 @@ import {
     MatDialogModule,
     FlexLayoutModule,
     IgxDialogModule,
-    IgxToastModule
+    IgxToastModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     UploadService,
