@@ -49,7 +49,7 @@ export class InvoicesComponent implements OnInit {
         console.log('distributors response', data);
       })
       .then(() => {
-        this.convert();
+        setTimeout(() => { this.convert(); }, 200);
       });
   }
 
