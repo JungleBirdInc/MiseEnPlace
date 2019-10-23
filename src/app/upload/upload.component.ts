@@ -115,7 +115,7 @@ export class UploadComponent implements OnInit {
 
         console.log(`${product.distributors_product.product.product_name} === ${invproduct.name}`);
         if(product.distributors_product.product.product_name === invproduct.name){
-          product.qty += parseInt(invproduct.qty);
+          product.qty = parseInt(invproduct.qty);
           receiptSetTemp.push(product);
         }
       });
