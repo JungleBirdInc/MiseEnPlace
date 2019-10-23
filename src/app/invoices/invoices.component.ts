@@ -39,12 +39,14 @@ export class InvoicesComponent implements OnInit {
     this._getbotsize.getCategories()
       .then(data => {
         this.botsize = data;
+        console.log('bottle size response', data);
       });
 
     // GET DISTRIBUTORS
     this._getdist.getDistributors()
       .then(data => {
         this.dists = data;
+        console.log('distributors response', data);
       })
       .then(() => {
         this.convert();
