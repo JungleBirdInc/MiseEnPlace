@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss']
 })
+
 export class UploadComponent implements OnInit {
 
   constructor(
@@ -26,13 +27,12 @@ export class UploadComponent implements OnInit {
   public botsize;
 
   ngOnInit() {
-
-    this.openUploadDialog();
+    this.openUploadDialog()
 
     this._getbotsize.getCategories()
       .then(data => {
         this.botsize = data;
-        console.log('bottle sizes', data);
+        // console.log('bottle sizes', data);
       });
   }
 
@@ -130,6 +130,6 @@ export class UploadComponent implements OnInit {
   }
 
   public openUploadDialog() {
-    let dialogRef = this.dialog.open(DialogComponent);
+    let dialogRef = this.dialog.open(DialogComponent)
   }
 }
