@@ -4,6 +4,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { UploadService } from './upload.service';
 import { GetbotsizeService } from '../services/getbotsize.service';
 import { NewinvoiceService } from '../services/newinvoice.service';
+import { GetCurrentInvService } from '../services/getcurrentinventory.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,11 +21,14 @@ export class UploadComponent implements OnInit {
     public uploadService: UploadService,
     private _getbotsize: GetbotsizeService,
     private _newinvoice: NewinvoiceService,
+    private _getcurrentinventory: GetCurrentInvService,
     ) { }
 
   public invoiceRaw;
   public invoice;
   public botsize;
+  public currentInventory; 
+  public formattedInvoice;
 
   ngOnInit() {
     this.openUploadDialog()
@@ -32,12 +36,17 @@ export class UploadComponent implements OnInit {
     this._getbotsize.getCategories()
       .then(data => {
         this.botsize = data;
-        // console.log('bottle sizes', data);
+        console.log('bottle sizes', data);
+      });
+
+    this._getcurrentinventory.getCurentInventory()
+      .then(data => {
+        this.currentInventory = data;
+        console.log('current inventory', data);
       });
   }
 
   import() {
-    // console.log(window.localStorage.getItem('invoice'));
     this.invoiceRaw = JSON.parse(window.localStorage.getItem('invoice'));
     console.log('INVOICE RAW', this.invoiceRaw);
 
@@ -99,14 +108,28 @@ export class UploadComponent implements OnInit {
   } // import
 
   saveData() {
-    console.log('saved!');
-    localStorage.removeItem('invoice');
+    let receiptSetTemp = [];
+
+    this.currentInventory[0].logs_products.forEach(product => {
+      this.invoice.receiptSet.forEach(invproduct => {
+
+        console.log(`${product.distributors_product.product.product_name} === ${invproduct.name}`);
+        if(product.distributors_product.product.product_name === invproduct.name){
+          product.qty += parseInt(invproduct.qty);
+          receiptSetTemp.push(product);
+        }
+      });
+    });
+
+    this.invoice.receiptSet = receiptSetTemp;
+    console.log('INVOICE FINAL', this.invoice);
 
     this._newinvoice.newInvoice(this.invoice)
       .then(data => {
         console.log('newinvoice return', data);
-        return this.router.navigate(['invoices']);
+        localStorage.removeItem('invoice');
       });
+    this.router.navigate(['invoices']);
   }
 
   calcTotal() {
