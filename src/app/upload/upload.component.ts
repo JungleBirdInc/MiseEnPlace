@@ -87,6 +87,7 @@ export class UploadComponent implements OnInit {
             });
 
             let count = true;
+            // tslint:disable-next-line: prefer-for-of
             for (let i = 0; i < prod.receiptSet.length; i++) {
               if (prod.receiptSet[i].name === indProd.name) {
                 count = false;
