@@ -128,8 +128,8 @@ export class UploadComponent implements OnInit {
       .then(data => {
         console.log('newinvoice return', data);
         localStorage.removeItem('invoice');
-        return this.router.navigate(['invoices']);
       });
+    this.router.navigate(['invoices']);
   }
 
   calcTotal() {
