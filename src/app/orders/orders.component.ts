@@ -34,7 +34,7 @@ export class OrdersComponent implements OnInit {
       .then(data => {
         this.orders = data;
         console.log(data, 'orders');
-        setTimeout(() => {this.convert(); }, 150);
+        setTimeout(() => {this.convert(); }, 200);
       });
 
       // GET BOTTLE SIZES

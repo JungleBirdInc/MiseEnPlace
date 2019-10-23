@@ -10,7 +10,7 @@ export class GetordersService {
   // ${environment.baseURL}
   private _url: string = `${environment.baseURL}/order/getAll/1`;
 
-  public getOrders(){
+  public getOrders() {
     let promise = new Promise((resolve, reject) => {
       this.http.get(this._url)
         .toPromise()
