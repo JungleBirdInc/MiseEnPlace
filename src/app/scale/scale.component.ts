@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { GetBottleByUPCService } from '../services/getbottlebyupc.service';
 import { UpdateSingleBottleService } from '../services/updatesinglebottle.service';
 import { GetweightService } from '../services/getweight.service';
+import { UpdateWeightService } from '../services/updateweight.service.js';
 
 @Component({
   selector: 'app-scale',
@@ -34,7 +35,7 @@ import { GetweightService } from '../services/getweight.service';
   <br /><br />
 
   <button routerLink='/scan-bar-code'>Next Bottle</button> &nbsp; &nbsp;
-  <button routerLink='/burn-list'>Finish</button>
+  <button (click)='save()'>Finish</button>
 
   <br />
   <br />
@@ -63,6 +64,7 @@ constructor(
     private router: Router,
     public _getByUPC: GetBottleByUPCService,
     public _updateOpenBottle: UpdateSingleBottleService,
+    public _updateWeight: UpdateWeightService,
   ) { }
 
   public weight;
@@ -85,6 +87,25 @@ constructor(
     .then(() => {
       this.weight.weight = (this.weight.weight / 100).toFixed(2);
     });
+  }
+
+  save(){
+    console.log(this.targetBottle, 'target bottle');
+
+    const bottle = {
+      id: this.targetBottle.id,
+      org_id: this.targetBottle.org_id,
+      product_id: this.targetBottle.product_id,
+      weight: this.weight.weight * 100,
+    };
+
+    this._updateWeight.update(bottle)
+      .then(data => {
+        console.log('data', data);
+      })
+      .then(() => {
+        this.router.navigate(['/']);
+      });
   }
 
   findBottle() {
