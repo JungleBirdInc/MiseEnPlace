@@ -14,7 +14,7 @@ export class GetBottleByUPCService {
   getBottleUPC(upc) {
     console.log(`UPC: ${upc}`);
     let promise = new Promise((resolve, reject) => {
-      this.http.get(`/openBottles/getAll/1`)
+      this.http.get(`${environment.baseURL}/openBottles/getAll/1`)
         .toPromise()
         .then(
           res => {
