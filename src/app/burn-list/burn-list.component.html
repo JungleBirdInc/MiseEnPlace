@@ -4,8 +4,8 @@
 
 <div *ngFor='let distributor of displayBurn; let i = index'>
 <div (click)="toggle(distributor[0])"><h4 class="smlTitle">{{distributor[0]}}</h4>
-  <table *ngIf='toggleIds[i][1]' class="mat-elevation-z8" width='100%'>
-      <thead><tr><th>Product</th><th>Tare</th><th>Current Vol. Oz</th><th>Burn Count</th></tr>
+  <table class="mat-elevation-z8" width='100%'>
+      <thead><tr><th>Product</th><th>Tare</th><th>Current Vol. Oz</th><th>Burn Count</th><th></th></tr>
       </thead>
       <tbody>
         <tr *ngFor="let product of distributor[1]">
