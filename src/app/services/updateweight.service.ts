@@ -5,16 +5,15 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class GetBottleByUPCService {
+export class UpdateWeightService {
 
   constructor(private http: HttpClient) { }
 
-//   private _url: string = `${environment.baseURL}/openbottles/`;
-// ${environment.baseURL}
-  getBottleUPC(upc) {
-    console.log(`UPC: ${upc}`);
+  private _url: string = `${environment.baseURL}/openBottles/upsert`;
+
+  update(body){
     let promise = new Promise((resolve, reject) => {
-      this.http.get(`${environment.baseURL}/openBottles/getAll/1`)
+      this.http.put(this._url, body)
         .toPromise()
         .then(
           res => {
@@ -27,5 +26,4 @@ export class GetBottleByUPCService {
     });
     return promise;
   }
-
 }
